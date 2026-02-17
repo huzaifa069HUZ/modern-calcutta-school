@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Modern Calcutta School, Phulwari Sharif</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Learn about the history and mission of Modern Calcutta School. A leading educational institution in Patna dedicated to excellence in modern education and Islamic tarbiyah since 2019.">
+    <meta name="keywords"
+        content="about modern calcutta school, school history patna, islamic school mission, best principal patna, education visionaries phulwari">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://moderncalcuttaschool.in/about.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moderncalcuttaschool.in/about.html">
+    <meta property="og:title" content="About Modern Calcutta School | Our Legacy of Excellence">
+    <meta property="og:description"
+        content="Dedicated to nurturing future leaders through a blend of modern academic rigor and profound Islamic values.">
+    <meta property="og:image" content="https://moderncalcuttaschool.in/assets/transparent%20logo.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "mainEntity": {
+        "@type": "School",
+        "name": "Modern Calcutta School",
+        "foundingDate": "2019",
+        "founder": {
+            "@type": "Person",
+            "name": "Education Visionaries"
+        },
+        "description": "A premier institution blending modern education with Islamic values.",
+        "location": {
+            "@type": "Place",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Phulwari Sharif",
+                "addressLocality": "Patna",
+                "addressRegion": "Bihar",
+                "postalCode": "801505",
+                "addressCountry": "IN"
+            }
+        }
+      }
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Noto+Nastaliq+Urdu:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Epic Pro';
+            src: local('Epic Pro'), local('EpicPro-Bold');
+            font-weight: bold;
+        }
+
+        :root {
+            --primary: #0F3D3E;
+            --midnight: #0B2447;
+            --sage: #7BAE7F;
+            --beige: #F6F1E8;
+            --gold: #C6A75E;
+            --charcoal: #1E1E1E;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--beige);
+            color: var(--charcoal);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .title-font {
+            font-family: 'Epic Pro', 'Cormorant Garamond', serif;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+        }
+
+        .urdu-font {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            line-height: 2.8;
+        }
+
+        /* Glass Nav */
+        .glass-nav {
+            background: rgba(246, 241, 232, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(198, 167, 94, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Welcome Animation */
+        @keyframes welcomeZoomOut {
+            0% {
+                transform: scale(3);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            60% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes overlayFadeOut {
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .welcome-text {
+            animation: welcomeZoomOut 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        #welcome-overlay {
+            animation: overlayFadeOut 0.8s ease-out 2.7s forwards;
+        }
+
+        body.loading {
+            overflow: hidden;
+        }
+
+        /* Reveal Text Animation from Home */
+        @keyframes reveal-text {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+                filter: blur(10px);
+                letter-spacing: 0em;
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+                letter-spacing: 0.2em;
+            }
+        }
+
+        .animate-reveal-text {
+            animation: reveal-text 2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F6F1E8]">
+
+    <!-- Welcome Animation Overlay -->
+    <div id="welcome-overlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0F3D3E]">
+        <div class="text-center welcome-text">
+            <h1 class="text-6xl md:text-8xl lg:text-9xl title-font text-white mb-4 tracking-wider">
+                MARHABA
+            </h1>
+            <p class="text-2xl md:text-4xl lg:text-5xl font-light text-[#C6A75E] tracking-[0.3em]">
+                WELCOME
+            </p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header"
+        class="fixed w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center transition-all duration-500 border-b border-transparent">
+        <a href="index.html" class="flex items-center gap-2 md:gap-4 group cursor-pointer">
+            <img src="assets/transparent logo.png" alt="Modern Calcutta School Logo"
+                class="h-10 md:h-14 lg:h-16 w-auto drop-shadow-lg group-hover:scale-105 transition-transform duration-300">
+            <div class="flex flex-col">
+                <span
+                    class="text-xs sm:text-base md:text-xl lg:text-3xl title-font tracking-[0.05em] text-white font-bold leading-none group-hover:text-[#C6A75E] transition-colors duration-300 drop-shadow-md whitespace-nowrap">MODERN
+                    CALCUTTA SCHOOL</span>
+                <span
+                    class="text-[7px] md:text-[9px] uppercase tracking-[0.15em] md:tracking-[0.2em] text-[#C6A75E] font-bold mt-0.5 md:mt-1 drop-shadow-sm">Foundation
+                    of Ilm & Adab</span>
+            </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav
+            class="hidden xl:flex items-center space-x-10 text-[11px] uppercase tracking-[0.15em] font-bold text-white drop-shadow-md">
+            <a href="index.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Home
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="about.html" class="nav-link relative py-2 text-[#C6A75E] transition-colors duration-300 group">
+                About Us
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-[#C6A75E] transition-all duration-300"></span>
+            </a>
+            <a href="academics.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Academics
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="faith-values.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Faith & Values
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="gallery.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Gallery
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="index.html#contact"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Contact
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </nav>
+
+        <div class="flex items-center space-x-4">
+            <!-- Desktop CTA Button -->
+            <a href="admissions.html"
+                class="hidden md:block px-6 py-3 bg-gradient-to-r from-[#C6A75E] to-[#7BAE7F] text-white text-[10px] uppercase tracking-[0.2em] font-bold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                Admission Now
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button"
+                class="xl:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <span class="hamburger-line block w-5 h-0.5 bg-white mb-1 transition-all duration-300"></span>
+                <span class="hamburger-line block w-5 h-0.5 bg-white mb-1 transition-all duration-300"></span>
+                <span class="hamburger-line block w-5 h-0.5 bg-white transition-all duration-300"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[60] bg-[#0F3D3E]/95 backdrop-blur-lg translate-x-full transition-transform duration-500 ease-in-out xl:hidden">
+        <div class="flex flex-col h-full">
+            <!-- Close Button -->
+            <div class="flex justify-end p-6">
+                <button id="mobile-menu-close"
+                    class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Links -->
+            <nav class="flex flex-col items-center justify-center flex-1 space-y-8 px-8">
+                <a href="index.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Home</a>
+                <a href="about.html"
+                    class="mobile-nav-link text-2xl text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">About
+                    Us</a>
+                <a href="academics.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Academics</a>
+                <a href="faith-values.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Faith
+                    & Values</a>
+                <a href="gallery.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Gallery</a>
+                <a href="index.html#contact"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Contact</a>
+
+                <!-- Mobile CTA Button -->
+                <a href="admissions.html"
+                    class="mobile-nav-link mt-8 px-8 py-4 bg-gradient-to-r from-[#C6A75E] to-[#7BAE7F] text-white text-sm uppercase tracking-[0.2em] font-bold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                    Admission Now
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Video Hero Section - Full Width Uncropped -->
+    <section class="relative w-full bg-black group">
+        <video id="aboutVideo" autoplay loop playsinline class="w-full h-auto block">
+            <source src="assets/ABOUT.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Mute/Unmute Button -->
+        <button id="muteButton"
+            class="absolute bottom-8 right-8 z-20 w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/40 transition-all duration-300 group-hover:opacity-100 opacity-0 md:opacity-100">
+            <!-- Mute Icon (shown when unmuted to mute) -->
+            <svg id="muteIcon" class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"
+                style="display: block;">
+                <path
+                    d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.977-2.318 2.5v4c0 1.523 1.177 2.5 2.318 2.5H6.44l4.5 4.5c.944.945 2.56.276 2.56-1.06V4.06zM19.333 12c0-1.875-1.135-3.528-2.833-4.126.984 1.34 1.666 2.65 1.666 4.126s-1.104 2.75-2.004 3.75c1.171-1 2.171-2.25 1.171-3.75z" />
+                <path
+                    d="M19.07 4.93L17.66 6.34C18.49 7.04 19.16 7.91 19.61 8.9C19.86 9.5 20 10.13 20 10.79V13.21C20 13.87 19.86 14.5 19.61 15.1C19.16 16.09 18.49 16.96 17.66 17.66L19.07 19.07C20.15 18.12 21 16.94 21.57 15.62C21.84 14.86 22 14.05 22 13.21V10.79C22 9.95 21.84 9.14 21.57 8.38C21 7.06 20.15 5.88 19.07 4.93Z" />
+            </svg>
+            <!-- Unmute Icon (shown when muted to unmute) -->
+            <svg id="unmuteIcon" class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"
+                style="display: none;">
+                <path
+                    d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+            </svg>
+        </button>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const video = document.getElementById('aboutVideo');
+                const muteBtn = document.getElementById('muteButton');
+                const muteIcon = document.getElementById('muteIcon');
+                const unmuteIcon = document.getElementById('unmuteIcon');
+
+                // Default state: Sound ON (muted = false)
+                // Note: Autoplay with sound is blocked by most browsers unless user interacts.
+                // We attempt to play unmuted, if it fails, fallback to muted.
+                video.muted = false;
+
+                const updateIcon = () => {
+                    if (video.muted) {
+                        muteIcon.style.display = 'none';
+                        unmuteIcon.style.display = 'block';
+                    } else {
+                        muteIcon.style.display = 'block';
+                        unmuteIcon.style.display = 'none';
+                    }
+                };
+
+                video.play().catch(error => {
+                    console.log("Autoplay with sound blocked, muting...", error);
+                    video.muted = true;
+                    video.play();
+                    updateIcon();
+                });
+
+                muteBtn.addEventListener('click', () => {
+                    video.muted = !video.muted;
+                    updateIcon();
+                });
+
+                updateIcon();
+            });
+        </script>
+    </section>
+
+    <!-- Modern Islamic Welcome Section -->
+    <section class="relative py-32 bg-gradient-to-br from-[#0F3D3E] via-[#0B2447] to-[#0F3D3E] overflow-hidden">
+        <!-- Islamic Geometric Pattern Background -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="islamic-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <path d="M50 10 L60 30 L80 30 L65 42 L70 62 L50 50 L30 62 L35 42 L20 30 L40 30 Z"
+                            fill="currentColor" class="text-[#C6A75E]" />
+                        <circle cx="50" cy="50" r="3" fill="currentColor" class="text-[#C6A75E]" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#islamic-pattern)" />
+            </svg>
+        </div>
+
+        <!-- Glowing Orbs -->
+        <div class="absolute top-20 right-20 w-96 h-96 bg-[#C6A75E]/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-20 w-96 h-96 bg-[#7BAE7F]/10 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-5xl mx-auto text-center">
+                <!-- Arabic Greeting -->
+                <div class="mb-8 opacity-0 animate-reveal-text" style="animation-delay: 0.2s;">
+                    <p class="text-2xl md:text-3xl text-[#C6A75E] urdu-font tracking-wider mb-2">مرحبا</p>
+                    <p class="text-sm md:text-base text-[#C6A75E]/80 uppercase tracking-[0.3em] font-light">Welcome</p>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="mb-6 opacity-0 animate-reveal-text" style="animation-delay: 0.4s;">
+                    <span
+                        class="block text-white/60 text-lg md:text-xl uppercase tracking-[0.4em] font-light mb-4">Where
+                        Excellence Meets Faith</span>
+                    <span
+                        class="block text-5xl md:text-7xl lg:text-8xl text-white title-font leading-[1.1] tracking-tight">
+                        Modern Calcutta
+                        <span
+                            class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#C6A75E] via-[#F4E4C1] to-[#C6A75E]">
+                            School
+                        </span>
+                    </span>
+                </h1>
+
+                <!-- Tagline -->
+                <p class="text-xl md:text-2xl text-white/70 font-light italic max-w-3xl mx-auto mb-12 opacity-0 animate-reveal-text"
+                    style="animation-delay: 0.6s;">
+                    Nurturing minds, enriching souls, building tomorrow's leaders
+                </p>
+
+                <!-- Decorative Divider -->
+                <div class="flex items-center justify-center gap-4 opacity-0 animate-reveal-text"
+                    style="animation-delay: 0.8s;">
+                    <div class="h-px w-24 bg-gradient-to-r from-transparent to-[#C6A75E]"></div>
+                    <svg class="w-8 h-8 text-[#C6A75E]" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                    </svg>
+                    <div class="h-px w-24 bg-gradient-to-l from-transparent to-[#C6A75E]"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Wave Transition -->
+        <div class="absolute bottom-0 left-0 w-full">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                <path
+                    d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+                    fill="#F6F1E8" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Director's Desk Section -->
+    <section class="py-24 bg-[#F6F1E8] relative overflow-hidden">
+        <!-- Subtle Background Pattern -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-[#C6A75E]/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#0F3D3E]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="container mx-auto px-8 lg:px-16 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Left Column: Image -->
+                <div class="relative group">
+                    <div
+                        class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-transform duration-500 hover:scale-[1.02]">
+                        <img src="assets/director.jfif" alt="Director of Modern Calcutta School"
+                            class="w-full h-auto object-cover min-h-[400px]">
+                    </div>
+                    <!-- Decorative Frame -->
+                    <div
+                        class="absolute top-4 left-4 w-full h-full border-2 border-[#C6A75E] rounded-2xl -z-0 opacity-60 group-hover:top-3 group-hover:left-3 transition-all duration-500">
+                    </div>
+                </div>
+
+                <!-- Right Column: Text -->
+                <div class="reveal-right">
+                    <span
+                        class="text-[#C6A75E] uppercase tracking-[0.2em] text-sm font-bold block mb-4">Leadership</span>
+                    <h2 class="text-4xl lg:text-5xl text-[#0F3D3E] title-font mb-8">
+                        From the <span class="italic text-[#C6A75E] font-serif">Director's Desk</span>
+                    </h2>
+
+                    <div class="space-y-6 text-gray-600 leading-relaxed font-light text-lg">
+                        <p>
+                            "Welcome to Modern Calcutta School. Our mission is to cultivate not just scholars, but
+                            leaders of character who carry the light of knowledge and the warmth of compassion."
+                        </p>
+                        <p>
+                            "We bridge traditional wisdom with modern innovation, ensuring our students are rooted in
+                            their values while reaching for global excellence. Every child here is a trust, an Amanah,
+                            and we are dedicated to helping them discover their unique potential."
+                        </p>
+                        <p class="font-medium text-[#0F3D3E]">
+                            "My vision is to build a generation rooted in faith, knowledge, discipline, and
+                            responsibility — prepared not just for examinations, but for life"
+                        </p>
+                    </div>
+
+                    <div class="mt-10 pt-8 border-t border-[#0F3D3E]/10 flex items-center gap-4">
+                        <div class="w-12 h-1 bg-[#C6A75E]"></div>
+                        <div>
+                            <h4 class="text-xl title-font text-[#0F3D3E] font-bold">The Director</h4>
+                            <p class="text-xs text-[#C6A75E] uppercase tracking-widest mt-0.5">Modern Calcutta School
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Faculty Section - Full Width Image with Overlay -->
+    <section class="relative h-[60vh] md:h-[70vh] bg-fixed bg-center bg-cover overflow-hidden"
+        style="background-image: url('assets/faculty.jfif');">
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 h-full flex items-center justify-center">
+            <div class="text-center px-4">
+                <!-- Subtitle -->
+                <p class="text-[#C6A75E] uppercase tracking-[0.3em] text-sm md:text-base font-bold mb-4 opacity-0 animate-reveal-text"
+                    style="animation-delay: 0.2s;">Meet Our Team</p>
+
+                <!-- Main Heading -->
+                <h2 class="text-5xl md:text-7xl lg:text-8xl text-white title-font mb-6 opacity-0 animate-reveal-text"
+                    style="animation-delay: 0.4s;">
+                    Our <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-[#C6A75E] to-[#F4E4C1]">Faculty</span>
+                </h2>
+
+                <!-- Description -->
+                <p class="text-xl md:text-2xl text-white/80 font-light italic max-w-3xl mx-auto opacity-0 animate-reveal-text"
+                    style="animation-delay: 0.6s;">
+                    Dedicated educators shaping the future, one student at a time
+                </p>
+
+                <!-- Decorative Line -->
+                <div class="mt-8 flex items-center justify-center gap-4 opacity-0 animate-reveal-text"
+                    style="animation-delay: 0.8s;">
+                    <div class="h-px w-16 bg-[#C6A75E]"></div>
+                    <div class="w-2 h-2 bg-[#C6A75E] rounded-full"></div>
+                    <div class="h-px w-16 bg-[#C6A75E]"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extended Director Profile Section -->
+    <section class="py-24 bg-[#F6F1E8] relative overflow-hidden">
+        <!-- Background Decorative Elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-[#C6A75E]/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#0F3D3E]/5 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-4 lg:px-16 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+
+                <!-- Left Column: Circular Profile Image with Dotted Path -->
+                <div class="flex justify-center lg:justify-end">
+                    <div class="relative">
+                        <!-- Animated Dotted Circle Path -->
+                        <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 400 400">
+                            <circle cx="200" cy="200" r="190" fill="none" stroke="#C6A75E" stroke-width="2"
+                                stroke-dasharray="8 12" opacity="0.3" class="animate-spin"
+                                style="animation-duration: 30s;" />
+                            <circle cx="200" cy="200" r="180" fill="none" stroke="#7BAE7F" stroke-width="2"
+                                stroke-dasharray="6 10" opacity="0.2" class="animate-spin"
+                                style="animation-duration: 40s; animation-direction: reverse;" />
+                        </svg>
+
+                        <!-- Profile Image Circle -->
+                        <div
+                            class="relative w-80 h-80 rounded-full overflow-hidden border-8 border-white shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                            <img src="assets/face director.jfif" alt="Hafiz Shanauddin - Director"
+                                class="w-full h-full object-cover">
+                            <!-- Subtle Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/20 to-transparent"></div>
+                        </div>
+
+                        <!-- Decorative Corner Elements -->
+                        <div class="absolute -top-4 -left-4 w-8 h-8 border-t-4 border-l-4 border-[#C6A75E]"></div>
+                        <div class="absolute -bottom-4 -right-4 w-8 h-8 border-b-4 border-r-4 border-[#C6A75E]"></div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Director Information -->
+                <div class="text-center lg:text-left">
+                    <!-- Label -->
+                    <span
+                        class="inline-block text-[#C6A75E] uppercase tracking-[0.3em] text-sm font-bold mb-4 px-4 py-2 bg-[#C6A75E]/10 rounded-full">
+                        Leadership
+                    </span>
+
+                    <!-- Name -->
+                    <h2 class="text-4xl lg:text-5xl xl:text-6xl text-[#0F3D3E] title-font mb-3 leading-tight">
+                        Hafiz <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-[#C6A75E] to-[#7BAE7F]">Shanauddin</span>
+                    </h2>
+
+                    <!-- Title -->
+                    <p class="text-xl text-[#C6A75E] font-serif italic mb-8">Director & Founder</p>
+
+                    <!-- Quote/Message -->
+                    <div class="space-y-6 text-gray-600 leading-relaxed">
+                        <p class="text-lg font-light border-l-4 border-[#C6A75E] pl-6 italic">
+                            "Education is not just about filling minds with knowledge, but about illuminating hearts
+                            with wisdom and compassion. At Modern Calcutta School, we strive to nurture both the
+                            intellect and the soul."
+                        </p>
+                        <p class="text-base">
+                            Mohammad Noorshanuddin, known as Hafiz Shanuddin, is a Hafiz-e-Quran, Graduate, and Special
+                            Educator with over 10 years of teaching experience. He is also a poet, writer, and preacher
+                            of comparative religion, dedicated to promoting knowledge, harmony, and value-based
+                            education.
+
+                            As the Founder of Shan and Nikhat Educational & Welfare Trust, he is committed to uplifting
+                            educational standards and fostering holistic development. He strongly believes in
+                            integrating Islamic values with CBSE-based modern education to nurture students who are
+                            academically competent and morally grounded.
+
+                            Under his leadership, the institution follows structured learning methodologies, including
+                            Modern Teaching Methods (MTM), effective Teaching Learning Materials (TLM), and progressive
+                            stages of learning to ensure conceptual clarity and lifelong understanding.
+                        </p>
+                    </div>
+
+                    <!-- Credentials/Highlights -->
+                    <div class="mt-10 flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <div class="px-6 py-3 bg-white rounded-lg shadow-md border-l-4 border-[#C6A75E]">
+                            <p class="text-sm text-gray-500 uppercase tracking-wider">Experience</p>
+                            <p class="text-2xl font-bold text-[#0F3D3E] title-font">10+ Years</p>
+                        </div>
+                        <div class="px-6 py-3 bg-white rounded-lg shadow-md border-l-4 border-[#7BAE7F]">
+                            <p class="text-sm text-gray-500 uppercase tracking-wider">Qualification</p>
+                            <p class="text-2xl font-bold text-[#0F3D3E] title-font">Hafiz-e-Quran,Graduate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission CTA Section with Curved Borders -->
+    <section class="relative bg-gradient-to-br from-[#0F3D3E] via-[#0B2447] to-[#0F3D3E] overflow-hidden">
+        <!-- Top Curved Border -->
+        <div class="absolute top-0 left-0 w-full">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                <path
+                    d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0Z"
+                    fill="#F6F1E8" />
+            </svg>
+        </div>
+
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="admission-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+                        <circle cx="40" cy="40" r="2" fill="#C6A75E" />
+                        <circle cx="0" cy="0" r="2" fill="#C6A75E" />
+                        <circle cx="80" cy="80" r="2" fill="#C6A75E" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#admission-pattern)" />
+            </svg>
+        </div>
+
+        <!-- Glowing Orbs -->
+        <div class="absolute top-20 left-20 w-96 h-96 bg-[#C6A75E]/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-20 w-96 h-96 bg-[#7BAE7F]/10 rounded-full blur-3xl animate-pulse"
+            style="animation-delay: 1s;"></div>
+
+        <div class="container mx-auto px-4 lg:px-16 py-24 relative z-10">
+            <div class="max-w-5xl mx-auto">
+
+                <!-- CTA Text Content (Above Image) -->
+                <div class="text-center mb-12">
+                    <!-- Icon/Badge -->
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-[#C6A75E]/20 rounded-full mb-6 animate-bounce"
+                        style="animation-duration: 3s;">
+                        <svg class="w-10 h-10 text-[#C6A75E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+
+                    <!-- Heading -->
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl text-white title-font mb-6 leading-tight">
+                        Begin Your Journey
+                        <span
+                            class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#C6A75E] via-[#F4E4C1] to-[#C6A75E]">With
+                            Us Today</span>
+                    </h2>
+
+                    <!-- Description -->
+                    <p class="text-xl md:text-2xl text-white/70 font-light max-w-3xl mx-auto">
+                        Join a community where faith meets excellence, and every child's potential is nurtured.
+                    </p>
+                </div>
+
+                <!-- Director Office Image -->
+                <div class="relative group mb-12">
+                    <div
+                        class="relative overflow-hidden rounded-3xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
+                        <img src="assets/director office.jfif" alt="Director's Office"
+                            class="w-full h-auto object-cover">
+                        <!-- Gradient Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/60 via-transparent to-transparent">
+                        </div>
+                        <!-- Decorative Border -->
+                        <div class="absolute inset-0 border-4 border-[#C6A75E]/30 rounded-3xl"></div>
+                    </div>
+                    <!-- Floating Badge -->
+                    <div
+                        class="absolute -bottom-6 -right-6 bg-[#C6A75E] text-white px-6 py-4 rounded-2xl shadow-xl transform rotate-3 group-hover:rotate-0 transition-transform duration-300">
+                        <p class="text-sm font-bold uppercase tracking-wider">Visit Us</p>
+                        <p class="text-2xl title-font">Today!</p>
+                    </div>
+                </div>
+
+                <!-- CTA Button (Below Image) -->
+                <div class="text-center">
+
+                    <!-- CTA Button -->
+                    <a href="admissions.html"
+                        class="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-[#C6A75E] to-[#B8964E] text-white text-lg font-bold uppercase tracking-wider rounded-full shadow-2xl hover:shadow-[#C6A75E]/50 transform hover:scale-105 transition-all duration-300 relative overflow-hidden">
+                        <!-- Button Shine Effect -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700">
+                        </div>
+
+                        <span class="relative z-10">Apply for Admission</span>
+
+                        <svg class="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </a>
+
+                    <!-- Additional Info -->
+                    <p class="mt-8 text-sm text-white/50 uppercase tracking-widest">
+                        Admissions Open for Academic Year 2026-27
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Curved Border -->
+        <div class="absolute bottom-0 left-0 w-full">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                <path
+                    d="M0 120L60 110C120 100 240 80 360 73.3C480 67 600 73 720 76.7C840 80 960 80 1080 73.3C1200 67 1320 53 1380 46.7L1440 40V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+                    fill="#0F3D3E" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0F3D3E] text-white pt-32 pb-12 px-8 lg:px-16">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-20">
+                <div class="lg:col-span-2">
+                    <!-- Logo and School Name -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="inline-block">
+                            <img src="assets/transparent logo.png" alt="Modern Calcutta School Logo"
+                                class="h-24 w-auto drop-shadow-lg">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-3xl title-font tracking-[0.05em] text-white font-bold leading-none">
+                                MODERN CALCUTTA SCHOOL
+                            </span>
+                            <span class="text-xs uppercase tracking-[0.2em] text-[#C6A75E] font-bold mt-1">
+                                Foundation of Ilm & Adab
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm font-light max-w-sm leading-relaxed mb-8">
+                        Ilm leads to light. Light leads to leadership. Leadership leads to a better world. Dedicated
+                        to
+                        nurturing the next generation of global citizens with a sacred soul.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/16pkk2W8Qv/?mibextid=wwXIfr" target="_blank"
+                            class="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/moderncalcuttaschool/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="w-10 h-10 rounded-full bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#405DE6] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.76-6.162 6.162s2.76 6.163 6.162 6.163 6.162-2.76 6.162-6.163c0-3.403-2.76-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-[#FF0000] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-[10px] uppercase tracking-[0.4em] font-bold text-[#C6A75E] mb-8">Navigation</h4>
+                    <ul class="space-y-4 text-[12px] font-light text-gray-400 tracking-wider">
+                        <li><a href="#"
+                                class="hover:text-[#C6A75E] hover:translate-x-1 inline-block transition-all duration-300">Our
+                                Falsafa</a></li>
+                        <li><a href="academics.html"
+                                class="hover:text-[#C6A75E] hover:translate-x-1 inline-block transition-all duration-300">Our
+                                Academics</a></li>
+                        <li><a href="#"
+                                class="hover:text-[#C6A75E] hover:translate-x-1 inline-block transition-all duration-300">Faculty
+                                & Staff</a></li>
+                        <li><a href="#"
+                                class="hover:text-[#C6A75E] hover:translate-x-1 inline-block transition-all duration-300">Hifz
+                                Program</a></li>
+                        <li><a href="#"
+                                class="hover:text-[#C6A75E] hover:translate-x-1 inline-block transition-all duration-300">Student
+                                Life</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs uppercase tracking-[0.4em] font-bold text-[#C6A75E] mb-8">Contact</h4>
+                    <p class="text-sm text-gray-400 font-light mb-4">MR Colony Rd, Birla Colony, Phulwari Sharif, Patna,
+                        Bihar 801505</p>
+                    <p class="text-sm text-gray-400 font-light mb-4">+91 98765 43210</p>
+                    <p class="text-sm text-gray-400 font-light">admissions@mcs.edu.in</p>
+                </div>
+            </div>
+
+            <div
+                class="pt-12 border-t border-white border-opacity-5 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.3em] text-gray-500">
+                <p>All rights reserved 2026 ; developed and managed by HUZAIFA</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Welcome Animation Control
+        window.addEventListener('load', () => {
+            document.body.classList.add('loading');
+            const welcomeOverlay = document.getElementById('welcome-overlay');
+            setTimeout(() => {
+                if (welcomeOverlay) {
+                    welcomeOverlay.remove();
+                }
+                document.body.classList.remove('loading');
+            }, 3500);
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+            document.body.classList.add('overflow-hidden');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenu.classList.remove('translate-x-0');
+            document.body.classList.remove('overflow-hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+                mobileMenu.classList.remove('translate-x-0');
+                document.body.classList.remove('overflow-hidden');
+            });
+        });
+
+        document.addEventListener('click', function (event) {
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnButton = mobileMenuButton.contains(event.target);
+            if (!isClickInsideMenu && !isClickOnButton && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Header Background on scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            const headerTitle = header.querySelector('.title-font');
+            const navLinks = header.querySelectorAll('.nav-link');
+            const inquiryBtn = header.querySelector('a.hidden'); // The "Admission Now" button
+
+            if (window.scrollY > 50) {
+                // Scrolled State
+                header.classList.add('glass-nav', 'shadow-xl');
+                header.style.paddingTop = '1rem';
+                header.style.paddingBottom = '1rem';
+                header.style.backgroundColor = 'rgba(246, 241, 232, 0.95)';
+                header.classList.remove('border-transparent');
+                header.classList.add('border-black/5');
+
+                // Text Colors -> Dark
+                if (headerTitle) {
+                    headerTitle.classList.remove('text-white');
+                    headerTitle.classList.add('text-[#0F3D3E]');
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white');
+                    link.classList.add('text-[#1E1E1E]');
+                });
+
+            } else {
+                // Top State
+                header.classList.remove('glass-nav', 'shadow-xl');
+                header.style.paddingTop = '1.5rem';
+                header.style.paddingBottom = '1.5rem';
+                header.style.backgroundColor = 'transparent';
+                header.classList.add('border-transparent');
+                header.classList.remove('border-black/5');
+
+                // Text Colors -> White
+                if (headerTitle) {
+                    headerTitle.classList.add('text-white');
+                    headerTitle.classList.remove('text-[#0F3D3E]');
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.add('text-white');
+                    link.classList.remove('text-[#1E1E1E]');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

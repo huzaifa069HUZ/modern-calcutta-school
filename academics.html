@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics | Curriculum & Excellence | Modern Calcutta School</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Explore the academic curriculum at Modern Calcutta School. We offer a balanced syllabus with focus on Science, Maths, Languages and Islamic Studies.">
+    <meta name="keywords"
+        content="cbse curriculum patna, school syllabus, islamic studies school, science labs schools patna, best academic school phulwari">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://moderncalcuttaschool.in/academics.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moderncalcuttaschool.in/academics.html">
+    <meta property="og:title" content="Academic Excellence | Modern Calcutta School">
+    <meta property="og:description"
+        content="Fostering critical thinking and creativity through a comprehensive modern curriculum enriched with moral education.">
+    <meta property="og:image" content="https://moderncalcuttaschool.in/assets/transparent%20logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Amiri:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        @font-face {
+            font-family: 'Epic Pro';
+            src: local('Epic Pro'), local('EpicPro-Bold');
+            font-weight: bold;
+        }
+
+        :root {
+            --primary: #0F3D3E;
+            /* Deep Teal */
+            --midnight: #0B2447;
+            /* Midnight Blue */
+            --sage: #7BAE7F;
+            /* Soft Sage */
+            --cream: #F6F1E8;
+            /* Warm Cream */
+            --gold: #C6A75E;
+            /* Muted Gold */
+
+            /* Swiper Custom Styles */
+            --swiper-pagination-color: var(--gold);
+            --swiper-theme-color: var(--gold);
+            --amber-glow: #F4E4C1;
+            /* Playful accent */
+            --charcoal: #1E1E1E;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .title-font {
+            font-family: 'Epic Pro', 'Cormorant Garamond', serif;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+        }
+
+        .urdu-font {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            line-height: 2.5;
+        }
+
+        /* Glass Nav */
+        .glass-nav {
+            background: rgba(246, 241, 232, 0.8);
+            backdrop-filter: blur(16px) saturate(180%);
+            border-bottom: 1px solid rgba(198, 167, 94, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            transition: width 0.4s ease;
+            border-radius: 99px;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* --- Remotion-Style Hero Animations --- */
+
+        /* Aurora Gradient Background */
+        .aurora-bg {
+            background: linear-gradient(45deg,
+                    #0F3D3E,
+                    #0B2447,
+                    #1e5152,
+                    #0B2447);
+            background-size: 400% 400%;
+            animation: auroraFlow 15s ease infinite;
+        }
+
+        @keyframes auroraFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Floating 3D Elements */
+        .floating-container {
+            perspective: 1000px;
+        }
+
+        .float-item {
+            transform-style: preserve-3d;
+            animation: float3D 6s ease-in-out infinite;
+        }
+
+        .float-delay-1 {
+            animation-delay: -2s;
+        }
+
+        .float-delay-2 {
+            animation-delay: -4s;
+        }
+
+        @keyframes float3D {
+
+            0%,
+            100% {
+                transform: translateY(0) rotateX(0) rotateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+            }
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(to right, #F4E4C1, #C6A75E, #F4E4C1);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Complex Grid Background Pattern */
+        .grid-pattern {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(198, 167, 94, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(198, 167, 94, 0.05) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+        }
+
+        /* Complex 8-Fold Rosette Islamic Pattern */
+        .islamic-pattern-overlay {
+            background-color: transparent;
+            background-size: 100px 100px;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M50 0 L100 50 L50 100 L0 50 Z' fill='none' stroke='%23C6A75E' stroke-width='0.5' stroke-opacity='0.15'/%3E%3Cpath d='M50 0 L100 50 L50 100 L0 50 Z' fill='none' stroke='%23C6A75E' stroke-width='0.5' stroke-opacity='0.15' transform='rotate(45 50 50)'/%3E%3Ccircle cx='50' cy='50' r='25' fill='none' stroke='%23C6A75E' stroke-width='0.5' stroke-opacity='0.2'/%3E%3Cpath d='M50 10 L 60 40 L 90 50 L 60 60 L 50 90 L 40 60 L 10 50 L 40 40 Z' fill='none' stroke='%23C6A75E' stroke-width='0.8' stroke-opacity='0.2'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grid)'/%3E%3C/svg%3E");
+        }
+
+        /* Custom Pattern Images for Techniques */
+        .pattern-img-overlay {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            mix-blend-mode: overlay;
+            /* Changed for dark background visibility */
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Bottom Curved Pattern Box */
+        .card-bottom-curve {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            /* Adjust height as needed */
+            background-size: cover;
+            background-position: center;
+            border-top-left-radius: 2rem;
+            /* Curved top */
+            border-top-right-radius: 2rem;
+            z-index: 15;
+            /* Fade out top more gradually starting from bottom half */
+            mask-image: linear-gradient(to top, black 30%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
+            opacity: 0.8;
+        }
+
+        /* Custom Navigation Arrows */
+        .swiper-button-next,
+        .swiper-button-prev {
+            width: 3.5rem !important;
+            height: 3.5rem !important;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: #C6A75E !important;
+            transition: all 0.3s ease;
+            z-index: 50;
+            /* Ensure high z-index for clickability */
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: #C6A75E;
+            color: #0F3D3E !important;
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 1.2rem !important;
+            font-weight: bold;
+        }
+
+        /* Modern Learn More Button Styles */
+        button.learn-more {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            outline: none;
+            border: 0;
+            vertical-align: middle;
+            text-decoration: none;
+            background: transparent;
+            padding: 0;
+            font-size: inherit;
+            font-family: inherit;
+            width: 14rem;
+            /* Increased width for ENROLL NOW */
+            height: auto;
+        }
+
+        button.learn-more .circle {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: relative;
+            display: block;
+            margin: 0;
+            width: 3rem;
+            height: 3rem;
+            background: #282936;
+            border-radius: 1.625rem;
+        }
+
+        button.learn-more .circle .icon {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            background: #fff;
+        }
+
+        button.learn-more .circle .icon.arrow {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            left: 0.625rem;
+            width: 1.125rem;
+            height: 0.125rem;
+            background: none;
+        }
+
+        button.learn-more .circle .icon.arrow::before {
+            position: absolute;
+            content: "";
+            top: -0.29rem;
+            right: 0.0625rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            border-top: 0.125rem solid #fff;
+            border-right: 0.125rem solid #fff;
+            transform: rotate(45deg);
+        }
+
+        button.learn-more .button-text {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.75rem 0;
+            margin: 0 0 0 1.85rem;
+            color: #282936;
+            font-weight: 700;
+            line-height: 1.6;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        button.learn-more:hover .circle {
+            width: 100%;
+        }
+
+        button.learn-more:hover .circle .icon.arrow {
+            background: #fff;
+            transform: translate(1rem, 0);
+        }
+
+        button.learn-more:hover .button-text {
+            color: #fff;
+        }
+
+        /* Card Styles with Color Tone Gradients */
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(246, 241, 232, 0.9) 100%);
+            /* Creamy gradient base */
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(198, 167, 94, 0.6);
+            box-shadow: 0 10px 40px -5px rgba(15, 61, 62, 0.15);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Distinct Gradient Accents for Specific Cards */
+        .vision-card-gradient {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(123, 174, 127, 0.15) 100%);
+            /* Hint of Sage */
+        }
+
+        .mission-card-gradient {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(198, 167, 94, 0.15) 100%);
+            /* Hint of Gold */
+        }
+
+        /* Two-layer Pattern System */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            /* Layer 1: Complex Geometric Pattern */
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='p' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cg stroke='%23C6A75E' stroke-width='0.6' fill='none' stroke-opacity='0.25'%3E%3Cpath d='M50 0 L100 50 L50 100 L0 50 Z'/%3E%3Cpath d='M50 0 L100 50 L50 100 L0 50 Z' transform='rotate(45 50 50)'/%3E%3Ccircle cx='50' cy='50' r='22'/%3E%3Cpath d='M50 15 L 65 35 L 85 50 L 65 65 L 50 85 L 35 65 L 15 50 L 35 35 Z' stroke-width='1.2'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23p)'/%3E%3C/svg%3E");
+            opacity: 1;
+            pointer-events: none;
+            z-index: 0;
+            background-size: 80px 80px;
+            mask-image: linear-gradient(to bottom right, black 40%, transparent 100%);
+        }
+
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            /* Layer 2: Subtle Noise Textures for "Paper" feel */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+            mix-blend-mode: overlay;
+        }
+
+        /* Enhanced Contrast Text Styles */
+        .card-text-strong {
+            color: #0F3D3E;
+            /* Deep Teal for maximum contrast */
+            font-weight: 500;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        /* Content z-index fix */
+        .glass-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 60px -10px rgba(15, 61, 62, 0.3);
+            border-color: var(--gold);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+        }
+
+        /* Technique Cards Pattern */
+        .technique-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1h2v2H1V1zm4 0h2v2H5V1zm4 0h2v2H9V1zm4 0h2v2h-2V1zm4 0h2v2h-2V1z' fill='%23F4E4C1' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .technique-card {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .technique-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -5px rgba(15, 61, 62, 0.25);
+        }
+
+        .technique-card .card-bg {
+            transition: transform 0.7s ease;
+        }
+
+        .technique-card:hover .card-bg {
+            transform: scale(1.1);
+        }
+
+        /* Badge Animation */
+        @keyframes badge-pulse-custom {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+
+        .badge-animated {
+            animation: badge-pulse-custom 2s infinite;
+        }
+
+        /* Swiper Slide Sizing */
+        .swiper {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            /* Fixed width for coverflow effect */
+            height: 480px;
+            /* Fixed height to ensure uniformity */
+        }
+
+        @media (min-width: 768px) {
+            .swiper-slide {
+                width: 350px;
+            }
+        }
+
+        /* Blob Animation */
+        @keyframes blob {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+        }
+
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        /* Slow Spin */
+        @keyframes spin-slow {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 12s linear infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--sage), var(--primary));
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="opacity-0 transition-opacity duration-700">
+
+    <!-- Header -->
+    <header id="header"
+        class="fixed w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center transition-all duration-500 border-b border-transparent">
+        <a href="index.html" class="flex items-center gap-2 md:gap-4 group cursor-pointer">
+            <img src="assets/transparent logo.png" alt="Modern Calcutta School Logo"
+                class="h-10 md:h-14 lg:h-16 w-auto drop-shadow-lg group-hover:rotate-6 transition-transform duration-500">
+            <div class="flex flex-col">
+                <span
+                    class="text-xs sm:text-base md:text-xl lg:text-3xl title-font tracking-[0.05em] text-white font-bold leading-none group-hover:text-[#C6A75E] transition-colors duration-300 drop-shadow-md whitespace-nowrap"
+                    style="text-shadow: 0 2px 4px rgba(0,0,0,0.2);">MODERN
+                    CALCUTTA SCHOOL</span>
+                <span
+                    class="text-[7px] md:text-[9px] uppercase tracking-[0.15em] md:tracking-[0.2em] text-[#C6A75E] font-bold mt-0.5 md:mt-1 drop-shadow-sm">Foundation
+                    of Ilm & Adab</span>
+            </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav
+            class="hidden xl:flex items-center space-x-10 text-[11px] uppercase tracking-[0.15em] font-bold text-white drop-shadow-md">
+            <a href="index.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300">Home</a>
+            <a href="about.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300">About Us</a>
+            <a href="academics.html"
+                class="nav-link relative py-2 text-[#C6A75E] transition-colors duration-300">Academics</a>
+            <a href="faith-values.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300">Faith & Values</a>
+            <a href="gallery.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300">Gallery</a>
+            <a href="index.html#contact"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300">Contact</a>
+        </nav>
+
+        <div class="flex items-center space-x-4">
+            <a href="admissions.html"
+                class="hidden md:block px-6 py-3 bg-gradient-to-br from-[#C6A75E] to-[#b39545] text-white text-[10px] uppercase tracking-[0.2em] font-bold rounded-full hover:shadow-[0_0_20px_rgba(198,167,94,0.6)] hover:scale-105 transition-all duration-300 transform active:scale-95 shadow-lg border border-white/20">
+                Admission Now
+            </a>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button"
+                class="xl:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <span class="hamburger-line block w-5 h-0.5 bg-white mb-1"></span>
+                <span class="hamburger-line block w-5 h-0.5 bg-white mb-1"></span>
+                <span class="hamburger-line block w-5 h-0.5 bg-white"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[60] bg-[#0F3D3E]/95 backdrop-blur-xl translate-x-full transition-transform duration-500 ease-in-out xl:hidden">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-end p-6">
+                <button id="mobile-menu-close"
+                    class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col items-center justify-center flex-1 space-y-8 px-8">
+                <a href="index.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] uppercase tracking-widest transition-colors duration-300">Home</a>
+                <a href="about.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] uppercase tracking-widest transition-colors duration-300">About
+                    Us</a>
+                <a href="academics.html"
+                    class="mobile-nav-link text-2xl text-[#C6A75E] uppercase tracking-widest transition-colors duration-300">Academics</a>
+                <a href="faith-values.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] uppercase tracking-widest transition-colors duration-300">Faith
+                    & Values</a>
+                <a href="gallery.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] uppercase tracking-widest transition-colors duration-300">Gallery</a>
+                <a href="index.html#contact"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] uppercase tracking-widest transition-colors duration-300">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- Remotion-Style Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden aurora-bg">
+        <!-- Technical Grid Overlay -->
+        <div class="absolute inset-0 grid-pattern opacity-20"></div>
+
+        <!-- 3D Floating Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <!-- Book Icon -->
+            <div class="absolute top-[20%] left-[10%] float-item text-white/10 w-24 h-24 blur-[1px]">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z" />
+                </svg>
+            </div>
+            <!-- Atom Icon -->
+            <div
+                class="absolute bottom-[20%] right-[10%] float-item float-delay-1 text-[#C6A75E]/20 w-32 h-32 blur-[2px]">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                    <circle cx="12" cy="12" r="3" />
+                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(0 12 12)" />
+                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+                </svg>
+            </div>
+            <!-- Globe Icon -->
+            <div class="absolute top-[15%] right-[25%] float-item float-delay-2 text-[#7BAE7F]/10 w-16 h-16">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <path
+                        d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10 text-center pt-20">
+            <!-- Glass Badge -->
+            <div
+                class="gsap-hero-badge inline-block mb-8 px-8 py-3 rounded-full border border-white/20 bg-white/5 backdrop-blur-md shadow-[0_0_30px_rgba(255,255,255,0.1)] transform hover:scale-105 transition-transform cursor-default">
+                <span class="text-[#F4E4C1] text-xs md:text-sm uppercase tracking-[0.3em] font-bold">Nurturing Today •
+                    Leading Tomorrow</span>
+            </div>
+
+            <h1 class="text-6xl md:text-8xl lg:text-9xl text-white title-font mb-8 leading-[1.1] drop-shadow-2xl">
+                <div class="overflow-hidden"><span class="gsap-hero-text block">The Academic</span></div>
+                <div class="overflow-hidden"><span
+                        class="gsap-hero-text block italic gradient-text pb-4">Excellence</span></div>
+            </h1>
+
+            <p
+                class="gsap-hero-desc text-lg md:text-2xl text-white/80 font-light max-w-2xl mx-auto leading-relaxed mb-12 opacity-0 transform translate-y-4">
+                Where curious minds embark on a journey of discovery, blending modern excellence with timeless wisdom.
+            </p>
+
+            <div class="gsap-hero-btn opacity-0 transform translate-y-4">
+                <a href="#journey"
+                    class="group inline-flex items-center gap-4 px-10 py-5 bg-gradient-to-r from-[#C6A75E] to-[#b39545] rounded-full text-white shadow-[0_10px_30px_rgba(198,167,94,0.3)] hover:shadow-[0_20px_40px_rgba(198,167,94,0.5)] transition-all duration-300 hover:-translate-y-1">
+                    <span class="uppercase tracking-widest text-sm font-bold">Start The Journey</span>
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Animated Bottom Wave -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+            <svg class="relative block w-full h-[120px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    fill="#F6F1E8"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Vision & Mission Redesigned -->
+    <section class="py-32 relative overflow-hidden text-white">
+        <!-- Deep Rich Background with Gradient Mesh -->
+        <div class="absolute inset-0 bg-[#0F3D3E]">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#0B2447] via-[#0F3D3E] to-[#051923] opacity-90"></div>
+            <!-- Animated Gradient Orbs -->
+            <div
+                class="absolute top-0 left-0 w-[500px] h-[500px] bg-[#7BAE7F] rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-blob">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#C6A75E] rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-blob animation-delay-2000">
+            </div>
+            <!-- Islamic Pattern Overlay -->
+            <div class="absolute inset-0 islamic-pattern-overlay opacity-10 mix-blend-overlay"></div>
+        </div>
+
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 relative z-10">
+
+            <!-- Section Header -->
+            <div class="text-center mb-20 gsap-reveal">
+                <span class="text-[#C6A75E] font-bold tracking-[0.4em] uppercase text-xs md:text-sm mb-4 block">Our Core
+                    Foundation</span>
+                <h2 class="text-5xl md:text-7xl lg:text-8xl title-font text-white drop-shadow-2xl">
+                    <span
+                        class="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F4E4C1] to-white">Faith
+                        & Future</span>
+                </h2>
+            </div>
+
+            <!-- Split Screen / Composite Layout -->
+            <div
+                class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-0 rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 backdrop-blur-sm relative bg-white/5">
+
+                <!-- Curved Divider (SVG hidden on mobile) -->
+                <div
+                    class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 z-20 hidden lg:block pointer-events-none drop-shadow-2xl">
+                    <svg height="100%" width="120" viewBox="0 0 100 1000" preserveAspectRatio="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 0 C 100 250, 0 750, 50 1000" stroke="#C6A75E" stroke-width="2" fill="none"
+                            class="opacity-50" />
+                        <!-- Double curve effect for "boarder" feel -->
+                        <path d="M48 0 C 98 250, -2 750, 48 1000" stroke="#C6A75E" stroke-width="1" fill="none"
+                            class="opacity-30" />
+                    </svg>
+                </div>
+
+                <!-- Left: Vision (Modern Science) -->
+                <div class="relative group h-[600px] lg:h-[700px] overflow-hidden">
+                    <!-- Clip Path for Curve Effect on Large Screens -->
+                    <style>
+                        @media (min-width: 1024px) {
+                            .clip-curved-right {
+                                clip-path: path('M0 0 L100 0 L100 1000 L0 1000 Z');
+                                /* Fallback/Base */
+                                /* We are simulating the curve visually with the SVG above, so standard split is fine, 
+                                   or we can actually curve the container. Let's use the SVG divider to *be* the border visually. */
+                            }
+                        }
+                    </style>
+                    <!-- Image Background -->
+                    <div
+                        class="absolute inset-0 transform group-hover:scale-105 transition-transform duration-[2000ms]">
+                        <img src="assets/loop2.jfif" alt="Modern Science & Education"
+                            class="w-full h-full object-cover transition-all duration-1000">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+
+                    <div class="absolute bottom-0 left-0 p-10 md:p-16 w-full">
+                        <div
+                            class="mb-6 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 delay-100">
+                            <span
+                                class="inline-block p-3 rounded-full bg-white/10 backdrop-blur-md text-2xl border border-white/20">🧬</span>
+                        </div>
+                        <h3 class="text-4xl md:text-6xl title-font text-white mb-6 leading-tight">
+                            Modern <br /><span class="text-[#7BAE7F] italic">Excellence</span>
+                        </h3>
+                        <p class="text-lg md:text-xl text-gray-200 font-light leading-relaxed max-w-md opacity-90">
+                            To be a beacon where <strong class="text-white font-medium">cutting-edge knowledge</strong>
+                            harmonizes with ethical leadership. We envision innovators who lead the world with intellect
+                            and compassion.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Mission (Islamic Teaching) -->
+                <div class="relative group h-[600px] lg:h-[700px] overflow-hidden">
+                    <!-- Image Background -->
+                    <div
+                        class="absolute inset-0 transform group-hover:scale-105 transition-transform duration-[2000ms]">
+                        <img src="assets/faith_science_boy.png" alt="Boy Praying Namaz with Science Elements"
+                            class="w-full h-full object-cover transition-all duration-1000">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+
+                    <div class="absolute bottom-0 left-0 p-10 md:p-16 w-full">
+                        <div
+                            class="mb-6 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 delay-100">
+                            <span
+                                class="inline-block p-3 rounded-full bg-white/10 backdrop-blur-md text-2xl border border-white/20">🕌</span>
+                        </div>
+                        <h3 class="text-4xl md:text-6xl title-font text-white mb-6 leading-tight">
+                            Timeless <br /><span class="text-[#C6A75E] italic">Values</span>
+                        </h3>
+                        <ul class="space-y-4 text-lg md:text-xl text-gray-200 font-light max-w-md">
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#C6A75E]"></span>
+                                <span>Seamless integration of <strong class="text-white">Duas & Namaz</strong></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#C6A75E]"></span>
+                                <span>Developing <strong class="text-white">Akhlaq & Character</strong></span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#C6A75E]"></span>
+                                <span>Nurturing <strong class="text-white">Spiritual Strength</strong></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Removed Harmony Badge as requested -->
+
+        </div>
+    </section>
+
+    <!-- Academic Journey Section -->
+    <section id="journey" class="py-32 relative bg-white overflow-hidden">
+        <!-- SVG Path Connector -->
+        <svg class="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[800px] pointer-events-none opacity-5 hidden lg:block"
+            viewBox="0 0 800 1200" fill="none">
+            <path d="M400 0 C 400 300, 100 400, 100 600 C 100 800, 700 900, 700 1100" stroke="#0F3D3E" stroke-width="4"
+                stroke-dasharray="20 20" />
+        </svg>
+
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 relative z-10">
+            <div class="text-center max-w-4xl mx-auto mb-20 gsap-reveal">
+                <span class="text-[#7BAE7F] font-bold tracking-[0.3em] uppercase text-sm mb-4 block">Pathway to
+                    Excellence</span>
+                <h2 class="text-5xl md:text-7xl text-[#0F3D3E] title-font mb-6 drop-shadow-sm">Academic Journey</h2>
+                <div
+                    class="w-32 h-1.5 bg-gradient-to-r from-transparent via-[#C6A75E] to-transparent mx-auto rounded-full mb-8">
+                </div>
+            </div>
+
+            <!-- Grade Level Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 gsap-reveal">
+
+                <!-- Early Years Card -->
+                <div
+                    class="glass-card rounded-[2.5rem] p-4 flex flex-col h-full group hover:bg-white/80 transition-colors">
+                    <div
+                        class="relative h-56 rounded-[2rem] overflow-hidden mb-6 shadow-md group-hover:shadow-xl transition-all duration-500">
+                        <img src="assets/activity2.jfif" alt="Early Years"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#F4E4C1]/80 to-transparent opacity-60">
+                        </div>
+                        <div
+                            class="absolute bottom-4 left-4 bg-[#F4E4C1] backdrop-blur-sm px-4 py-1.5 rounded-full text-[#0F3D3E] font-bold text-[10px] tracking-widest shadow-lg badge-animated border border-white/40">
+                            🧸 PG - UKG
+                        </div>
+                    </div>
+                    <div class="px-4 pb-4 flex-grow flex flex-col">
+                        <h3
+                            class="text-3xl title-font text-[#0F3D3E] mb-3 group-hover:text-[#C6A75E] transition-colors">
+                            Blossoming Buds</h3>
+                        <p class="text-gray-600 leading-relaxed font-light text-sm flex-grow">
+                            A playful universe where sensory joy meets foundational literacy. We focus on fine motor
+                            skills and social interaction through unstructured play.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Primary Years Card -->
+                <div
+                    class="glass-card rounded-[2.5rem] p-4 flex flex-col h-full group hover:bg-white/80 transition-colors relative">
+                    <div
+                        class="relative h-56 rounded-[2rem] overflow-hidden mb-6 shadow-md group-hover:shadow-xl transition-all duration-500">
+                        <img src="assets/loop2.jfif" alt="Primary Years"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#7BAE7F]/80 to-transparent opacity-60">
+                        </div>
+                        <div
+                            class="absolute bottom-4 left-4 bg-[#7BAE7F] backdrop-blur-sm px-4 py-1.5 rounded-full text-white font-bold text-[10px] tracking-widest shadow-lg badge-animated border border-white/40">
+                            🌱 Class 1 - 5
+                        </div>
+                    </div>
+                    <div class="px-4 pb-4 flex-grow flex flex-col">
+                        <h3
+                            class="text-3xl title-font text-[#0F3D3E] mb-3 group-hover:text-[#7BAE7F] transition-colors">
+                            Curious Minds</h3>
+                        <p class="text-gray-600 leading-relaxed font-light text-sm flex-grow">
+                            Structured inquiry meets creativity. Students dive into STEM, language labs, and
+                            project-based learning to build a strong academic core.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Middle Years Card -->
+                <div
+                    class="glass-card rounded-[2.5rem] p-4 flex flex-col h-full group hover:bg-white/80 transition-colors">
+                    <div
+                        class="relative h-56 rounded-[2rem] overflow-hidden mb-6 shadow-md group-hover:shadow-xl transition-all duration-500">
+                        <img src="assets/loop6.jfif" alt="Middle Years"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/80 to-transparent opacity-60">
+                        </div>
+                        <div
+                            class="absolute bottom-4 left-4 bg-[#0F3D3E] backdrop-blur-sm px-4 py-1.5 rounded-full text-white font-bold text-[10px] tracking-widest shadow-lg badge-animated border border-white/40">
+                            🚀 Class 6 - 8
+                        </div>
+                    </div>
+                    <div class="px-4 pb-4 flex-grow flex flex-col">
+                        <h3
+                            class="text-3xl title-font text-[#0F3D3E] mb-3 group-hover:text-[#0F3D3E] transition-colors">
+                            Future Leaders</h3>
+                        <p class="text-gray-600 leading-relaxed font-light text-sm flex-grow">
+                            Rigorous academics prepare students for high school. Leadership, ethics, and community
+                            service take center stage as they mature.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Teaching Techniques Section -->
+    <section class="py-32 bg-gradient-to-br from-[#F6F1E8] to-[#E6DCC3] relative overflow-hidden">
+        <!-- Background Decor -->
+        <div
+            class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#7BAE7F]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#C6A75E]/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3">
+        </div>
+
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 relative z-10">
+            <div class="text-center mb-20 gsap-reveal">
+                <span class="text-[#C6A75E] font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-4 block">Our
+                    Methodology</span>
+                <h2 class="text-5xl md:text-6xl title-font text-[#0F3D3E] mb-6 drop-shadow-sm">Teaching Techniques</h2>
+                <div
+                    class="w-24 h-1.5 bg-gradient-to-r from-transparent via-[#C6A75E] to-transparent mx-auto rounded-full">
+                </div>
+            </div>
+
+            <!-- 3D Swiper Container -->
+            <div class="swiper mySwiper !overflow-visible py-12">
+                <div class="swiper-wrapper">
+
+                    <!-- 1. Activity-Based Learning -->
+                    <div
+                        class="swiper-slide group relative bg-[#0F3D3E] rounded-[2rem] pt-8 px-8 pb-32 shadow-lg transition-all duration-500 border border-white/10 flex flex-col items-center text-center overflow-hidden">
+
+                        <!-- 1. Base Gradient (Dark Blue - Default) -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-[#0F3D3E] to-[#0B2447] opacity-100">
+                        </div>
+
+                        <!-- 2. Custom Pattern Image Overlay (Pattern 1) -->
+                        <div class="pattern-img-overlay" style="background-image: url('assets/pattern1.png');"></div>
+
+                        <div
+                            class="relative z-20 w-20 h-20 mb-6 rounded-2xl bg-white/10 flex items-center justify-center transition-colors duration-500 shadow-inner">
+                            <svg class="w-10 h-10 text-[#C6A75E] transition-colors duration-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.638 1.638 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283.215.604.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.663-.664v0c0-.355-.186-.676-.401-.959a1.638 1.638 0 00-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.959.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z" />
+                            </svg>
+                        </div>
+
+                        <h3 class="relative z-20 text-xl font-bold text-white mb-3 transition-colors">
+                            Activity-Based Learning</h3>
+                        <p class="relative z-20 text-gray-300 text-sm leading-relaxed transition-colors">
+                            Engaging hands-on activities that transform abstract concepts into tangible experiences.
+                        </p>
+
+                        <!-- Inserted Image -->
+                        <div
+                            class="relative z-20 w-full mt-6 rounded-2xl overflow-hidden shadow-lg border border-white/10 aspect-video">
+                            <img src="assets/activities.jfif" alt="Activity Based Learning"
+                                class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Bottom Curved Pattern -->
+                        <div class="card-bottom-curve" style="background-image: url('assets/card-bottom-1.png');"></div>
+                    </div>
+
+                    <!-- 2. Smart Class -->
+                    <div
+                        class="swiper-slide group relative bg-[#0F3D3E] rounded-[2rem] pt-8 px-8 pb-32 shadow-lg transition-all duration-500 border border-white/10 flex flex-col items-center text-center overflow-hidden">
+                        <!-- 1. Base Gradient (Dark Blue - Default) -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-[#0F3D3E] to-[#0B2447] opacity-100">
+                        </div>
+
+                        <!-- 2. Custom Pattern Image Overlay (Pattern 2) -->
+                        <div class="pattern-img-overlay" style="background-image: url('assets/pattern2.png');"></div>
+
+                        <div
+                            class="relative z-20 w-20 h-20 mb-6 rounded-2xl bg-white/10 flex items-center justify-center transition-colors duration-500 shadow-inner">
+                            <svg class="w-10 h-10 text-[#C6A75E] transition-colors duration-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                            </svg>
+                        </div>
+
+                        <h3 class="relative z-20 text-xl font-bold text-white mb-3 transition-colors">
+                            Smart Class & Digital Tools</h3>
+                        <p class="relative z-20 text-gray-300 text-sm leading-relaxed transition-colors">
+                            Integrating interactive displays and digital resources to make learning visual and
+                            immersive.
+                        </p>
+
+                        <!-- Inserted Image -->
+                        <div
+                            class="relative z-20 w-full mt-6 rounded-2xl overflow-hidden shadow-lg border border-white/10 aspect-video">
+                            <img src="assets/classroom.jfif" alt="Smart Class" class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Bottom Curved Pattern -->
+                        <div class="card-bottom-curve" style="background-image: url('assets/card-bottom-2.png');"></div>
+                    </div>
+
+                    <!-- 3. Group Discussions -->
+                    <div
+                        class="swiper-slide group relative bg-[#0F3D3E] rounded-[2rem] pt-8 px-8 pb-32 shadow-lg transition-all duration-500 border border-white/10 flex flex-col items-center text-center overflow-hidden">
+                        <!-- 1. Base Gradient (Dark Blue - Default) -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-[#0F3D3E] to-[#0B2447] opacity-100">
+                        </div>
+
+                        <!-- 2. Custom Pattern Image Overlay (Pattern 3) -->
+                        <div class="pattern-img-overlay" style="background-image: url('assets/pattern3.png');"></div>
+
+                        <div
+                            class="relative z-20 w-20 h-20 mb-6 rounded-2xl bg-white/10 flex items-center justify-center transition-colors duration-500 shadow-inner">
+                            <svg class="w-10 h-10 text-[#C6A75E] transition-colors duration-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                            </svg>
+                        </div>
+
+                        <h3 class="relative z-20 text-xl font-bold text-white mb-3 transition-colors">
+                            Group Discussions</h3>
+                        <p class="relative z-20 text-gray-300 text-sm leading-relaxed transition-colors">
+                            Fostering critical thinking and communication skills through collaborative dialogue.
+                        </p>
+
+                        <!-- Inserted Image -->
+                        <div
+                            class="relative z-20 w-full mt-6 rounded-2xl overflow-hidden shadow-lg border border-white/10 aspect-video">
+                            <img src="assets/loop1.jfif" alt="Group Discussions" class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Bottom Curved Pattern -->
+                        <div class="card-bottom-curve" style="background-image: url('assets/card-bottom-3.png');"></div>
+                    </div>
+
+                    <!-- 4. Project-Based Assignments -->
+                    <div
+                        class="swiper-slide group relative bg-[#0F3D3E] rounded-[2rem] pt-8 px-8 pb-32 shadow-lg transition-all duration-500 border border-white/10 flex flex-col items-center text-center overflow-hidden">
+                        <!-- 1. Base Gradient (Dark Blue - Default) -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-[#0F3D3E] to-[#0B2447] opacity-100">
+                        </div>
+
+                        <!-- 2. Custom Pattern Image Overlay (Pattern 4) -->
+                        <div class="pattern-img-overlay" style="background-image: url('assets/pattern4.png');"></div>
+
+                        <div
+                            class="relative z-20 w-20 h-20 mb-6 rounded-2xl bg-white/10 flex items-center justify-center transition-colors duration-500 shadow-inner">
+                            <svg class="w-10 h-10 text-[#C6A75E] transition-colors duration-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                            </svg>
+                        </div>
+
+                        <h3 class="relative z-20 text-xl font-bold text-white mb-3 transition-colors">
+                            Project-Based Assignments</h3>
+                        <p class="relative z-20 text-gray-300 text-sm leading-relaxed transition-colors">
+                            Real-world problem solving that builds practical skills and creative confidence.
+                        </p>
+
+                        <!-- Inserted Image -->
+                        <div
+                            class="relative z-20 w-full mt-6 rounded-2xl overflow-hidden shadow-lg border border-white/10 aspect-video">
+                            <img src="assets/activity1.jfif" alt="Project Based Assignments"
+                                class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Bottom Curved Pattern -->
+                        <div class="card-bottom-curve" style="background-image: url('assets/card-bottom-4.png');"></div>
+                    </div>
+
+                    <!-- 5. Continuous Assessment -->
+                    <div
+                        class="swiper-slide group relative bg-[#0F3D3E] rounded-[2rem] pt-8 px-8 pb-32 shadow-lg transition-all duration-500 border border-white/10 flex flex-col items-center text-center overflow-hidden">
+                        <!-- 1. Base Gradient (Dark Blue - Default) -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-[#0F3D3E] to-[#0B2447] opacity-100">
+                        </div>
+
+                        <!-- 2. Custom Pattern Image Overlay (Pattern 1) -->
+                        <div class="pattern-img-overlay" style="background-image: url('assets/pattern1.png');"></div>
+
+                        <div
+                            class="relative z-20 w-20 h-20 mb-6 rounded-2xl bg-white/10 flex items-center justify-center transition-colors duration-500 shadow-inner">
+                            <svg class="w-10 h-10 text-[#C6A75E] transition-colors duration-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                            </svg>
+                        </div>
+
+                        <h3 class="relative z-20 text-xl font-bold text-white mb-3 transition-colors">
+                            Continuous Assessment</h3>
+                        <p class="relative z-20 text-gray-300 text-sm leading-relaxed transition-colors">
+                            Regular feedback loops to track progress and ensure conceptual clarity at every step.
+                        </p>
+
+                        <!-- Inserted Image -->
+                        <div
+                            class="relative z-20 w-full mt-6 rounded-2xl overflow-hidden shadow-lg border border-white/10 aspect-video">
+                            <img src="assets/loop2.jfif" alt="Continuous Assessment" class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Bottom Curved Pattern -->
+                        <div class="card-bottom-curve" style="background-image: url('assets/card-bottom-5.png');"></div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+                <!-- Navigation Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <div class="mt-20 text-center max-w-4xl mx-auto relative z-10">
+
+
+                <!-- Powerful Tagline -->
+                <h3 class="text-3xl md:text-5xl font-bold text-[#0F3D3E] mb-8 leading-tight title-font">
+                    Where <span class="text-[#C6A75E]">Tradition</span> Meets <span
+                        class="text-[#C6A75E]">Innovation</span><br>
+                    <span class="text-2xl md:text-3xl font-medium text-[#0F3D3E] opacity-80 mt-2 block">Shaping Futures,
+                        One Mind at a Time.</span>
+                </h3>
+
+                <!-- Modern Learn More Button (Adapted for Enroll Now) -->
+                <a href="admissions.html" class="inline-block no-underline">
+                    <button class="learn-more group">
+                        <span class="circle" aria-hidden="true">
+                            <span class="icon arrow"></span>
+                        </span>
+                        <span class="button-text font-pj tracking-wider">ENROLL NOW</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0F3D3E] text-white pt-24 pb-12 rounded-t-[3rem] mt-12 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('assets/islamic-pattern.svg')] bg-repeat"></div>
+        <div class="container mx-auto px-8 lg:px-16 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div class="lg:col-span-2">
+                    <img src="assets/transparent logo.png" alt="Logo" class="h-20 w-auto mb-6 drop-shadow-lg">
+                    <p class="text-gray-400 font-light max-w-sm leading-relaxed mb-6">
+                        Dedicated to nurturing the next generation of global citizens with a sacred soul.
+                    </p>
+                    <!-- Socials (Gold Hover) -->
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/16pkk2W8Qv/?mibextid=wwXIfr" target="_blank"
+                            class="w-12 h-12 rounded-full bg-white/5 hover:bg-[#C6A75E] flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-12">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/moderncalcuttaschool/" target="_blank"
+                            class="w-12 h-12 rounded-full bg-white/5 hover:bg-[#E1306C] flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-12">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.76-6.162 6.162s2.76 6.163 6.162 6.163 6.162-2.76 6.162-6.163c0-3.403-2.76-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-xs font-bold text-[#C6A75E] uppercase tracking-[0.2em] mb-8">Navigation</h4>
+                    <ul class="space-y-4 text-sm text-gray-400 font-light tracking-wide">
+                        <li><a href="#" class="hover:text-white transition-colors hover:pl-2 duration-300">Our
+                                Falsafa</a></li>
+                        <li><a href="academics.html"
+                                class="hover:text-white transition-colors hover:pl-2 duration-300">Academics</a></li>
+                        <li><a href="faith-values.html"
+                                class="hover:text-white transition-colors hover:pl-2 duration-300">Faith & Values</a>
+                        </li>
+                        <li><a href="admissions.html"
+                                class="hover:text-white transition-colors hover:pl-2 duration-300">Admissions</a></li>
+                        <li><a href="gallery.html"
+                                class="hover:text-white transition-colors hover:pl-2 duration-300">Gallery</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-xs font-bold text-[#C6A75E] uppercase tracking-[0.2em] mb-8">Contact</h4>
+                    <p class="text-sm text-gray-400 font-light mb-4">MR Colony Rd, Birla Colony, Patna, Bihar</p>
+                    <p class="text-sm text-gray-400 font-light mb-4">+91 98765 43210</p>
+                    <p class="text-sm text-gray-400 font-light hover:text-[#C6A75E] transition-colors cursor-pointer">
+                        info@mcs.edu.in</p>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-[10px] text-gray-600 uppercase tracking-[0.3em]">
+                <p>All rights reserved 2026 ; developed and managed by HUZAIFA</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // --- 3D Swiper Initialization ---
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows: false, /* Disabled for cleaner glass look */
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            loop: true,
+        });
+
+        // --- GSAP Animations (Remotion Style) ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Page Load Fade In
+        window.addEventListener('load', () => {
+            document.body.classList.remove('opacity-0');
+
+            // Hero Sequence
+            const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+            tl.from(".gsap-hero-badge", { y: -50, opacity: 0, duration: 1, delay: 0.2 })
+                .from(".gsap-hero-text", { y: 100, opacity: 0, stagger: 0.2, duration: 1.2 }, "-=0.5")
+                .to(".gsap-hero-desc", { y: 0, opacity: 1, duration: 1 }, "-=0.8")
+                .to(".gsap-hero-btn", { y: 0, opacity: 1, duration: 1 }, "-=0.8");
+        });
+
+        // Scroll Reveal Animations
+        gsap.utils.toArray('.gsap-reveal').forEach(element => {
+            gsap.from(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+        });
+
+        // Header Scroll Logic
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('glass-nav', 'py-3');
+                header.classList.remove('py-6');
+            } else {
+                header.classList.remove('glass-nav', 'py-3');
+                header.classList.add('py-6');
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        };
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        mobileMenuClose.addEventListener('click', toggleMenu);
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('translate-x-full')) toggleMenu();
+            });
+        });
+    </script>
+</body>
+
+</html>

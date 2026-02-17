@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faith & Values | Islamic Tarbiyah | Modern Calcutta School</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Our core values: Ilm (Knowledge), Tahzeeb (Etiquette), and Tarbiyah (Upbringing). Modern Calcutta School instills deep Islamic values in students alongside modern education.">
+    <meta name="keywords"
+        content="islamic values school, tarbiyah patna, din and duniya education, quran classes school patna, moral education phulwari">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://moderncalcuttaschool.in/faith-values.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moderncalcuttaschool.in/faith-values.html">
+    <meta property="og:title" content="Faith & Values | The Core of Modern Calcutta School">
+    <meta property="og:description"
+        content="We believe in education that builds character. Discover our unique approach to Islamic Tarbiyah and moral development.">
+    <meta property="og:image" content="https://moderncalcuttaschool.in/assets/transparent%20logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Noto+Nastaliq+Urdu:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&family=Amiri:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Epic Pro';
+            src: local('Epic Pro'), local('EpicPro-Bold');
+            font-weight: bold;
+        }
+
+        :root {
+            --primary: #0F3D3E;
+            --midnight: #0B2447;
+            --sage: #7BAE7F;
+            --beige: #F6F1E8;
+            --gold: #C6A75E;
+            --charcoal: #1E1E1E;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--beige);
+            color: var(--charcoal);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .title-font {
+            font-family: 'Epic Pro', 'Cormorant Garamond', serif;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+        }
+
+        .urdu-font {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            line-height: 2.8;
+        }
+
+        .arabic-font {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+        }
+
+        /* Islamic Geometric Pattern */
+        .islamic-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C6A75E' fill-opacity='0.08'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3Cpath d='M15 15l15 15-15 15-15-15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Gold Shimmer Effect */
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        .gold-shimmer {
+            background: linear-gradient(90deg,
+                    #C6A75E 0%,
+                    #F4E4C1 25%,
+                    #C6A75E 50%,
+                    #F4E4C1 75%,
+                    #C6A75E 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+
+        /* Glass Nav */
+        .glass-nav {
+            background: rgba(246, 241, 232, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(198, 167, 94, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Welcome Animation */
+        @keyframes welcomeZoomOut {
+            0% {
+                transform: scale(3);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            60% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes overlayFadeOut {
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .welcome-text {
+            animation: welcomeZoomOut 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        #welcome-overlay {
+            animation: overlayFadeOut 0.8s ease-out 2.7s forwards;
+        }
+
+        body.loading {
+            overflow: hidden;
+        }
+
+        /* Reveal Animations */
+        @keyframes reveal-text {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+                filter: blur(10px);
+                letter-spacing: 0em;
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+                letter-spacing: 0.2em;
+            }
+        }
+
+        .animate-reveal-text {
+            animation: reveal-text 2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Ornamental Divider */
+        .ornamental-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .ornamental-divider::before,
+        .ornamental-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+
+        /* Enhanced Glassmorphism Card */
+        .glass-card {
+            background: url('assets/islamic-pattern.svg'), linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+            background-size: 150px 150px, cover;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(198, 167, 94, 0.2);
+            box-shadow:
+                0 8px 32px 0 rgba(15, 61, 62, 0.08),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(198, 167, 94, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .glass-card:hover::before {
+            left: 100%;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+            border-color: rgba(198, 167, 94, 0.6);
+            box-shadow:
+                0 24px 48px rgba(15, 61, 62, 0.12),
+                0 0 0 1px rgba(198, 167, 94, 0.3),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.7);
+        }
+
+        /* Card Icon Container */
+        .card-icon {
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .card-icon::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #C6A75E, #F4E4C1);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.5s ease;
+        }
+
+        .glass-card:hover .card-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .glass-card:hover .card-icon::after {
+            opacity: 0.3;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.5;
+            }
+        }
+
+        /* Card Number Badge */
+        .card-number {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(198, 167, 94, 0.2), rgba(198, 167, 94, 0.1));
+            border: 1px solid rgba(198, 167, 94, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Epic Pro', serif;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #C6A75E;
+            opacity: 0.6;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover .card-number {
+            opacity: 1;
+            transform: scale(1.1) rotate(360deg);
+            background: linear-gradient(135deg, rgba(198, 167, 94, 0.4), rgba(198, 167, 94, 0.2));
+        }
+
+        /* ... existing styles ... */
+
+        /* SVG Line Animation */
+        .svg-line-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            transition: stroke-dashoffset 2s ease-out;
+        }
+
+        .svg-line-path.active {
+            stroke-dashoffset: 0;
+        }
+
+        /* 3D Tilt Effect */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+
+        .tilt-content {
+            transform: translateZ(20px);
+        }
+
+        /* Timeline Progress */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            background-color: rgba(198, 167, 94, 0.2);
+            height: 100%;
+            top: 0;
+        }
+
+        .timeline-progress {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            background-color: #C6A75E;
+            height: 0%;
+            top: 0;
+            transition: height 0.1s linear;
+        }
+
+        /* Floating Parallax */
+        .floating-card {
+            animation: float-y 6s ease-in-out infinite;
+        }
+
+        .floating-card-delayed {
+            animation: float-y 8s ease-in-out infinite 1s;
+        }
+
+        @keyframes float-y {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Custom Scrollbar for horizontal scroll (if needed) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F6F1E8;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #C6A75E;
+            border-radius: 4px;
+        }
+
+        @keyframes gentleRotate {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(15deg);
+            }
+        }
+
+        @keyframes rotate-tumble {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+
+            100% {
+                transform: rotateX(360deg) rotateY(360deg) rotateZ(180deg);
+            }
+        }
+
+        @keyframes rotate-carousel {
+            from {
+                transform: rotateY(0deg);
+            }
+
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .carousel-scene {
+            perspective: 1000px;
+            overflow: visible;
+        }
+
+        .carousel {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotate-carousel 20s infinite linear;
+        }
+
+        .carousel-item {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -200px;
+        }
+
+        .animate-tumble {
+            animation: rotate-tumble 20s linear infinite;
+        }
+
+        .animate-gentle-rotate {
+            animation: gentleRotate 6s ease-in-out infinite;
+        }
+
+        .admission-cta {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            padding: 0.95rem 2.2rem;
+            border-radius: 9999px;
+            color: #ffffff;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            background: linear-gradient(120deg, #0F3D3E 0%, #C6A75E 50%, #7BAE7F 100%);
+            background-size: 220% 220%;
+            box-shadow: 0 14px 35px rgba(15, 61, 62, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.28) inset;
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, background-position 0.6s ease;
+        }
+
+        .admission-cta::before {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            border-radius: inherit;
+            background: linear-gradient(125deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            pointer-events: none;
+        }
+
+        .admission-cta::after {
+            content: '';
+            position: absolute;
+            top: -130%;
+            left: -20%;
+            width: 42%;
+            height: 340%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0));
+            transform: rotate(20deg);
+            transition: left 0.7s ease;
+            pointer-events: none;
+        }
+
+        .admission-cta:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 45px rgba(15, 61, 62, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+            background-position: 100% 0;
+        }
+
+        .admission-cta:hover::after {
+            left: 120%;
+        }
+
+        .admission-cta:active {
+            transform: translateY(-1px) scale(0.995);
+        }
+    </style>
+</head>
+
+<body class="bg-[#F6F1E8] loading">
+
+    <!-- Welcome Animation Overlay -->
+    <div id="welcome-overlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0F3D3E]">
+        <div class="text-center welcome-text">
+            <h1 class="text-6xl md:text-8xl lg:text-9xl title-font text-white mb-4 tracking-wider">
+                MARHABA
+            </h1>
+            <p class="text-2xl md:text-4xl lg:text-5xl font-light text-[#C6A75E] tracking-[0.3em]">
+                WELCOME
+            </p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header"
+        class="fixed w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center transition-all duration-500 border-b border-transparent">
+        <a href="index.html" class="flex items-center gap-2 md:gap-4 group cursor-pointer">
+            <img src="assets/transparent logo.png" alt="Modern Calcutta School Logo"
+                class="h-10 md:h-14 lg:h-16 w-auto drop-shadow-lg group-hover:scale-105 transition-transform duration-300">
+            <div class="flex flex-col">
+                <span
+                    class="text-xs sm:text-base md:text-xl lg:text-3xl title-font tracking-[0.05em] text-white font-bold leading-none group-hover:text-[#C6A75E] transition-colors duration-300 drop-shadow-md whitespace-nowrap">MODERN
+                    CALCUTTA SCHOOL</span>
+                <span
+                    class="text-[7px] md:text-[9px] uppercase tracking-[0.15em] md:tracking-[0.2em] text-[#C6A75E] font-bold mt-0.5 md:mt-1 drop-shadow-sm">Foundation
+                    of Ilm & Adab</span>
+            </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav
+            class="hidden xl:flex items-center space-x-10 text-[11px] uppercase tracking-[0.15em] font-bold text-white drop-shadow-md">
+            <a href="index.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Home
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="about.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                About Us
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="academics.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Academics
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="faith-values.html"
+                class="nav-link relative py-2 text-[#C6A75E] transition-colors duration-300 group">
+                Faith & Values
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-[#C6A75E] transition-all duration-300"></span>
+            </a>
+            <a href="gallery.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Gallery
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="index.html#contact"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Contact
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </nav>
+
+        <div class="flex items-center space-x-4">
+            <!-- Desktop CTA Button -->
+            <a href="admissions.html"
+                class="hidden md:block px-6 py-3 bg-gradient-to-r from-[#C6A75E] to-[#7BAE7F] text-white text-[10px] uppercase tracking-[0.2em] font-bold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                Admission Now
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button"
+                class="xl:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <span class="hamburger-line block w-5 h-0.5 bg-white mb-1 transition-all duration-300"></span>
+                <span class="hamburger-line block w-5 h-0.5 bg-white mb-1 transition-all duration-300"></span>
+                <span class="hamburger-line block w-5 h-0.5 bg-white transition-all duration-300"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[60] bg-[#0F3D3E]/95 backdrop-blur-lg translate-x-full transition-transform duration-500 ease-in-out xl:hidden">
+        <div class="flex flex-col h-full">
+            <!-- Close Button -->
+            <div class="flex justify-end p-6">
+                <button id="mobile-menu-close"
+                    class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Links -->
+            <nav class="flex flex-col items-center justify-center flex-1 space-y-8 px-8">
+                <a href="index.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Home</a>
+                <a href="about.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">About
+                    Us</a>
+                <a href="academics.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Academics</a>
+                <a href="faith-values.html"
+                    class="mobile-nav-link text-2xl text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Faith
+                    & Values</a>
+                <a href="gallery.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Gallery</a>
+                <a href="index.html#contact"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Contact</a>
+
+                <!-- Mobile CTA Button -->
+                <a href="admissions.html"
+                    class="mobile-nav-link mt-8 px-8 py-4 bg-gradient-to-r from-[#C6A75E] to-[#7BAE7F] text-white text-sm uppercase tracking-[0.2em] font-bold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                    Admission Now
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section - Foundation of Faith -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden"
+        style="background-image: url('assets/faith-hero.png'); background-size: cover; background-position: center;">
+
+        <!-- Dark Overlay for Text Readability -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
+
+        <!-- Islamic Pattern Overlay -->
+        <div class="absolute inset-0 islamic-pattern opacity-30"></div>
+
+        <!-- Content -->
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 relative z-10 text-center pt-24">
+            <!-- Bismillah -->
+            <div class="mb-8 reveal active">
+                <p class="text-3xl md:text-5xl lg:text-6xl text-[#C6A75E] arabic-font mb-4 leading-relaxed">
+                    بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
+                </p>
+                <p class="text-sm md:text-base text-[#C6A75E]/80 uppercase tracking-[0.3em] font-light">
+                    In the name of Allah, the Most Gracious, the Most Merciful
+                </p>
+            </div>
+
+            <!-- Main Heading -->
+            <div class="reveal active mb-8">
+                <h1 class="text-6xl md:text-8xl lg:text-9xl text-white title-font mb-6 leading-[1.1]">
+                    Faith <span class="text-[#C6A75E]">&</span> Values
+                </h1>
+                <div class="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-[#C6A75E] to-transparent mb-8"></div>
+                <p
+                    class="text-xl md:text-3xl lg:text-4xl text-white/90 font-light italic max-w-4xl mx-auto leading-relaxed">
+                    Rooted in Tradition, Growing in Excellence
+                </p>
+            </div>
+
+            <!-- Decorative Ornament -->
+            <div class="ornamental-divider max-w-md mx-auto">
+                <svg class="w-8 h-8 text-[#C6A75E]" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                </svg>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <svg class="w-6 h-6 text-[#C6A75E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Quranic Foundation Section - Our Guiding Light -->
+    <section class="relative py-32 bg-gradient-to-br from-[#0F3D3E] via-[#0B2447] to-[#0F3D3E] overflow-hidden">
+        <!-- Islamic Star Pattern Background -->
+        <div class="absolute inset-0 islamic-pattern opacity-10"></div>
+
+        <!-- Glowing Orbs -->
+        <div class="absolute top-20 right-20 w-96 h-96 bg-[#C6A75E]/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-20 w-96 h-96 bg-[#7BAE7F]/10 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 relative z-10">
+            <div class="max-w-5xl mx-auto text-center">
+                <!-- Section Label -->
+                <div class="reveal mb-8">
+                    <span class="text-[#C6A75E] uppercase tracking-[0.3em] text-sm font-bold">Our Guiding Light</span>
+                </div>
+
+                <!-- Decorative Top Border -->
+                <div class="flex items-center justify-center gap-4 mb-12 reveal">
+                    <div class="h-px w-24 bg-gradient-to-r from-transparent to-[#C6A75E]"></div>
+                    <svg class="w-6 h-6 text-[#C6A75E]" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                    </svg>
+                    <div class="h-px w-24 bg-gradient-to-l from-transparent to-[#C6A75E]"></div>
+                </div>
+
+                <!-- Arabic Verse -->
+                <div class="reveal mb-8">
+                    <p class="text-4xl md:text-5xl lg:text-6xl text-white arabic-font mb-6 leading-loose px-4">
+                        اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ
+                    </p>
+                    <p class="text-xl md:text-2xl text-white/80 font-light italic mb-4">
+                        "Read in the name of your Lord who created"
+                    </p>
+                    <div
+                        class="flex items-center justify-center gap-2 text-[#C6A75E] text-sm uppercase tracking-widest">
+                        <div class="w-8 h-px bg-[#C6A75E]"></div>
+                        <span class="font-bold">Surah Al-Alaq (96:1)</span>
+                        <div class="w-8 h-px bg-[#C6A75E]"></div>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="reveal">
+                    <p class="text-lg md:text-xl text-white/70 font-light max-w-3xl mx-auto leading-relaxed">
+                        The first revelation of the Quran emphasizes the importance of knowledge and learning. At Modern
+                        Calcutta School, we build our foundation on this divine commandment, nurturing minds and souls
+                        through Islamic education.
+                    </p>
+                </div>
+
+                <!-- Decorative Bottom Border -->
+                <div class="flex items-center justify-center gap-4 mt-12 reveal">
+                    <div class="h-px w-16 bg-[#C6A75E]"></div>
+                    <div class="w-2 h-2 bg-[#C6A75E] rounded-full"></div>
+                    <div class="h-px w-16 bg-[#C6A75E]"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Five Pillars of Islamic Education - Bento Grid -->
+    <section class="py-24 bg-[#F6F1E8] relative overflow-hidden">
+        <!-- Background Decorative Elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-[#C6A75E]/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#0F3D3E]/5 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 relative z-10">
+        </div>
+
+        <!-- Redesigned Pillars - Staggered Grid -->
+        <div class="max-w-7xl mx-auto relative">
+            <!-- Central Decorative Line (Vertical) -->
+            <div
+                class="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#C6A75E]/30 to-transparent hidden md:block">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+                <!-- Pillar 1: Iman (Left) -->
+                <div class="md:text-right reveal tilt-card group relative">
+                    <!-- Connector Dot -->
+                    <div
+                        class="absolute top-1/2 -right-[30px] w-3 h-3 bg-[#C6A75E] rounded-full hidden md:block z-20 ring-4 ring-[#F6F1E8]">
+                    </div>
+
+                    <div
+                        class="glass-card p-8 rounded-3xl relative overflow-hidden transform transition-all duration-500 hover:-translate-y-2 border-r-4 border-[#C6A75E]/0 hover:border-[#C6A75E] group-hover:shadow-2xl">
+                        <div
+                            class="absolute -left-10 -top-10 w-40 h-40 bg-[#C6A75E]/10 rounded-full blur-3xl group-hover:bg-[#C6A75E]/20 transition-all duration-500">
+                        </div>
+
+                        <h3 class="text-4xl title-font text-[#0F3D3E] mb-2">Iman <span
+                                class="text-[#C6A75E] text-2xl block font-light font-sans tracking-widest uppercase mt-1">Faith</span>
+                        </h3>
+                        <p class="text-gray-600 mb-6 font-light leading-relaxed">The unshakable belief in the Oneness of
+                            Allah and His Messenger, forming the bedrock of existence.</p>
+
+                        <div
+                            class="max-h-0 overflow-hidden group-hover:max-h-40 transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100">
+                            <p
+                                class="text-sm text-[#0F3D3E] italic bg-[#C6A75E]/10 p-4 rounded-xl border-r-2 border-[#C6A75E]">
+                                "Faith is a knowledge in the heart, a voicing with the tongue, and an activity with the
+                                limbs."</p>
+                        </div>
+                        <div class="absolute bottom-4 right-4 opacity-10 text-6xl font-bold text-[#0F3D3E]">01</div>
+                    </div>
+                </div>
+
+                <!-- Spacer for Staggered Effect -->
+                <div class="hidden md:block"></div>
+
+                <!-- Spacer -->
+                <div class="hidden md:block"></div>
+
+                <!-- Pillar 2: Ilm (Right) -->
+                <div class="reveal tilt-card group relative">
+                    <!-- Connector Dot -->
+                    <div
+                        class="absolute top-1/2 -left-[30px] w-3 h-3 bg-[#C6A75E] rounded-full hidden md:block z-20 ring-4 ring-[#F6F1E8]">
+                    </div>
+
+                    <div
+                        class="glass-card p-8 rounded-3xl relative overflow-hidden transform transition-all duration-500 hover:-translate-y-2 border-l-4 border-[#C6A75E]/0 hover:border-[#C6A75E] group-hover:shadow-2xl">
+                        <div
+                            class="absolute -right-10 -top-10 w-40 h-40 bg-[#0F3D3E]/10 rounded-full blur-3xl group-hover:bg-[#0F3D3E]/20 transition-all duration-500">
+                        </div>
+
+                        <h3 class="text-4xl title-font text-[#0F3D3E] mb-2">Ilm <span
+                                class="text-[#C6A75E] text-2xl block font-light font-sans tracking-widest uppercase mt-1">Knowledge</span>
+                        </h3>
+                        <p class="text-gray-600 mb-6 font-light leading-relaxed">Pursuing sacred and worldly knowledge
+                            as a lifelong act of worship and illumination.</p>
+
+                        <div
+                            class="max-h-0 overflow-hidden group-hover:max-h-40 transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100">
+                            <p
+                                class="text-sm text-[#0F3D3E] italic bg-[#0F3D3E]/5 p-4 rounded-xl border-l-2 border-[#C6A75E]">
+                                "Seek knowledge from the cradle to the grave."</p>
+                        </div>
+                        <div class="absolute bottom-4 left-4 opacity-10 text-6xl font-bold text-[#0F3D3E]">02</div>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Akhlaq (Left) -->
+                <div class="md:text-right reveal tilt-card group relative">
+                    <!-- Connector Dot -->
+                    <div
+                        class="absolute top-1/2 -right-[30px] w-3 h-3 bg-[#C6A75E] rounded-full hidden md:block z-20 ring-4 ring-[#F6F1E8]">
+                    </div>
+
+                    <div
+                        class="glass-card p-8 rounded-3xl relative overflow-hidden transform transition-all duration-500 hover:-translate-y-2 border-r-4 border-[#C6A75E]/0 hover:border-[#C6A75E] group-hover:shadow-2xl">
+                        <div
+                            class="absolute -left-10 -bottom-10 w-40 h-40 bg-[#7BAE7F]/10 rounded-full blur-3xl group-hover:bg-[#7BAE7F]/20 transition-all duration-500">
+                        </div>
+
+                        <h3 class="text-4xl title-font text-[#0F3D3E] mb-2">Akhlaq <span
+                                class="text-[#C6A75E] text-2xl block font-light font-sans tracking-widest uppercase mt-1">Character</span>
+                        </h3>
+                        <p class="text-gray-600 mb-6 font-light leading-relaxed">Embodying the noble character traits of
+                            the Prophet (PBUH) in every interaction.</p>
+
+                        <div
+                            class="max-h-0 overflow-hidden group-hover:max-h-40 transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100">
+                            <p
+                                class="text-sm text-[#0F3D3E] italic bg-[#7BAE7F]/10 p-4 rounded-xl border-r-2 border-[#C6A75E]">
+                                "The best amongst you are those who have the best manners and character."</p>
+                        </div>
+                        <div class="absolute bottom-4 right-4 opacity-10 text-6xl font-bold text-[#0F3D3E]">03</div>
+                    </div>
+                </div>
+
+                <!-- Spacer -->
+                <div class="hidden md:block"></div>
+                <!-- Spacer -->
+                <div class="hidden md:block"></div>
+
+                <!-- Pillar 4: Adab (Right) -->
+                <div class="reveal tilt-card group relative">
+                    <!-- Connector Dot -->
+                    <div
+                        class="absolute top-1/2 -left-[30px] w-3 h-3 bg-[#C6A75E] rounded-full hidden md:block z-20 ring-4 ring-[#F6F1E8]">
+                    </div>
+
+                    <div
+                        class="glass-card p-8 rounded-3xl relative overflow-hidden transform transition-all duration-500 hover:-translate-y-2 border-l-4 border-[#C6A75E]/0 hover:border-[#C6A75E] group-hover:shadow-2xl">
+                        <h3 class="text-4xl title-font text-[#0F3D3E] mb-2">Adab <span
+                                class="text-[#C6A75E] text-2xl block font-light font-sans tracking-widest uppercase mt-1">Etiquette</span>
+                        </h3>
+                        <p class="text-gray-600 mb-6 font-light leading-relaxed">Refining one's manners with elders,
+                            teachers, peers, and the environment.</p>
+
+                        <div
+                            class="max-h-0 overflow-hidden group-hover:max-h-40 transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100">
+                            <p
+                                class="text-sm text-[#0F3D3E] italic bg-[#C6A75E]/10 p-4 rounded-xl border-l-2 border-[#C6A75E]">
+                                "Adab (etiquette) is the door to the acceptance of good deeds."</p>
+                        </div>
+                        <div class="absolute bottom-4 left-4 opacity-10 text-6xl font-bold text-[#0F3D3E]">04</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillar 5: Khidmah (Center Bottom) -->
+            <div class="mt-24 max-w-2xl mx-auto text-center reveal tilt-card group relative">
+                <!-- Vertical Connector Line from above -->
+                <div
+                    class="absolute -top-24 left-1/2 w-px h-24 bg-gradient-to-b from-[#C6A75E]/30 to-[#C6A75E] hidden md:block">
+                </div>
+
+                <div
+                    class="glass-card p-10 rounded-3xl relative overflow-hidden transform transition-all duration-500 hover:-translate-y-2 border-b-4 border-[#C6A75E]/0 hover:border-[#C6A75E] group-hover:shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#C6A75E]/5 to-transparent"></div>
+
+                    <h3 class="text-5xl title-font text-[#0F3D3E] mb-4">Khidmah <span
+                            class="text-[#C6A75E] text-2xl block font-light font-sans tracking-widest uppercase mt-2">Service</span>
+                    </h3>
+                    <p class="text-gray-600 mb-8 font-light leading-relaxed text-lg">Serving humanity as a manifestation
+                        of one's love for the Creator. We teach that the leader of a people is their servant.</p>
+
+                    <div
+                        class="max-h-0 overflow-hidden group-hover:max-h-40 transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100">
+                        <p
+                            class="text-base text-[#0F3D3E] italic bg-white/50 p-6 rounded-xl border-b-2 border-[#C6A75E]">
+                            "The most beloved of people to Allah are those who are most beneficial to people."</p>
+                    </div>
+                    <div class="absolute top-4 right-4 opacity-10 text-8xl font-bold text-[#0F3D3E]">05</div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <!-- Section: The Trinity Grid -->
+    <section class="py-32 bg-gradient-to-b from-[#F6F1E8] to-[#FCE7F3] relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5 pointer-events-none"
+            style="background-image: url('assets/islamic-pattern.svg');"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-5xl md:text-7xl text-[#0F3D3E] title-font">The Sacred Balance</h2>
+                <div class="w-24 h-1 bg-[#C6A75E] mx-auto mt-6"></div>
+            </div>
+
+            <div class="carousel-scene relative h-[600px] w-full flex items-center justify-center overflow-hidden">
+                <div class="carousel w-[300px] h-[400px]">
+
+                    <!-- Card 1: Ilm (0 deg) -->
+                    <div class="carousel-item" style="transform: rotateY(0deg) translateZ(350px);">
+                        <div class="reveal group relative flex flex-col items-center text-center">
+                            <div class="relative w-64 h-64 flex items-center justify-center"
+                                style="perspective: 1000px;">
+                                <!-- Rotating Background -->
+                                <div class="absolute inset-0 rounded-full border border-[#C6A75E]/40"
+                                    style="transform-style: preserve-3d;">
+                                    <div class="absolute inset-2 rounded-full border border-dashed border-[#0F3D3E]/20">
+                                    </div>
+                                    <div class="absolute inset-0 bg-white/30 backdrop-blur-sm rounded-full"></div>
+                                </div>
+                                <!-- Static Text -->
+                                <div class="relative z-10 text-center pointer-events-none">
+                                    <span class="block text-4xl text-[#0F3D3E] urdu-font mb-2">علم</span>
+                                    <h3 class="text-2xl text-[#0F3D3E] title-font">Ilm</h3>
+                                    <p class="text-xs uppercase tracking-widest text-[#C6A75E] mt-1">Knowledge</p>
+                                </div>
+                            </div>
+                            <p class="mt-8 text-[#0F3D3E]/80 max-w-xs leading-relaxed font-light">
+                                The pursuit of divine and worldly understanding, illuminating the path to truth.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Tahzeeb (120 deg) -->
+                    <div class="carousel-item" style="transform: rotateY(120deg) translateZ(350px);">
+                        <div class="reveal group relative flex flex-col items-center text-center">
+                            <div class="relative w-64 h-64 flex items-center justify-center"
+                                style="perspective: 1000px;">
+                                <!-- Rotating Background -->
+                                <div class="absolute inset-0 rounded-full border border-[#C6A75E]/40"
+                                    style="transform-style: preserve-3d;">
+                                    <div class="absolute inset-2 rounded-full border border-dashed border-[#0F3D3E]/20">
+                                    </div>
+                                    <div class="absolute inset-0 bg-white/30 backdrop-blur-sm rounded-full"></div>
+                                </div>
+                                <!-- Static Text -->
+                                <div class="relative z-10 text-center pointer-events-none">
+                                    <span class="block text-4xl text-[#0F3D3E] urdu-font mb-2">تہذیب</span>
+                                    <h3 class="text-2xl text-[#0F3D3E] title-font">Tahzeeb</h3>
+                                    <p class="text-xs uppercase tracking-widest text-[#C6A75E] mt-1">Refinement</p>
+                                </div>
+                            </div>
+                            <p class="mt-8 text-[#0F3D3E]/80 max-w-xs leading-relaxed font-light">
+                                Polishing the soul and manners to reflect the beauty of Islamic character.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Tarbiyah (240 deg) -->
+                    <div class="carousel-item" style="transform: rotateY(240deg) translateZ(350px);">
+                        <div class="reveal group relative flex flex-col items-center text-center">
+                            <div class="relative w-64 h-64 flex items-center justify-center"
+                                style="perspective: 1000px;">
+                                <!-- Rotating Background -->
+                                <div class="absolute inset-0 rounded-full border border-[#C6A75E]/40"
+                                    style="transform-style: preserve-3d;">
+                                    <div class="absolute inset-2 rounded-full border border-dashed border-[#0F3D3E]/20">
+                                    </div>
+                                    <div class="absolute inset-0 bg-white/30 backdrop-blur-sm rounded-full"></div>
+                                </div>
+                                <!-- Static Text -->
+                                <div class="relative z-10 text-center pointer-events-none">
+                                    <span class="block text-4xl text-[#0F3D3E] urdu-font mb-2">تربیت</span>
+                                    <h3 class="text-2xl text-[#0F3D3E] title-font">Tarbiyah</h3>
+                                    <p class="text-xs uppercase tracking-widest text-[#C6A75E] mt-1">Nurturing</p>
+                                </div>
+                            </div>
+                            <p class="mt-8 text-[#0F3D3E]/80 max-w-xs leading-relaxed font-light">
+                                Continuous growth and spiritual development under the guidance of mentors.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section: The Dual Split (Deen vs Duniya) -->
+    <section class="relative w-full flex flex-col md:flex-row min-h-[80vh]">
+        <!-- Left: Deen (Emerald) -->
+        <div class="w-full md:w-1/2 bg-[#0F3D3E] relative overflow-hidden flex items-center justify-center p-12 group">
+            <div class="absolute inset-0 islamic-pattern opacity-10"></div>
+            <div
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[15rem] text-[#C6A75E]/5 urdu-font pointer-events-none transition-transform duration-1000 group-hover:scale-110">
+                دین</div>
+
+            <div class="relative z-10 max-w-md text-center md:text-right reveal">
+                <span class="text-[#C6A75E] uppercase tracking-[0.3em] text-sm font-bold block mb-4">The
+                    Foundation</span>
+                <h2 class="text-5xl lg:text-7xl text-white title-font mb-6">Faith <br><span
+                        class="italic font-light text-[#C6A75E]">& Spirit</span></h2>
+                <p class="text-white/80 leading-relaxed text-lg font-light mb-8">
+                    Rooted in the eternal truths of the Quran and Sunnah, we cultivate a heart that is connected to its
+                    Creator, finding peace in prayer and purpose in worship.
+                </p>
+                <div class="inline-block border border-[#C6A75E] rounded-full p-1">
+                    <div class="w-12 h-12 bg-[#C6A75E] rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-[#0F3D3E]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Duniya (Midnight) -->
+        <div class="w-full md:w-1/2 bg-[#0B2447] relative overflow-hidden flex items-center justify-center p-12 group">
+            <div class="absolute inset-0 bg-[url('assets/islamic-pattern.svg')] opacity-5 rotate-180"></div>
+            <div
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[15rem] text-[#7BAE7F]/5 urdu-font pointer-events-none transition-transform duration-1000 group-hover:scale-110">
+                دنیا</div>
+
+            <div class="relative z-10 max-w-md text-center md:text-left reveal">
+                <span class="text-[#7BAE7F] uppercase tracking-[0.3em] text-sm font-bold block mb-4">The Future</span>
+                <h2 class="text-5xl lg:text-7xl text-white title-font mb-6">Excellence <br><span
+                        class="italic font-light text-[#7BAE7F]">& Innovation</span></h2>
+                <p class="text-white/80 leading-relaxed text-lg font-light mb-8">
+                    Equipping minds with cutting-edge academic rigor, STEM education, and critical thinking to lead and
+                    serve in the modern world.
+                </p>
+                <div class="inline-block border border-[#7BAE7F] rounded-full p-1">
+                    <div class="w-12 h-12 bg-[#7BAE7F] rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-[#0B2447]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section: The Sacred Rhythm (Academic Pathway) -->
+    <section class="py-32 bg-[#F6F1E8] relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-24 reveal">
+                <span class="text-[#0F3D3E] uppercase tracking-[0.3em] text-sm font-bold">Academic Pathway</span>
+                <h2 class="text-5xl md:text-7xl text-[#0F3D3E] title-font mt-4">Journey of Growth</h2>
+                <p class="text-[#C6A75E] text-xl italic font-light mt-4">Nurturing potential at every stage</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+
+                <!-- Card 1: Nursery -->
+                <div
+                    class="group relative h-80 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                    <!-- Background Image -->
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('assets/activity1.jfif');"></div>
+                    <!-- Overlay -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E] via-[#0F3D3E]/80 to-transparent opacity-90 group-hover:opacity-95 transition-opacity">
+                    </div>
+
+                    <div class="relative h-full p-8 flex flex-col justify-end">
+                        <div class="absolute top-4 right-4 text-6xl text-white/10 font-bold select-none">01</div>
+                        <div
+                            class="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 text-2xl text-white shadow-md">
+                            🌱</div>
+                        <h3 class="text-3xl title-font text-white mb-1">Nursery</h3>
+                        <span class="text-xs uppercase tracking-widest text-[#C6A75E] block mb-3 font-bold">The
+                            Seedling</span>
+                        <p class="text-white/80 text-sm font-light leading-relaxed">
+                            Introduction to basic concepts, social skills, and the joy of learning through play and Dua.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: LKG -->
+                <div
+                    class="group relative h-80 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                    <!-- Background Image -->
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('assets/classroom.jfif');"></div>
+                    <!-- Overlay -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-[#0B2447] via-[#0B2447]/80 to-transparent opacity-90 group-hover:opacity-95 transition-opacity">
+                    </div>
+
+                    <div class="relative h-full p-8 flex flex-col justify-end">
+                        <div class="absolute top-4 right-4 text-6xl text-white/10 font-bold select-none">02</div>
+                        <div
+                            class="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 text-2xl text-white shadow-md">
+                            🌿</div>
+                        <h3 class="text-3xl title-font text-white mb-1">LKG</h3>
+                        <span class="text-xs uppercase tracking-widest text-[#C6A75E] block mb-3 font-bold">The
+                            Sprouting</span>
+                        <p class="text-white/80 text-sm font-light leading-relaxed">
+                            Building foundation in language (English/Arabi), numeracy, and prophetic manners (Adab).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: UKG -->
+                <div
+                    class="group relative h-80 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                    <!-- Background Image -->
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('assets/activity2.jfif');"></div>
+                    <!-- Overlay -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E] via-[#0F3D3E]/80 to-transparent opacity-90 group-hover:opacity-95 transition-opacity">
+                    </div>
+
+                    <div class="relative h-full p-8 flex flex-col justify-end">
+                        <div class="absolute top-4 right-4 text-6xl text-white/10 font-bold select-none">03</div>
+                        <div
+                            class="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 text-2xl text-white shadow-md">
+                            🌳</div>
+                        <h3 class="text-3xl title-font text-white mb-1">UKG</h3>
+                        <span class="text-xs uppercase tracking-widest text-[#C6A75E] block mb-3 font-bold">The
+                            Rooting</span>
+                        <p class="text-white/80 text-sm font-light leading-relaxed">
+                            Strengthening reading fluency (Nazra), writing, and confidence in public speaking.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Class 1-8 -->
+                <div
+                    class="group relative h-80 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                    <!-- Background Image -->
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('assets/loop6.jfif');"></div>
+                    <!-- Overlay -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-[#1A4D2E] via-[#1A4D2E]/80 to-transparent opacity-90 group-hover:opacity-95 transition-opacity">
+                    </div>
+
+                    <div class="relative h-full p-8 flex flex-col justify-end">
+                        <div class="absolute top-4 right-4 text-6xl text-white/10 font-bold select-none">04</div>
+                        <div
+                            class="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 text-2xl text-white shadow-md">
+                            🎓</div>
+                        <h3 class="text-3xl title-font text-white mb-1">Class 1-8</h3>
+                        <span class="text-xs uppercase tracking-widest text-[#C6A75E] block mb-3 font-bold">The
+                            Blossoming</span>
+                        <p class="text-white/80 text-sm font-light leading-relaxed">
+                            Rigorous academics, Hifz integration, STEM projects, and leadership development.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-12 flex justify-center">
+                <a href="admissions.html" class="admission-cta">
+                    Admission Now
+                    <span aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Scripts -->
+    <script>
+        // Remove loading class
+        setTimeout(() => {
+            document.body.classList.remove('loading');
+        }, 3500);
+
+        // Mobile Menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+        }
+
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        }
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Header Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('glass-nav');
+            } else {
+                header.classList.remove('glass-nav');
+            }
+        });
+
+        // Reveal on Scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // --- NEW ANIMATIONS ---
+
+        // 3D Tilt Effect
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -5; // Subtle rotation
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+
+        // Timeline Progress
+        const timelineProgress = document.getElementById('timeline-progress');
+        // Find the container of the timeline logic - usually the section or the relative wrapper
+        const timelineWrapper = timelineProgress?.parentElement;
+
+        if (timelineWrapper && timelineProgress) {
+            window.addEventListener('scroll', () => {
+                const rect = timelineWrapper.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // Calculate how much of the section has been scrolled through
+                const startOffset = windowHeight * 0.8; // Start filling when section is 80% up the viewport
+                const sectionTop = rect.top;
+                const sectionHeight = rect.height;
+
+                let percentage = 0;
+
+                if (sectionTop < startOffset) {
+                    const scrolled = startOffset - sectionTop;
+                    percentage = (scrolled / sectionHeight) * 100;
+                }
+
+                percentage = Math.min(Math.max(percentage, 0), 100);
+                timelineProgress.style.height = `${percentage}%`;
+            });
+        }
+
+        // Parallax Effect for Background Elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+
+            // Floating arabic letters
+            document.querySelectorAll('.parallax-bg div').forEach((el, index) => {
+                if (index === 2) {
+                    // Center large text - simpler movement
+                    // el.style.transform is handled by CSS mostly, but we can add subtle parallax
+                } else {
+                    const speed = (index + 1) * 0.03;
+                    // Apply translation based on scroll, preserving original positioning logic if possible
+                    // However, creating a specific parallax class is safer
+                }
+            });
+
+            // Custom Parallax for specific elements
+            const parallaxElements = document.querySelectorAll('.parallax-bg .floating-card, .parallax-bg .floating-card-delayed');
+            parallaxElements.forEach((el, index) => {
+                const speed = 0.1 * (index + 1);
+                const yPos = -(scrolled * speed);
+                el.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+    </script>
+    <!-- Footer -->
+    <footer class="bg-[#0F3D3E] text-white pt-20 pb-12 px-8 lg:px-16">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
+                <div class="lg:col-span-2">
+                    <!-- Logo and School Name -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="inline-block">
+                            <img src="assets/transparent logo.png" alt="Modern Calcutta School Logo"
+                                class="h-20 w-auto drop-shadow-lg">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-2xl title-font tracking-[0.05em] text-white font-bold leading-none">
+                                MODERN CALCUTTA SCHOOL
+                            </span>
+                            <span class="text-xs uppercase tracking-[0.2em] text-[#C6A75E] font-bold mt-1">
+                                Foundation of Ilm & Adab
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm font-light max-w-sm leading-relaxed mb-8">
+                        Ilm leads to light. Light leads to leadership. Leadership leads to a better world. Dedicated to
+                        nurturing the next generation of global citizens with a sacred soul.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/16pkk2W8Qv/?mibextid=wwXIfr" target="_blank"
+                            class="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/moderncalcuttaschool/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="w-10 h-10 rounded-full bg-gradient-to-tr from-[#FD1D1D] via-[#E1306C] to-[#405DE6] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.76-6.162 6.162s2.76 6.163 6.162 6.163 6.162-2.76 6.162-6.163c0-3.403-2.76-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-[#FF0000] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xs uppercase tracking-[0.4em] font-bold text-[#C6A75E] mb-8">Quick Links</h4>
+                    <ul class="space-y-4 text-sm font-light text-gray-400 tracking-wider">
+                        <li><a href="index.html"
+                                class="hover:text-[#C6A75E] hover:translate-x-1 inline-block transition-all duration-300">Home</a>
+                        </li>
+                        <li><a href="about.html"
+                                class="hover:text-[#C6A75E] hover:translate-x-1 inline-block transition-all duration-300">About
+                                Us</a></li>
+                        <li><a href="index.html#philosophy"
+                                class="hover:text-[#C6A75E] hover:translate-x-1 inline-block transition-all duration-300">Philosophy</a>
+                        </li>
+                        <li><a href="faith-values.html"
+                                class="hover:text-[#C6A75E] hover:translate-x-1 inline-block transition-all duration-300">Faith
+                                & Values</a></li>
+                        <li><a href="index.html#gallery"
+                                class="hover:text-[#C6A75E] hover:translate-x-1 inline-block transition-all duration-300">Gallery</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs uppercase tracking-[0.4em] font-bold text-[#C6A75E] mb-8">Contact</h4>
+                    <p class="text-sm text-gray-400 font-light mb-4">MR Colony Rd, Birla Colony, Phulwari Sharif, Patna,
+                        Bihar 801505</p>
+                    <p class="text-sm text-gray-400 font-light mb-4">+91 98765 43210</p>
+                    <p class="text-sm text-gray-400 font-light">admissions@mcs.edu.in</p>
+                </div>
+            </div>
+
+            <div
+                class="pt-8 border-t border-white border-opacity-5 flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-[0.3em] text-gray-500">
+                <p>All rights reserved 2026 ; developed and managed by HUZAIFA</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

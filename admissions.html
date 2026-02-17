@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions | Modern Calcutta School, Patna</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Enroll your child at Modern Calcutta School, the best Islamic school in Phulwari Sharif. Check admission process, criteria, and apply for the upcoming academic session.">
+    <meta name="keywords"
+        content="school admission patna, modern calcutta school admission, nursery admission phulwari, cbse school admission patna, islamic school enrollment">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://moderncalcuttaschool.in/admissions.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moderncalcuttaschool.in/admissions.html">
+    <meta property="og:title" content="Admissions Open | Modern Calcutta School">
+    <meta property="og:description"
+        content="Secure your child's future with the best blend of modern education and Islamic values. Apply now for the new session.">
+    <meta property="og:image" content="https://moderncalcuttaschool.in/assets/transparent%20logo.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "School Admission",
+      "educationalLevel": "Primary and Secondary Education",
+      "recognizedBy": {
+        "@type": "School",
+        "name": "Modern Calcutta School"
+      },
+      "url": "https://moderncalcuttaschool.in/admissions.html"
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Epic Pro';
+            src: local('Epic Pro'), local('EpicPro-Bold');
+            font-weight: bold;
+        }
+
+        :root {
+            --primary: #0F3D3E;
+            --midnight: #0B2447;
+            --sage: #7BAE7F;
+            --beige: #F6F1E8;
+            --gold: #C6A75E;
+            --charcoal: #1E1E1E;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--beige);
+            background-image:
+                radial-gradient(at 0% 0%, rgba(198, 167, 94, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(123, 174, 127, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(11, 36, 71, 0.05) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(198, 167, 94, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--charcoal);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        .title-font {
+            font-family: 'Epic Pro', 'Cormorant Garamond', serif;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+        }
+
+        .urdu-font {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            line-height: 2.8;
+        }
+
+        /* Glassmorphism Presets */
+        .glass-nav {
+            background: rgba(246, 241, 232, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(198, 167, 94, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        /* Nav Link Animation */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Form Styling */
+        .form-input {
+            width: 100%;
+            background: transparent;
+            border-bottom: 1px solid rgba(15, 61, 62, 0.2);
+            padding: 0.75rem 0;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-bottom-color: var(--gold);
+            background: linear-gradient(to bottom, transparent 95%, rgba(198, 167, 94, 0.1) 100%);
+        }
+
+        /* Map */
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            filter: grayscale(0.2) contrast(1.1);
+            transition: filter 0.3s ease;
+        }
+
+        .map-container:hover iframe {
+            filter: grayscale(0) contrast(1);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Button Shine Effect */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: skewX(-25deg);
+            transition: 0.5s;
+        }
+
+        .btn-shine:hover::after {
+            left: 150%;
+            transition: 0.7s ease-in-out;
+        }
+
+        /* Watermark Numbers */
+        .watermark-number {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            font-size: 8rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: rgba(198, 167, 94, 0.08);
+            font-weight: 700;
+            line-height: 1;
+            pointer-events: none;
+            z-index: 0;
+            transition: transform 0.5s ease;
+        }
+
+        .admission-step:hover .watermark-number {
+            transform: scale(1.1) rotate(-10deg);
+        }
+
+        /* Modern Grid Pattern for Hero */
+        .hero-pattern {
+            background-color: #0F3D3E;
+            background-image: radial-gradient(rgba(198, 167, 94, 0.15) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(198, 167, 94, 0.15) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Playful Animations */
+        @keyframes float-kite {
+            0% {
+                transform: translate(0, 0) rotate(5deg);
+            }
+
+            50% {
+                transform: translate(20px, -20px) rotate(10deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(5deg);
+            }
+        }
+
+        @keyframes spin-sun {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes wiggle {
+
+            0%,
+            100% {
+                transform: rotate(-3deg);
+            }
+
+            50% {
+                transform: rotate(3deg);
+            }
+        }
+
+        .animate-kite {
+            animation: float-kite 6s ease-in-out infinite;
+        }
+
+        .animate-sun {
+            animation: spin-sun 20s linear infinite;
+        }
+
+        .animate-wiggle {
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        .dash-line {
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='0' ry='0' stroke='%23C6A75E4D' stroke-width='2' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+        }
+
+        /* Hanging Board Animation */
+        @keyframes swing {
+            0% {
+                transform: rotate(1deg);
+            }
+
+            50% {
+                transform: rotate(-1deg);
+            }
+
+            100% {
+                transform: rotate(1deg);
+            }
+        }
+
+        .hanging-board {
+            animation: swing 3s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        .wooden-texture {
+            background-color: #8B4513;
+            background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), inset 0 2px 5px rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-[#F6F1E8]">
+
+    <!-- Header -->
+    <header id="header"
+        class="glass-nav fixed w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center transition-all duration-500 border-b border-transparent">
+        <div class="flex items-center gap-2 md:gap-4 group cursor-pointer">
+            <img src="assets/transparent logo.png" alt="Modern Calcutta School Logo"
+                class="h-10 md:h-14 lg:h-16 w-auto drop-shadow-lg group-hover:scale-105 transition-transform duration-300">
+            <div class="flex flex-col">
+                <span
+                    class="text-xs sm:text-base md:text-xl lg:text-3xl title-font tracking-[0.05em] text-[#0F3D3E] font-bold leading-none group-hover:text-[#C6A75E] transition-colors duration-300 drop-shadow-md whitespace-nowrap">MODERN
+                    CALCUTTA SCHOOL</span>
+                <span
+                    class="text-[7px] md:text-[9px] uppercase tracking-[0.15em] md:tracking-[0.2em] text-[#C6A75E] font-bold mt-0.5 md:mt-1 drop-shadow-sm">Foundation
+                    of Ilm & Adab</span>
+            </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav
+            class="hidden xl:flex items-center space-x-10 text-[11px] uppercase tracking-[0.15em] font-bold text-[#0F3D3E] drop-shadow-md">
+            <a href="index.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">Home</a>
+            <a href="about.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">About Us</a>
+            <a href="academics.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">Academics</a>
+            <a href="faith-values.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">Faith &
+                Values</a>
+            <a href="gallery.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">Gallery</a>
+            <a href="index.html#contact"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">Contact</a>
+        </nav>
+
+        <div class="flex items-center space-x-4">
+            <a href="admissions.html"
+                class="hidden md:block px-6 py-3 bg-gradient-to-r from-[#C6A75E] to-[#7BAE7F] text-white text-[10px] uppercase tracking-[0.2em] font-bold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 btn-shine">
+                Admission Open
+            </a>
+            <!-- Mobile Menu Button (Simplified) -->
+            <button id="mobile-menu-button" class="xl:hidden text-[#0F3D3E]">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 hero-pattern text-white overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0F3D3E]/50 to-[#F6F1E8]"></div>
+
+        <!-- Crayon Sun -->
+        <div class="absolute top-20 right-10 md:right-20 w-32 md:w-48 opacity-80 animate-sun z-0 hidden md:block">
+            <svg viewBox="0 0 100 100" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="w-full h-full drop-shadow-lg">
+                <circle cx="50" cy="50" r="20" stroke-dasharray="2 4" />
+                <path
+                    d="M50 15 v10 M50 75 v10 M15 50 h10 M75 50 h10 M25 25 l7 7 M68 68 l7 7 M25 75 l7 -7 M68 32 l7 -7" />
+                <!-- Hand-drawn scribbles -->
+                <path d="M40 40 q10 -5 20 0 t20 0" stroke="#FFA500" stroke-width="1" opacity="0.6" />
+            </svg>
+        </div>
+
+
+
+        <div class="container mx-auto text-center relative z-10 hero-content">
+            <span
+                class="text-[#C6A75E] uppercase tracking-[0.3em] text-xs md:text-sm font-bold mb-6 block animate-bounce border border-[#C6A75E]/30 rounded-full px-4 py-1 mx-auto w-max bg-[#0F3D3E]/50 backdrop-blur-sm">
+                Where Little Stars Shine Bright
+            </span>
+            <h1 class="text-6xl md:text-8xl lg:text-9xl title-font mb-8 drop-shadow-2xl animate-float tracking-tight">
+                Faith & Future <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-[#C6A75E] to-[#F6F1E8] italic">Hand in
+                    Hand</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-gray-200 text-lg md:text-2xl font-light leading-relaxed mb-10">
+                A place where <span class="text-[#C6A75E] font-medium">playful learning</span> meets <span
+                    class="text-[#C6A75E] font-medium">timeless values</span>.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#enquiry-form"
+                    class="px-8 py-4 bg-[#C6A75E] text-[#0F3D3E] font-bold uppercase tracking-widest rounded-full hover:bg-white transition-all duration-300 shadow-lg hover:shadow-[#C6A75E]/50 transform hover:-translate-y-1">
+                    Admissions Open Apply Now
+                </a>
+                <a href="#process"
+                    class="px-8 py-4 border border-white/30 text-white font-bold uppercase tracking-widest rounded-full hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
+                    See How It Works
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Process -->
+    <section id="process" class="py-24 px-4 relative overflow-hidden">
+        <!-- Connecting Line (Desktop) -->
+        <div
+            class="hidden md:block absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#C6A75E]/30 to-transparent z-0 transform -translate-y-1/2">
+        </div>
+
+        <!-- Decorative Cloud -->
+        <div class="absolute top-10 left-10 w-32 opacity-20">
+            <svg viewBox="0 0 100 60" fill="white" class="w-full h-full">
+                <path d="M10 40 Q25 10 50 30 T90 40 Q100 50 90 60 H10 Q0 50 10 40" />
+            </svg>
+        </div>
+
+        <!-- Flying Kite (Moved Here) -->
+        <div class="absolute top-0 right-10 md:right-32 w-24 md:w-32 animate-kite z-0 opacity-90">
+            <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-2xl">
+                <!-- Kite Body -->
+                <path d="M50 10 L80 40 L50 90 L20 40 Z" fill="#FF6B6B" stroke="#FFFFFF" stroke-width="2" />
+                <path d="M20 40 L80 40 M50 10 L50 90" stroke="#FFFFFF" stroke-width="1" />
+                <!-- Tail -->
+                <path d="M50 90 Q60 110 50 130 T40 160" stroke="#FF6B6B" stroke-width="2" fill="none" />
+                <!-- Bows on Tail -->
+                <path d="M50 110 l-5 5 l10 -10 m-10 0 l10 10" stroke="#eda515" stroke-width="2" />
+                <path d="M45 140 l-5 5 l10 -10 m-10 0 l10 10" stroke="#2563eb" stroke-width="2" />
+            </svg>
+        </div>
+
+        <div class="container mx-auto relative z-10">
+            <!-- Hanging Wooden Board Title -->
+            <div class="relative w-full max-w-2xl mx-auto mb-20 text-center">
+                <!-- Nail -->
+                <div class="w-4 h-4 bg-gray-600 rounded-full mx-auto relative z-20 shadow-sm border border-gray-400">
+                </div>
+                <!-- Thread -->
+                <div class="w-0.5 h-16 bg-gray-400 mx-auto -mt-2"></div>
+
+                <!-- Board -->
+                <div
+                    class="hanging-board wooden-texture p-6 md:p-8 rounded-lg relative -mt-1 mx-auto inline-block border-4 border-[#5D2906]">
+                    <!-- Wood grain SVG overlay (optional for more detail, using CSS texture instead for performance) -->
+                    <h2 class="text-3xl md:text-5xl title-font text-[#F6F1E8] text-center drop-shadow-md">
+                        Your Journey <span class="text-[#C6A75E] italic">Starts Here</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                <!-- Step 1 -->
+                <div
+                    class="admission-step tilt-card glass-card group p-10 rounded-3xl relative overflow-hidden hover:-translate-y-2 transition-transform duration-500">
+                    <span class="watermark-number">01</span>
+                    <div
+                        class="w-16 h-16 rounded-full bg-[#0F3D3E] flex items-center justify-center text-[#C6A75E] mb-6 relative z-10 shadow-lg group-hover:bg-[#C6A75E] group-hover:text-[#0F3D3E] transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl title-font mb-4 text-[#0F3D3E] relative z-10">Enquiry & Visit</h3>
+                    <p class="text-gray-600 leading-relaxed relative z-10">Start by filling our online form or visiting
+                        the campus to meet our educators.</p>
+                </div>
+                <!-- Step 2 -->
+                <div
+                    class="admission-step tilt-card glass-card group p-10 rounded-3xl relative overflow-hidden hover:-translate-y-2 transition-transform duration-500">
+                    <span class="watermark-number">02</span>
+                    <div
+                        class="w-16 h-16 rounded-full bg-[#0F3D3E] flex items-center justify-center text-[#C6A75E] mb-6 relative z-10 shadow-lg group-hover:bg-[#C6A75E] group-hover:text-[#0F3D3E] transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl title-font mb-4 text-[#0F3D3E] relative z-10">Assessment</h3>
+                    <p class="text-gray-600 leading-relaxed relative z-10">Interaction for primary grades or an aptitude
+                        test for higher classes.</p>
+                </div>
+                <!-- Step 3 -->
+                <div
+                    class="admission-step tilt-card glass-card group p-10 rounded-3xl relative overflow-hidden hover:-translate-y-2 transition-transform duration-500">
+                    <span class="watermark-number">03</span>
+                    <div
+                        class="w-16 h-16 rounded-full bg-[#0F3D3E] flex items-center justify-center text-[#C6A75E] mb-6 relative z-10 shadow-lg group-hover:bg-[#C6A75E] group-hover:text-[#0F3D3E] transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl title-font mb-4 text-[#0F3D3E] relative z-10">Registration</h3>
+                    <p class="text-gray-600 leading-relaxed relative z-10">Complete documentation and fee payment to
+                        secure the seat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Admission Form & Contact -->
+    <section id="enquiry-form" class="py-24 px-4 relative">
+        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+            <!-- Form -->
+            <div
+                class="form-container glass-card p-10 md:p-14 rounded-[2.5rem] relative overflow-hidden border border-white/40">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-[#C6A75E]/10 rounded-full blur-3xl -mr-10 -mt-10"></div>
+                <!-- Playful Sticker -->
+                <div class="absolute -top-4 -left-4 transform rotate-12">
+                    <svg width="60" height="60" viewBox="0 0 100 100" fill="#FFD700" class="drop-shadow-md">
+                        <path d="M50 0 L61 35 L98 35 L68 57 L79 91 L50 70 L21 91 L32 57 L2 35 L39 35 Z" />
+                        <text x="50" y="65" font-size="20" text-anchor="middle" fill="#0F3D3E" font-weight="bold"
+                            font-family="sans-serif">!</text>
+                    </svg>
+                </div>
+
+                <h2 class="text-4xl md:text-5xl title-font text-[#0F3D3E] mb-10 relative z-10">Say <span
+                        class="text-[#C6A75E] italic">Hello!</span></h2>
+                <form class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Student
+                                Name</label>
+                            <input type="text" class="form-input" placeholder="First & Last Name">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Grade Applying
+                                For</label>
+                            <select class="form-input">
+                                <option>Select Grade</option>
+                                <option>Nursery</option>
+                                <option>LKG</option>
+                                <option>UKG</option>
+                                <option>Grade 1 - 5</option>
+                                <option>Grade 6 - 8</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Parent
+                                Name</label>
+                            <input type="text" class="form-input" placeholder="Parent/Guardian Name">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Phone
+                                Number</label>
+                            <input type="tel" class="form-input" placeholder="+91 XXXXX XXXXX">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email Address</label>
+                        <input type="email" class="form-input" placeholder="you@example.com">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Message
+                            (Optional)</label>
+                        <textarea class="form-input" rows="3" placeholder="Any specific questions?"></textarea>
+                    </div>
+
+                    <button type="button"
+                        class="px-8 py-4 bg-[#0F3D3E] text-white text-sm uppercase tracking-[0.2em] font-bold rounded-full hover:bg-[#C6A75E] transition-colors duration-300 w-full md:w-auto btn-shine">
+                        Submit Enquiry
+                    </button>
+                    <p class="text-xs text-gray-400 mt-4">For immediate assistance, please call our landline or visit
+                        the office.</p>
+                </form>
+            </div>
+
+            <!-- Contact Info & Map -->
+            <div class="contact-container glass-card p-10 md:p-14 rounded-[2.5rem] border border-white/40 flex flex-col justify-between relative overflow-hidden"
+                style="background: linear-gradient(135deg, rgba(224, 231, 255, 0.8), rgba(243, 232, 255, 0.8));">
+                <!-- Mini Sun Doodle -->
+                <div class="absolute top-8 right-8 w-20 h-20 opacity-20 animate-sun">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="#C6A75E" stroke-width="3" stroke-linecap="round">
+                        <circle cx="50" cy="50" r="20" />
+                        <path
+                            d="M50 10 v15 M50 75 v15 M10 50 h15 M75 50 h15 M22 22 l10 10 M68 68 l10 10 M22 78 l10 -10 M68 32 l10 -10" />
+                    </svg>
+                </div>
+
+                <div>
+                    <h2 class="text-4xl md:text-5xl title-font text-[#0F3D3E] mb-10 relative z-10">Visit <span
+                            class="text-[#C6A75E] italic">Us</span></h2>
+
+                    <div class="space-y-8 mb-10">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#0F3D3E] flex items-center justify-center text-[#C6A75E] flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-[#0F3D3E] font-bold uppercase tracking-wider mb-1">Campus Location</h4>
+                                <p class="text-gray-600 font-light">Millat Colony, Phulwarisharif, Patna.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#0F3D3E] flex items-center justify-center text-[#C6A75E] flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-[#0F3D3E] font-bold uppercase tracking-wider mb-1">Contact Details</h4>
+                                <p class="text-gray-600 font-light mb-2">Landline: <a href="tel:06123167878"
+                                        class="hover:text-[#C6A75E] transition-colors">0612 3167878</a></p>
+                                <a href="tel:917677011133"
+                                    class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#25D366] text-white rounded-full text-xs uppercase font-bold tracking-wide hover:bg-[#128C7E] transition-all shadow-md transform hover:scale-105">
+                                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z" />
+                                        <path
+                                            d="M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 16.705 21c.25 0 .468-.093.648-.289l1.862-2.171a1 1 0 0 0-.087-1.391l-4.006-3.706z" />
+                                    </svg>
+                                    Quick Call
+                                </a>
+                                <p class="text-gray-600 font-light mt-2">Email: <a href="mailto:mcs.patna2019@gmail.com"
+                                        class="hover:text-[#C6A75E] transition-colors">mcs.patna2019@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#0F3D3E] flex items-center justify-center text-[#C6A75E] flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-[#0F3D3E] font-bold uppercase tracking-wider mb-1">Office Hours</h4>
+                                <p class="text-gray-600 font-light">Mon - Sat: 8:00 AM - 2:00 PM</p>
+                                <p class="text-gray-600 font-light text-sm text-red-400">Friday: Break 12:30 PM - 2:00
+                                    PM
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Google Map -->
+                <div
+                    class="map-container h-64 w-full rounded-2xl overflow-hidden shadow-lg border border-[#C6A75E]/30 mt-8">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14392.35624773468!2d85.0747805!3d25.592789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57c09424c3e3%3A0x6b6d5b0c0c0c0c0c!2sPhulwari%20Sharif%2C%20Patna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1645520000000!5m2!1sen!2sin"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-4 bg-[#F6F1E8] relative overflow-hidden">
+        <!-- Doodle Clock -->
+        <div class="absolute top-10 left-[-20px] md:left-10 w-32 h-32 opacity-10 rotate-[-15deg]">
+            <svg viewBox="0 0 100 100" fill="none" stroke="#0F3D3E" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="50" cy="50" r="40" />
+                <path d="M50 50 L50 20" /> <!-- Hour Hand -->
+                <path d="M50 50 L70 60" /> <!-- Minute Hand -->
+                <path d="M50 10 v10 M90 50 h-10 M50 90 v-10 M10 50 h10" />
+                <circle cx="50" cy="50" r="3" fill="#0F3D3E" />
+            </svg>
+        </div>
+
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <h2 class="text-3xl md:text-4xl title-font text-[#0F3D3E] text-center mb-12">Frequently Asked <span
+                    class="text-[#C6A75E] italic">Questions</span></h2>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item border border-[#C6A75E]/30 rounded-xl bg-white overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none bg-white text-[#0F3D3E] font-bold">
+                        <span>What is the age criteria for Nursery admission?</span>
+                        <svg class="w-5 h-5 text-[#C6A75E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="faq-content px-6 text-gray-600 font-light border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300 ease-out">
+                        <div class="py-4">For Nursery, the child should be 3+ years of age as of March 31st of the
+                            academic year.</div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item border border-[#C6A75E]/30 rounded-xl bg-white overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none bg-white text-[#0F3D3E] font-bold">
+                        <span>Is transportation available?</span>
+                        <svg class="w-5 h-5 text-[#C6A75E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="faq-content px-6 text-gray-600 font-light border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300 ease-out">
+                        <div class="py-4">Yes, we provide safe and reliable transportation facilities covering major
+                            routes in Patna and
+                            Phulwarisharif.</div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item border border-[#C6A75E]/30 rounded-xl bg-white overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none bg-white text-[#0F3D3E] font-bold">
+                        <span>What documents are required for admission?</span>
+                        <svg class="w-5 h-5 text-[#C6A75E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="faq-content px-6 text-gray-600 font-light border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300 ease-out">
+                        <div class="py-4">Birth Certificate, Aadhar Card (Student & Parents), Recent Passport Size
+                            Photos, and Transfer
+                            Certificate (for Grade 2 onwards).</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="bg-[#0F3D3E] text-white pt-20 pb-10 border-t border-[#C6A75E]/20 relative z-10 overflow-hidden">
+        <!-- Floating Kite Footer -->
+        <div class="absolute bottom-10 right-10 w-24 h-24 opacity-10 animate-kite">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M50 5 L80 35 L50 95 L20 35 Z" />
+                <path d="M20 35 L80 35 M50 5 L50 95" />
+                <path d="M50 95 Q60 110 50 130" fill="none" />
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="inline-block">
+                            <img src="assets/transparent logo.png" alt="Logo"
+                                class="h-24 w-auto drop-shadow-lg filter brightness-110">
+                        </div>
+                        <div class="flex flex-col">
+                            <h3 class="text-2xl title-font font-bold leading-none">MODERN CALCUTTA SCHOOL</h3>
+                            <p class="text-[#C6A75E] text-xs uppercase tracking-widest mt-1">Foundation of Ilm & Adab
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 font-light leading-relaxed max-w-sm">
+                        Nurturing young minds with a blend of modern academic excellence and timeless Islamic values.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg title-font font-bold mb-6 text-[#C6A75E]">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400 font-light text-sm">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="academics.html" class="hover:text-white transition-colors">Academics</a></li>
+                        <li><a href="faith-values.html" class="hover:text-white transition-colors">Faith & Values</a>
+                        </li>
+                        <li><a href="admissions.html" class="hover:text-white transition-colors">Admissions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg title-font font-bold mb-6 text-[#C6A75E]">Connect</h4>
+                    <ul class="space-y-4 text-gray-400 font-light text-sm">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                            0612 3167878
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            mcs.patna2019@gmail.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-xs text-center md:text-left">All rights reserved 2026 ; developed and
+                    managed by HUZAIFA</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+
+    <script>
+        // Initialize Lenis for Smooth Scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- Animations ---
+
+        // 1. Hero Animation using Timeline
+        const heroTl = gsap.timeline();
+        heroTl.from(".hero-content > *", {
+            y: 50,
+            opacity: 0,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "power3.out",
+            delay: 0.2
+        });
+
+        // 2. Admission Journey Cards - Staggered Reveal
+        gsap.utils.toArray('.admission-step').forEach((step, i) => {
+            gsap.from(step, {
+                scrollTrigger: {
+                    trigger: step,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out",
+                delay: i * 0.2 // Manual stagger logic for correct ScrollTrigger behavior on individual items
+            });
+        });
+
+        // 3. Form Section Reveal
+        gsap.from(".form-container", {
+            scrollTrigger: {
+                trigger: ".form-container",
+                start: "top 80%",
+            },
+            x: -50,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out"
+        });
+
+        gsap.from(".contact-container", {
+            scrollTrigger: {
+                trigger: ".contact-container",
+                start: "top 80%",
+            },
+            x: 50,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out",
+            delay: 0.2
+        });
+
+        // 4. FAQ Accordion Animation
+        const accordions = document.querySelectorAll('.faq-item');
+        accordions.forEach(acc => {
+            const btn = acc.querySelector('button');
+            const content = acc.querySelector('.faq-content');
+            const icon = acc.querySelector('svg');
+
+            btn.addEventListener('click', () => {
+                const isOpen = content.style.maxHeight;
+
+                // Close all others
+                accordions.forEach(otherAcc => {
+                    if (otherAcc !== acc) {
+                        otherAcc.querySelector('.faq-content').style.maxHeight = null;
+                        gsap.to(otherAcc.querySelector('svg'), { rotate: 0, duration: 0.3 });
+                    }
+                });
+
+                if (isOpen) {
+                    content.style.maxHeight = null;
+                    gsap.to(icon, { rotate: 0, duration: 0.3 });
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    gsap.to(icon, { rotate: 180, duration: 0.3 });
+                }
+            });
+        });
+
+        // 5. 3D Tilt Effect for Cards
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -5; // Max 5deg
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                gsap.to(card, {
+                    rotationX: rotateX,
+                    rotationY: rotateY,
+                    transformPerspective: 1000,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, {
+                    rotationX: 0,
+                    rotationY: 0,
+                    duration: 0.7,
+                    ease: "elastic.out(1, 0.5)"
+                });
+            });
+        });
+
+        // 6. Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-button');
+        // Logic needed here if not already in header script, assuming basic toggle exists or adding it now
+        // Adding a simple one for safety as the previous code had only the button
+        if (mobileBtn) {
+            const mobileMenu = document.createElement('div');
+            mobileMenu.className = "fixed inset-0 z-40 bg-[#F6F1E8] transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center gap-8 xl:hidden";
+            mobileMenu.innerHTML = `
+                <button class="absolute top-6 right-6 text-[#0F3D3E]" onclick="this.parentElement.classList.add('translate-x-full')">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <a href="index.html" class="text-2xl title-font font-bold text-[#0F3D3E]">Home</a>
+                <a href="about.html" class="text-2xl title-font font-bold text-[#0F3D3E]">About Us</a>
+                <a href="academics.html" class="text-2xl title-font font-bold text-[#0F3D3E]">Academics</a>
+                <a href="faith-values.html" class="text-2xl title-font font-bold text-[#0F3D3E]">Faith & Values</a>
+                <a href="gallery.html" class="text-2xl title-font font-bold text-[#0F3D3E]">Gallery</a>
+                <a href="admissions.html" class="text-2xl title-font font-bold text-[#0F3D3E]">Admissions</a>
+             `;
+            document.body.appendChild(mobileMenu);
+
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+        }
+
+    </script>
+</body>
+
+</html>
