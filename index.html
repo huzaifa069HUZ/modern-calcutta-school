@@ -598,6 +598,30 @@
 </head>
 
 <body class="bg-[#F6F1E8]">
+    <!-- Password Protection Script -->
+    <script>
+        (function () {
+            // Check if user is already authenticated
+            if (sessionStorage.getItem('authenticated') === 'true') {
+                return;
+            }
+
+            let password = '';
+            while (password !== 'moderncalcutta123') {
+                password = prompt("Please enter the password to access the site:");
+                if (password === 'moderncalcutta123') {
+                    sessionStorage.setItem('authenticated', 'true');
+                } else if (password === null) {
+                    // User cancelled, maybe redirect or just reload loop
+                    // For now, let's just loop or show empty body
+                    document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#0F3D3E;color:#C6A75E;font-size:24px;font-family:sans-serif;">Access Denied</div>';
+                    throw new Error('Access Denied');
+                } else {
+                    alert("Incorrect password. Please try again.");
+                }
+            }
+        })();
+    </script>
 
     <!-- Welcome Animation Overlay -->
     <div id="welcome-overlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0F3D3E]">
@@ -653,7 +677,8 @@
                 <span
                     class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#gallery" class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+            <a href="gallery.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
                 Gallery
                 <span
                     class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
