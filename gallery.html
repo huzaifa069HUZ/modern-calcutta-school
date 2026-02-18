@@ -427,6 +427,66 @@
             <!-- Bento Grid -->
             <div class="bento-grid" id="bento-grid">
                 <!-- Items will be injected here via JS -->
+                <!-- Default Static Images (Will be shown if Firestore is empty or while loading) -->
+                <!-- Item 1 -->
+                <div class="bento-item span-4 row-span-2 group" data-category="campus">
+                    <img src="assets/IMG_1538.JPG.jpeg" alt="Campus Life" class="breathe-img">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Campus</span>
+                            <h3 class="text-white text-lg title-font">Vibrant Campus Life</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bento-item span-4 row-span-1 group" data-category="events">
+                    <img src="assets/IMG_1551.JPG.jpeg" alt="School Event" class="breathe-img">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Events</span>
+                            <h3 class="text-white text-lg title-font">Annual Sports Day</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bento-item span-4 row-span-1 group" data-category="academics">
+                    <img src="assets/IMG_1556.JPG.jpeg" alt="Academic Excellence" class="breathe-img">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Academics</span>
+                            <h3 class="text-white text-lg title-font">Classroom Engagement</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="bento-item span-8 row-span-2 group" data-category="culture">
+                    <img src="assets/IMG_1573.JPG.jpeg" alt="Cultural Fest" class="breathe-img">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Culture</span>
+                            <h3 class="text-white text-lg title-font">Cultural Celebrations</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="bento-item span-4 row-span-1 group" data-category="campus">
+                    <img src="assets/IMG_1591.JPG.jpeg" alt="Library" class="breathe-img">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Campus</span>
+                            <h3 class="text-white text-lg title-font">Modern Library</h3>
+                        </div>
+                    </div>
+                </div>
                 <div class="span-12 flex justify-center py-20">
                     <svg class="animate-spin h-10 w-10 text-[#C6A75E]" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24">
@@ -550,28 +610,98 @@
                 const q = query(collection(db, "gallery_images"), orderBy("timestamp", "desc"), limit(50));
                 const snapshot = await getDocs(q);
 
-                if (snapshot.empty) {
-                    grid.innerHTML = `
-                        <div class="span-12 flex flex-col items-center justify-center py-20 text-center opacity-50">
-                            <p class="text-xl font-bold text-[#0F3D3E]">No images found</p>
-                            <p class="text-sm text-[#0F3D3E]/60">Upload images from the admin dashboard to see them here.</p>
-                        </div>`;
-                    return;
-                }
+                // Merge static default images with fetched images
+                const staticImages = [
+                    {
+                        id: 'static-1',
+                        title: 'Vibrant Campus Life',
+                        category: 'Campus',
+                        imageUrl: 'assets/IMG_1538.JPG.jpeg',
+                        size: 'span-4 row-span-2'
+                    },
+                    {
+                        id: 'static-2',
+                        title: 'Annual Sports Day',
+                        category: 'Events',
+                        imageUrl: 'assets/IMG_1551.JPG.jpeg',
+                        size: 'span-4 row-span-1'
+                    },
+                    {
+                        id: 'static-3',
+                        title: 'Classroom Engagement',
+                        category: 'Academics',
+                        imageUrl: 'assets/IMG_1556.JPG.jpeg',
+                        size: 'span-4 row-span-1'
+                    },
+                    {
+                        id: 'static-4',
+                        title: 'Cultural Celebrations',
+                        category: 'Culture',
+                        imageUrl: 'assets/IMG_1573.JPG.jpeg',
+                        size: 'span-8 row-span-2'
+                    },
+                    {
+                        id: 'static-5',
+                        title: 'Modern Library',
+                        category: 'Campus',
+                        imageUrl: 'assets/IMG_1591.JPG.jpeg',
+                        size: 'span-4 row-span-1'
+                    }
+                ];
 
-                allImages = [];
-                snapshot.forEach(doc => {
-                    allImages.push({ id: doc.id, ...doc.data() });
-                });
+                allImages = [...staticImages];
+
+                if (!snapshot.empty) {
+                    snapshot.forEach(doc => {
+                        allImages.push({ id: doc.id, ...doc.data() });
+                    });
+                }
 
                 renderGallery('all');
 
             } catch (error) {
                 console.error("Error fetching gallery:", error);
-                grid.innerHTML = `
-                    <div class="span-12 text-center py-20 text-red-500">
-                        <p>Error loading gallery. Please try again later.</p>
-                    </div>`;
+
+                // Fallback to purely static if Firebase fails
+                const staticImages = [
+                    {
+                        id: 'static-1',
+                        title: 'Vibrant Campus Life',
+                        category: 'Campus',
+                        imageUrl: 'assets/IMG_1538.JPG.jpeg',
+                        size: 'span-4 row-span-2'
+                    },
+                    {
+                        id: 'static-2',
+                        title: 'Annual Sports Day',
+                        category: 'Events',
+                        imageUrl: 'assets/IMG_1551.JPG.jpeg',
+                        size: 'span-4 row-span-1'
+                    },
+                    {
+                        id: 'static-3',
+                        title: 'Classroom Engagement',
+                        category: 'Academics',
+                        imageUrl: 'assets/IMG_1556.JPG.jpeg',
+                        size: 'span-4 row-span-1'
+                    },
+                    {
+                        id: 'static-4',
+                        title: 'Cultural Celebrations',
+                        category: 'Culture',
+                        imageUrl: 'assets/IMG_1573.JPG.jpeg',
+                        size: 'span-8 row-span-2'
+                    },
+                    {
+                        id: 'static-5',
+                        title: 'Modern Library',
+                        category: 'Campus',
+                        imageUrl: 'assets/IMG_1591.JPG.jpeg',
+                        size: 'span-4 row-span-1'
+                    }
+                ];
+                allImages = [...staticImages];
+                renderGallery('all');
             }
         }
 
