@@ -228,6 +228,15 @@
         // Handle File Selection
         fileInput.addEventListener('change', handleFileSelect);
 
+        // Check for Local File protocol
+        if (window.location.protocol === 'file:') {
+            alert("⚠️ RESTRICTION: You are opening this file locally.\n\nThe 'Upload' feature requires a backend server and will NOT work from your desktop.\n\nPlease open the 'Deployed' version of this site (on Vercel) to upload images.");
+            uploadBtn.disabled = true;
+            uploadBtn.innerHTML = "Upload Disabled (Local File Mode)";
+            uploadBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+            uploadBtn.classList.remove('hover:bg-[#0B2B2C]', 'hover:shadow-xl');
+        }
+
         // Highlight Drop Zone
         ['dragenter', 'dragover'].forEach(eventName => {
             dropZone.addEventListener(eventName, (e) => {
@@ -356,7 +365,8 @@
                 });
 
                 if (!response.ok) {
-                    throw new Error('Upload to Blob failed');
+                    const errorDetails = await response.text(); // Get server error text
+                    throw new Error(`Upload Failed: ${response.status} ${response.statusText}\n${errorDetails}`);
                 }
 
                 const blob = await response.json();
