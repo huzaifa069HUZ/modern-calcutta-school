@@ -1,0 +1,10 @@
+{
+    "rewrites": [
+        {
+            "source": "/admin",
+            "destination": "/admin/dashboard.html"
+        }
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
+}
