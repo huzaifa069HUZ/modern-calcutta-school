@@ -19,7 +19,8 @@
     <meta property="og:title" content="Photo Gallery | Modern Calcutta School">
     <meta property="og:description"
         content="A glimpse into the vibrant life at Modern Calcutta School. Explore our facilities, events, and happy moments.">
-    <meta property="og:image" content="https://moderncalcuttaschool.in/assets/transparent%20logo.png">
+    <meta property="og:image" content="https://moderncalcuttaschool.in/assets/transparent-logo.png">
+    <link rel="icon" type="image/png" href="assets/transparent-logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Bebas+Neue&family=Noto+Nastaliq+Urdu:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&display=swap"
@@ -247,72 +248,116 @@
 <body class="loading">
 
     <!-- Header -->
-    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 border-b border-white/10"
-        style="padding: 1.5rem 0;">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center gap-3 group relative z-50">
-                <img src="assets/transparent logo.png" alt="MCS Logo" class="h-12 w-auto drop-shadow-md">
-                <div class="hidden lg:block">
-                    <h1 class="logo-text text-xl md:text-2xl title-font font-bold text-white tracking-wide">
-                        MODERN CALCUTTA SCHOOL
-                    </h1>
-                </div>
+    <header id="header"
+        class="fixed w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center transition-all duration-500 border-b border-transparent">
+        <a href="index.html" class="flex items-center gap-2 md:gap-4 group cursor-pointer">
+            <img src="assets/transparent-logo.png" alt="Modern Calcutta School Logo"
+                class="h-10 md:h-14 lg:h-16 w-auto drop-shadow-lg group-hover:scale-105 transition-transform duration-300">
+            <div class="flex flex-col">
+                <span
+                    class="text-xs sm:text-base md:text-xl lg:text-3xl title-font tracking-[0.05em] text-white font-bold leading-none group-hover:text-[#C6A75E] transition-colors duration-300 drop-shadow-md whitespace-nowrap">MODERN
+                    CALCUTTA SCHOOL</span>
+                <span
+                    class="text-[7px] md:text-[9px] uppercase tracking-[0.15em] md:tracking-[0.2em] text-[#C6A75E] font-bold mt-0.5 md:mt-1 drop-shadow-sm">Foundation
+                    of Ilm & Adab</span>
+            </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav
+            class="hidden xl:flex items-center space-x-10 text-[11px] uppercase tracking-[0.15em] font-bold text-white drop-shadow-md">
+            <a href="index.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Home
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="about.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                About Us
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="academics.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Academics
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="faith-values.html"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Faith & Values
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="gallery.html" class="nav-link relative py-2 text-[#C6A75E] transition-colors duration-300 group">
+                Gallery
+                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-[#C6A75E] transition-all duration-300"></span>
+            </a>
+            <a href="index.html#contact"
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Contact
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </nav>
+
+        <div class="flex items-center space-x-4">
+            <!-- Desktop CTA Button -->
+            <a href="admissions.html"
+                class="hidden md:block px-6 py-3 bg-gradient-to-r from-[#C6A75E] to-[#7BAE7F] text-white text-[10px] uppercase tracking-[0.2em] font-bold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                Admission Now
             </a>
 
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-8">
-                <ul class="flex space-x-8 text-white font-medium tracking-wide text-sm">
-                    <li><a href="about.html" class="nav-link">ABOUT US</a></li>
-                    <li><a href="academics.html" class="nav-link">ACADEMICS</a></li>
-                    <li><a href="faith-values.html" class="nav-link">FAITH & VALUES</a></li>
-                    <li><a href="admissions.html" class="nav-link">ADMISSIONS</a></li>
-                    <li><a href="gallery.html" class="nav-link text-[#C6A75E]">GALLERY</a></li>
-                </ul>
-                <button
-                    class="hidden lg:block px-6 py-2 border border-white text-white rounded-full hover:bg-white hover:text-[#0F3D3E] transition-all duration-300 transform hover:scale-105 uppercase text-xs tracking-widest font-bold">
-                    Inquire Now
-                </button>
-            </nav>
-
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none relative z-50">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
+            <button id="mobile-menu-button"
+                class="xl:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <span class="hamburger-line block w-5 h-0.5 bg-white mb-1 transition-all duration-300"></span>
+                <span class="hamburger-line block w-5 h-0.5 bg-white mb-1 transition-all duration-300"></span>
+                <span class="hamburger-line block w-5 h-0.5 bg-white transition-all duration-300"></span>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay (Same as other pages) -->
+    <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
-        class="fixed inset-0 bg-[#0F3D3E] z-40 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden flex flex-col justify-center items-center">
-        <!-- Close Button -->
-        <button id="mobile-menu-close" class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12">
-                </path>
-            </svg>
-        </button>
+        class="fixed inset-0 z-[60] bg-[#0F3D3E]/95 backdrop-blur-lg translate-x-full transition-transform duration-500 ease-in-out xl:hidden">
+        <div class="flex flex-col h-full">
+            <!-- Close Button -->
+            <div class="flex justify-end p-6">
+                <button id="mobile-menu-close"
+                    class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
 
-        <nav class="text-center space-y-8">
-            <a href="index.html"
-                class="mobile-nav-link block text-3xl title-font text-white hover:text-[#C6A75E] transition-colors">Home</a>
-            <a href="about.html"
-                class="mobile-nav-link block text-3xl title-font text-white hover:text-[#C6A75E] transition-colors">About
-                Us</a>
-            <a href="academics.html"
-                class="mobile-nav-link block text-3xl title-font text-white hover:text-[#C6A75E] transition-colors">Academics</a>
-            <a href="faith-values.html"
-                class="mobile-nav-link block text-3xl title-font text-white hover:text-[#C6A75E] transition-colors">Faith
-                & Values</a>
-            <a href="admissions.html"
-                class="mobile-nav-link block text-3xl title-font text-white hover:text-[#C6A75E] transition-colors">Admissions</a>
-            <a href="gallery.html"
-                class="mobile-nav-link block text-3xl title-font text-[#C6A75E] transition-colors">Gallery</a>
-        </nav>
+            <!-- Mobile Navigation Links -->
+            <nav class="flex flex-col items-center justify-center flex-1 space-y-8 px-8">
+                <a href="index.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Home</a>
+                <a href="about.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">About
+                    Us</a>
+                <a href="academics.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Academics</a>
+                <a href="faith-values.html"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Faith
+                    & Values</a>
+                <a href="gallery.html"
+                    class="mobile-nav-link text-2xl text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Gallery</a>
+                <a href="index.html#contact"
+                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Contact</a>
+                <a href="admissions.html"
+                    class="px-8 py-3 bg-gradient-to-r from-[#C6A75E] to-[#7BAE7F] text-white text-sm uppercase tracking-[0.2em] font-bold rounded-full hover:shadow-2xl transition-all duration-300 mt-8">
+                    Admission Now
+                </a>
+            </nav>
+        </div>
     </div>
+
 
     <main>
         <!-- Hero Section: "The Shuffle" -->
@@ -381,131 +426,21 @@
 
             <!-- Bento Grid -->
             <div class="bento-grid" id="bento-grid">
-                <!-- Item 1: Events -->
-                <div class="bento-item span-8 row-span-2 group" data-category="events">
-                    <img src="assets/classroom.jfif" alt="School Life" class="breathe-img">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                        <div>
-                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Events</span>
-                            <h3 class="text-white text-2xl title-font">Annual Sports Day</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 2: Academics -->
-                <div class="bento-item span-4 row-span-2 group" data-category="academics">
-                    <img src="assets/IMG_1538.JPG.jpeg" alt="Library" class="breathe-img" style="animation-delay: 1s;">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                        <div>
-                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Academics</span>
-                            <h3 class="text-white text-2xl title-font">Library Focus</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 3: Academics -->
-                <div class="bento-item span-4 row-span-1 group" data-category="academics">
-                    <img src="assets/IMG_1591.JPG.jpeg" alt="Classroom" class="breathe-img"
-                        style="animation-delay: 0.5s;">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <div>
-                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Academics</span>
-                            <h3 class="text-white text-lg title-font">Interactive Learning</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 4: Academics -->
-                <div class="bento-item span-4 row-span-1 group" data-category="academics">
-                    <img src="assets/IMG_1573.JPG.jpeg" alt="Lab" class="breathe-img" style="animation-delay: 1.5s;">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <div>
-                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Academics</span>
-                            <h3 class="text-white text-lg title-font">Science Lab</h3>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 5: Sports -->
-                <div class="bento-item span-4 row-span-1 group" data-category="sports">
-                    <img src="assets/hero section mobile.jpeg" alt="Activity" class="breathe-img"
-                        style="animation-delay: 2s;">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <div>
-                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Sports</span>
-                            <h3 class="text-white text-lg title-font">Student Activities</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 6: Events -->
-                <div class="bento-item span-6 row-span-1 group" data-category="events">
-                    <img src="assets/cheerfull bg.png" alt="Students Cheering" class="breathe-img"
-                        style="animation-delay: 0.2s;">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <div>
-                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Events</span>
-                            <h3 class="text-white text-xl title-font">Community Spirit</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 7: Trips -->
-                <div class="bento-item span-6 row-span-1 group" data-category="trips">
-                    <img src="assets/trip.jfif" alt="Field Trip" class="breathe-img" style="animation-delay: 1.2s;">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <div>
-                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Trips</span>
-                            <h3 class="text-white text-xl title-font">Educational Tours</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 8: Trips (New) -->
-                <div class="bento-item span-4 row-span-1 group" data-category="trips">
-                    <img src="assets/gallery hero.jfif" alt="Trip Moment" class="breathe-img"
-                        style="animation-delay: 0.8s;">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <div>
-                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Trips</span>
-                            <h3 class="text-white text-lg title-font">Exploring Nature</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 9: Sports (New) -->
-                <div class="bento-item span-4 row-span-1 group" data-category="sports">
-                    <img src="assets/activity1.jfif" alt="Sports" class="breathe-img" style="animation-delay: 0.4s;">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <div>
-                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Sports</span>
-                            <h3 class="text-white text-lg title-font">Team Building</h3>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 10: Academics (New) -->
-                <div class="bento-item span-4 row-span-1 group" data-category="academics">
-                    <img src="assets/classroom.jfif" alt="Classroom" class="breathe-img" style="animation-delay: 0.6s;">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <div>
-                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest">Academics</span>
-                            <h3 class="text-white text-lg title-font">Modern Classrooms</h3>
-                        </div>
-                    </div>
+                <!-- Items will be injected here via JS -->
+                <div class="span-12 flex justify-center py-20">
+                    <svg class="animate-spin h-10 w-10 text-[#C6A75E]" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
+                        <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                        </path>
+                    </svg>
                 </div>
             </div>
 
             <!-- Load More Trigger -->
-            <div class="mt-20 text-center">
+            <div class="mt-20 text-center hidden" id="end-message">
                 <p class="text-[#0F3D3E]/40 text-sm tracking-widest uppercase">End of Gallery</p>
             </div>
         </section>
@@ -544,7 +479,7 @@
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="inline-block">
-                            <img src="assets/transparent logo.png" alt="Logo"
+                            <img src="assets/transparent-logo.png" alt="Logo"
                                 class="h-24 w-auto drop-shadow-lg filter brightness-110">
                         </div>
                         <div class="flex flex-col">
@@ -595,7 +530,194 @@
     </footer>
 
 
-    <!-- Main Animation Script -->
+    <!-- Firebase Config -->
+    <script type="module">
+        import { db, collection, getDocs, query, orderBy, limit } from "./js/firebase-config.js";
+
+        // Global state
+        let allImages = [];
+        let currentFilter = 'all';
+
+        // DOM Elements
+        const grid = document.getElementById('bento-grid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const highlight = document.getElementById('filter-highlight');
+        const endMessage = document.getElementById('end-message');
+
+        // Initialize fetching
+        async function fetchGalleryImages() {
+            try {
+                const q = query(collection(db, "gallery_images"), orderBy("timestamp", "desc"), limit(50));
+                const snapshot = await getDocs(q);
+
+                if (snapshot.empty) {
+                    grid.innerHTML = `
+                        <div class="span-12 flex flex-col items-center justify-center py-20 text-center opacity-50">
+                            <p class="text-xl font-bold text-[#0F3D3E]">No images found</p>
+                            <p class="text-sm text-[#0F3D3E]/60">Upload images from the admin dashboard to see them here.</p>
+                        </div>`;
+                    return;
+                }
+
+                allImages = [];
+                snapshot.forEach(doc => {
+                    allImages.push({ id: doc.id, ...doc.data() });
+                });
+
+                renderGallery('all');
+
+            } catch (error) {
+                console.error("Error fetching gallery:", error);
+                grid.innerHTML = `
+                    <div class="span-12 text-center py-20 text-red-500">
+                        <p>Error loading gallery. Please try again later.</p>
+                    </div>`;
+            }
+        }
+
+        function renderGallery(filter) {
+            currentFilter = filter;
+
+            // Filter
+            const filtered = filter === 'all'
+                ? allImages
+                : allImages.filter(img => img.category.toLowerCase() === filter.toLowerCase());
+
+            // Clear Grid (with Fade Out effect ideally, but simple replace for now)
+            grid.innerHTML = '';
+            endMessage.classList.add('hidden');
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                        <div class="span-12 flex flex-col items-center justify-center py-20 text-center opacity-50">
+                            <p class="text-lg font-bold text-[#0F3D3E]">No images in this category</p>
+                        </div>`;
+                return;
+            }
+
+            // Render Items
+            filtered.forEach((img, index) => {
+                const item = document.createElement('div');
+                // Use stored size or default. Validate size class to prevent layout breaking
+                const validSizes = ['span-4', 'span-6', 'span-8', 'row-span-1', 'row-span-2'];
+                let sizeClass = img.size || 'span-4 row-span-1';
+
+                // Construct HTML
+                item.className = `bento-item ${sizeClass} group opacity-0 translate-y-8`;
+                item.setAttribute('data-category', img.category);
+
+                // Staggered delay for animation
+                const delay = (index % 10) * 0.1;
+
+                item.innerHTML = `
+                    <img src="${img.imageUrl}" alt="${img.title}" class="breathe-img" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 md:p-8">
+                        <div>
+                            <span class="text-[#C6A75E] text-xs uppercase tracking-widest font-bold mb-1 block">${img.category}</span>
+                            <h3 class="text-white text-lg md:text-xl title-font leading-tight">${img.title}</h3>
+                        </div>
+                    </div>
+                `;
+
+                // Lightbox Event
+                item.addEventListener('click', () => openLightbox(img.imageUrl));
+
+                grid.appendChild(item);
+
+                // Animate In
+                gsap.to(item, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    delay: delay,
+                    ease: "power2.out"
+                });
+            });
+
+            endMessage.classList.remove('hidden');
+        }
+
+
+        // --- Filter Logic ---
+        function updateHighlight(btn) {
+            const rect = btn.getBoundingClientRect();
+            const parentRect = btn.parentElement.getBoundingClientRect();
+
+            gsap.to(highlight, {
+                width: rect.width,
+                left: btn.offsetLeft, // Use offsetLeft relative to container
+                duration: 0.3,
+                ease: "power2.out"
+            });
+
+            gsap.to('.filter-btn', {
+                color: '#0F3D3E',
+                duration: 0.3
+            });
+
+            gsap.to(btn, {
+                color: '#FFFFFF',
+                duration: 0.3
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                updateHighlight(btn);
+                renderGallery(filter);
+            });
+        });
+
+        // Init Highlight on first button
+        window.addEventListener('load', () => {
+            const allBtn = document.querySelector('[data-filter="all"]');
+            if (allBtn) updateHighlight(allBtn);
+            fetchGalleryImages();
+
+            // GSAP Reveal for Filters
+            gsap.to('#gallery-filters', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                delay: 0.5
+            });
+        });
+
+        // --- Lightbox Logic ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.remove('hidden');
+            // Small timeout to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightboxImg.src = '';
+            }, 300);
+            document.body.style.overflow = '';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+    </script>
     <script>
         // --- 1. Initialization (Lenis & GSAP) ---
         const lenis = new Lenis({
@@ -753,225 +875,11 @@
             }
         });
 
-        // --- 4. Gallery Logic (Dynamic) ---
-
-        // Global function to re-bind events after dynamic load
-        window.initGallery = function () {
-            // 1. Reveal Grid Items
-            const bentoItems = document.querySelectorAll('.bento-item');
-
-            bentoItems.forEach((item, i) => {
-                // Animation
-                gsap.from(item, {
-                    scrollTrigger: {
-                        trigger: item,
-                        start: 'top 90%',
-                        toggleActions: 'play none none reverse'
-                    },
-                    y: 100,
-                    opacity: 0,
-                    duration: 1.2,
-                    ease: 'power4.out',
-                    delay: i * 0.05,
-                    overwrite: 'auto'
-                });
-
-                // Tilt Interaction
-                item.onmousemove = (e) => {
-                    const rect = item.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const xPct = x / rect.width;
-                    const yPct = y / rect.height;
-                    const xRot = (yPct - 0.5) * -10;
-                    const yRot = (xPct - 0.5) * 10;
-
-                    gsap.to(item, {
-                        rotationX: xRot,
-                        rotationY: yRot,
-                        scale: 1.02,
-                        duration: 0.5,
-                        ease: 'power2.out'
-                    });
-                };
-
-                item.onmouseleave = () => {
-                    gsap.to(item, {
-                        rotationX: 0,
-                        rotationY: 0,
-                        scale: 1,
-                        duration: 0.5,
-                        ease: 'power2.out'
-                    });
-                };
-
-                // Lightbox Click
-                item.onclick = () => {
-                    const img = item.querySelector('img');
-                    const src = img.getAttribute('src');
-                    const lightbox = document.getElementById('lightbox');
-                    const lightboxImg = document.getElementById('lightbox-img');
-
-                    lightboxImg.src = src;
-                    lightbox.classList.remove('hidden');
-                    gsap.to(lightbox, { opacity: 1, duration: 0.3 });
-                    gsap.fromTo(lightboxImg, { scale: 0.8 }, { scale: 1, duration: 0.5, ease: 'back.out(1.7)' });
-                    document.body.style.overflow = 'hidden';
-                };
-            });
-
-            ScrollTrigger.refresh();
-        };
-
-        // Filter Reveal
-        gsap.to('#gallery-filters', {
-            scrollTrigger: {
-                trigger: '#gallery-filters',
-                start: 'top 80%',
-            },
-            opacity: 1,
-            duration: 1,
-            ease: 'power2.out'
-        });
-
-        // Filtering Logic
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const highlight = document.getElementById('filter-highlight');
-
-        function updateHighlight(btn) {
-            gsap.to(highlight, {
-                width: btn.offsetWidth,
-                left: btn.offsetLeft,
-                duration: 0.5,
-                ease: 'elastic.out(1, 0.5)'
-            });
-        }
-
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                if (filterBtns.length > 0) updateHighlight(filterBtns[0]);
-            }, 100);
-        });
-
-        window.addEventListener('resize', () => {
-            const active = document.querySelector('.filter-btn.text-white');
-            if (active) updateHighlight(active);
-        });
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update Buttons
-                filterBtns.forEach(b => {
-                    b.classList.remove('text-white');
-                    b.classList.add('text-[#0F3D3E]');
-                });
-                btn.classList.add('text-white');
-                btn.classList.remove('text-[#0F3D3E]');
-
-                updateHighlight(btn);
-
-                const filter = btn.getAttribute('data-filter');
-                const gridItems = document.querySelectorAll('.bento-item'); // Re-query
-
-                gridItems.forEach(item => {
-                    const category = item.getAttribute('data-category');
-                    if (filter === 'all' || category === filter) {
-                        gsap.to(item, {
-                            scale: 1,
-                            opacity: 1,
-                            duration: 0.4,
-                            display: 'block',
-                            ease: 'power2.out',
-                            onStart: () => { item.style.display = 'block'; }
-                        });
-                    } else {
-                        gsap.to(item, {
-                            scale: 0.8,
-                            opacity: 0,
-                            duration: 0.4,
-                            ease: 'power2.in',
-                            onComplete: () => {
-                                item.style.display = 'none';
-                                ScrollTrigger.refresh();
-                            }
-                        });
-                    }
-                });
-            });
-        });
-
-        // Lightbox Close Logic
-        const lightbox = document.getElementById('lightbox');
-        const lightboxClose = document.getElementById('lightbox-close');
-
-        function closeLightbox() {
-            gsap.to(lightbox, {
-                opacity: 0, duration: 0.3, onComplete: () => {
-                    lightbox.classList.add('hidden');
-                    document.getElementById('lightbox-img').src = '';
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-
-        // Initial Run (for static items)
-        initGallery();
+        // Gallery logic now handled by module script above
     </script>
 
     <!-- Firebase Dynamic Loader -->
-    <script type="module">
-        import { db, collection, getDocs } from "./js/firebase-config.js";
 
-        async function loadGalleryImages() {
-            try {
-                if (!db) return; // Skip if config missing
-
-                const querySnapshot = await getDocs(collection(db, "gallery_images"));
-                const bentoGrid = document.getElementById('bento-grid');
-
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-
-                    // Create HTML structure
-                    const div = document.createElement('div');
-                    // class="bento-item span-4 row-span-1 group"
-                    // Use stored size or default
-                    const sizeClass = data.size || 'span-4 row-span-1';
-                    div.className = `bento-item ${sizeClass} group`;
-                    div.setAttribute('data-category', data.category);
-
-                    div.innerHTML = `
-                        <img src="${data.imageUrl}" alt="${data.title}" class="breathe-img">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                            <div>
-                                <span class="text-[#C6A75E] text-xs uppercase tracking-widest">${data.category}</span>
-                                <h3 class="text-white text-lg title-font">${data.title}</h3>
-                            </div>
-                        </div>
-                    `;
-
-                    // Prepend or Append? Append usually better for "newest at bottom", 
-                    // but usually new stuff should be top? 
-                    // Let's Append for now as easy integration.
-                    bentoGrid.appendChild(div);
-                });
-
-                if (!querySnapshot.empty) {
-                    // Re-init interactions
-                    window.initGallery();
-                }
-
-            } catch (e) {
-                console.log("Firebase not configured or error fetching:", e);
-            }
-        }
-
-        loadGalleryImages();
-    </script>
 </body>
 
 </html>

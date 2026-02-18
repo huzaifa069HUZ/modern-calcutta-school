@@ -339,31 +339,40 @@
 
             // UI Loading
             const originalBtnText = uploadBtn.innerHTML;
-            uploadBtn.innerHTML = `<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Processing...`;
+            uploadBtn.innerHTML = `<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Uploading to Vercel Blob...`;
             uploadBtn.disabled = true;
             uploadBtn.classList.add('opacity-75');
             progressContainer.classList.remove('hidden');
-            progressBar.style.width = '30%';
+            progressBar.style.width = '10%';
 
             try {
-                // Compress & Encode
-                const base64String = await convertToBase64(file);
-                progressBar.style.width = '70%';
+                // Upload to Vercel Blob
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    headers: {
+                        'x-vercel-filename': file.name
+                    },
+                    body: file,
+                });
 
-                const sizeInBytes = new Blob([base64String]).size;
-                if (sizeInBytes > 1000000) {
-                    throw new Error("Image too large (Max 1MB). Please try a smaller file.");
+                if (!response.ok) {
+                    throw new Error('Upload to Blob failed');
                 }
+
+                const blob = await response.json();
+                const imageUrl = blob.url;
+
+                progressBar.style.width = '70%';
 
                 // Auto-Assign Grid Size
                 const sizes = ['span-4 row-span-1', 'span-6 row-span-1', 'span-4 row-span-2', 'span-8 row-span-2'];
                 const autoSize = sizes[Math.floor(Math.random() * sizes.length)];
 
-                // Upload
+                // Upload Metadata to Firestore
                 await addDoc(collection(db, "gallery_images"), {
                     title: titleInput.value,
                     category: categoryInput.value,
-                    imageUrl: base64String,
+                    imageUrl: imageUrl,
                     size: autoSize,
                     timestamp: new Date()
                 });

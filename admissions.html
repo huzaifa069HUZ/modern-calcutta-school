@@ -19,7 +19,7 @@
     <meta property="og:title" content="Admissions Open | Modern Calcutta School">
     <meta property="og:description"
         content="Secure your child's future with the best blend of modern education and Islamic values. Apply now for the new session.">
-    <meta property="og:image" content="https://moderncalcuttaschool.in/assets/transparent%20logo.png">
+    <meta property="og:image" content="https://moderncalcuttaschool.in/assets/transparent-logo.png">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -35,6 +35,7 @@
       "url": "https://moderncalcuttaschool.in/admissions.html"
     }
     </script>
+    <link rel="icon" type="image/png" href="assets/transparent-logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link
@@ -305,10 +306,11 @@
 <body class="bg-[#F6F1E8]">
 
     <!-- Header -->
+    <!-- Header -->
     <header id="header"
-        class="glass-nav fixed w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center transition-all duration-500 border-b border-transparent">
-        <div class="flex items-center gap-2 md:gap-4 group cursor-pointer">
-            <img src="assets/transparent logo.png" alt="Modern Calcutta School Logo"
+        class="fixed w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center transition-all duration-500 border-b border-transparent">
+        <a href="index.html" class="flex items-center gap-2 md:gap-4 group cursor-pointer">
+            <img src="assets/transparent-logo.png" alt="Modern Calcutta School Logo"
                 class="h-10 md:h-14 lg:h-16 w-auto drop-shadow-lg group-hover:scale-105 transition-transform duration-300">
             <div class="flex flex-col">
                 <span
@@ -318,37 +320,62 @@
                     class="text-[7px] md:text-[9px] uppercase tracking-[0.15em] md:tracking-[0.2em] text-[#C6A75E] font-bold mt-0.5 md:mt-1 drop-shadow-sm">Foundation
                     of Ilm & Adab</span>
             </div>
-        </div>
+        </a>
 
         <!-- Desktop Navigation -->
         <nav
             class="hidden xl:flex items-center space-x-10 text-[11px] uppercase tracking-[0.15em] font-bold text-[#0F3D3E] drop-shadow-md">
             <a href="index.html"
-                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">Home</a>
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Home
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
             <a href="about.html"
-                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">About Us</a>
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                About Us
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
             <a href="academics.html"
-                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">Academics</a>
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Academics
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
             <a href="faith-values.html"
-                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">Faith &
-                Values</a>
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Faith & Values
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
             <a href="gallery.html"
-                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">Gallery</a>
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Gallery
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
             <a href="index.html#contact"
-                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">Contact</a>
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                Contact
+                <span
+                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+            </a>
         </nav>
 
         <div class="flex items-center space-x-4">
+            <!-- Desktop CTA Button -->
             <a href="admissions.html"
-                class="hidden md:block px-6 py-3 bg-gradient-to-r from-[#C6A75E] to-[#7BAE7F] text-white text-[10px] uppercase tracking-[0.2em] font-bold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 btn-shine">
-                Admission Open
+                class="hidden md:block px-6 py-3 bg-gradient-to-r from-[#C6A75E] to-[#7BAE7F] text-white text-[10px] uppercase tracking-[0.2em] font-bold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                Admission Now
             </a>
-            <!-- Mobile Menu Button (Simplified) -->
-            <button id="mobile-menu-button" class="xl:hidden text-[#0F3D3E]">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
-                </svg>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button"
+                class="xl:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <span class="hamburger-line block w-5 h-0.5 bg-[#0F3D3E] mb-1 transition-all duration-300"></span>
+                <span class="hamburger-line block w-5 h-0.5 bg-[#0F3D3E] mb-1 transition-all duration-300"></span>
+                <span class="hamburger-line block w-5 h-0.5 bg-[#0F3D3E] transition-all duration-300"></span>
             </button>
         </div>
     </header>
@@ -757,7 +784,7 @@
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="inline-block">
-                            <img src="assets/transparent logo.png" alt="Logo"
+                            <img src="assets/transparent-logo.png" alt="Logo"
                                 class="h-24 w-auto drop-shadow-lg filter brightness-110">
                         </div>
                         <div class="flex flex-col">
