@@ -304,7 +304,8 @@
 
 
         // --- 3. Upload Logic (Base64 + Compression) ---
-        const convertToBase64 = (file) => {
+        // --- 3. Upload Logic (Compression) ---
+        const compressImage = (file) => {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
                 reader.readAsDataURL(file);
@@ -315,8 +316,8 @@
                         const canvas = document.createElement('canvas');
                         const ctx = canvas.getContext('2d');
 
-                        const MAX_WIDTH = 1000;
-                        const MAX_HEIGHT = 1000;
+                        const MAX_WIDTH = 1200; // Optimal for web
+                        const MAX_HEIGHT = 1200;
                         let width = img.width;
                         let height = img.height;
 
@@ -329,7 +330,15 @@
                         canvas.width = width;
                         canvas.height = height;
                         ctx.drawImage(img, 0, 0, width, height);
-                        resolve(canvas.toDataURL('image/jpeg', 0.8));
+
+                        // Convert to Blob (JPEG, 0.7 quality)
+                        canvas.toBlob((blob) => {
+                            if (blob) {
+                                resolve(blob);
+                            } else {
+                                reject(new Error('Compression failed'));
+                            }
+                        }, 'image/jpeg', 0.7);
                     };
                     img.onerror = (error) => reject(error);
                 };
@@ -355,13 +364,20 @@
             progressBar.style.width = '10%';
 
             try {
+                // Compress Image
+                uploadBtn.innerHTML = `Running Compression...`;
+                const compressedBlob = await compressImage(file);
+
                 // Upload to Vercel Blob
+                uploadBtn.innerHTML = `Uploading to Server...`;
+                progressBar.style.width = '30%';
+
                 const response = await fetch('/api/upload', {
                     method: 'POST',
                     headers: {
-                        'x-vercel-filename': file.name
+                        'x-vercel-filename': file.name.replace(/\.[^/.]+$/, "") + ".jpg" // Force .jpg extension
                     },
-                    body: file,
+                    body: compressedBlob,
                 });
 
                 if (!response.ok) {
