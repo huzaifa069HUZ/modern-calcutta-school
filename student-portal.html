@@ -138,7 +138,7 @@
                 </div>
             </a>
             <nav
-                class="ml-auto hidden md:flex items-center gap-6 text-xs uppercase tracking-widest font-semibold text-white/70">
+                class="ml-auto hidden md:flex items-center gap-6 text-xs uppercase tracking-widest font-semibold text-white/90">
                 <a href="index.html" class="hover:text-[#C6A75E] transition-colors">Home</a>
                 <a href="admissions.html" class="hover:text-[#C6A75E] transition-colors">Admissions</a>
             </nav>
@@ -164,13 +164,13 @@
             <p class="text-[#C6A75E] uppercase tracking-[0.3em] text-xs font-bold mb-3">Student Portal</p>
             <h1 class="title-font text-4xl md:text-5xl font-bold text-white mb-4">Search <span
                     class="text-[#C6A75E] italic">Your Record</span></h1>
-            <p class="text-white/60 text-sm md:text-base max-w-lg mx-auto mb-10">Enter your admission number to view
+            <p class="text-white/90 text-sm md:text-base max-w-lg mx-auto mb-10">Enter your admission number to view
                 your student profile and download your admission certificate.</p>
 
             <!-- Search Form -->
             <div class="flex gap-3 max-w-lg mx-auto">
                 <input id="admission-input" type="text" placeholder="e.g. MCS-2024-001"
-                    class="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-5 py-4 text-sm font-medium outline-none focus:border-[#C6A75E] transition-all uppercase tracking-wider"
+                    class="flex-1 bg-white/10 border border-white/40 text-white placeholder-white/70 rounded-xl px-5 py-4 text-sm font-medium outline-none focus:border-[#C6A75E] transition-all uppercase tracking-wider"
                     autocomplete="off" autocapitalize="characters">
                 <button id="search-btn" onclick="searchStudent()"
                     class="px-8 py-4 bg-gradient-to-r from-[#C6A75E] to-[#d4b76e] text-[#0F3D3E] font-bold text-sm uppercase tracking-widest rounded-xl hover:shadow-2xl hover:scale-105 transition-all duration-200 flex items-center gap-2">
@@ -184,7 +184,7 @@
 
             <!-- Loading -->
             <div id="search-loading" class="hidden mt-6 flex justify-center">
-                <div class="flex items-center gap-3 text-white/60 text-sm">
+                <div class="flex items-center gap-3 text-white/90 text-sm font-medium">
                     <svg class="spinner w-5 h-5 text-[#C6A75E]" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
@@ -216,7 +216,8 @@
                 </svg>
             </div>
             <h2 class="title-font text-2xl text-[#0F3D3E] font-bold mb-2">Student Not Found</h2>
-            <p class="text-gray-500 text-sm">No record found for this admission number. Please check and try again, or
+            <p class="text-[#0F3D3E]/80 font-medium text-sm">No record found for this admission number. Please check and
+                try again, or
                 contact the school office.</p>
         </div>
 
@@ -242,7 +243,7 @@
                         <p class="text-[#C6A75E] text-xs uppercase tracking-widest font-bold mb-1">Modern Calcutta
                             School</p>
                         <h2 id="s-name" class="title-font text-3xl text-white font-bold leading-tight"></h2>
-                        <p id="s-admission-no" class="text-white/60 text-sm font-mono mt-1"></p>
+                        <p id="s-admission-no" class="text-white/90 text-sm font-mono mt-1 font-medium"></p>
 
                         <div class="flex flex-wrap justify-center md:justify-start gap-2 mt-4">
                             <span id="s-fees-badge"
@@ -272,7 +273,8 @@
                             </svg>
                             Download Admission Certificate (PDF)
                         </a>
-                        <p class="text-gray-400 text-xs mt-2">Opens in a new tab. Save or print as needed.</p>
+                        <p class="text-[#0F3D3E]/70 font-medium text-xs mt-2">Opens in a new tab. Save or print as
+                            needed.</p>
                     </div>
 
                     <!-- No PDF Message -->
@@ -287,7 +289,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="hero-bg text-white/50 text-center py-6 text-xs uppercase tracking-widest">
+    <footer class="hero-bg text-white/80 font-medium text-center py-6 text-xs uppercase tracking-widest">
         Modern Calcutta School &middot; Phulwarisharif, Patna
     </footer>
 

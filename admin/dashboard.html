@@ -18,7 +18,7 @@
         }
 
         .custom-scrollbar::-webkit-scrollbar-track {
-            bg: transparent;
+            background: transparent;
         }
 
         .custom-scrollbar::-webkit-scrollbar-thumb {
@@ -60,10 +60,19 @@
                 <h1 class="text-4xl font-bold tracking-tight text-[#0F3D3E]">Gallery Admin</h1>
                 <p class="text-[#0F3D3E]/60 mt-1 font-medium">Manage your gallery content with ease.</p>
             </div>
-            <button onclick="logout()"
-                class="px-6 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors font-semibold text-sm">
-                Sign Out
-            </button>
+            <div class="flex flex-wrap gap-3">
+                <a href="/admin/students"
+                    class="px-5 py-2 text-sm font-semibold text-white bg-[#0F3D3E] rounded-lg hover:bg-[#0B2B2C] transition-colors shadow-sm flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                    </svg>
+                    Add Student
+                </a>
+                <button onclick="logout()"
+                    class="px-5 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors font-semibold text-sm">
+                    Sign Out
+                </button>
+            </div>
         </header>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
