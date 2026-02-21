@@ -259,7 +259,7 @@
                     CALCUTTA SCHOOL</span>
                 <span
                     class="text-[7px] md:text-[9px] uppercase tracking-[0.15em] md:tracking-[0.2em] text-[#C6A75E] font-bold mt-0.5 md:mt-1 drop-shadow-sm">Foundation
-                    of Ilm & Adab</span>
+                    of Ilm-o-Adab</span>
             </div>
         </a>
 
@@ -310,11 +310,20 @@
             </a>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button"
-                class="xl:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
-                <span class="hamburger-line block w-5 h-0.5 bg-white mb-1 transition-all duration-300"></span>
-                <span class="hamburger-line block w-5 h-0.5 bg-white mb-1 transition-all duration-300"></span>
-                <span class="hamburger-line block w-5 h-0.5 bg-white transition-all duration-300"></span>
+            <button id="mobile-menu-button" class="xl:hidden"
+                style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:54px;height:46px;border-radius:14px;background:linear-gradient(145deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03));border:1px solid rgba(198,167,94,0.35);box-shadow:0 2px 20px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.12);backdrop-filter:blur(16px);cursor:pointer;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);overflow:hidden;"
+                onmouseenter="this.style.background='linear-gradient(145deg,rgba(198,167,94,0.14),rgba(198,167,94,0.04))';this.style.borderColor='rgba(198,167,94,0.7)';this.style.boxShadow='0 6px 28px rgba(198,167,94,0.22),inset 0 1px 0 rgba(255,255,255,0.15)';this.style.transform='translateY(-1px)'"
+                onmouseleave="this.style.background='linear-gradient(145deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03))';this.style.borderColor='rgba(198,167,94,0.35)';this.style.boxShadow='0 2px 20px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.12)';this.style.transform='translateY(0)'">
+                <span
+                    style="position:absolute;top:-20px;left:-12px;width:30px;height:120%;background:linear-gradient(105deg,transparent,rgba(255,255,255,0.06),transparent);transform:skewX(-20deg);pointer-events:none;border-radius:2px;"></span>
+                <span
+                    style="display:block;width:22px;height:1.5px;background:#C6A75E;border-radius:99px;transition:all 0.35s;"></span>
+                <span
+                    style="display:block;width:15px;height:1.5px;background:#C6A75E;border-radius:99px;align-self:flex-end;margin-right:5px;box-shadow:0 0 6px rgba(198,167,94,0.5);transition:all 0.35s;"></span>
+                <span
+                    style="display:block;width:18px;height:1.5px;background:#C6A75E;border-radius:99px;transition:all 0.35s;"></span>
+                <span
+                    style="display:block;font-size:6.5px;letter-spacing:0.2em;color:rgba(198,167,94,0.75);text-transform:uppercase;font-weight:700;line-height:1;margin-top:1px;font-family:'Inter',sans-serif;">MENU</span>
             </button>
         </div>
     </header>
@@ -544,7 +553,7 @@
                         </div>
                         <div class="flex flex-col">
                             <h3 class="text-2xl title-font font-bold leading-none">MODERN CALCUTTA SCHOOL</h3>
-                            <p class="text-[#C6A75E] text-xs uppercase tracking-widest mt-1">Foundation of Ilm & Adab
+                            <p class="text-[#C6A75E] text-xs uppercase tracking-widest mt-1">Foundation of Ilm-o-Adab
                             </p>
                         </div>
                     </div>
@@ -968,20 +977,41 @@
         const headerTitle = header.querySelector('.logo-text');
         const navLinks = header.querySelectorAll('.nav-link');
         const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileSidebar = document.getElementById('mobile-sidebar');
+        const menuBackdrop = document.getElementById('menu-backdrop');
         const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('translate-x-full');
-            mobileMenu.classList.add('translate-x-0');
+        function openSidebar() {
+            if (!mobileSidebar) return;
+            mobileSidebar.style.transform = 'translateX(0)';
+            if (menuBackdrop) { menuBackdrop.style.opacity = '1'; menuBackdrop.style.pointerEvents = 'auto'; }
             document.body.style.overflow = 'hidden';
-        });
+            sidebarLinks.forEach((link, i) => {
+                setTimeout(() => {
+                    link.style.transition = 'all 0.35s cubic-bezier(0.4,0,0.2,1)';
+                    link.style.opacity = '1';
+                    link.style.transform = 'translateX(0)';
+                }, 100 + i * 55);
+            });
+            const ctaBtn = document.getElementById('sidebar-cta-btn');
+            if (ctaBtn) setTimeout(() => { ctaBtn.style.transition = 'all 0.35s ease'; ctaBtn.style.opacity = '1'; ctaBtn.style.transform = 'translateY(0)'; }, 480);
+        }
 
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.add('translate-x-full');
-            mobileMenu.classList.remove('translate-x-0');
+        function closeSidebar() {
+            if (!mobileSidebar) return;
+            mobileSidebar.style.transform = 'translateX(100%)';
+            if (menuBackdrop) { menuBackdrop.style.opacity = '0'; menuBackdrop.style.pointerEvents = 'none'; }
             document.body.style.overflow = '';
-        });
+            sidebarLinks.forEach(link => { link.style.opacity = '0'; link.style.transform = 'translateX(20px)'; link.style.transition = 'none'; });
+            const ctaBtn = document.getElementById('sidebar-cta-btn');
+            if (ctaBtn) { ctaBtn.style.opacity = '0'; ctaBtn.style.transform = 'translateY(10px)'; }
+        }
+
+        if (mobileMenuButton) mobileMenuButton.addEventListener('click', openSidebar);
+        if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeSidebar);
+        if (menuBackdrop) menuBackdrop.addEventListener('click', closeSidebar);
+        sidebarLinks.forEach(link => link.addEventListener('click', closeSidebar));
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {

@@ -58,7 +58,7 @@
       },
       "slogan": "Ilm, Tahzeeb, Tarbiyah",
       "description": "A premier educational institution in Phulwari Sharif, Patna, blending modern academic curriculum with Islamic moral values.",
-      "telephone": "+91-06123167878",
+      "telephone": "+91-8709861044 ",
       "email": "mcs.patna2019@gmail.com",
       "sameAs": [
         "https://www.facebook.com/moderncalcuttaschool",
@@ -536,12 +536,17 @@
             overflow: hidden;
             position: relative;
             width: 100%;
+            padding: 20px 0;
+            /* breathing room so scaled images aren't clipped vertically */
+            margin: -20px 0;
+            /* compensate so layout doesn't shift */
         }
 
         .scroll-track {
             display: inline-flex;
             animation: scroll-left 16s linear infinite;
             will-change: transform;
+            align-items: center;
         }
 
         .scroll-track:hover {
@@ -554,12 +559,15 @@
             margin: 0 12px;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, z-index 0s;
+            position: relative;
+            z-index: 1;
         }
 
         .scroll-image:hover {
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            transform: scale(1.15) translateY(-8px);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.3);
+            z-index: 10;
         }
 
         /* Enhanced Reveal Animations */
@@ -624,7 +632,7 @@
                     CALCUTTA SCHOOL</span>
                 <span
                     class="text-[7px] md:text-[9px] uppercase tracking-[0.15em] md:tracking-[0.2em] text-[#C6A75E] font-bold mt-0.5 md:mt-1 drop-shadow-sm">Foundation
-                    of Ilm & Adab</span>
+                    of Ilm-o-Adab</span>
             </div>
         </div>
 
@@ -675,57 +683,208 @@
             </a>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button"
-                class="xl:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
-                <span class="hamburger-line block w-5 h-0.5 bg-white mb-1 transition-all duration-300"></span>
-                <span class="hamburger-line block w-5 h-0.5 bg-white mb-1 transition-all duration-300"></span>
-                <span class="hamburger-line block w-5 h-0.5 bg-white transition-all duration-300"></span>
+            <button id="mobile-menu-button" class="xl:hidden"
+                style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:54px;height:46px;border-radius:14px;background:linear-gradient(145deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03));border:1px solid rgba(198,167,94,0.35);box-shadow:0 2px 20px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.12);backdrop-filter:blur(16px);cursor:pointer;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);overflow:hidden;"
+                onmouseenter="this.style.background='linear-gradient(145deg,rgba(198,167,94,0.14),rgba(198,167,94,0.04))';this.style.borderColor='rgba(198,167,94,0.7)';this.style.boxShadow='0 6px 28px rgba(198,167,94,0.22),inset 0 1px 0 rgba(255,255,255,0.15)';this.style.transform='translateY(-1px)'"
+                onmouseleave="this.style.background='linear-gradient(145deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03))';this.style.borderColor='rgba(198,167,94,0.35)';this.style.boxShadow='0 2px 20px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.12)';this.style.transform='translateY(0)'">
+                <span
+                    style="position:absolute;top:-20px;left:-12px;width:30px;height:120%;background:linear-gradient(105deg,transparent,rgba(255,255,255,0.06),transparent);transform:skewX(-20deg);pointer-events:none;border-radius:2px;"></span>
+                <span
+                    style="display:block;width:22px;height:1.5px;background:#C6A75E;border-radius:99px;transition:all 0.35s;"></span>
+                <span
+                    style="display:block;width:15px;height:1.5px;background:#C6A75E;border-radius:99px;align-self:flex-end;margin-right:5px;box-shadow:0 0 6px rgba(198,167,94,0.5);transition:all 0.35s;"></span>
+                <span
+                    style="display:block;width:18px;height:1.5px;background:#C6A75E;border-radius:99px;transition:all 0.35s;"></span>
+                <span
+                    style="display:block;font-size:6.5px;letter-spacing:0.2em;color:rgba(198,167,94,0.75);text-transform:uppercase;font-weight:700;line-height:1;margin-top:1px;font-family:'Inter',sans-serif;transition:all 0.35s;">MENU</span>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu"
-        class="fixed inset-0 z-[60] bg-[#0F3D3E]/95 backdrop-blur-lg translate-x-full transition-transform duration-500 ease-in-out xl:hidden">
-        <div class="flex flex-col h-full">
-            <!-- Close Button -->
-            <div class="flex justify-end p-6">
-                <button id="mobile-menu-close"
-                    class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                        </path>
-                    </svg>
-                </button>
+    <!-- Mobile Sidebar Backdrop -->
+    <div id="menu-backdrop"
+        style="position:fixed;inset:0;z-index:58;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity 0.4s ease;">
+    </div>
+
+    <!-- Mobile Sidebar Panel -->
+    <div id="mobile-sidebar" class="xl:hidden"
+        style="position:fixed;top:0;right:0;bottom:0;z-index:59;width:min(320px,85vw);background:linear-gradient(165deg,#0a2d2e 0%,#0F3D3E 40%,#0a2535 100%);transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);overflow:hidden;overflow-y:auto;display:flex;flex-direction:column;box-shadow:-10px 0 60px rgba(0,0,0,0.4);">
+        <!-- Decorative orbs -->
+        <div
+            style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(198,167,94,0.12),transparent);pointer-events:none;">
+        </div>
+        <div
+            style="position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(198,167,94,0.08),transparent);pointer-events:none;">
+        </div>
+
+        <!-- Sidebar Header: Logo + Close -->
+        <div
+            style="padding:1.5rem 1.5rem 1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(198,167,94,0.15);position:relative;z-index:1;">
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <img src="assets/transparent-logo.png" alt="Logo"
+                    style="height:2.5rem;width:auto;filter:brightness(1.2);">
+                <div>
+                    <p
+                        style="font-family:'Epic Pro','Cormorant Garamond',serif;font-size:0.75rem;font-weight:700;color:#fff;letter-spacing:0.05em;line-height:1.1;">
+                        MODERN CALCUTTA</p>
+                    <p
+                        style="font-size:0.55rem;color:#C6A75E;text-transform:uppercase;letter-spacing:0.15em;margin-top:2px;">
+                        Foundation of Ilm-o-Adab</p>
+                </div>
             </div>
+            <button id="mobile-menu-close"
+                style="width:2.25rem;height:2.25rem;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s;flex-shrink:0;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
+                    stroke-linecap="round">
+                    <path d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
 
-            <!-- Mobile Navigation Links -->
-            <nav class="flex flex-col items-center justify-center flex-1 space-y-8 px-8">
-                <a href="#"
-                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Home</a>
-                <a href="about.html"
-                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">About
-                    Us</a>
-                <a href="academics.html"
-                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Academics</a>
-                <a href="faith-values.html"
-                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Faith
-                    & Values</a>
-                <a href="admissions.html"
-                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Admissions</a>
-                <a href="gallery.html"
-                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Gallery</a>
-                <a href="#contact"
-                    class="mobile-nav-link text-2xl text-white hover:text-[#C6A75E] transition-colors duration-300 uppercase tracking-widest">Contact</a>
+        <!-- Nav Links -->
+        <nav
+            style="flex:1;padding:1.5rem 1rem;display:flex;flex-direction:column;gap:0.25rem;position:relative;z-index:1;">
+            <a href="#" class="sidebar-link"
+                style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem 1rem;border-radius:0.875rem;color:rgba(255,255,255,0.8);text-decoration:none;transition:background 0.2s,color 0.2s;opacity:0;transform:translateX(30px);">
+                <div class="sidebar-icon"
+                    style="width:2.25rem;height:2.25rem;border-radius:0.625rem;background:rgba(198,167,94,0.12);border:1px solid rgba(198,167,94,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                </div>
+                <span
+                    style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:600;letter-spacing:0.03em;">Home</span>
+                <svg style="margin-left:auto;opacity:0.4;flex-shrink:0;" width="14" height="14" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <a href="about.html" class="sidebar-link"
+                style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem 1rem;border-radius:0.875rem;color:rgba(255,255,255,0.8);text-decoration:none;transition:background 0.2s,color 0.2s;opacity:0;transform:translateX(30px);">
+                <div class="sidebar-icon"
+                    style="width:2.25rem;height:2.25rem;border-radius:0.625rem;background:rgba(198,167,94,0.12);border:1px solid rgba(198,167,94,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </div>
+                <span
+                    style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:600;letter-spacing:0.03em;">About
+                    Us</span>
+                <svg style="margin-left:auto;opacity:0.4;flex-shrink:0;" width="14" height="14" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <a href="academics.html" class="sidebar-link"
+                style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem 1rem;border-radius:0.875rem;color:rgba(255,255,255,0.8);text-decoration:none;transition:background 0.2s,color 0.2s;opacity:0;transform:translateX(30px);">
+                <div class="sidebar-icon"
+                    style="width:2.25rem;height:2.25rem;border-radius:0.625rem;background:rgba(198,167,94,0.12);border:1px solid rgba(198,167,94,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                </div>
+                <span
+                    style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:600;letter-spacing:0.03em;">Academics</span>
+                <svg style="margin-left:auto;opacity:0.4;flex-shrink:0;" width="14" height="14" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <a href="faith-values.html" class="sidebar-link"
+                style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem 1rem;border-radius:0.875rem;color:rgba(255,255,255,0.8);text-decoration:none;transition:background 0.2s,color 0.2s;opacity:0;transform:translateX(30px);">
+                <div class="sidebar-icon"
+                    style="width:2.25rem;height:2.25rem;border-radius:0.625rem;background:rgba(198,167,94,0.12);border:1px solid rgba(198,167,94,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                </div>
+                <span
+                    style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:600;letter-spacing:0.03em;">Faith
+                    &amp; Values</span>
+                <svg style="margin-left:auto;opacity:0.4;flex-shrink:0;" width="14" height="14" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <a href="admissions.html" class="sidebar-link"
+                style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem 1rem;border-radius:0.875rem;color:rgba(255,255,255,0.8);text-decoration:none;transition:background 0.2s,color 0.2s;opacity:0;transform:translateX(30px);">
+                <div class="sidebar-icon"
+                    style="width:2.25rem;height:2.25rem;border-radius:0.625rem;background:rgba(198,167,94,0.12);border:1px solid rgba(198,167,94,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                </div>
+                <span
+                    style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:600;letter-spacing:0.03em;">Admissions</span>
+                <svg style="margin-left:auto;opacity:0.4;flex-shrink:0;" width="14" height="14" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <a href="gallery.html" class="sidebar-link"
+                style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem 1rem;border-radius:0.875rem;color:rgba(255,255,255,0.8);text-decoration:none;transition:background 0.2s,color 0.2s;opacity:0;transform:translateX(30px);">
+                <div class="sidebar-icon"
+                    style="width:2.25rem;height:2.25rem;border-radius:0.625rem;background:rgba(198,167,94,0.12);border:1px solid rgba(198,167,94,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <span
+                    style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:600;letter-spacing:0.03em;">Gallery</span>
+                <svg style="margin-left:auto;opacity:0.4;flex-shrink:0;" width="14" height="14" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <a href="#contact" class="sidebar-link"
+                style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem 1rem;border-radius:0.875rem;color:rgba(255,255,255,0.8);text-decoration:none;transition:background 0.2s,color 0.2s;opacity:0;transform:translateX(30px);">
+                <div class="sidebar-icon"
+                    style="width:2.25rem;height:2.25rem;border-radius:0.625rem;background:rgba(198,167,94,0.12);border:1px solid rgba(198,167,94,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <span
+                    style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:600;letter-spacing:0.03em;">Contact</span>
+                <svg style="margin-left:auto;opacity:0.4;flex-shrink:0;" width="14" height="14" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+        </nav>
 
-                <!-- Mobile CTA Button -->
-                <a href="admissions.html"
-                    class="mobile-nav-link mt-8 px-8 py-4 bg-gradient-to-r from-[#C6A75E] to-[#7BAE7F] text-white text-sm uppercase tracking-[0.2em] font-bold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                    Admission Now
-                </a>
-            </nav>
+        <!-- CTA Footer -->
+        <div style="padding:1rem 1.5rem 2rem;border-top:1px solid rgba(198,167,94,0.15);position:relative;z-index:1;">
+            <a href="admissions.html" id="sidebar-cta-btn"
+                style="display:flex;align-items:center;justify-content:center;gap:0.625rem;padding:1rem;border-radius:1rem;margin-bottom:0.75rem;background:linear-gradient(135deg,#C6A75E,#d4b76e);color:#0F3D3E;font-weight:700;font-size:0.85rem;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;opacity:0;transform:translateY(15px);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round">
+                    <path
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                Admission Now
+            </a>
+            <p
+                style="text-align:center;font-size:0.65rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;">
+                Phulwarisharif, Patna</p>
         </div>
     </div>
+
+
 
     <!-- Hero Section -->
     <section class="relative min-h-[85vh] md:min-h-[100svh] flex items-center bg-diamond-pattern overflow-hidden"
@@ -971,7 +1130,7 @@
     </section>
 
     <!-- Education Philosophy Section -->
-    <section id="philosophy" class="py-24 bg-[#F6F1E8] relative overflow-hidden">
+    <section id="philosophy" class="py-24 bg-[#F6F1E8] relative">
         <!-- Background Decoration -->
         <div class="absolute inset-0 bg-diamond-pattern opacity-40 mix-blend-multiply pointer-events-none"></div>
         <div
@@ -1277,7 +1436,8 @@
             </div>
 
             <!-- Infinite Image Scroller (Full Width) -->
-            <div class="mt-20 mb-8 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+            <div class="mt-20 mb-8 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]"
+                style="overflow:visible;">
                 <div class="scroll-container">
                     <div class="scroll-track">
                         <!-- First Set of Images -->
@@ -1354,19 +1514,20 @@
                 <div class="reveal" style="transition-delay: 0.3s;">
                     <div class="bg-white p-12 lg:p-16 rounded-[60px] shadow-2xl">
                         <h3 class="text-3xl text-[#0F3D3E] mb-10">Inquiry Form</h3>
-                        <form class="space-y-8">
+                        <form id="inquiry-form" class="space-y-8" onsubmit="submitInquiryForm(event)">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div class="flex flex-col">
                                     <label
                                         class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-2">Student
                                         Name</label>
-                                    <input type="text" class="form-input py-2 text-sm" placeholder="Full Name">
+                                    <input id="inq-student-name" type="text" class="form-input py-2 text-sm"
+                                        placeholder="Full Name" required>
                                 </div>
                                 <div class="flex flex-col">
                                     <label
                                         class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-2">Applying
                                         for Grade</label>
-                                    <select class="form-input py-2 text-sm bg-transparent">
+                                    <select id="inq-grade" class="form-input py-2 text-sm bg-transparent">
                                         <option>Select Grade</option>
                                         <option>Foundation (Nursery)</option>
                                         <option>Primary (I - V)</option>
@@ -1378,18 +1539,29 @@
                                 <label
                                     class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-2">Parent/Guardian
                                     Name</label>
-                                <input type="text" class="form-input py-2 text-sm" placeholder="Full Name">
+                                <input id="inq-parent-name" type="text" class="form-input py-2 text-sm"
+                                    placeholder="Full Name" required>
                             </div>
-                            <div class="flex flex-col">
-                                <label
-                                    class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-2">Contact
-                                    Number</label>
-                                <input type="tel" class="form-input py-2 text-sm" placeholder="+91">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="flex flex-col">
+                                    <label
+                                        class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-2">Contact
+                                        Number</label>
+                                    <input id="inq-phone" type="tel" class="form-input py-2 text-sm" placeholder="+91"
+                                        required>
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-2">Email
+                                        (Optional)</label>
+                                    <input id="inq-email" type="email" class="form-input py-2 text-sm"
+                                        placeholder="parent@example.com">
+                                </div>
                             </div>
                             <div class="pt-6">
-                                <button type="submit"
-                                    class="w-full btn-midnight py-5 rounded-2xl font-bold tracking-[0.2em] text-[11px] uppercase">
-                                    Submit Inquiry
+                                <button type="submit" id="inq-submit-btn"
+                                    class="w-full btn-midnight py-5 rounded-2xl font-bold tracking-[0.2em] text-[11px] uppercase transition-all duration-300">
+                                    <span id="inq-submit-text">Submit Inquiry</span>
                                 </button>
                             </div>
                         </form>
@@ -1669,7 +1841,7 @@
                                 MODERN CALCUTTA SCHOOL
                             </span>
                             <span class="text-xs uppercase tracking-[0.2em] text-[#C6A75E] font-bold mt-1">
-                                Foundation of Ilm & Adab
+                                Foundation of Ilm-o-Adab
                             </span>
                         </div>
                     </div>
@@ -1789,44 +1961,46 @@
             }, 3500); // 2.5s zoom + 0.8s fade + 0.2s buffer
         });
 
-        // Mobile Menu Toggle
+        // Premium Mobile Sidebar Toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenu = document.getElementById('mobile-sidebar');
+        const menuBackdrop = document.getElementById('menu-backdrop');
         const mobileMenuClose = document.getElementById('mobile-menu-close');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        const mobileNavLinks = document.querySelectorAll('.sidebar-link');
 
-        // Open mobile menu
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('translate-x-full');
-            mobileMenu.classList.add('translate-x-0');
-            document.body.classList.add('overflow-hidden');
-        });
-
-        // Close mobile menu
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.add('translate-x-full');
-            mobileMenu.classList.remove('translate-x-0');
-            document.body.classList.remove('overflow-hidden');
-        });
-
-        // Close menu when clicking nav links
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('translate-x-full');
-                mobileMenu.classList.remove('translate-x-0');
-                document.body.classList.remove('overflow-hidden');
+        function openSidebar() {
+            if (!mobileMenu) return;
+            mobileMenu.style.transform = 'translateX(0)';
+            if (menuBackdrop) { menuBackdrop.style.opacity = '1'; menuBackdrop.style.pointerEvents = 'auto'; }
+            document.body.style.overflow = 'hidden';
+            // Stagger links
+            mobileNavLinks.forEach((link, i) => {
+                setTimeout(() => {
+                    link.style.transition = 'all 0.35s cubic-bezier(0.4,0,0.2,1)';
+                    link.style.opacity = '1';
+                    link.style.transform = 'translateX(0)';
+                }, 100 + i * 50);
             });
-        });
+            const ctaBtn = document.getElementById('sidebar-cta-btn');
+            if (ctaBtn) setTimeout(() => { ctaBtn.style.transition = 'all 0.35s ease'; ctaBtn.style.opacity = '1'; ctaBtn.style.transform = 'translateY(0)'; }, 450);
+        }
 
-        // Close mobile menu when clicking anywhere outside the menu
-        document.addEventListener('click', function (event) {
-            const isClickInsideMenu = mobileMenu.contains(event.target);
-            const isClickOnButton = mobileMenuButton.contains(event.target);
+        function closeSidebar() {
+            if (!mobileMenu) return;
+            mobileMenu.style.transform = 'translateX(100%)';
+            if (menuBackdrop) { menuBackdrop.style.opacity = '0'; menuBackdrop.style.pointerEvents = 'none'; }
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                mobileNavLinks.forEach(link => { link.style.transition = 'none'; link.style.opacity = '0'; link.style.transform = 'translateX(30px)'; });
+                const ctaBtn = document.getElementById('sidebar-cta-btn');
+                if (ctaBtn) { ctaBtn.style.transition = 'none'; ctaBtn.style.opacity = '0'; ctaBtn.style.transform = 'translateY(15px)'; }
+            }, 450);
+        }
 
-            if (!isClickInsideMenu && !isClickOnButton && mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
-            }
-        });
+        if (mobileMenuButton) mobileMenuButton.addEventListener('click', openSidebar);
+        if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeSidebar);
+        if (menuBackdrop) menuBackdrop.addEventListener('click', closeSidebar);
+        mobileNavLinks.forEach(link => { link.addEventListener('click', closeSidebar); });
 
         // Quranic Quote Rotation
         let currentQuote = 1;
@@ -1963,6 +2137,72 @@
                 inquiryBtn.classList.remove('text-[#0B2447]', 'border-[#0B2447]');
             }
         });
+    </script>
+
+    <!-- Inquiry Form Email Submission -->
+    <script>
+        function showToast(type, message) {
+            const existing = document.getElementById('mcs-toast');
+            if (existing) existing.remove();
+            const toast = document.createElement('div');
+            toast.id = 'mcs-toast';
+            const isSuccess = type === 'success';
+            toast.style.cssText = `
+                position:fixed;bottom:28px;right:28px;z-index:9999;
+                display:flex;align-items:center;gap:12px;
+                padding:14px 22px;border-radius:16px;
+                background:${isSuccess ? 'linear-gradient(135deg,#0F3D3E,#1a5f61)' : 'linear-gradient(135deg,#7f1d1d,#991b1b)'};
+                color:white;font-size:13px;font-weight:600;letter-spacing:0.02em;
+                box-shadow:0 12px 40px rgba(0,0,0,0.25);
+                transform:translateY(20px);opacity:0;
+                transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+                max-width:340px;
+            `;
+            toast.innerHTML = `<span style="font-size:18px;">${isSuccess ? '✅' : '❌'}</span><span>${message}</span>`;
+            document.body.appendChild(toast);
+            requestAnimationFrame(() => { toast.style.transform = 'translateY(0)'; toast.style.opacity = '1'; });
+            setTimeout(() => { toast.style.transform = 'translateY(20px)'; toast.style.opacity = '0'; setTimeout(() => toast.remove(), 400); }, 4500);
+        }
+
+        async function submitInquiryForm(e) {
+            e.preventDefault();
+            const btn = document.getElementById('inq-submit-btn');
+            const btnText = document.getElementById('inq-submit-text');
+            const studentName = document.getElementById('inq-student-name')?.value?.trim();
+            const parentName = document.getElementById('inq-parent-name')?.value?.trim();
+            const grade = document.getElementById('inq-grade')?.value?.trim();
+            const phone = document.getElementById('inq-phone')?.value?.trim();
+            const email = document.getElementById('inq-email')?.value?.trim();
+
+            if (!studentName || !parentName || !phone) {
+                showToast('error', 'Please fill in all required fields.');
+                return;
+            }
+
+            btn.disabled = true;
+            if (btnText) btnText.textContent = 'Sending...';
+
+            try {
+                const res = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ formType: 'inquiry', studentName, parentName, grade, phone, email })
+                });
+                const data = await res.json();
+                if (res.ok && data.success) {
+                    showToast('success', 'Inquiry sent! We\'ll be in touch very soon.');
+                    document.getElementById('inquiry-form')?.reset();
+                } else {
+                    throw new Error(data.error || 'Server error');
+                }
+            } catch (err) {
+                showToast('error', 'Could not send. Please call +91 87098 61044.');
+                console.error(err);
+            } finally {
+                btn.disabled = false;
+                if (btnText) btnText.textContent = 'Submit Inquiry';
+            }
+        }
     </script>
 </body>
 
