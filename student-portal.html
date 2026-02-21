@@ -27,9 +27,10 @@
         }
 
         .glass {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px -10px rgba(15, 61, 62, 0.1);
         }
 
         /* Hero gradient */
@@ -168,17 +169,26 @@
                 your student profile and download your admission certificate.</p>
 
             <!-- Search Form -->
-            <div class="flex gap-3 max-w-lg mx-auto">
-                <input id="admission-input" type="text" placeholder="e.g. MCS-2024-001"
-                    class="flex-1 bg-white border-2 border-[#C6A75E]/30 text-[#0F3D3E] placeholder-[#0F3D3E]/40 rounded-xl px-5 py-4 text-base font-bold outline-none focus:border-[#C6A75E] focus:ring-4 focus:ring-[#C6A75E]/20 transition-all uppercase tracking-wider shadow-lg"
-                    autocomplete="off" autocapitalize="characters">
-                <button id="search-btn" onclick="searchStudent()"
-                    class="px-8 py-4 bg-gradient-to-r from-[#C6A75E] to-[#d4b76e] text-[#0F3D3E] font-bold text-sm uppercase tracking-widest rounded-xl shadow-[0_4px_15px_rgba(198,167,94,0.3)] hover:shadow-[0_6px_25px_rgba(198,167,94,0.5)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-2">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+            <div
+                class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto bg-white p-2 rounded-2xl shadow-[0_12px_35px_rgba(15,61,62,0.15)] relative z-20">
+                <div class="flex-1 flex items-center px-4 relative">
+                    <svg class="w-5 h-5 text-gray-400 absolute left-4 pointer-events-none" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
-                    Search
+                    <input id="admission-input" type="text" placeholder="Admission No. (e.g. MCS-2024)"
+                        class="w-full bg-transparent text-[#0F3D3E] placeholder-gray-400 pl-8 pr-2 py-3 text-base font-semibold outline-none uppercase tracking-wider"
+                        autocomplete="off" autocapitalize="characters">
+                </div>
+                <button id="search-btn" onclick="searchStudent()"
+                    class="h-14 sm:h-auto px-8 bg-[#0F3D3E] hover:bg-[#0B2B2C] text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group whitespace-nowrap">
+                    <span>Retrieve Record</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
                 </button>
             </div>
 
@@ -207,74 +217,91 @@
     <!-- Results Section -->
     <section class="max-w-3xl mx-auto px-6 -mt-6 pb-24 relative z-10">
 
-        <!-- Not found -->
-        <div id="not-found" class="hidden text-center py-16 slide-up">
-            <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div id="not-found" class="hidden text-center py-20 slide-up">
+            <div
+                class="w-24 h-24 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-full flex items-center justify-center mx-auto mb-6 border border-gray-100">
                 <svg class="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
             </div>
-            <h2 class="title-font text-3xl text-red-600 font-bold mb-2">Student Not Found</h2>
-            <p class="text-gray-700 font-medium text-base max-w-md mx-auto">No record found for this admission number.
-                Please check your entry and try again, or contact the school office.</p>
+            <h2 class="title-font text-4xl text-[#0F3D3E] font-bold mb-3 tracking-tight">Record Not Found</h2>
+            <p class="text-gray-500 font-medium text-base max-w-md mx-auto">We couldn't locate a student with that
+                admission number. Please verify your entry and try again.</p>
         </div>
 
         <!-- Student Card -->
         <div id="student-card" class="hidden slide-up">
-            <div class="glass rounded-3xl overflow-hidden shadow-2xl border border-white/60">
+            <div class="glass rounded-3xl overflow-hidden shadow-2xl">
 
                 <!-- Card Header -->
                 <div
-                    class="bg-gradient-to-r from-[#0F3D3E] to-[#1a5f61] pattern-bg p-6 md:p-8 flex flex-col md:flex-row items-center md:items-start gap-6 border-b-4 border-[#C6A75E]">
+                    class="bg-white p-8 md:p-10 flex flex-col md:flex-row items-center md:items-center gap-8 border-b border-gray-100 relative overflow-hidden">
+
+                    <!-- Decorative background element -->
+                    <div class="absolute -right-20 -top-20 opacity-[0.03] pointer-events-none">
+                        <svg width="400" height="400" viewBox="0 0 100 100" class="fill-[#0F3D3E]">
+                            <path d="M50 0L100 50L50 100L0 50Z" />
+                        </svg>
+                    </div>
+
                     <!-- Photo -->
-                    <div class="relative flex-shrink-0">
+                    <div class="relative flex-shrink-0 z-10">
                         <div
-                            class="w-28 h-32 rounded-2xl overflow-hidden border-4 border-[#C6A75E]/50 shadow-xl bg-white/10">
-                            <img id="s-photo" src="" alt="Student Photo" class="w-full h-full object-cover">
+                            class="w-32 h-40 rounded-2xl overflow-hidden border border-gray-100 shadow-[0_10px_20px_rgba(0,0,0,0.05)] bg-gray-50 p-1">
+                            <div class="w-full h-full rounded-xl overflow-hidden bg-gray-100">
+                                <img id="s-photo" src="" alt="Student Photo" class="w-full h-full object-cover">
+                            </div>
                         </div>
                         <div id="s-status-badge"
-                            class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm">
+                            class="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-sm border border-white">
                         </div>
                     </div>
 
                     <!-- Name + Admission -->
-                    <div class="text-center md:text-left flex-1">
-                        <p class="text-[#C6A75E] text-xs uppercase tracking-widest font-bold mb-1">Modern Calcutta
-                            School</p>
-                        <h2 id="s-name" class="title-font text-3xl text-white font-bold leading-tight"></h2>
-                        <p id="s-admission-no" class="text-white/90 text-sm font-mono mt-1 font-medium"></p>
+                    <div class="text-center md:text-left flex-1 z-10">
+                        <div
+                            class="inline-block px-3 py-1 bg-[#C6A75E]/10 text-[#C6A75E] text-[10px] uppercase tracking-[0.2em] font-bold rounded-full mb-3">
+                            Official Record
+                        </div>
+                        <h2 id="s-name"
+                            class="title-font text-4xl text-[#0F3D3E] font-bold leading-tight tracking-tight mb-1"></h2>
+                        <p id="s-admission-no"
+                            class="text-gray-500 text-sm font-mono mt-1 font-medium bg-gray-50 inline-block px-3 py-1 rounded-lg border border-gray-100">
+                        </p>
 
-                        <div class="flex flex-wrap justify-center md:justify-start gap-2 mt-4">
+                        <div class="flex flex-wrap justify-center md:justify-start gap-2 mt-5">
                             <span id="s-fees-badge"
-                                class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"></span>
+                                class="px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider border"></span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Details Table -->
-                <div class="p-6 md:p-8">
-                    <h3 class="title-font text-xl text-[#0F3D3E] font-bold mb-4">Student Details</h3>
-                    <div class="overflow-hidden rounded-xl border border-[#0F3D3E]/20 bg-white shadow-inner">
-                        <table class="info-table w-full text-base">
-                            <tbody id="s-details-body">
-                                <!-- Rows injected by JS -->
-                            </tbody>
-                        </table>
+                <div class="p-8 md:p-10 bg-[#FfFfFf]/40 backdrop-blur-sm">
+                    <h3 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 flex items-center gap-4">
+                        <span class="h-px bg-gray-200 flex-1"></span>
+                        Student Details
+                        <span class="h-px bg-gray-200 flex-1"></span>
+                    </h3>
+
+                    <div id="s-details-body" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+                        <!-- Rows injected by JS -->
                     </div>
 
                     <!-- Download Button -->
-                    <div id="pdf-section" class="hidden mt-6">
+                    <div id="pdf-section" class="hidden mt-10 pt-8 border-t border-gray-200 flex justify-center">
                         <a id="download-pdf-btn" href="#" target="_blank" rel="noopener"
-                            class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#0F3D3E] to-[#1a5f61] text-white font-bold text-sm uppercase tracking-widest rounded-xl hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            class="inline-flex items-center gap-3 px-8 py-4 bg-[#C6A75E] hover:bg-[#b0924c] text-white font-bold text-xs uppercase tracking-[0.15em] rounded-xl hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                             </svg>
-                            Download Admission Certificate (PDF)
+                            <div class="text-left">
+                                <p class="text-[10px] text-white/80 leading-none mb-0.5">Download Official</p>
+                                <p class="leading-none text-sm">Admission Certificate</p>
+                            </div>
                         </a>
-                        <p class="text-[#0F3D3E]/70 font-medium text-xs mt-2">Opens in a new tab. Save or print as
-                            needed.</p>
                     </div>
 
                     <!-- No PDF Message -->
@@ -356,7 +383,7 @@
             const feesEl = document.getElementById('s-fees-badge');
             const noDues = s.fees === 'No Dues';
             feesEl.textContent = s.fees;
-            feesEl.className = `px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${noDues ? 'badge-nodues' : 'badge-dues'}`;
+            feesEl.className = `px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider border ${noDues ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-700 border-red-200'}`;
 
             // Details rows
             const rows = [
@@ -375,10 +402,10 @@
             tbody.innerHTML = rows
                 .filter(([, val]) => val)
                 .map(([label, val]) => `
-                    <tr>
-                        <td class="px-5 py-4 text-[#0F3D3E]/80 text-xs md:text-sm uppercase tracking-wider font-bold w-1/3 border-r border-[#0F3D3E]/10 bg-[#fefdfb]">${label}</td>
-                        <td class="px-5 py-4 text-[#0F3D3E] font-bold text-sm md:text-base">${val}</td>
-                    </tr>
+                    <div class="flex flex-col border-b border-gray-100/60 pb-3">
+                        <span class="text-gray-400 text-[10px] uppercase tracking-[0.1em] font-bold mb-1">${label}</span>
+                        <span class="text-[#0F3D3E] font-semibold text-sm md:text-base">${val}</span>
+                    </div>
                 `).join('');
 
             // PDF section
