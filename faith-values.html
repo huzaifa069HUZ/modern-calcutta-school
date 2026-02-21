@@ -454,6 +454,10 @@
             animation: rotate-carousel 20s infinite linear;
         }
 
+        .carousel:hover {
+            animation-play-state: paused;
+        }
+
         .carousel-item {
             position: absolute;
             width: 300px;
@@ -592,7 +596,7 @@
                 <span
                     class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="index.html#contact"
+            <a href="admissions.html"
                 class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
                 Contact
                 <span
@@ -604,7 +608,7 @@
             <!-- Desktop CTA Button -->
             <a href="admissions.html"
                 class="hidden md:block px-6 py-3 bg-gradient-to-r from-[#C6A75E] to-[#7BAE7F] text-white text-[10px] uppercase tracking-[0.2em] font-bold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                Admission Now
+                ADMISSION NOW
             </a>
 
             <!-- Mobile Menu Button -->
@@ -703,7 +707,7 @@
                         <polyline points="21,15 16,10 5,21" />
                     </svg></span><span style="flex:1;">Gallery</span><span
                     style="color:rgba(198,167,94,0.5);font-size:1rem;">›</span></a>
-            <a href="index.html#contact" class="sidebar-link"
+            <a href="admissions.html" class="sidebar-link"
                 style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem 1rem;border-radius:0.75rem;text-decoration:none;color:rgba(255,255,255,0.85);font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.25s;opacity:0;transform:translateX(20px);"><span
                     style="width:2rem;height:2rem;border-radius:0.5rem;background:rgba(198,167,94,0.15);border:1px solid rgba(198,167,94,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg
                         width="14" height="14" fill="none" stroke="#C6A75E" stroke-width="2" viewBox="0 0 24 24">
@@ -712,13 +716,20 @@
                     </svg></span><span style="flex:1;">Contact</span><span
                     style="color:rgba(198,167,94,0.5);font-size:1rem;">›</span></a>
         </nav>
+        <!-- CTA Footer -->
         <div style="padding:1rem 1.5rem 2rem;border-top:1px solid rgba(198,167,94,0.15);position:relative;z-index:1;">
             <a href="admissions.html" id="sidebar-cta-btn"
-                style="display:block;text-align:center;padding:0.875rem;border-radius:0.875rem;background:linear-gradient(135deg,#C6A75E,#b8964e);color:#fff;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;box-shadow:0 8px 25px rgba(198,167,94,0.3);opacity:0;transform:translateY(10px);transition:all 0.3s;">📚
-                Admission Now</a>
+                style="display:flex;align-items:center;justify-content:center;gap:0.625rem;padding:1rem;border-radius:1rem;margin-bottom:0.75rem;background:linear-gradient(135deg,#C6A75E,#d4b76e);color:#0F3D3E;font-weight:700;font-size:0.85rem;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;opacity:0;transform:translateY(15px);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                Admission Now
+            </a>
             <p
-                style="text-align:center;margin-top:0.75rem;font-size:0.6rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.12em;">
-                Phulwari Sharif, Patna, Bihar</p>
+                style="text-align:center;font-size:0.65rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;">
+                Phulwarisharif, Patna</p>
         </div>
     </div>
 
@@ -1331,11 +1342,42 @@
 
         // Header Scroll
         const header = document.getElementById('header');
+        const headerTitle = header.querySelector('.title-font');
+        const navLinks = header.querySelectorAll('.nav-link');
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
-                header.classList.add('glass-nav');
+                header.classList.add('glass-nav', 'shadow-xl');
+                header.style.backgroundColor = 'rgba(246, 241, 232, 0.95)';
+                header.classList.remove('border-transparent');
+                header.classList.add('border-black/5');
+
+                if (headerTitle) {
+                    headerTitle.classList.remove('text-white');
+                    headerTitle.classList.add('text-[#0F3D3E]');
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white');
+                    link.classList.add('text-[#1E1E1E]');
+                });
             } else {
-                header.classList.remove('glass-nav');
+                header.classList.remove('glass-nav', 'shadow-xl');
+                header.style.backgroundColor = 'transparent';
+                header.classList.add('border-transparent');
+                header.classList.remove('border-black/5');
+
+                if (headerTitle) {
+                    headerTitle.classList.add('text-white');
+                    headerTitle.classList.remove('text-[#0F3D3E]');
+                }
+
+                navLinks.forEach(link => {
+                    if (!link.classList.contains('text-[#C6A75E]')) {
+                        link.classList.add('text-white');
+                        link.classList.remove('text-[#1E1E1E]');
+                    }
+                });
             }
         });
 

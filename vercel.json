@@ -3,6 +3,14 @@
         {
             "source": "/admin",
             "destination": "/admin/dashboard.html"
+        },
+        {
+            "source": "/admin/students",
+            "destination": "/admin/students.html"
+        },
+        {
+            "source": "/student-portal",
+            "destination": "/student-portal.html"
         }
     ],
     "cleanUrls": true,

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student | Admin | MCS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #F6F1E8;
+        }
+
+        .title-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.875rem;
+            outline: none;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #0F3D3E;
+            box-shadow: 0 0 0 3px rgba(15, 61, 62, 0.1);
+        }
+
+        label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #6b7280;
+            margin-bottom: 0.4rem;
+        }
+
+        /* Hidden PDF Template */
+        #pdf-template {
+            position: fixed;
+            top: -9999px;
+            left: -9999px;
+            width: 794px;
+            background: white;
+            font-family: 'Times New Roman', serif;
+            font-size: 12px;
+            color: #000;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spinner {
+            animation: spin 0.8s linear infinite;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen p-6 md:p-10">
+
+    <!-- Auth check -->
+    <script>
+        if (sessionStorage.getItem('isAdmin') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed top-5 right-5 z-50 hidden">
+        <div id="toast-inner"
+            class="flex items-center gap-3 px-5 py-4 rounded-xl shadow-2xl text-sm font-semibold text-white min-w-[280px]">
+            <span id="toast-icon"></span>
+            <span id="toast-msg"></span>
+        </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <header class="flex items-center justify-between mb-8">
+            <div>
+                <h1 class="title-font text-4xl font-bold text-[#0F3D3E]">Add Student</h1>
+                <p class="text-gray-500 text-sm mt-1">Register a new student record with photo and generate their
+                    admission certificate.</p>
+            </div>
+            <div class="flex gap-3">
+                <a href="dashboard.html"
+                    class="px-4 py-2 text-sm font-semibold text-[#0F3D3E] border border-[#0F3D3E]/30 rounded-lg hover:bg-[#0F3D3E]/5 transition-colors">Gallery</a>
+                <button onclick="logout()"
+                    class="px-4 py-2 text-sm font-semibold text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">Sign
+                    Out</button>
+            </div>
+        </header>
+
+        <form id="student-form" onsubmit="submitForm(event)">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                <!-- LEFT: Photo + Status -->
+                <div class="space-y-5">
+                    <!-- Photo Upload -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-white/60">
+                        <h2 class="font-bold text-[#0F3D3E] mb-4 flex items-center gap-2">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#C6A75E]/20 text-[#C6A75E] flex items-center justify-center text-xs font-bold">1</span>
+                            Student Photo
+                        </h2>
+                        <div class="relative group/photo cursor-pointer"
+                            onclick="document.getElementById('photo-file').click()">
+                            <input type="file" id="photo-file" accept="image/*" class="hidden"
+                                onchange="previewPhoto(this)">
+                            <div id="photo-preview-wrap"
+                                class="w-full aspect-[3/4] max-w-[180px] mx-auto rounded-xl overflow-hidden border-2 border-dashed border-gray-300 group-hover/photo:border-[#C6A75E] bg-gray-50 flex items-center justify-center transition-all">
+                                <img id="photo-preview" src="" class="hidden w-full h-full object-cover">
+                                <div id="photo-placeholder" class="text-center text-gray-400 p-4">
+                                    <svg class="w-10 h-10 mx-auto mb-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                    <p class="text-xs font-medium">Click to upload</p>
+                                    <p class="text-[10px] mt-0.5">JPG, PNG · Passport size</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Status & Fees -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-white/60 space-y-4">
+                        <h2 class="font-bold text-[#0F3D3E] mb-2 flex items-center gap-2">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#C6A75E]/20 text-[#C6A75E] flex items-center justify-center text-xs font-bold">2</span>
+                            Status
+                        </h2>
+                        <div>
+                            <label>Admission Status</label>
+                            <select id="status" name="status" required>
+                                <option value="Active">Active</option>
+                                <option value="Deactive">Deactive</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Fees Status</label>
+                            <select id="fees" name="fees" required>
+                                <option value="No Dues">No Dues</option>
+                                <option value="Dues">Dues</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: All Fields -->
+                <div class="lg:col-span-2 space-y-5">
+
+                    <!-- Basic Info -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-white/60">
+                        <h2 class="font-bold text-[#0F3D3E] mb-4 flex items-center gap-2">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#C6A75E]/20 text-[#C6A75E] flex items-center justify-center text-xs font-bold">3</span>
+                            Basic Information
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="md:col-span-2">
+                                <label>Student Full Name *</label>
+                                <input type="text" id="studentName" name="studentName"
+                                    placeholder="e.g. Mohammed Abdullah" required>
+                            </div>
+                            <div>
+                                <label>Admission Number *</label>
+                                <input type="text" id="admissionNo" name="admissionNo" placeholder="e.g. MCS-2024-001"
+                                    required style="text-transform:uppercase">
+                            </div>
+                            <div>
+                                <label>Admission Date *</label>
+                                <input type="date" id="admissionDate" name="admissionDate" required>
+                            </div>
+                            <div>
+                                <label>Gender *</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Date of Birth *</label>
+                                <input type="date" id="dob" name="dob" required>
+                            </div>
+                            <div>
+                                <label>Aadhar Number</label>
+                                <input type="text" id="aadharNo" name="aadharNo" placeholder="XXXX XXXX XXXX"
+                                    maxlength="14">
+                            </div>
+                            <div>
+                                <label>T.C. Number</label>
+                                <input type="text" id="tcNo" name="tcNo" placeholder="Transfer Certificate No.">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Family Info -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-white/60">
+                        <h2 class="font-bold text-[#0F3D3E] mb-4 flex items-center gap-2">
+                            <span
+                                class="w-6 h-6 rounded-full bg-[#C6A75E]/20 text-[#C6A75E] flex items-center justify-center text-xs font-bold">4</span>
+                            Family Details
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label>Father's Name *</label>
+                                <input type="text" id="fatherName" name="fatherName" placeholder="Father's full name"
+                                    required>
+                            </div>
+                            <div>
+                                <label>Mother's Name</label>
+                                <input type="text" id="motherName" name="motherName" placeholder="Mother's full name">
+                            </div>
+                            <div>
+                                <label>Guardian's Name</label>
+                                <input type="text" id="guardianName" name="guardianName"
+                                    placeholder="Guardian's full name (if applicable)">
+                            </div>
+                            <div class="md:col-span-1">
+                                <label>Address</label>
+                                <textarea id="address" name="address" rows="2"
+                                    placeholder="Full residential address"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" id="submit-btn"
+                        class="w-full py-4 bg-gradient-to-r from-[#0F3D3E] to-[#1a5f61] text-white font-bold text-sm uppercase tracking-widest rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span id="submit-label">Save Student & Generate Certificate</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Hidden PDF Template (rendered in browser, captured by html2canvas) -->
+    <div id="pdf-template" aria-hidden="true">
+        <div style="padding:40px; font-family:'Times New Roman',serif; color:#000; border: 2px solid #000;">
+
+            <!-- School Header -->
+            <div
+                style="text-align:center; border-bottom:2px solid #000; padding-bottom:16px; margin-bottom:16px; position:relative;">
+                <div id="pdf-photo-box"
+                    style="position:absolute;right:0;top:0;width:90px;height:110px;border:1px solid #000;overflow:hidden;background:#f0f0f0;display:flex;align-items:center;justify-content:center;">
+                    <img id="pdf-photo" src="" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <h1
+                    style="font-size:22px;font-weight:900;letter-spacing:1px;text-transform:uppercase;margin:0 100px 4px 0;">
+                    MODERN CALCUTTA SCHOOL</h1>
+                <p style="font-size:11px;color:#333;margin:0 100px 2px 0;">Foundation of Ilm-o-Adab</p>
+                <p style="font-size:10px;color:#333;margin:0 100px 0 0;">Millat Colony, Phulwarisharif, Patna – 801505,
+                    Bihar</p>
+                <p style="font-size:10px;color:#333;margin:4px 100px 0 0;">📞 +91 87098 61044 &nbsp;|&nbsp;
+                    mcs.patna2019@gmail.com</p>
+            </div>
+
+            <!-- Title -->
+            <h2
+                style="text-align:center;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:underline;margin-bottom:20px;">
+                ADMISSION CERTIFICATE
+            </h2>
+
+            <!-- Details Table -->
+            <table style="width:100%;border-collapse:collapse;font-size:11px;margin-bottom:20px;">
+                <tbody id="pdf-table-body">
+                    <!-- Rows injected by JS -->
+                </tbody>
+            </table>
+
+            <!-- Declaration -->
+            <div style="border:1px solid #000;padding:12px;font-size:10px;line-height:1.7;margin-bottom:24px;">
+                <strong>Declaration:</strong> This is to certify that the above-named student has been duly admitted to
+                Modern Calcutta School, Phulwarisharif, Patna. The information recorded above is correct to the best of
+                our knowledge.
+            </div>
+
+            <!-- Signatures -->
+            <div style="display:flex;justify-content:space-between;margin-top:40px;font-size:10px;">
+                <div style="text-align:center;">
+                    <div style="border-top:1px solid #000;width:160px;padding-top:6px;">Parent / Guardian</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="border-top:1px solid #000;width:160px;padding-top:6px;">Class Teacher</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="border-top:1px solid #000;width:160px;padding-top:6px;">Principal / Director</div>
+                </div>
+            </div>
+
+            <p
+                style="font-size:9px;color:#666;text-align:center;margin-top:20px;border-top:1px solid #ddd;padding-top:10px;">
+                Generated on <span id="pdf-date"></span> · Modern Calcutta School Official Document
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Auth
+        window.logout = () => { sessionStorage.removeItem('isAdmin'); window.location.href = 'login.html'; };
+
+        // Photo preview
+        function previewPhoto(input) {
+            const file = input.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                document.getElementById('photo-preview').src = e.target.result;
+                document.getElementById('photo-preview').classList.remove('hidden');
+                document.getElementById('photo-placeholder').classList.add('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Toast
+        function showToast(msg, type = 'success') {
+            const t = document.getElementById('toast');
+            const inner = document.getElementById('toast-inner');
+            const msgEl = document.getElementById('toast-msg');
+            const iconEl = document.getElementById('toast-icon');
+            msgEl.textContent = msg;
+            inner.className = `flex items-center gap-3 px-5 py-4 rounded-xl shadow-2xl text-sm font-semibold text-white min-w-[280px] ${type === 'success' ? 'bg-[#0F3D3E]' : 'bg-red-500'}`;
+            iconEl.textContent = type === 'success' ? '✅' : '❌';
+            t.classList.remove('hidden');
+            setTimeout(() => t.classList.add('hidden'), 4000);
+        }
+
+        function setSubmitting(yes) {
+            const btn = document.getElementById('submit-btn');
+            const label = document.getElementById('submit-label');
+            btn.disabled = yes;
+            if (yes) {
+                label.innerHTML = `<svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Saving...`;
+            } else {
+                label.textContent = 'Save Student & Generate Certificate';
+            }
+        }
+
+        async function submitForm(e) {
+            e.preventDefault();
+            setSubmitting(true);
+
+            try {
+                // Build FormData
+                const form = document.getElementById('student-form');
+                const fd = new FormData();
+                const photoFile = document.getElementById('photo-file').files[0];
+                if (photoFile) fd.append('photo', photoFile, photoFile.name);
+
+                const fields = ['studentName', 'admissionNo', 'admissionDate', 'gender', 'dob', 'aadharNo',
+                    'fatherName', 'motherName', 'guardianName', 'address', 'status', 'fees', 'tcNo'];
+                fields.forEach(id => {
+                    const el = document.getElementById(id);
+                    fd.append(id, el.value || '');
+                });
+
+                // 1. Save student to backend
+                document.getElementById('submit-label').innerHTML = `<svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Saving student data...`;
+                const saveRes = await fetch('/api/add-student', { method: 'POST', body: fd });
+                const saveData = await saveRes.json();
+
+                if (!saveRes.ok) {
+                    showToast(saveData.error || 'Failed to save student', 'error');
+                    return;
+                }
+
+                const student = saveData.student;
+                const admissionNo = student.admissionNo;
+
+                // 2. Generate PDF in browser
+                document.getElementById('submit-label').innerHTML = `<svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Generating certificate...`;
+
+                populatePdfTemplate(student);
+                await new Promise(r => setTimeout(r, 200)); // let DOM update
+
+                const canvas = await html2canvas(document.getElementById('pdf-template'), {
+                    scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff'
+                });
+
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const imgData = canvas.toDataURL('image/jpeg', 0.85);
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfW = pdf.internal.pageSize.getWidth();
+                const pdfH = (imgProps.height * pdfW) / imgProps.width;
+                pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, pdfH);
+
+                const pdfBlob = pdf.output('blob');
+
+                // 3. Upload PDF to Vercel Blob
+                document.getElementById('submit-label').innerHTML = `<svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Uploading certificate...`;
+                const pdfRes = await fetch('/api/upload-pdf', {
+                    method: 'POST',
+                    headers: { 'x-admission-no': admissionNo, 'Content-Type': 'application/pdf' },
+                    body: pdfBlob
+                });
+                const pdfData = await pdfRes.json();
+
+                if (pdfRes.ok && pdfData.url) {
+                    // 4. Update Firestore with PDF URL (via Firebase client SDK)
+                    // We rely on Firestore rules allowing authenticated writes OR we accept the PDF link
+                    // is returned to admin for reference
+                    showToast(`✅ Student ${student.studentName} saved! Certificate generated.`, 'success');
+                    console.log('PDF URL:', pdfData.url);
+
+                    // Optionally trigger PDF download for the admin
+                    pdf.save(`${admissionNo}-admission-certificate.pdf`);
+                } else {
+                    showToast('Student saved but PDF upload failed. Check console.', 'error');
+                }
+
+                form.reset();
+                document.getElementById('photo-preview').classList.add('hidden');
+                document.getElementById('photo-placeholder').classList.remove('hidden');
+
+            } catch (err) {
+                console.error(err);
+                showToast('Something went wrong: ' + err.message, 'error');
+            } finally {
+                setSubmitting(false);
+            }
+        }
+
+        function populatePdfTemplate(s) {
+            // Photo
+            const photoImg = document.getElementById('pdf-photo');
+            if (s.photoUrl) { photoImg.src = s.photoUrl; }
+            else { document.getElementById('pdf-photo-box').style.display = 'none'; }
+
+            // Date
+            document.getElementById('pdf-date').textContent = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
+
+            // Table rows
+            const rows = [
+                ['Student Name', s.studentName],
+                ['Admission Number', s.admissionNo],
+                ['Admission Date', s.admissionDate],
+                ['Gender', s.gender],
+                ['Date of Birth', s.dob],
+                ["Father's Name", s.fatherName],
+                ["Mother's Name", s.motherName],
+                ["Guardian's Name", s.guardianName],
+                ['Aadhar Number', s.aadharNo],
+                ['Address', s.address],
+                ['T.C. Number', s.tcNo],
+                ['Admission Status', s.status],
+                ['Fees Status', s.fees],
+            ];
+
+            const tbody = document.getElementById('pdf-table-body');
+            tbody.innerHTML = rows
+                .filter(([, v]) => v)
+                .map(([label, val], i) => `
+                    <tr style="background:${i % 2 === 0 ? '#f9f9f9' : '#fff'}">
+                        <td style="border:1px solid #000;padding:6px 10px;font-weight:700;width:35%;background:#f0f0f0;">${label}</td>
+                        <td style="border:1px solid #000;padding:6px 10px;">${val}</td>
+                    </tr>
+                `).join('');
+        }
+    </script>
+</body>
+
+</html>
