@@ -1,0 +1,35 @@
+﻿diff --git a/index.html b/index.html
+index 07e20b2..ad879aa 100644
+--- a/index.html
++++ b/index.html
+@@ -668,8 +668,9 @@
+                 <span
+                     class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+             </a>
+-            <a href="#contact" class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+-                Contact
++            <a href="student-portal.html"
++                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
++                Student Portal
+                 <span
+                     class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+             </a>
+@@ -848,7 +849,7 @@
+                     <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+                 </svg>
+             </a>
+-            <a href="#contact" class="sidebar-link"
++            <a href="student-portal.html" class="sidebar-link"
+                 style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem 1rem;border-radius:0.875rem;color:rgba(255,255,255,0.8);text-decoration:none;transition:background 0.2s,color 0.2s;opacity:0;transform:translateX(30px);">
+                 <div class="sidebar-icon"
+                     style="width:2.25rem;height:2.25rem;border-radius:0.625rem;background:rgba(198,167,94,0.12);border:1px solid rgba(198,167,94,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+@@ -859,7 +860,8 @@
+                     </svg>
+                 </div>
+                 <span
+-                    style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:600;letter-spacing:0.03em;">Contact</span>
++                    style="font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:600;letter-spacing:0.03em;">Student
++                    Portal</span>
+                 <svg style="margin-left:auto;opacity:0.4;flex-shrink:0;" width="14" height="14" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="2">
+                     <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
