@@ -4,24 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | School Life & Activities | Modern Calcutta School Patna</title>
+    <title>Gallery | School Life & Islamic Activities | Modern Calcutta School Phulwari Patna</title>
     <!-- SEO Meta Tags -->
     <meta name="description"
-        content="View the photo gallery of Modern Calcutta School Patna. See our campus, classrooms, student activities, sports events, and educational trips.">
+        content="View the photo gallery of Modern Calcutta School in Phulwari Sharif, Patna, Bihar. See our campus, Islamic activities, classrooms, student events, and educational trips.">
     <meta name="keywords"
-        content="school photos patna, modern calcutta school gallery, MODERN CALCUTTA SCHOOL PATNA, best modern islamic kids school, student activities photos, school infrastructure patna">
+        content="modern calcutta school gallery, modern islamic school phulwari photos, MODERN CALCUTTA SCHOOL PATNA, school photos patna bihar, student activities islamic school, school campus phulwari">
     <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="IN-BR">
+    <meta name="geo.placename" content="Phulwari Sharif, Patna, Bihar">
     <link rel="canonical" href="https://mcspatna.org/gallery.html">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mcspatna.org/gallery.html">
-    <meta property="og:title" content="Photo Gallery | Modern Calcutta School Patna">
+    <meta property="og:site_name" content="Modern Calcutta School">
+    <meta property="og:title" content="Photo Gallery | Modern Calcutta School Phulwari Patna Bihar">
     <meta property="og:description"
-        content="A glimpse into the vibrant life at Modern Calcutta School Patna. Explore our facilities, events, and happy moments.">
+        content="A glimpse into the vibrant Islamic school life at Modern Calcutta School, Phulwari Sharif, Patna, Bihar. Explore campus, activities & happy moments.">
     <meta property="og:image" content="https://mcspatna.org/assets/transparent-logo.png">
-    <link rel="icon" type="image/png" href="assets/transparent-logo.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:locale" content="en_IN">
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mcspatna.org/gallery.html">
+    <meta property="twitter:title" content="Photo Gallery | Modern Calcutta School Phulwari Patna Bihar">
+    <meta property="twitter:description"
+        content="A glimpse into the vibrant Islamic school life at Modern Calcutta School, Phulwari Sharif, Patna, Bihar.">
+    <meta property="twitter:image" content="https://mcspatna.org/assets/transparent-logo.png">
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/transparent-logo.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/transparent-logo.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/transparent-logo.png">
+    <link rel="shortcut icon" href="assets/transparent-logo.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/transparent-logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/transparent-logo.png">
+    <meta name="theme-color" content="#0F3D3E">
+    <meta name="msapplication-TileColor" content="#0F3D3E">
+    <meta name="msapplication-TileImage" content="assets/transparent-logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Smooth Page Transitions -->
+    <style>
+        body {
+            animation: pageEnter 0.5s ease forwards
+        }
+
+        @keyframes pageEnter {
+            from {
+                opacity: 0;
+                transform: translateY(8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+    </style>
+    <script src="../js/transitions.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Bebas+Neue&family=Noto+Nastaliq+Urdu:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&display=swap"
         rel="stylesheet">
@@ -1038,6 +1079,32 @@
         });
 
         // Gallery logic now handled by module script above
+
+        // ── Mobile Menu Toggle ────────────────────────
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuCloseBtn = document.getElementById('mobile-menu-close');
+
+        function openMobileMenu() {
+            mobileMenu.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        mobileMenuCloseBtn.addEventListener('click', closeMobileMenu);
+
+        // Close on backdrop click (clicking the overlay itself, not the nav)
+        mobileMenu.addEventListener('click', function (e) {
+            if (e.target === mobileMenu) closeMobileMenu();
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeMobileMenu();
+        });
     </script>
 
     <!-- Firebase Dynamic Loader -->
