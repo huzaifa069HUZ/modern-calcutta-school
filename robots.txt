@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mscpatna.in/sitemap.xml
+Sitemap: https://mcspatna.org/sitemap.xml
