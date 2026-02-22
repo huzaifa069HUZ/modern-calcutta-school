@@ -377,7 +377,7 @@
 
     <!-- Header -->
     <header id="header"
-        class="fixed w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center transition-all duration-500 border-b border-transparent">
+        class="fixed w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center gap-4 xl:gap-8 transition-all duration-500 border-b border-transparent">
         <a href="index.html" class="flex items-center gap-2 md:gap-4 group cursor-pointer">
             <img src="assets/transparent-logo.png" alt="Modern Calcutta School Logo"
                 class="h-10 md:h-14 lg:h-16 w-auto drop-shadow-lg group-hover:scale-105 transition-transform duration-300">
@@ -391,7 +391,7 @@
             </div>
         </a>
         <nav
-            class="hidden xl:flex items-center space-x-10 text-[11px] uppercase tracking-[0.15em] font-bold text-[#0F3D3E] drop-shadow-md">
+            class="hidden xl:flex items-center gap-4 2xl:gap-8 text-[10px] 2xl:text-[11px] uppercase tracking-widest font-bold text-[#0F3D3E] drop-shadow-md whitespace-nowrap">
             <a href="index.html"
                 class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">Home<span
                     class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span></a>
@@ -409,14 +409,15 @@
                 class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">Gallery<span
                     class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span></a>
             <a href="student-portal.html"
-                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">Student
-                Portal<span
+                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group"
+                style="font-size: 9.5px; letter-spacing: 0.1em;">Students Portal<span
                     class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span></a>
         </nav>
         <div class="flex items-center space-x-4">
             <a href="admissions.html"
-                class="hidden md:block px-6 py-3 bg-gradient-to-r from-[#C6A75E] to-[#7BAE7F] text-white text-[10px] uppercase tracking-[0.2em] font-bold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300">Admission
-                Now</a>
+                class="hidden md:flex items-center justify-center px-7 py-2.5 bg-[#C6A75E] text-white text-[10px] uppercase tracking-[0.15em] font-bold rounded-full transition-all duration-300 hover:bg-white hover:text-[#C6A75E] border-2 border-transparent hover:border-[#C6A75E] whitespace-nowrap shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                Admission Now
+            </a>
             <button id="mobile-menu-button" class="xl:hidden"
                 style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:54px;height:46px;border-radius:14px;background:linear-gradient(145deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03));border:1px solid rgba(198,167,94,0.35);box-shadow:0 2px 20px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.12);backdrop-filter:blur(16px);cursor:pointer;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);overflow:hidden;"
                 onmouseenter="this.style.background='linear-gradient(145deg,rgba(198,167,94,0.14),rgba(198,167,94,0.04))';this.style.borderColor='rgba(198,167,94,0.7)';this.style.boxShadow='0 6px 28px rgba(198,167,94,0.22),inset 0 1px 0 rgba(255,255,255,0.15)';this.style.transform='translateY(-1px)'"
