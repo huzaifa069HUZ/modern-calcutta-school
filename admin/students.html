@@ -266,6 +266,110 @@
         </form>
     </div>
 
+    <!-- ══════════════════════════════════════════════
+         ALL STUDENTS SECTION
+    ══════════════════════════════════════════════ -->
+    <div class="max-w-5xl mx-auto mt-16 pb-20">
+
+        <!-- Section Header -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-[#0F3D3E] flex items-center justify-center">
+                    <svg class="w-5 h-5 text-[#C6A75E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="title-font text-2xl font-bold text-[#0F3D3E]">All Students</h2>
+                    <p class="text-gray-400 text-xs">
+                        <span id="student-count" class="font-bold text-[#0F3D3E]">—</span> registered records
+                    </p>
+                </div>
+            </div>
+            <!-- Search Bar -->
+            <div class="relative w-full sm:w-72">
+                <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input id="student-search" type="text" placeholder="Search by name or admission no..."
+                    class="w-full pl-9 pr-4 py-2.5 text-sm bg-white border border-gray-200 rounded-xl outline-none focus:border-[#0F3D3E] focus:ring-2 focus:ring-[#0F3D3E]/10 transition-all"
+                    oninput="filterStudents(this.value)">
+            </div>
+        </div>
+
+        <!-- Student List -->
+        <div id="student-list" class="space-y-3">
+            <!-- Skeletons while loading -->
+            <div id="student-skeletons" class="space-y-3">
+                <div class="animate-pulse bg-white rounded-2xl h-20 border border-gray-100"></div>
+                <div class="animate-pulse bg-white rounded-2xl h-20 border border-gray-100"></div>
+                <div class="animate-pulse bg-white rounded-2xl h-20 border border-gray-100"></div>
+            </div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="student-empty" class="hidden text-center py-20">
+            <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-9 h-9 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+            </div>
+            <h3 class="title-font text-2xl text-[#0F3D3E] font-bold mb-2">No Students Yet</h3>
+            <p class="text-gray-400 text-sm">Add your first student using the form above.</p>
+        </div>
+
+        <!-- No Search Results -->
+        <div id="student-no-results" class="hidden text-center py-12">
+            <p class="text-gray-400 text-sm">No students match your search.</p>
+        </div>
+    </div>
+
+    <!-- ── Delete Confirmation Modal ──────────────────── -->
+    <div id="delete-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4"
+        style="background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-8 text-center"
+            style="animation:slideUpModal 0.3s cubic-bezier(0.34,1.56,0.64,1) forwards;">
+            <style>
+                @keyframes slideUpModal {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px)
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: translateY(0)
+                    }
+                }
+            </style>
+            <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-5">
+                <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+            </div>
+            <h3 class="title-font text-2xl font-bold text-[#0F3D3E] mb-2">Delete Student?</h3>
+            <p class="text-gray-500 text-sm mb-1">You're about to permanently delete:</p>
+            <p id="delete-modal-name" class="font-bold text-[#0F3D3E] text-base mb-6"></p>
+            <p class="text-red-500 text-xs mb-6 bg-red-50 rounded-xl px-4 py-2">This action cannot be undone. The
+                student record will be permanently removed.</p>
+            <div class="flex gap-3">
+                <button onclick="closeDeleteModal()"
+                    class="flex-1 py-3 rounded-xl border border-gray-200 text-gray-600 font-semibold text-sm hover:bg-gray-50 transition-colors">
+                    Cancel
+                </button>
+                <button id="confirm-delete-btn" onclick="confirmDelete()"
+                    class="flex-1 py-3 rounded-xl bg-red-500 hover:bg-red-600 text-white font-bold text-sm transition-colors">
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Hidden PDF Template (rendered in browser, captured by html2canvas) -->
     <div id="pdf-template" aria-hidden="true">
         <div style="padding:40px; font-family:'Times New Roman',serif; color:#000; border: 2px solid #000;">
@@ -499,6 +603,9 @@
 
             // Auto-dismiss after 15 seconds
             setTimeout(() => banner?.remove(), 15000);
+
+            // Refresh student list to show newly added student
+            loadStudents();
         }
 
         function populatePdfTemplate(s) {
@@ -537,6 +644,188 @@
                     </tr>
                 `).join('');
         }
+
+        // ══════════════════════════════════════════════
+        // STUDENT LIST LOGIC
+        // ══════════════════════════════════════════════
+
+        let allStudents = [];   // cached full list for filtering
+        let pendingDeleteId = null;
+
+        async function loadStudents() {
+            try {
+                const res = await fetch('/api/students-list');
+                const data = await res.json();
+
+                // Hide skeletons
+                document.getElementById('student-skeletons').remove();
+
+                if (!res.ok || !data.students) throw new Error(data.error || 'Failed');
+
+                allStudents = data.students;
+                document.getElementById('student-count').textContent = allStudents.length;
+                renderStudentList(allStudents);
+            } catch (err) {
+                console.error('[loadStudents]', err);
+                document.getElementById('student-skeletons').innerHTML =
+                    `<p class="text-center text-red-400 text-sm py-8">Could not load students: ${err.message}</p>`;
+            }
+        }
+
+        function renderStudentList(students) {
+            const list = document.getElementById('student-list');
+            const empty = document.getElementById('student-empty');
+            const noResults = document.getElementById('student-no-results');
+
+            // Clear rendered cards (keep skeletons container if exists)
+            list.querySelectorAll('.student-card').forEach(c => c.remove());
+            empty.classList.add('hidden');
+            noResults.classList.add('hidden');
+
+            if (students.length === 0 && allStudents.length === 0) {
+                empty.classList.remove('hidden');
+                return;
+            }
+            if (students.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            students.forEach((s, idx) => {
+                const card = document.createElement('div');
+                card.className = 'student-card bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-[#C6A75E]/30 transition-all duration-200 overflow-hidden';
+                card.style.animation = `fadeInCard 0.3s ease ${idx * 0.04}s both`;
+
+                const isActive = s.status === 'Active';
+                const noDues = s.fees === 'No Dues';
+                const photoSrc = s.photoUrl ||
+                    `https://ui-avatars.com/api/?name=${encodeURIComponent(s.studentName)}&background=0F3D3E&color=C6A75E&size=80&bold=true`;
+                const admDate = s.admissionDate || '—';
+                const createdAt = s.createdAt ? new Date(s.createdAt).toLocaleDateString('en-IN') : '—';
+
+                card.innerHTML = `
+                    <div class="flex items-center gap-4 p-4">
+                        <!-- Photo -->
+                        <div class="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-gray-100 bg-gray-50">
+                            <img src="${photoSrc}" alt="${s.studentName}" class="w-full h-full object-cover"
+                                onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(s.studentName)}&background=0F3D3E&color=C6A75E&size=80'">
+                        </div>
+
+                        <!-- Main Info -->
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <h3 class="font-bold text-[#0F3D3E] text-sm truncate">${s.studentName}</h3>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider ${isActive ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'}">${s.status}</span>
+                                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider ${noDues ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}">${s.fees}</span>
+                            </div>
+                            <p class="text-gray-400 text-xs mt-0.5 font-mono">${s.admissionNo}</p>
+                            <div class="flex gap-4 mt-1">
+                                <span class="text-gray-400 text-[10px]">👤 ${s.fatherName || '—'}</span>
+                                <span class="text-gray-400 text-[10px]">📅 ${admDate}</span>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="flex items-center gap-2 flex-shrink-0">
+                            <!-- Portal Link -->
+                            <a href="/student-portal.html" target="_blank"
+                                title="View in Student Portal"
+                                class="w-9 h-9 rounded-xl bg-[#0F3D3E]/5 hover:bg-[#0F3D3E]/10 flex items-center justify-center transition-colors group">
+                                <svg class="w-4 h-4 text-[#0F3D3E] group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                </svg>
+                            </a>
+                            <!-- Delete -->
+                            <button onclick="openDeleteModal('${s.id}', '${s.studentName.replace(/'/g, "\\'")}')"
+                                title="Delete student"
+                                class="w-9 h-9 rounded-xl bg-red-50 hover:bg-red-500 flex items-center justify-center transition-all group">
+                                <svg class="w-4 h-4 text-red-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+        }
+
+        function filterStudents(q) {
+            const query = q.toLowerCase().trim();
+            if (!query) {
+                document.getElementById('student-count').textContent = allStudents.length;
+                renderStudentList(allStudents);
+                return;
+            }
+            const filtered = allStudents.filter(s =>
+                s.studentName?.toLowerCase().includes(query) ||
+                s.admissionNo?.toLowerCase().includes(query) ||
+                s.fatherName?.toLowerCase().includes(query)
+            );
+            document.getElementById('student-count').textContent = filtered.length;
+            renderStudentList(filtered);
+        }
+
+        // ── Delete Modal ──────────────────────────────
+        function openDeleteModal(id, name) {
+            pendingDeleteId = id;
+            document.getElementById('delete-modal-name').textContent = name;
+            const modal = document.getElementById('delete-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeDeleteModal() {
+            pendingDeleteId = null;
+            const modal = document.getElementById('delete-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        async function confirmDelete() {
+            if (!pendingDeleteId) return;
+            const btn = document.getElementById('confirm-delete-btn');
+            btn.disabled = true;
+            btn.textContent = 'Deleting...';
+
+            try {
+                const res = await fetch('/api/delete-student', {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ studentId: pendingDeleteId })
+                });
+                const data = await res.json();
+
+                if (!res.ok) throw new Error(data.error || 'Delete failed');
+
+                showToast('Student deleted successfully.', 'success');
+                closeDeleteModal();
+                // Remove from cache and re-render
+                allStudents = allStudents.filter(s => s.id !== pendingDeleteId);
+                document.getElementById('student-count').textContent = allStudents.length;
+                document.getElementById('student-search').value = '';
+                renderStudentList(allStudents);
+            } catch (err) {
+                showToast('Error: ' + err.message, 'error');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Delete';
+            }
+        }
+
+        // Close modal on backdrop click
+        document.getElementById('delete-modal').addEventListener('click', function (e) {
+            if (e.target === this) closeDeleteModal();
+        });
+
+        // CSS for card entrance animation
+        const style = document.createElement('style');
+        style.textContent = `@keyframes fadeInCard{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}`;
+        document.head.appendChild(style);
+
+        // Load on page ready
+        loadStudents();
+
     </script>
 </body>
 
