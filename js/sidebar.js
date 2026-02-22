@@ -12,19 +12,19 @@
 
         <!-- Mobile Sidebar Panel -->
         <div id="mobile-sidebar" class="xl:hidden flex flex-col"
-            style="position:fixed;top:0;right:0;bottom:0;z-index:59;width:min(320px,85vw);background:linear-gradient(165deg,#0a2d2e 0%,#0F3D3E 40%,#0a2535 100%);transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);overflow:hidden;overflow-y:auto;box-shadow:-10px 0 60px rgba(0,0,0,0.4);">
+            style="position:fixed;top:0;right:0;bottom:0;z-index:59;width:min(340px,88vw);background:linear-gradient(165deg,#0a2d2e 0%,#0F3D3E 40%,#0a2535 100%);transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);overflow:hidden;overflow-y:auto;box-shadow:-10px 0 60px rgba(0,0,0,0.4);">
             
             <!-- Decorative orbs -->
             <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(198,167,94,0.12),transparent);pointer-events:none;"></div>
             <div style="position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(198,167,94,0.08),transparent);pointer-events:none;"></div>
 
             <!-- Sidebar Header: Logo + Close -->
-            <div style="padding:1.5rem 1.5rem 1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(198,167,94,0.15);position:relative;z-index:1;flex-shrink:0;">
-                <a href="/index.html" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;">
-                    <img src="/assets/transparent-logo.png" alt="Modern Calcutta School Patna Logo" style="height:2.5rem;width:auto;filter:brightness(1.2);">
-                    <div>
-                        <p style="font-family:'Cormorant Garamond',serif;font-size:0.75rem;font-weight:700;color:#fff;letter-spacing:0.05em;line-height:1.1;">MODERN CALCUTTA</p>
-                        <p style="font-size:0.55rem;color:#C6A75E;text-transform:uppercase;letter-spacing:0.15em;margin-top:2px;">Foundation of Ilm-o-Adab</p>
+            <div style="padding:1.5rem 1rem 1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(198,167,94,0.15);position:relative;z-index:1;flex-shrink:0;">
+                <a href="/index.html" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;">
+                    <img src="/assets/transparent-logo.png" alt="Modern Calcutta School Patna Logo" style="height:2.25rem;width:auto;filter:brightness(1.2);">
+                    <div style="min-width:0;">
+                        <p style="font-family:'Cormorant Garamond',serif;font-size:0.75rem;font-weight:700;color:#fff;letter-spacing:0.05em;line-height:1.1;white-space:normal;word-break:break-word;">MODERN CALCUTTA</p>
+                        <p style="font-size:0.5rem;color:#C6A75E;text-transform:uppercase;letter-spacing:0.1em;margin-top:2px;">Foundation of Ilm-o-Adab</p>
                     </div>
                 </a>
                 <button id="mobile-menu-close" style="width:2.25rem;height:2.25rem;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s;flex-shrink:0;">

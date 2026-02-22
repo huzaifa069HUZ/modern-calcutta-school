@@ -867,10 +867,10 @@
                 <!-- Left: High Impact Text -->
                 <div class="lg:col-span-7 text-center lg:text-left order-1 lg:order-1">
                     <div class="reveal active">
-                        <!-- Improved Sophisticated Animation -->
-                        <div class="overflow-hidden mb-6">
+                        <div class="overflow-hidden mb-6 max-w-full">
                             <span
-                                class="text-[#C6A75E] uppercase tracking-[0.3em] text-[11px] font-bold block animate-reveal-text">Marhaba
+                                class="text-[#C6A75E] uppercase tracking-[0.3em] text-[11px] font-bold block animate-reveal-text"
+                                style="white-space: normal; word-break: break-word; overflow-wrap: anywhere; max-width: 100%;">Marhaba
                                 — Welcome to Modern Calcutta School</span>
                         </div>
                         <h1
@@ -2028,16 +2028,22 @@
                 header.classList.add('border-black/5');
 
                 // Text Colors -> Dark
-                headerTitle.classList.remove('text-white');
-                headerTitle.classList.add('text-[#0F3D3E]');
+                if (headerTitle) {
+                    headerTitle.classList.remove('text-white');
+                    headerTitle.classList.add('text-[#0F3D3E]');
+                }
 
-                navLinks.forEach(link => {
-                    link.classList.remove('text-white');
-                    link.classList.add('text-[#1E1E1E]');
-                });
+                if (navLinks) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-white');
+                        link.classList.add('text-[#1E1E1E]');
+                    });
+                }
 
-                inquiryBtn.classList.remove('text-white', 'border-white');
-                inquiryBtn.classList.add('text-[#0B2447]', 'border-[#0B2447]');
+                if (inquiryBtn) {
+                    inquiryBtn.classList.remove('text-white', 'border-white');
+                    inquiryBtn.classList.add('text-[#0B2447]', 'border-[#0B2447]');
+                }
 
             } else {
                 // Top State: Transparent, White Text
@@ -2049,16 +2055,22 @@
                 header.classList.remove('border-black/5');
 
                 // Text Colors -> White
-                headerTitle.classList.add('text-white');
-                headerTitle.classList.remove('text-[#0F3D3E]');
+                if (headerTitle) {
+                    headerTitle.classList.add('text-white');
+                    headerTitle.classList.remove('text-[#0F3D3E]');
+                }
 
-                navLinks.forEach(link => {
-                    link.classList.add('text-white');
-                    link.classList.remove('text-[#1E1E1E]');
-                });
+                if (navLinks) {
+                    navLinks.forEach(link => {
+                        link.classList.add('text-white');
+                        link.classList.remove('text-[#1E1E1E]');
+                    });
+                }
 
-                inquiryBtn.classList.add('text-white', 'border-white');
-                inquiryBtn.classList.remove('text-[#0B2447]', 'border-[#0B2447]');
+                if (inquiryBtn) {
+                    inquiryBtn.classList.add('text-white', 'border-white');
+                    inquiryBtn.classList.remove('text-[#0B2447]', 'border-[#0B2447]');
+                }
             }
         });
     </script>
