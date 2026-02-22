@@ -226,6 +226,7 @@
             color: var(--charcoal);
             scroll-behavior: smooth;
             overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
         }
 
         h1,
@@ -344,7 +345,7 @@
             }
 
             to {
-                width: min(14em, 88vw)
+                width: min(14em, 90vw)
             }
         }
 
@@ -362,11 +363,13 @@
 
         .animate-typing {
             width: 0;
+            max-width: 90vw;
+            overflow: hidden;
+            white-space: nowrap;
             animation:
                 typing 2s steps(30, end) forwards,
                 blink-caret .75s step-end infinite;
             animation-delay: 0.5s;
-            /* Delay start slightly */
         }
 
         /* Updated Marhaba Animation */
@@ -714,13 +717,13 @@
 
         .reveal-bottom {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(30px);
             transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .reveal-scale {
             opacity: 0;
-            transform: scale(0.9);
+            transform: scale(0.95);
             transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
@@ -730,6 +733,13 @@
         .reveal-scale.active {
             opacity: 1;
             transform: translate(0) scale(1);
+        }
+
+        /* iOS: disable bg-fixed parallax (causes blank backgrounds on Safari) */
+        @media (hover: none) {
+            .stats-bg-section {
+                background-attachment: scroll !important;
+            }
         }
     </style>
 </head>
@@ -1046,7 +1056,7 @@
                                 — Welcome to Modern Calcutta School</span>
                         </div>
                         <h1
-                            class="text-4xl sm:text-5xl lg:text-8xl leading-[1.1] sm:leading-[1] mb-8 text-white drop-shadow-lg">
+                            class="text-4xl sm:text-5xl lg:text-8xl leading-[1.1] lg:leading-[1] mb-6 sm:mb-8 text-white drop-shadow-lg">
                             Modern Minds <br>
                             <span class="italic font-light text-[#C6A75E]">Sacred Values</span> <br>
                             Infinite Future
@@ -1133,8 +1143,8 @@
                             <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
                         </svg>
 
-                        <p class="text-xl sm:text-2xl md:text-3xl text-white leading-tight break-words px-2" dir="rtl"
-                            style="font-family: 'Noto Nastaliq Urdu', serif; max-width:100%;">
+                        <p class="text-xl sm:text-3xl text-white leading-relaxed break-words px-2" dir="rtl"
+                            style="font-family: 'Noto Nastaliq Urdu', serif; word-break: break-word; max-width: 100%;">
                             طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ
                         </p>
 
@@ -1169,8 +1179,8 @@
                             <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
                         </svg>
 
-                        <p class="text-xl sm:text-2xl md:text-3xl text-white leading-tight break-words px-2" dir="rtl"
-                            style="font-family: 'Noto Nastaliq Urdu', serif; max-width:100%;">
+                        <p class="text-xl sm:text-3xl text-white leading-relaxed break-words px-2" dir="rtl"
+                            style="font-family: 'Noto Nastaliq Urdu', serif; word-break: break-word; max-width: 100%;">
                             وَقُل رَّبِّ زِدْنِي عِلْمًا
                         </p>
 
@@ -1208,13 +1218,13 @@
     </section>
 
     <!-- Animated Stats Section -->
-    <section class="py-24 relative z-30 overflow-hidden bg-fixed"
-        style="background-image: url('assets/stats-bg.png'); background-size: cover; background-position: center;">
+    <section class="stats-bg-section py-16 sm:py-24 relative z-30 overflow-hidden"
+        style="background-image: url('assets/stats-bg.png'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="absolute inset-0 bg-white/80 z-0"></div> <!-- Subtle overlay to blend -->
-        <div class="container mx-auto px-8 lg:px-16 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="container mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
                 <div
-                    class="reveal stat-card p-6 sm:p-10 rounded-[24px] sm:rounded-[40px] text-center shadow-lg bg-white/90 backdrop-blur-sm">
+                    class="reveal stat-card p-5 sm:p-10 rounded-2xl sm:rounded-[40px] text-center shadow-lg bg-white/90 backdrop-blur-sm">
                     <div class="text-[#C6A75E] mb-4 flex justify-center">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -1224,7 +1234,7 @@
                     <h3 class="text-5xl text-[#0F3D3E] mb-2"><span class="counter" data-target="5">0</span>+</h3>
                     <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Years of Legacy</p>
                 </div>
-                <div class="reveal stat-card p-6 sm:p-10 rounded-[24px] sm:rounded-[40px] text-center shadow-lg bg-white/90 backdrop-blur-sm"
+                <div class="reveal stat-card p-5 sm:p-10 rounded-2xl sm:rounded-[40px] text-center shadow-lg bg-white/90 backdrop-blur-sm"
                     style="transition-delay: 0.2s;">
                     <div class="text-[#C6A75E] mb-4 flex justify-center">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1236,7 +1246,7 @@
                     <h3 class="text-5xl text-[#0F3D3E] mb-2"><span class="counter" data-target="100">0</span>%</h3>
                     <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Islamic Environment</p>
                 </div>
-                <div class="reveal stat-card p-6 sm:p-10 rounded-[24px] sm:rounded-[40px] text-center shadow-lg bg-white/90 backdrop-blur-sm"
+                <div class="reveal stat-card p-5 sm:p-10 rounded-2xl sm:rounded-[40px] text-center shadow-lg bg-white/90 backdrop-blur-sm"
                     style="transition-delay: 0.4s;">
                     <div class="text-[#C6A75E] mb-4 flex justify-center">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1248,7 +1258,7 @@
                     <h3 class="text-5xl text-[#0F3D3E] mb-2"><span class="counter" data-target="10">0</span>+</h3>
                     <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Modern Faculties</p>
                 </div>
-                <div class="reveal stat-card p-10 rounded-[40px] text-center shadow-lg bg-white/90 backdrop-blur-sm"
+                <div class="reveal stat-card p-5 sm:p-10 rounded-2xl sm:rounded-[40px] text-center shadow-lg bg-white/90 backdrop-blur-sm"
                     style="transition-delay: 0.6s;">
                     <div class="text-[#C6A75E] mb-4 flex justify-center">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
