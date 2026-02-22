@@ -4,10 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portal | Modern Calcutta School</title>
+    <title>Student Portal | Access Records | Modern Calcutta School Patna</title>
     <meta name="description"
-        content="Search and view student records at Modern Calcutta School. Enter your admission number to access your profile and download your admission certificate.">
+        content="Search and view student records at Modern Calcutta School Patna. Enter your admission number to access your profile and download your admission certificate.">
+    <meta name="keywords"
+        content="modern calcutta school student portal, student records mcspatna, admission certificate download, modern calcutta school patna">
+    <meta name="author" content="Modern Calcutta School">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://mcspatna.org/student-portal.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mcspatna.org/student-portal.html">
+    <meta property="og:title" content="Student Portal | Modern Calcutta School Patna">
+    <meta property="og:description"
+        content="Access student records and download admission certificates at Modern Calcutta School Patna.">
+    <meta property="og:image" content="https://mcspatna.org/assets/transparent-logo.png">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://mcspatna.org/student-portal.html">
+    <meta property="twitter:title" content="Student Portal | Modern Calcutta School Patna">
+    <meta property="twitter:description"
+        content="Access student records and download admission certificates at Modern Calcutta School Patna.">
+    <meta property="twitter:image" content="https://mcspatna.org/assets/transparent-logo.png">
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/transparent-logo.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/transparent-logo.png">
+    <link rel="shortcut icon" href="assets/transparent-logo.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/transparent-logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/transparent-logo.png">
+    <meta name="theme-color" content="#0F3D3E">
+    <meta name="msapplication-TileColor" content="#0F3D3E">
+    <meta name="msapplication-TileImage" content="assets/transparent-logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- PDF Generation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -289,25 +320,44 @@
                         <!-- Rows injected by JS -->
                     </div>
 
-                    <!-- Download Button -->
-                    <div id="pdf-section" class="hidden mt-10 pt-8 border-t border-gray-200 flex justify-center">
-                        <a id="download-pdf-btn" href="#" target="_blank" rel="noopener"
-                            class="inline-flex items-center gap-3 px-8 py-4 bg-[#C6A75E] hover:bg-[#b0924c] text-white font-bold text-xs uppercase tracking-[0.15em] rounded-xl hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
-                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                            </svg>
-                            <div class="text-left">
-                                <p class="text-[10px] text-white/80 leading-none mb-0.5">Download Official</p>
-                                <p class="leading-none text-sm">Admission Certificate</p>
-                            </div>
-                        </a>
+                    <!-- Download / Generate Certificate Section -->
+                    <div id="pdf-section" class="hidden mt-10 pt-8 border-t border-gray-200">
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <!-- Direct download if pdfUrl is stored -->
+                            <a id="download-pdf-btn" href="#" target="_blank" rel="noopener"
+                                class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#0F3D3E] to-[#1a5f61] hover:from-[#1a5f61] hover:to-[#0F3D3E] text-white font-bold text-xs uppercase tracking-[0.15em] rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                                <div class="text-left">
+                                    <p class="text-[10px] text-white/75 leading-none mb-0.5">Download Official</p>
+                                    <p class="leading-none text-sm">Admission Certificate</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
 
-                    <!-- No PDF Message -->
-                    <div id="no-pdf-section" class="hidden mt-6 p-4 bg-amber-50 border border-amber-200 rounded-xl">
-                        <p class="text-amber-700 text-sm">📋 Your admission certificate is being prepared. Please
-                            contact the school office to collect your document.</p>
+                    <!-- Fallback: Generate PDF from data in browser -->
+                    <div id="generate-pdf-section" class="hidden mt-10 pt-8 border-t border-gray-200">
+                        <div class="flex flex-col items-center gap-4">
+                            <div class="text-center">
+                                <p class="text-[#C6A75E] text-xs uppercase tracking-widest font-bold mb-1">Certificate
+                                    Available</p>
+                                <p class="text-gray-500 text-sm max-w-sm">Your admission certificate is ready. Click
+                                    below to generate and download it.</p>
+                            </div>
+                            <button id="generate-pdf-btn" onclick="generateAndDownload()"
+                                class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#C6A75E] to-[#d4b76e] hover:from-[#d4b76e] hover:to-[#C6A75E] text-[#0F3D3E] font-bold text-xs uppercase tracking-[0.15em] rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <span id="gen-btn-label">Generate & Download PDF</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -408,17 +458,144 @@
                     </div>
                 `).join('');
 
-            // PDF section
+            // PDF section — show direct download if URL stored, otherwise show generate button
             if (s.pdfUrl) {
                 document.getElementById('download-pdf-btn').href = s.pdfUrl;
                 setVisible('pdf-section', true);
-                setVisible('no-pdf-section', false);
+                setVisible('generate-pdf-section', false);
             } else {
                 setVisible('pdf-section', false);
-                setVisible('no-pdf-section', true);
+                setVisible('generate-pdf-section', true);
+            }
+
+            // Store student data globally for PDF generation
+            window._currentStudent = s;
+        }
+
+        async function generateAndDownload() {
+            const s = window._currentStudent;
+            if (!s) return;
+            const btn = document.getElementById('generate-pdf-btn');
+            const label = document.getElementById('gen-btn-label');
+            btn.disabled = true;
+            label.textContent = '⏳ Generating...';
+
+            try {
+                // Build a minimal PDF template inline
+                const template = document.getElementById('portal-pdf-template');
+                // Populate
+                document.getElementById('pt-name').textContent = s.studentName;
+                document.getElementById('pt-admission').textContent = s.admissionNo;
+                document.getElementById('pt-date').textContent = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
+
+                const rows = [
+                    ['Student Name', s.studentName],
+                    ['Admission Number', s.admissionNo],
+                    ['Admission Date', s.admissionDate],
+                    ['Gender', s.gender],
+                    ['Date of Birth', s.dob],
+                    ["Father's Name", s.fatherName],
+                    ["Mother's Name", s.motherName],
+                    ["Guardian's Name", s.guardianName],
+                    ['Aadhar Number', s.aadharNo],
+                    ['Address', s.address],
+                    ['T.C. Number', s.tcNo],
+                    ['Admission Status', s.status],
+                    ['Fees Status', s.fees],
+                ];
+                document.getElementById('pt-tbody').innerHTML = rows
+                    .filter(([, v]) => v)
+                    .map(([l, v], i) => `
+                        <tr style="background:${i % 2 === 0 ? '#f9f9f9' : '#fff'}">
+                            <td style="border:1px solid #000;padding:6px 10px;font-weight:700;width:35%;background:#f0f0f0;">${l}</td>
+                            <td style="border:1px solid #000;padding:6px 10px;">${v}</td>
+                        </tr>
+                    `).join('');
+
+                // Photo
+                const photoEl = document.getElementById('pt-photo');
+                if (s.photoUrl) { photoEl.src = s.photoUrl; photoEl.style.display = 'block'; }
+                else { photoEl.style.display = 'none'; }
+
+                template.style.left = '-9999px';
+                template.style.visibility = 'visible';
+                await new Promise(r => setTimeout(r, 300));
+
+                const canvas = await html2canvas(template, { scale: 2, useCORS: true, logging: false, backgroundColor: '#fff' });
+                template.style.left = '-9999px';
+                template.style.visibility = 'hidden';
+
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const imgData = canvas.toDataURL('image/jpeg', 0.88);
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfW = pdf.internal.pageSize.getWidth();
+                const pdfH = (imgProps.height * pdfW) / imgProps.width;
+                pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, pdfH);
+                pdf.save(`${s.admissionNo}-admission-certificate.pdf`);
+            } catch (err) {
+                console.error(err);
+                alert('Could not generate PDF. Please try again.');
+            } finally {
+                btn.disabled = false;
+                label.textContent = 'Generate & Download PDF';
             }
         }
     </script>
+    <!-- Hidden PDF Template for client-side generation -->
+    <div id="portal-pdf-template"
+        style="position:fixed;top:0;left:-9999px;visibility:hidden;width:794px;background:white;font-family:'Times New Roman',serif;font-size:12px;color:#000;z-index:-1;">
+        <div style="padding:40px;border:2px solid #000;">
+            <!-- School Header -->
+            <div
+                style="text-align:center;border-bottom:2px solid #000;padding-bottom:16px;margin-bottom:16px;position:relative;">
+                <div id="pt-photo-box"
+                    style="position:absolute;right:0;top:0;width:90px;height:110px;border:1px solid #000;overflow:hidden;background:#f0f0f0;display:flex;align-items:center;justify-content:center;">
+                    <img id="pt-photo" src="" style="width:100%;height:100%;object-fit:cover;display:none;"
+                        crossorigin="anonymous">
+                </div>
+                <h1
+                    style="font-size:22px;font-weight:900;letter-spacing:1px;text-transform:uppercase;margin:0 100px 4px 0;">
+                    MODERN CALCUTTA SCHOOL</h1>
+                <p style="font-size:11px;color:#333;margin:0 100px 2px 0;">Foundation of Ilm-o-Adab</p>
+                <p style="font-size:10px;color:#333;margin:0 100px 0 0;">Milat Colony, Phulwarisharif, Patna – 801505,
+                    Bihar</p>
+                <p style="font-size:10px;color:#333;margin:4px 100px 0 0;">📞 +91 87098 61044 &nbsp;|&nbsp;
+                    mcs.patna2019@gmail.com</p>
+            </div>
+            <!-- Title -->
+            <h2
+                style="text-align:center;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:underline;margin-bottom:20px;">
+                ADMISSION CERTIFICATE</h2>
+            <!-- Table -->
+            <table style="width:100%;border-collapse:collapse;font-size:11px;margin-bottom:20px;">
+                <tbody id="pt-tbody"></tbody>
+            </table>
+            <!-- Declaration -->
+            <div style="border:1px solid #000;padding:12px;font-size:10px;line-height:1.7;margin-bottom:24px;">
+                <strong>Declaration:</strong> This is to certify that the above-named student has been duly admitted to
+                Modern Calcutta School, Phulwarisharif, Patna. The information recorded above is correct to the best of
+                our knowledge.
+            </div>
+            <!-- Signatures -->
+            <div style="display:flex;justify-content:space-between;margin-top:40px;font-size:10px;">
+                <div style="text-align:center;">
+                    <div style="border-top:1px solid #000;width:160px;padding-top:6px;">Parent / Guardian</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="border-top:1px solid #000;width:160px;padding-top:6px;">Class Teacher</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="border-top:1px solid #000;width:160px;padding-top:6px;">Principal / Director</div>
+                </div>
+            </div>
+            <p
+                style="font-size:9px;color:#666;text-align:center;margin-top:20px;border-top:1px solid #ddd;padding-top:10px;">
+                Generated on <span id="pt-date"></span> · Modern Calcutta School Official Document
+            </p>
+        </div>
+    </div>
+
 </body>
 
 </html>

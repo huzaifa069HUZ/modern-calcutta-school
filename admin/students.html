@@ -386,8 +386,8 @@
                     fd.append(id, el.value || '');
                 });
 
-                // 1. Save student to backend
-                document.getElementById('submit-label').innerHTML = `<svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Saving student data...`;
+                // ── Step 1: Save student record ───────────────────────────
+                setLabel('💾 Saving student record...');
                 const saveRes = await fetch('/api/add-student', { method: 'POST', body: fd });
                 const saveData = await saveRes.json();
 
@@ -398,12 +398,12 @@
 
                 const student = saveData.student;
                 const admissionNo = student.admissionNo;
+                const studentId = student.id;
 
-                // 2. Generate PDF in browser
-                document.getElementById('submit-label').innerHTML = `<svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Generating certificate...`;
-
+                // ── Step 2: Generate PDF (silently, no download) ──────────
+                setLabel('📄 Generating certificate...');
                 populatePdfTemplate(student);
-                await new Promise(r => setTimeout(r, 200)); // let DOM update
+                await new Promise(r => setTimeout(r, 200)); // let DOM paint
 
                 const canvas = await html2canvas(document.getElementById('pdf-template'), {
                     scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff'
@@ -416,11 +416,10 @@
                 const pdfW = pdf.internal.pageSize.getWidth();
                 const pdfH = (imgProps.height * pdfW) / imgProps.width;
                 pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, pdfH);
-
                 const pdfBlob = pdf.output('blob');
 
-                // 3. Upload PDF to Vercel Blob
-                document.getElementById('submit-label').innerHTML = `<svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Uploading certificate...`;
+                // ── Step 3: Upload PDF to Vercel Blob ─────────────────────
+                setLabel('☁️ Uploading certificate...');
                 const pdfRes = await fetch('/api/upload-pdf', {
                     method: 'POST',
                     headers: { 'x-admission-no': admissionNo, 'Content-Type': 'application/pdf' },
@@ -428,19 +427,20 @@
                 });
                 const pdfData = await pdfRes.json();
 
+                // ── Step 4: Save pdfUrl back to Firestore ─────────────────
                 if (pdfRes.ok && pdfData.url) {
-                    // 4. Update Firestore with PDF URL (via Firebase client SDK)
-                    // We rely on Firestore rules allowing authenticated writes OR we accept the PDF link
-                    // is returned to admin for reference
-                    showToast(`✅ Student ${student.studentName} saved! Certificate generated.`, 'success');
-                    console.log('PDF URL:', pdfData.url);
-
-                    // Optionally trigger PDF download for the admin
-                    pdf.save(`${admissionNo}-admission-certificate.pdf`);
-                } else {
-                    showToast('Student saved but PDF upload failed. Check console.', 'error');
+                    setLabel('🔗 Saving certificate link...');
+                    await fetch('/api/update-student', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ studentId, pdfUrl: pdfData.url })
+                    });
                 }
 
+                // ── Step 5: Show success — NO auto-download ───────────────
+                showSuccessBanner(student.studentName, admissionNo);
+
+                // Reset form
                 form.reset();
                 document.getElementById('photo-preview').classList.add('hidden');
                 document.getElementById('photo-placeholder').classList.remove('hidden');
@@ -451,6 +451,54 @@
             } finally {
                 setSubmitting(false);
             }
+        }
+
+        function setLabel(text) {
+            document.getElementById('submit-label').innerHTML = `
+                <svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                </svg>${text}`;
+        }
+
+        function showSuccessBanner(name, admissionNo) {
+            // Remove any existing banner
+            document.getElementById('success-banner')?.remove();
+
+            const banner = document.createElement('div');
+            banner.id = 'success-banner';
+            banner.style.cssText = `
+                position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+                z-index:9999;min-width:340px;max-width:480px;
+                background:linear-gradient(135deg,#0F3D3E,#1a5f61);
+                color:white;border-radius:20px;padding:20px 24px;
+                box-shadow:0 20px 60px rgba(15,61,62,0.4);
+                animation:slideUpBanner 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+            `;
+            banner.innerHTML = `
+                <style>@keyframes slideUpBanner{from{opacity:0;transform:translateX(-50%) translateY(30px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}</style>
+                <div style="display:flex;align-items:flex-start;gap:14px;">
+                    <div style="width:44px;height:44px;background:rgba(198,167,94,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">✅</div>
+                    <div style="flex:1;">
+                        <p style="font-weight:700;font-size:15px;margin:0 0 4px;">${name} registered!</p>
+                        <p style="font-size:12px;opacity:0.75;margin:0 0 14px;">Certificate uploaded. Student can now download it from the portal.</p>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                            <a href="/student-portal.html" target="_blank"
+                               style="flex:1;text-align:center;background:#C6A75E;color:#fff;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:8px 16px;border-radius:10px;text-decoration:none;">
+                                🔗 View in Student Portal
+                            </a>
+                            <button onclick="document.getElementById('success-banner').remove()"
+                                style="padding:8px 14px;background:rgba(255,255,255,0.1);border:none;color:white;border-radius:10px;font-size:11px;cursor:pointer;font-weight:600;">
+                                Dismiss
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(banner);
+
+            // Auto-dismiss after 15 seconds
+            setTimeout(() => banner?.remove(), 15000);
         }
 
         function populatePdfTemplate(s) {
