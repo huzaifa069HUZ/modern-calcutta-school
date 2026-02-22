@@ -46,7 +46,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Smooth Page Transitions -->
     <style>
-        
+
     </style>
     <script src="../js/transitions.js"></script>
     <link
@@ -927,7 +927,8 @@
         ];
 
         // 1. Distribute Images
-        const radius = window.innerWidth < 768 ? 320 : 600;
+        // For mobile (e.g. 375px width), a radius of 140 keeps items nicely grouped in the center.
+        const radius = window.innerWidth < 768 ? 140 : 600;
         const total = orbitImages.length;
 
         orbitImages.forEach((src, i) => {
@@ -937,8 +938,8 @@
             orbitContainer.appendChild(el);
 
             const angle = (i / total) * Math.PI * 2;
-            const x = Math.cos(angle) * (radius * (window.innerWidth < 768 ? 0.9 : 1));
-            const y = Math.sin(angle) * (radius * (window.innerWidth < 768 ? 0.7 : 0.8));
+            const x = Math.cos(angle) * (radius * (window.innerWidth < 768 ? 1 : 1));
+            const y = Math.sin(angle) * (radius * (window.innerWidth < 768 ? 1 : 0.8));
 
             gsap.set(el, {
                 x: x,
@@ -1069,7 +1070,7 @@
 
     <!-- Firebase Dynamic Loader -->
 
-<script src="js/sidebar.js"></script>
+    <script src="js/sidebar.js"></script>
 </body>
 
 </html>
