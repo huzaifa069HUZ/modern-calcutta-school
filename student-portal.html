@@ -45,7 +45,9 @@
     <style>
         :root {
             --gold: #C6A75E;
+            --gold-light: #e8cc8a;
             --teal: #0F3D3E;
+            --teal-dark: #071f20;
         }
 
         body {
@@ -64,12 +66,79 @@
             box-shadow: 0 20px 40px -10px rgba(15, 61, 62, 0.1);
         }
 
-        /* Hero gradient */
+        /* Rich multi-stop hero gradient */
         .hero-bg {
-            background: linear-gradient(135deg, #0F3D3E 0%, #0A2535 100%);
+            background: linear-gradient(160deg, #0a2a1e 0%, #0F3D3E 38%, #0c3040 70%, #071825 100%);
         }
 
-        /* Animated search icon */
+        /* Header glassmorphism bar */
+        .header-bar {
+            background: rgba(7, 31, 32, 0.55);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(198, 167, 94, 0.18);
+        }
+
+        /* School name gold glow */
+        .school-name-glow {
+            color: #fff;
+            text-shadow: 0 0 30px rgba(198, 167, 94, 0.35);
+            letter-spacing: 0.02em;
+        }
+
+        /* Gold shimmering gradient text for hero title */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #e8cc8a 0%, #C6A75E 40%, #f0d898 60%, #C6A75E 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmerText 4s linear infinite;
+        }
+
+        @keyframes shimmerText {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        /* Hero title drop shadow */
+        .hero-title {
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+            filter: drop-shadow(0 0 40px rgba(198, 167, 94, 0.15));
+        }
+
+        /* Nav link hover underline */
+        .nav-link {
+            position: relative;
+            color: rgba(255, 255, 255, 0.75);
+            transition: color 0.2s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--gold);
+            transition: width 0.25s ease;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Animated search icon pulse ring */
         @keyframes pulse-ring {
             0% {
                 transform: scale(1);
@@ -88,7 +157,7 @@
             inset: -6px;
             border-radius: 50%;
             border: 2px solid var(--gold);
-            animation: pulse-ring 1.5s ease-out infinite;
+            animation: pulse-ring 1.8s ease-out infinite;
         }
 
         /* Card reveal */
@@ -110,10 +179,10 @@
 
         /* Search input focus glow */
         #admission-input:focus {
-            box-shadow: 0 0 0 3px rgba(198, 167, 94, 0.25);
+            box-shadow: 0 0 0 3px rgba(198, 167, 94, 0.3);
         }
 
-        /* Badge */
+        /* Badges */
         .badge-active {
             background: #d1fae5;
             color: #065f46;
@@ -150,83 +219,152 @@
             background: #f9f5ed;
         }
 
-        /* Islamic pattern background */
+        /* Islamic geometric pattern */
         .pattern-bg {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C6A75E' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C6A75E' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Gold divider shimmer line */
+        .gold-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(198, 167, 94, 0.6), rgba(198, 167, 94, 0.9), rgba(198, 167, 94, 0.6), transparent);
         }
     </style>
 </head>
 
 <body>
     <!-- Header -->
-    <header class="hero-bg pattern-bg text-white py-6 px-6 md:px-12 shadow-2xl">
-        <div class="max-w-5xl mx-auto flex items-center gap-4">
-            <a href="index.html" class="flex items-center gap-3 group">
-                <img src="assets/transparent-logo.png" alt="MCS Logo" class="h-12 w-auto drop-shadow">
+    <header class="hero-bg pattern-bg header-bar sticky top-0 z-50 text-white py-4 px-6 md:px-12">
+        <div class="max-w-5xl mx-auto flex items-center gap-5">
+
+            <!-- Logo + School Name -->
+            <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
+                <div class="relative">
+                    <div
+                        class="absolute inset-0 rounded-full bg-[#C6A75E]/20 blur-md group-hover:bg-[#C6A75E]/35 transition-all duration-500">
+                    </div>
+                    <img src="assets/transparent-logo.png" alt="MCS Logo"
+                        class="relative h-11 w-auto drop-shadow-lg group-hover:scale-105 transition-transform duration-300">
+                </div>
                 <div>
-                    <p class="title-font text-xl font-bold text-white leading-none">Modern Calcutta School</p>
-                    <p class="text-[10px] uppercase tracking-[0.2em] text-[#C6A75E] font-semibold">Foundation of
-                        Ilm-o-Adab</p>
+                    <p
+                        class="title-font text-lg font-bold school-name-glow leading-tight group-hover:text-[#C6A75E] transition-colors duration-300">
+                        Modern Calcutta School</p>
+                    <p class="text-[9px] uppercase tracking-[0.25em] text-[#C6A75E]/80 font-semibold mt-0.5">Foundation
+                        of Ilm-o-Adab</p>
                 </div>
             </a>
-            <nav
-                class="ml-auto hidden md:flex items-center gap-6 text-xs uppercase tracking-widest font-bold text-white">
-                <a href="index.html" class="hover:text-[#C6A75E] transition-colors">Home</a>
-                <a href="admissions.html" class="hover:text-[#C6A75E] transition-colors">Admissions</a>
+
+            <!-- Gold divider (vertical) -->
+            <div
+                class="hidden md:block h-8 w-px bg-gradient-to-b from-transparent via-[#C6A75E]/40 to-transparent ml-1">
+            </div>
+
+            <!-- Nav -->
+            <nav class="ml-auto hidden md:flex items-center gap-7">
+                <a href="index.html" class="nav-link text-[11px] uppercase tracking-[0.18em] font-bold">Home</a>
+                <a href="admissions.html"
+                    class="nav-link text-[11px] uppercase tracking-[0.18em] font-bold">Admissions</a>
+                <a href="student-portal.html" class="nav-link text-[11px] uppercase tracking-[0.18em] font-bold"
+                    style="color:#C6A75E;">Portal</a>
             </nav>
+
+            <!-- Mobile menu icon -->
+            <button class="md:hidden ml-auto text-white/70 hover:text-white"
+                onclick="this.nextElementSibling.classList.toggle('hidden')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
         </div>
+        <!-- Mobile Nav -->
+        <div class="hidden md:hidden max-w-5xl mx-auto pb-4 pt-3 flex flex-col gap-3">
+            <a href="index.html"
+                class="text-white/75 hover:text-[#C6A75E] text-sm font-semibold transition-colors">Home</a>
+            <a href="admissions.html"
+                class="text-white/75 hover:text-[#C6A75E] text-sm font-semibold transition-colors">Admissions</a>
+        </div>
+        <!-- Bottom gold line -->
+        <div class="gold-divider"></div>
     </header>
 
     <!-- Hero Search Section -->
-    <section class="hero-bg pattern-bg text-white pt-16 pb-32 px-6 relative overflow-hidden">
-        <!-- Glow orbs -->
-        <div class="absolute top-10 right-10 w-64 h-64 bg-[#C6A75E]/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-teal-900/30 rounded-full blur-3xl pointer-events-none"></div>
+    <section class="hero-bg pattern-bg text-white pt-20 pb-36 px-6 relative overflow-hidden">
+
+        <!-- Atmospheric glow orbs -->
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C6A75E]/8 rounded-full blur-[120px] pointer-events-none">
+        </div>
+        <div class="absolute bottom-10 left-0 w-96 h-96 bg-[#0F3D3E]/60 rounded-full blur-[100px] pointer-events-none">
+        </div>
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#C6A75E]/5 rounded-full blur-[80px] pointer-events-none">
+        </div>
 
         <div class="max-w-2xl mx-auto text-center relative z-10">
-            <!-- Icon -->
-            <div
-                class="relative inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#C6A75E]/20 border border-[#C6A75E]/40 mb-6 pulse-ring">
-                <svg class="w-9 h-9 text-[#C6A75E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+            <!-- Bismillah / Arabic accent -->
+            <p class="text-[#C6A75E]/60 text-2xl mb-4" style="font-family: serif; letter-spacing: 0.1em;">&#x202A;بِسۡمِ
+                ٱللَّهِ&#x202C;</p>
+
+            <!-- Icon with glow ring -->
+            <div class="relative inline-flex items-center justify-center w-20 h-20 rounded-full mb-7 pulse-ring"
+                style="background: radial-gradient(circle, rgba(198,167,94,0.25) 0%, rgba(198,167,94,0.08) 100%); border: 1px solid rgba(198,167,94,0.4); box-shadow: 0 0 40px rgba(198,167,94,0.15), inset 0 0 20px rgba(198,167,94,0.05);">
+                <svg class="w-9 h-9" fill="none" stroke="#C6A75E" viewBox="0 0 24 24"
+                    style="filter:drop-shadow(0 0 8px rgba(198,167,94,0.5))">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                         d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
             </div>
 
-            <p class="text-[#C6A75E] uppercase tracking-[0.3em] text-xs font-bold mb-3">Student Portal</p>
-            <h1 class="title-font text-4xl md:text-5xl font-bold text-white mb-4">Search <span
-                    class="text-[#C6A75E] italic">Your Record</span></h1>
-            <p class="text-white/90 text-sm md:text-base max-w-lg mx-auto mb-10">Enter your admission number to view
-                your student profile and download your admission certificate.</p>
+            <!-- Eyebrow label -->
+            <p class="uppercase tracking-[0.4em] text-[10px] font-bold mb-4"
+                style="color:rgba(198,167,94,0.85); letter-spacing:0.35em;">Student Portal &nbsp;•&nbsp; Modern Calcutta
+                School</p>
+
+            <!-- Main H1 with gradient gold italic + white -->
+            <h1 class="title-font hero-title font-bold mb-5"
+                style="font-size: clamp(2.6rem, 6vw, 4rem); line-height:1.1;">
+                <span style="color:#fff; display:block; margin-bottom:4px;">Access Your</span>
+                <span class="gold-gradient-text italic" style="font-size: clamp(3rem, 7vw, 4.8rem);">Student
+                    Record</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-white/65 text-sm md:text-base max-w-md mx-auto mb-10 leading-relaxed">
+                Enter your <span class="text-[#C6A75E]/90 font-semibold">admission number</span> to view your
+                profile and download your official certificate.
+            </p>
 
             <!-- Search Form -->
-            <div
-                class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto bg-white p-2 rounded-2xl shadow-[0_12px_35px_rgba(15,61,62,0.15)] relative z-20">
+            <div class="flex flex-col sm:flex-row gap-2 max-w-xl mx-auto relative z-20"
+                style="background:rgba(255,255,255,0.06);backdrop-filter:blur(16px);border:1px solid rgba(198,167,94,0.2);border-radius:18px;padding:6px;box-shadow:0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.05);">
                 <div class="flex-1 flex items-center px-4 relative">
-                    <svg class="w-5 h-5 text-gray-400 absolute left-4 pointer-events-none" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 absolute left-4 pointer-events-none" fill="none" stroke="#C6A75E"
+                        stroke-opacity="0.6" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
-                    <input id="admission-input" type="text" placeholder="Admission No. (e.g. MCS-2024)"
-                        class="w-full bg-transparent text-[#0F3D3E] placeholder-gray-400 pl-8 pr-2 py-3 text-base font-semibold outline-none uppercase tracking-wider"
-                        autocomplete="off" autocapitalize="characters">
+                    <input id="admission-input" type="text" placeholder="e.g. MCS-2024-001"
+                        class="w-full bg-transparent text-white placeholder-white/30 pl-8 pr-2 py-3.5 text-sm font-semibold outline-none uppercase tracking-wider"
+                        style="caret-color: #C6A75E;" autocomplete="off" autocapitalize="characters">
                 </div>
                 <button id="search-btn" onclick="searchStudent()"
-                    class="h-14 sm:h-auto px-8 bg-gradient-to-r from-[#C6A75E] to-[#d4b76e] hover:from-[#d4b76e] hover:to-[#C6A75E] text-[#0F3D3E] font-bold text-xs uppercase tracking-widest rounded-xl shadow-[0_8px_20px_rgba(198,167,94,0.3)] hover:shadow-[0_12px_25px_rgba(198,167,94,0.5)] hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 group whitespace-nowrap">
-                    <span>Retrieve Record</span>
-                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none"
+                    class="px-7 py-3.5 text-[#071f20] font-bold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group whitespace-nowrap"
+                    style="background: linear-gradient(135deg, #e8cc8a 0%, #C6A75E 50%, #d4b76e 100%); box-shadow: 0 8px 25px rgba(198,167,94,0.4); hover:box-shadow: 0 12px 35px rgba(198,167,94,0.6);">
+                    <span>Search</span>
+                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
                             d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                 </button>
             </div>
 
-            <!-- Loading -->
+            <!-- Loading state -->
             <div id="search-loading" class="hidden mt-6 flex justify-center">
-                <div class="flex items-center gap-3 text-white/90 text-sm font-medium">
-                    <svg class="spinner w-5 h-5 text-[#C6A75E]" fill="none" viewBox="0 0 24 24">
+                <div class="flex items-center gap-3 text-white/70 text-sm font-medium">
+                    <svg class="spinner w-4 h-4 text-[#C6A75E]" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                     </svg>
@@ -235,12 +373,18 @@
             </div>
         </div>
 
-        <!-- Wave bottom -->
+        <!-- Richer wave bottom -->
         <div class="absolute bottom-0 left-0 w-full">
-            <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
-                <path
-                    d="M0 60L60 50C120 40 240 20 360 15C480 10 600 20 720 22C840 24 960 16 1080 18C1200 20 1320 30 1380 35L1440 40V60H0Z"
+            <!-- Gold shimmer line above wave -->
+            <div
+                style="height:1px;background:linear-gradient(90deg,transparent,rgba(198,167,94,0.5),transparent);margin-bottom:-1px;">
+            </div>
+            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto"
+                preserveAspectRatio="none">
+                <path d="M0 80L80 65C160 50 320 22 480 16C640 10 800 24 960 28C1120 32 1280 22 1360 17L1440 12V80H0Z"
                     fill="#F6F1E8" />
+                <path d="M0 80L80 70C160 60 320 42 480 38C640 34 800 42 960 46C1120 50 1280 38 1360 33L1440 28V80H0Z"
+                    fill="#F6F1E8" opacity="0.5" />
             </svg>
         </div>
     </section>
