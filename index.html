@@ -145,7 +145,6 @@
         }
 
         /* Page entrance animation */
-        
     </style>
     <script>
         // Smooth page transitions
@@ -206,6 +205,7 @@
             --charcoal: #1E1E1E;
         }
 
+        html,
         body {
             font-family: 'Outfit', sans-serif;
             background-color: var(--beige);
@@ -213,6 +213,7 @@
             scroll-behavior: smooth;
             overflow-x: hidden;
             -webkit-overflow-scrolling: touch;
+            max-width: 100vw;
         }
 
         h1,
@@ -748,7 +749,7 @@
     <!-- Header -->
     <h1 class="sr-only">Modern Calcutta School Patna - Best Modern Islamic Kids School</h1>
     <header id="header"
-        class="fixed w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center gap-4 xl:gap-8 transition-all duration-500 border-b border-transparent">
+        class="fixed top-0 left-0 w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center gap-4 xl:gap-8 transition-all duration-500 border-b border-transparent">
         <div class="flex items-center gap-2 md:gap-4 group cursor-pointer">
             <img src="assets/transparent-logo.png" alt="Modern Calcutta School Logo"
                 class="h-10 md:h-14 lg:h-16 w-auto drop-shadow-lg group-hover:scale-105 transition-transform duration-300">
