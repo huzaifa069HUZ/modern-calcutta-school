@@ -145,21 +145,7 @@
         }
 
         /* Page entrance animation */
-        body {
-            animation: pageEnter 0.5s ease forwards;
-        }
-
-        @keyframes pageEnter {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-
-            to {
-                opacity: 1;
-                transform: none;
-            }
-        }
+        
     </style>
     <script>
         // Smooth page transitions
@@ -454,7 +440,7 @@
 
             0%,
             100% {
-                transform: none;rotate(-5deg);
+                transform: rotate(-5deg);
             }
 
             50% {

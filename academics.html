@@ -46,20 +46,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Smooth Page Transitions -->
     <style>
-        body {
-            animation: pageEnter 0.5s ease forwards
-        }
-
-        @keyframes pageEnter {
-            from {
-                opacity: 0;
-                transform: translateY(8px)
-            }
-
-            to {
-                opacity: 1;
-                transform: none;}
-        }
+        
     </style>
     <script src="../js/transitions.js"></script>
     <link
@@ -196,7 +183,7 @@
 
             0%,
             100% {
-                transform: none;rotateX(0) rotateY(0);
+                transform: rotateX(0) rotateY(0);
             }
 
             50% {
@@ -1498,7 +1485,7 @@
         if (menuBackdrop) menuBackdrop.addEventListener('click', closeSidebar);
         sidebarLinks.forEach(link => link.addEventListener('click', closeSidebar));
     </script>
-<script src="js/sidebar.js"></script>
+    <script src="js/sidebar.js"></script>
 </body>
 
 </html>
