@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donations Admin | MCS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #F6F1E8;
+        }
+
+        /* Custom scrollbar matching dashboard */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #E5E7EB;
+            border-radius: 20px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background-color: #D1D5DB;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F6F1E8] p-6 md:p-12 font-sans text-[#0F3D3E]">
+
+    <!-- Auth Check -->
+    <script>
+        if (sessionStorage.getItem('isAdmin') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
+
+    <div class="max-w-7xl mx-auto">
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+            <div>
+                <h1 class="text-4xl font-bold tracking-tight text-[#0F3D3E]">Donations Admin</h1>
+                <p class="text-[#0F3D3E]/60 mt-1 font-medium">View and manage all received donations.</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <a href="dashboard.html"
+                    class="px-5 py-2 text-sm font-semibold text-[#0F3D3E] bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors shadow-sm flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                    </svg>
+                    Gallery
+                </a>
+                <a href="students.html"
+                    class="px-5 py-2 text-sm font-semibold text-[#0F3D3E] bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors shadow-sm flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Students
+                </a>
+                <button onclick="logout()"
+                    class="px-5 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors font-semibold text-sm">
+                    Sign Out
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
+                <div class="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-1">Total Amount</h3>
+                    <p class="text-3xl font-bold text-[#0F3D3E]" id="total-amount-stat">₹0</p>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-1">Total Donors</h3>
+                    <p class="text-3xl font-bold text-[#0F3D3E]" id="total-donors-stat">0</p>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
+                <div
+                    class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-1">Recent Success</h3>
+                    <p class="text-xl font-bold text-[#0F3D3E] truncate max-w-[150px]" id="recent-donor-stat">...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow-xl border border-white/50 backdrop-blur-sm relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0F3D3E] to-[#C6A75E]"></div>
+
+            <div class="p-6 md:p-8">
+                <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+                    <h2 class="text-xl font-bold flex items-center gap-2">
+                        <svg class="w-5 h-5 text-[#C6A75E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                            </path>
+                        </svg>
+                        Donation Records
+                    </h2>
+
+                    <button id="refreshBtn"
+                        class="px-4 py-2 bg-gray-50 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors text-sm font-semibold flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                            </path>
+                        </svg>
+                        Refresh
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto custom-scrollbar pb-4 -mx-6 px-6 md:mx-0 md:px-0">
+                    <table class="w-full text-left border-collapse min-w-[900px]">
+                        <thead>
+                            <tr
+                                class="bg-gray-50 border-y border-gray-100 text-xs uppercase tracking-wider text-gray-500 font-bold">
+                                <th class="p-4 rounded-tl-xl">Date & Time</th>
+                                <th class="p-4">Donor Details</th>
+                                <th class="p-4">Txn ID</th>
+                                <th class="p-4">Status</th>
+                                <th class="p-4 text-right rounded-tr-xl">Amount (₹)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="donationsTableBody" class="divide-y divide-gray-50 text-sm">
+                            <!-- Loading state -->
+                            <tr>
+                                <td colspan="5" class="p-8 text-center text-gray-400">
+                                    <svg class="animate-spin h-8 w-8 text-[#C6A75E] mx-auto mb-3"
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                            stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor"
+                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                        </path>
+                                    </svg>
+                                    Loading records from database...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module">
+        import { db, collection, getDocs, query, orderBy } from "../js/firebase-config.js";
+
+        const tableBody = document.getElementById('donationsTableBody');
+        const totalAmountStat = document.getElementById('total-amount-stat');
+        const totalDonorsStat = document.getElementById('total-donors-stat');
+        const recentDonorStat = document.getElementById('recent-donor-stat');
+        const refreshBtn = document.getElementById('refreshBtn');
+
+        async function fetchDonations() {
+            tableBody.innerHTML = `
+                <tr>
+                    <td colspan="5" class="p-8 text-center text-gray-400">
+                        <svg class="animate-spin h-8 w-8 text-[#C6A75E] mx-auto mb-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Loading records from database...
+                    </td>
+                </tr>
+            `;
+
+            try {
+                // Fetch all donations ordered by date descending
+                const q = query(collection(db, "donations"), orderBy("date", "desc"));
+                const snapshot = await getDocs(q);
+
+                tableBody.innerHTML = "";
+
+                let totalAmount = 0;
+                let donorCount = 0;
+                let mostRecentDonor = "None";
+
+                if (snapshot.empty) {
+                    tableBody.innerHTML = `
+                        <tr>
+                            <td colspan="5" class="p-8 text-center text-gray-400">
+                                <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                                </div>
+                                <p>No donations received yet.</p>
+                            </td>
+                        </tr>
+                    `;
+                } else {
+                    snapshot.forEach(docSnap => {
+                        donorCount++;
+                        const data = docSnap.data();
+
+                        const amt = Number(data.amount) || 0;
+                        totalAmount += amt;
+
+                        if (donorCount === 1) {
+                            mostRecentDonor = data.name || "Anonymous";
+                        }
+
+                        let dateStr = "Unknown";
+                        if (data.date) {
+                            const d = new Date(data.date);
+                            dateStr = d.toLocaleDateString('en-IN', {
+                                day: 'numeric', month: 'short', year: 'numeric',
+                                hour: '2-digit', minute: '2-digit'
+                            });
+                        }
+
+                        const tr = document.createElement('tr');
+                        tr.className = "hover:bg-gray-50/50 transition-colors group";
+                        tr.innerHTML = `
+                            <td class="p-4 align-top whitespace-nowrap text-gray-500 font-medium">
+                                ${dateStr}
+                            </td>
+                            <td class="p-4 align-top">
+                                <div class="font-bold text-[#0F3D3E]">${data.name || 'N/A'}</div>
+                                <div class="text-xs text-gray-500 mt-0.5 flex flex-col gap-0.5">
+                                    <span class="flex items-center gap-1"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> ${data.email || 'N/A'}</span>
+                                    <span class="flex items-center gap-1"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> ${data.phone || 'N/A'}</span>
+                                    ${data.address ? `<span class="flex items-start gap-1 mt-1 text-gray-400"><svg class="w-3 h-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> <span class="line-clamp-2">${data.address}</span></span>` : ''}
+                                </div>
+                            </td>
+                            <td class="p-4 align-top">
+                                <span class="font-mono text-xs bg-gray-100 px-2 py-1 rounded text-gray-600 border border-gray-200">${data.txn_id || 'N/A'}</span>
+                            </td>
+                            <td class="p-4 align-top">
+                                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold leading-none ${data.status === 'success' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}">
+                                    <span class="w-1.5 h-1.5 rounded-full ${data.status === 'success' ? 'bg-green-500' : 'bg-yellow-500'}"></span>
+                                    ${(data.status || 'unknown').toUpperCase()}
+                                </span>
+                            </td>
+                            <td class="p-4 align-top text-right font-bold text-lg text-[#0F3D3E]">
+                                ₹${amt.toLocaleString('en-IN')}
+                            </td>
+                        `;
+                        tableBody.appendChild(tr);
+                    });
+                }
+
+                // Update Stats
+                totalAmountStat.textContent = `₹${totalAmount.toLocaleString('en-IN')}`;
+                totalDonorsStat.textContent = donorCount.toLocaleString();
+                recentDonorStat.textContent = mostRecentDonor;
+                recentDonorStat.title = mostRecentDonor; // For tooltip if truncated
+
+            } catch (error) {
+                console.error("Error fetching donations:", error);
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="p-8 text-center text-red-500 font-medium">
+                            Failed to load donation records. Please check your connection to Firebase.
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        refreshBtn.addEventListener('click', () => {
+            fetchDonations();
+        });
+
+        // Initial Load
+        if (db) {
+            fetchDonations();
+        }
+
+        // Global logout
+        window.logout = function () {
+            sessionStorage.removeItem('isAdmin');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+
+</html>
