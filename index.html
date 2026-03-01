@@ -766,11 +766,7 @@
         <!-- Desktop Navigation -->
         <nav
             class="hidden xl:flex items-center gap-4 2xl:gap-8 text-[10px] 2xl:text-[11px] uppercase tracking-widest font-bold text-white drop-shadow-md whitespace-nowrap">
-            <a href="#" class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
-                Home
-                <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
-            </a>
+
             <a href="about.html"
                 class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
                 About Us
@@ -801,10 +797,22 @@
                 <span
                     class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
             </a>
+            <!-- Donate nav link — gold accent to stand out -->
+            <a href="donate.html"
+                class="relative py-2 text-[#C6A75E] transition-colors duration-300 group flex items-center gap-1.5">
+                💛 Donate
+                <span
+                    class="absolute bottom-0 left-0 w-full h-0.5 bg-[#C6A75E] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </a>
         </nav>
 
-        <div class="flex items-center space-x-4">
-            <!-- Desktop CTA Button -->
+        <div class="flex items-center space-x-3">
+            <!-- Donate Now Button -->
+            <a href="donate.html" id="donate-nav-btn"
+                class="hidden md:flex items-center justify-center gap-1.5 px-5 py-2.5 bg-transparent text-[#C6A75E] text-[10px] uppercase tracking-[0.15em] font-bold rounded-full transition-all duration-300 border-2 border-[#C6A75E]/60 hover:border-[#C6A75E] hover:bg-[#C6A75E]/10 whitespace-nowrap hover:shadow-[0_0_20px_rgba(198,167,94,0.25)] hover:-translate-y-0.5">
+                💛 Donate
+            </a>
+            <!-- Admission Now Button -->
             <a href="admissions.html"
                 class="hidden md:flex items-center justify-center px-7 py-2.5 bg-[#C6A75E] text-white text-[10px] uppercase tracking-[0.15em] font-bold rounded-full transition-all duration-300 hover:bg-white hover:text-[#C6A75E] border-2 border-transparent hover:border-[#C6A75E] whitespace-nowrap shadow-md hover:shadow-lg hover:-translate-y-0.5">
                 Admission Now
@@ -1773,6 +1781,151 @@
             </div>
         </div>
     </section>
+
+    <!-- Donation CTA Section — Premium Editorial -->
+    <section class="relative overflow-hidden bg-[#0B2424] py-20 md:py-28">
+
+
+
+        <!-- Gold accent lines -->
+        <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#C6A75E]/60 to-transparent">
+        </div>
+        <div class="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#C6A75E]/30 to-transparent">
+        </div>
+
+        <div class="container mx-auto px-6 md:px-12 lg:px-16">
+            <div class="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 lg:gap-0 items-center">
+
+                <!-- LEFT: Editorial Content -->
+                <div class="reveal-left lg:pr-16" style="transition-delay:0.1s;">
+                    <!-- Headline — top position for immediate impact -->
+                    <h2 class="text-5xl md:text-6xl lg:text-7xl title-font text-white leading-[1.02] mb-6">
+                        Give Today.<br>
+                        <span class="italic font-light text-[#C6A75E]">Change</span><br>
+                        A Life Forever.
+                    </h2>
+
+                    <!-- Eyebrow -->
+                    <div class="flex items-center gap-3 mb-7">
+                        <span class="w-10 h-px bg-[#C6A75E]"></span>
+                        <span class="text-[#C6A75E] text-[10px] font-bold tracking-[0.35em] uppercase">Sadaqah Jariyah —
+                            Ongoing Charity</span>
+                    </div>
+
+                    <!-- Rich body copy -->
+                    <p class="text-white/60 font-light text-base md:text-lg leading-relaxed mb-10 max-w-md">
+                        Not a statistic. Not a campaign. These are real people from Phulwari Sharif —
+                        and your donation goes directly into their hands.
+                    </p>
+
+                    <!-- Impact stats strip -->
+                    <div class="flex flex-wrap gap-x-8 gap-y-5 mb-11 border-l-2 border-[#C6A75E]/30 pl-6">
+                        <div>
+                            <p class="text-3xl md:text-4xl title-font text-[#C6A75E] leading-none">1,500+</p>
+                            <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Students Educated</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl md:text-4xl title-font text-[#C6A75E] leading-none">5,000+</p>
+                            <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Lives Impacted</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl md:text-4xl title-font text-[#C6A75E] leading-none">100%</p>
+                            <p class="text-white/50 text-xs uppercase tracking-widest mt-1">Transparency</p>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                        <a href="donate.html"
+                            class="relative overflow-hidden inline-flex items-center gap-3 bg-[#C6A75E] text-[#0B2424] px-10 py-4 rounded-full font-bold tracking-wider text-sm uppercase transition-all duration-500 ease-out hover:bg-white hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(198,167,94,0.35)] active:translate-y-0 active:scale-95 group">
+                            <span
+                                class="absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent transition-all duration-1000 group-hover:translate-x-[200%] pointer-events-none w-1/2 h-full z-0"></span>
+                            <span
+                                class="absolute inset-0 rounded-full ring-[1.5px] ring-[#C6A75E] opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none z-0"></span>
+                            <span class="relative z-10 flex items-center gap-3">
+                                💛 Donate Now
+                                <svg class="w-5 h-5 group-hover:translate-x-1.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="donate.html"
+                            class="text-white/40 hover:text-[#C6A75E] transition-colors text-xs font-bold uppercase tracking-widest">
+                            See our impact →
+                        </a>
+                    </div>
+
+                    <!-- Trust tags -->
+                    <div class="flex flex-wrap gap-2 mt-8">
+                        <span
+                            class="text-white/30 text-[10px] font-bold uppercase tracking-wider border border-white/10 rounded-full px-3 py-1">✓
+                            Govt. Registered Trust</span>
+                        <span
+                            class="text-white/30 text-[10px] font-bold uppercase tracking-wider border border-white/10 rounded-full px-3 py-1">✓
+                            100% Transparent</span>
+                        <span
+                            class="text-white/30 text-[10px] font-bold uppercase tracking-wider border border-white/10 rounded-full px-3 py-1">✓
+                            Razorpay Secured</span>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Two layered photo cards -->
+                <div class="relative reveal-right h-[420px] md:h-[500px] lg:h-[560px] hidden md:block"
+                    style="transition-delay:0.25s;">
+
+                    <!-- Card 1 — back card (donation2.jpeg, tilted right) -->
+                    <div class="absolute right-0 top-10 w-[68%] h-[60%] rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.7)] border border-white/10"
+                        style="transform: rotate(4deg); z-index: 1;">
+                        <img src="donation2.jpeg" alt="Founder distributing essentials to community members"
+                            class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B2424]/70 via-transparent to-transparent">
+                        </div>
+                        <!-- Caption chip -->
+                        <div class="absolute bottom-3 left-3 flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#C6A75E] flex-shrink-0"></span>
+                            <p class="text-white/80 text-[9px] font-bold uppercase tracking-widest">Street Aid —
+                                Phulwari</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 — front card (donation.jpeg, slightly tilted left) -->
+                    <div class="absolute left-0 bottom-0 w-[72%] h-[65%] rounded-2xl overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.8)] border-2 border-[#C6A75E]/30"
+                        style="transform: rotate(-3deg); z-index: 2;">
+                        <img src="donation.jpeg" alt="Community charity distribution event on stage"
+                            class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B2424]/80 via-transparent to-transparent">
+                        </div>
+                        <!-- Caption chip -->
+                        <div class="absolute bottom-3 left-3 flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#C6A75E] animate-pulse flex-shrink-0"></span>
+                            <p class="text-white/90 text-[9px] font-bold uppercase tracking-widest">Community Aid Drive
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Glowing orb behind cards for depth -->
+                    <div class="absolute right-16 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-[#C6A75E] opacity-[0.06] blur-[80px] pointer-events-none"
+                        style="z-index:0;"></div>
+                </div>
+
+                <!-- Mobile: Simple stacked photos (shown only on mobile) -->
+                <div class="md:hidden grid grid-cols-2 gap-3 reveal-bottom" style="transition-delay:0.3s;">
+                    <div class="rounded-xl overflow-hidden shadow-xl aspect-[4/3]">
+                        <img src="donation.jpeg" alt="Community aid event"
+                            class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-xl aspect-[4/3]">
+                        <img src="donation2.jpeg" alt="Street-level aid distribution"
+                            class="w-full h-full object-cover object-center">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
 
     <!-- Footer -->
     <footer class="bg-[#0F3D3E] text-white pt-32 pb-12 px-8 lg:px-16">

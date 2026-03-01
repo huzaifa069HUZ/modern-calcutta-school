@@ -36,9 +36,14 @@
             <nav style="flex:1;padding:1rem 1rem;display:flex;flex-direction:column;gap:0.25rem;position:relative;z-index:1;overflow-y:auto;">
                 <!-- Moving CTA near the top for better visibility -->
                 <a href="/admissions.html" id="sidebar-cta-btn" class="sidebar-link"
-                    style="display:flex;align-items:center;justify-content:center;gap:0.625rem;padding:0.875rem;border-radius:0.875rem;margin-bottom:0.75rem;background:linear-gradient(135deg,#C6A75E,#d4b76e);color:#0F3D3E;font-weight:700;font-size:0.85rem;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;opacity:0;transform:translateY(15px);box-shadow:0 8px 20px rgba(198,167,94,0.3);">
+                    style="display:flex;align-items:center;justify-content:center;gap:0.625rem;padding:0.875rem;border-radius:0.875rem;margin-bottom:0.5rem;background:linear-gradient(135deg,#C6A75E,#d4b76e);color:#0F3D3E;font-weight:700;font-size:0.85rem;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;opacity:0;transform:translateY(15px);box-shadow:0 8px 20px rgba(198,167,94,0.3);">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     ADMISSION NOW
+                </a>
+
+                <a href="/donate.html" id="sidebar-donate-btn" class="sidebar-link"
+                    style="display:flex;align-items:center;justify-content:center;gap:0.625rem;padding:0.8rem;border-radius:0.875rem;margin-bottom:0.75rem;background:transparent;color:#C6A75E;font-weight:700;font-size:0.85rem;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;opacity:0;transform:translateY(15px);border:1.5px solid rgba(198,167,94,0.5);">
+                    💛 DONATE NOW
                 </a>
                 
                 <a href="/index.html" class="sidebar-link" style="display:flex;align-items:center;gap:0.875rem;padding:0.875rem 1rem;border-radius:0.875rem;color:rgba(255,255,255,0.8);text-decoration:none;transition:background 0.2s,color 0.2s;opacity:0;transform:translateX(30px);">
