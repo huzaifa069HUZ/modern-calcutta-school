@@ -117,21 +117,38 @@
                 transform: translate(-100%, 0);
             }
         }
+
+        /* Gallery Swiper pagination */
+        .gallery-pagination .swiper-pagination-bullet {
+            background: #C6A75E;
+            opacity: 0.4;
+            width: 8px;
+            height: 8px;
+            transition: all 0.3s;
+        }
+
+        .gallery-pagination .swiper-pagination-bullet-active {
+            opacity: 1;
+            width: 24px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 
-<body class="bg-[#F6F1E8] pt-32">
+<body class="bg-[#F6F1E8] pt-16 md:pt-32">
     <!-- Notice Bar -->
     <div
-        class="fixed top-0 left-0 w-full z-[60] bg-[#0F3D3E] text-white py-1 marquee-container text-sm md:text-base font-medium tracking-wide">
+        class="fixed top-0 left-0 w-full z-[60] bg-[#C6A75E] text-[#0F3D3E] py-1.5 marquee-container text-xs md:text-sm font-bold tracking-wide border-b-2 border-[#0F3D3E]/10">
         <div class="marquee-content uppercase">
-            🚨 Donate now so a child can be educated with your money 🚨 Your contribution matters! 🚨
+            ❤️ Every ₹10 you skip on chai = One child's education for a day &nbsp;•&nbsp; 🌟 5,047 children helped so
+            far &nbsp;•&nbsp; 📖 You can fund a child's full year for just ₹2,000 &nbsp;•&nbsp; 💛 Don't let a child's
+            dream die today — DONATE NOW &nbsp;•&nbsp; 🤲 Your Sadaqah Jariyah will reward you forever &nbsp;•&nbsp;
         </div>
     </div>
 
     <!-- Header (needs phone number) -->
     <header id="header"
-        class="fixed top-8 left-0 w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center gap-4 xl:gap-8 transition-all duration-500 border-b border-transparent bg-transparent">
+        class="fixed top-6 md:top-8 left-0 w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center gap-4 xl:gap-8 transition-all duration-500 border-b border-transparent bg-transparent">
         <div class="flex items-center gap-2 md:gap-4 group cursor-pointer" onclick="window.location.href='index.html'">
             <img src="assets/transparent-logo.png" alt="Modern Calcutta School Logo"
                 class="h-10 md:h-14 lg:h-16 w-auto drop-shadow-lg group-hover:scale-105 transition-transform duration-300">
@@ -172,40 +189,46 @@
             <!-- Swiper Container -->
             <div class="swiper heroSwiper w-full h-full absolute inset-0 z-0">
                 <div class="swiper-wrapper">
+                    <!-- Slide 1: Happy children -->
                     <div class="swiper-slide">
                         <div class="relative w-full h-full">
-                            <img src="assets/herov1.png" alt="Students learning" class="w-full h-full object-cover">
+                            <img src="assets/happy faces.jfif" alt="Happy children smiling"
+                                class="w-full h-full object-cover object-top">
                             <div
-                                class="absolute inset-0 bg-gradient-to-r from-[#0F3D3E]/90 to-[#0F3D3E]/40 mix-blend-multiply">
+                                class="absolute inset-0 bg-gradient-to-r from-[#0B2424]/95 via-[#0F3D3E]/75 to-[#0F3D3E]/30">
                             </div>
                         </div>
                     </div>
+                    <!-- Slide 2: Child studying in classroom -->
                     <div class="swiper-slide">
                         <div class="relative w-full h-full">
-                            <img src="assets/herov2.png" alt="School building" class="w-full h-full object-cover">
+                            <img src="assets/classroom.jfif" alt="Children studying" class="w-full h-full object-cover">
                             <div
-                                class="absolute inset-0 bg-gradient-to-r from-[#0F3D3E]/90 to-[#0F3D3E]/40 mix-blend-multiply">
+                                class="absolute inset-0 bg-gradient-to-r from-[#0B2424]/95 via-[#0F3D3E]/75 to-[#0F3D3E]/30">
                             </div>
                         </div>
                     </div>
+                    <!-- Slide 3: Smiling girl -->
                     <div class="swiper-slide">
                         <div class="relative w-full h-full">
-                            <img src="assets/bg3.jpeg" alt="Students in class" class="w-full h-full object-cover">
+                            <img src="assets/happy girl.jpeg" alt="Smiling child"
+                                class="w-full h-full object-cover object-center">
                             <div
-                                class="absolute inset-0 bg-gradient-to-r from-[#0F3D3E]/90 to-[#0F3D3E]/40 mix-blend-multiply">
+                                class="absolute inset-0 bg-gradient-to-r from-[#0B2424]/95 via-[#0F3D3E]/75 to-[#0F3D3E]/30">
                             </div>
                         </div>
                     </div>
+                    <!-- Slide 4: School activities -->
                     <div class="swiper-slide">
                         <div class="relative w-full h-full">
-                            <img src="assets/library1.jpg" alt="School Library" class="w-full h-full object-cover">
+                            <img src="assets/activities.jfif" alt="School activities"
+                                class="w-full h-full object-cover">
                             <div
-                                class="absolute inset-0 bg-gradient-to-r from-[#0F3D3E]/90 to-[#0F3D3E]/40 mix-blend-multiply">
+                                class="absolute inset-0 bg-gradient-to-r from-[#0B2424]/95 via-[#0F3D3E]/75 to-[#0F3D3E]/30">
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Swiper Navigation -->
                 <div class="swiper-button-next !text-[#C6A75E] drop-shadow-md hidden md:flex"></div>
                 <div class="swiper-button-prev !text-[#C6A75E] drop-shadow-md hidden md:flex"></div>
             </div>
@@ -213,39 +236,50 @@
             <!-- Hero Content -->
             <div
                 class="relative z-10 container mx-auto px-4 md:px-8 lg:px-12 flex flex-col items-center justify-center text-center mt-12">
-                <span
-                    class="text-[#C6A75E] font-bold tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm uppercase mb-4 md:mb-6 reveal-bottom block">Make
-                    a Difference Today</span>
 
-                <h1 class="text-4xl md:text-6xl lg:text-7xl xl:text-8xl title-font text-white mb-6 md:mb-8 leading-[1.1] reveal-bottom"
+
+
+                <h1 class="text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] title-font text-white mb-5 md:mb-7 leading-[1.05] reveal-bottom"
                     style="animation-delay: 0.2s;">
-                    SUPPORT OUR<br>
-                    <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-[#C6A75E] to-[#E2C68A]">MISSION</span>
+                    One Child.<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#C6A75E] to-[#F0D898]">One
+                        Chance.</span><br>
+                    <span class="text-3xl md:text-4xl lg:text-5xl font-light italic text-white/80">Your Donation Changes
+                        Everything.</span>
                 </h1>
 
-                <p class="text-white/90 text-sm md:text-lg lg:text-xl max-w-2xl font-light leading-relaxed mb-8 md:mb-12 reveal-bottom"
+                <p class="text-white/90 text-sm md:text-lg lg:text-xl max-w-2xl font-light leading-relaxed mb-8 md:mb-10 reveal-bottom"
                     style="animation-delay: 0.4s;">
-                    Your generous donation helps us provide modern Islamic education to children and essential support
-                    to those in need across our community.
+                    Right now, a child in Phulwari Sharif is hoping someone like you will care enough to act.
+                    <strong class="text-[#C6A75E]">Will you be that reason?</strong>
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center w-full sm:w-auto reveal-bottom"
                     style="animation-delay: 0.6s;">
                     <button
                         onclick="document.getElementById('donation-form-section').scrollIntoView({behavior: 'smooth'})"
-                        class="bg-[#C6A75E] hover:bg-white text-[#0F3D3E] px-8 py-4 rounded-full font-bold tracking-wider transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(198,167,94,0.4)] flex items-center justify-center gap-3 group w-full sm:w-auto text-sm md:text-base border-2 border-transparent hover:border-[#C6A75E]">
-                        DONATE NOW
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
+                        class="relative overflow-hidden bg-[#C6A75E] text-[#0F3D3E] px-8 py-4 rounded-full font-bold tracking-wider transition-all duration-500 ease-out hover:bg-white hover:text-[#C6A75E] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(198,167,94,0.4)] active:translate-y-0 active:scale-95 active:shadow-md flex items-center justify-center gap-3 group w-full sm:w-auto text-sm md:text-base border-2 border-transparent">
+                        <!-- Shimmering overlay that animates on hover -->
+                        <span
+                            class="absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent transition-all duration-1000 group-hover:translate-x-[200%] ease-in-out pointer-events-none w-1/2 h-full z-0"></span>
+
+                        <!-- Expanding ring effect for physical feedback -->
+                        <span
+                            class="absolute inset-0 rounded-full ring-[1.5px] ring-[#C6A75E] opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none z-0"></span>
+
+                        <span class="relative z-10 flex items-center gap-3">
+                            💛 DONATE NOW
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="w-5 h-5 group-hover:translate-x-1.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </span>
                     </button>
                     <a href="about.html"
                         class="border-2 border-white/30 text-white hover:bg-white hover:text-[#0F3D3E] px-8 py-4 rounded-full font-bold tracking-wider transition-all duration-300 backdrop-blur-sm flex items-center justify-center w-full sm:w-auto text-sm md:text-base hover:shadow-[0_10px_40px_rgba(255,255,255,0.2)]">
-                        OUR IMPACT
+                        See Our Impact
                     </a>
                 </div>
             </div>
@@ -258,270 +292,58 @@
             </div>
         </section>
 
-        <!-- Impact Statistics Section -->
-        <section class="py-20 md:py-32 bg-white relative overflow-hidden stats-bg-section bg-fixed bg-center bg-cover"
-            style="background-image: url('assets/hero3.jpg');">
-            <div class="absolute inset-0 bg-[#0F3D3E]/95 backdrop-blur-[2px]"></div>
-
-            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
-                <div class="text-center max-w-4xl mx-auto mb-16 md:mb-24 reveal-bottom">
-                    <span
-                        class="inline-flex items-center gap-2 text-[#C6A75E] text-sm tracking-[0.2em] uppercase font-bold mb-4">
-                        <span class="w-8 h-[1px] bg-[#C6A75E]"></span>
-                        Our Reach
-                        <span class="w-8 h-[1px] bg-[#C6A75E]"></span>
-                    </span>
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl title-font text-white mb-6">The Impact of Your Sadaqah
-                    </h2>
-                    <p class="text-white/80 text-lg font-light leading-relaxed">
-                        Every donation fuels our mission to build a brighter future. Discover how your generosity
-                        transforms lives in Phulwari Sharif and beyond.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-                    <!-- Stat 1 -->
-                    <div class="stat-card group bg-white/[0.03] border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12 text-center relative overflow-hidden reveal-bottom"
-                        style="animation-delay: 0.1s;">
-                        <div
-                            class="absolute top-0 right-0 w-32 h-32 bg-[#C6A75E]/10 rounded-bl-full -mr-16 -mt-16 transition-transform duration-700 group-hover:scale-150">
-                        </div>
-                        <div
-                            class="w-20 h-20 mx-auto bg-gradient-to-br from-[#0F3D3E] to-[#1a5f61] border border-[#C6A75E]/30 rounded-full flex items-center justify-center mb-6 relative z-10 shadow-[0_0_30px_rgba(198,167,94,0.15)] group-hover:shadow-[0_0_40px_rgba(198,167,94,0.3)] transition-all duration-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-[#C6A75E]" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                            </svg>
-                        </div>
-                        <div class="relative z-10">
-                            <h3 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 title-font tracking-tight counter"
-                                data-target="1500">0</h3>
-                            <span class="text-[#C6A75E] text-xl font-bold block mb-4">+</span>
-                            <p class="text-white/80 font-medium uppercase tracking-[0.15em] text-sm">Students Educated
-                            </p>
-                            <p class="text-white/60 text-sm mt-4 font-light leading-relaxed">Providing foundational
-                                Islamic and modern education.</p>
-                        </div>
-                    </div>
-
-                    <!-- Stat 2 -->
-                    <div class="stat-card group bg-white/[0.03] border border-[#C6A75E]/30 backdrop-blur-md rounded-2xl p-8 md:p-12 text-center relative overflow-hidden reveal-bottom transform md:-translate-y-8"
-                        style="animation-delay: 0.2s;">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-[#C6A75E]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                        </div>
-                        <div
-                            class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-[#C6A75E]/20 blur-[50px] rounded-full">
-                        </div>
-
-                        <div
-                            class="w-24 h-24 mx-auto bg-gradient-to-br from-[#C6A75E] to-[#9A7B3E] rounded-full flex items-center justify-center mb-6 relative z-10 shadow-[0_10px_30px_rgba(198,167,94,0.3)] group-hover:shadow-[0_15px_40px_rgba(198,167,94,0.4)] transition-all duration-500 transform group-hover:-translate-y-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-[#0F3D3E]" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                        </div>
-                        <div class="relative z-10">
-                            <h3 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2 title-font tracking-tight text-shadow-lg counter"
-                                data-target="5000">0</h3>
-                            <span class="text-[#C6A75E] text-2xl font-bold block mb-4">+</span>
-                            <p class="text-[#C6A75E] font-bold uppercase tracking-[0.2em] text-sm md:text-base">People
-                                Helped</p>
-                            <p class="text-white/80 text-sm mt-4 font-light leading-relaxed">Through our community
-                                outreach, food drives, and charity programs.</p>
-                        </div>
-                    </div>
-
-                    <!-- Stat 3 -->
-                    <div class="stat-card group bg-white/[0.03] border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12 text-center relative overflow-hidden reveal-bottom"
-                        style="animation-delay: 0.3s;">
-                        <div
-                            class="absolute bottom-0 left-0 w-32 h-32 bg-[#C6A75E]/10 rounded-tr-full -ml-16 -mb-16 transition-transform duration-700 group-hover:scale-150">
-                        </div>
-                        <div
-                            class="w-20 h-20 mx-auto bg-gradient-to-br from-[#0F3D3E] to-[#1a5f61] border border-[#C6A75E]/30 rounded-full flex items-center justify-center mb-6 relative z-10 shadow-[0_0_30px_rgba(198,167,94,0.15)] group-hover:shadow-[0_0_40px_rgba(198,167,94,0.3)] transition-all duration-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-[#C6A75E]" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <div class="relative z-10">
-                            <h3 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 title-font tracking-tight counter"
-                                data-target="100">0</h3>
-                            <span class="text-[#C6A75E] text-xl font-bold block mb-4">%</span>
-                            <p class="text-white/80 font-medium uppercase tracking-[0.15em] text-sm">Transparency</p>
-                            <p class="text-white/60 text-sm mt-4 font-light leading-relaxed">Every rupee is accounted
-                                for and utilized in the path of Allah.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Community Support Section -->
-        <section class="py-20 md:py-32 relative bg-[#F6F1E8]">
-            <div
-                class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#C6A75E]/30 to-transparent">
-            </div>
-
-            <div class="container mx-auto px-4 md:px-8 lg:px-12">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-
-                    <!-- Content -->
-                    <div class="order-2 lg:order-1 reveal-left">
-                        <span
-                            class="inline-flex items-center gap-2 text-[#C6A75E] text-xs font-bold tracking-[0.2em] uppercase mb-6">
-                            <span class="w-6 h-[1px] bg-[#C6A75E]"></span>
-                            Beyond Education
-                        </span>
-
-                        <h2 class="text-4xl md:text-5xl lg:text-6xl title-font text-[#0F3D3E] mb-8 leading-tight">
-                            Serving the <span class="italic font-light">Ummah</span> & the Needy
-                        </h2>
-
-                        <div class="space-y-6 text-[#1E1E1E]/80 text-lg font-light leading-relaxed">
-                            <p>
-                                At Modern Calcutta School, our responsibility extends beyond the classroom walls. Guided
-                                by the principles of Zakat and Sadaqah, we are deeply committed to uplifting our local
-                                community.
-                            </p>
-                            <p
-                                class="p-6 bg-white rounded-2xl border border-[#C6A75E]/20 shadow-sm relative overflow-hidden">
-                                <span class="absolute top-0 right-0 p-4 text-[#C6A75E]/10">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 transform rotate-12"
-                                        fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                                    </svg>
-                                </span>
-                                <strong>Your donations directly fund:</strong>
-                            <ul class="mt-4 space-y-3 relative z-10">
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-5 h-5 text-[#C6A75E] shrink-0 mt-1" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    Scholarships for deserving students from low-income families.
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-5 h-5 text-[#C6A75E] shrink-0 mt-1" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    Food distribution drives for the impoverished in Phulwari Sharif.
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-5 h-5 text-[#C6A75E] shrink-0 mt-1" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    Winter clothing initiatives for those without shelter.
-                                </li>
-                            </ul>
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Imagery -->
-                    <div class="order-1 lg:order-2 relative reveal-right">
-                        <div
-                            class="absolute -inset-4 bg-gradient-to-tr from-[#0F3D3E]/10 to-[#C6A75E]/10 rounded-3xl transform rotate-3 z-0">
-                        </div>
-                        <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl flex border-4 border-white">
-                            <img src="assets/donationbg.jpg" alt="MCS Charity Work"
-                                class="w-full h-[400px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-1000">
-
-                            <!-- Overlay Badge -->
-                            <div
-                                class="absolute bottom-8 -left-6 md:-left-12 bg-white p-6 rounded-2xl shadow-xl max-w-[200px] animate-float hidden sm:block border border-[#C6A75E]/20">
-                                <div class="text-[#C6A75E] mb-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                    </svg>
-                                </div>
-                                <p class="text-[#0F3D3E] font-bold title-font text-lg leading-tight">
-                                    Empowering<br>Communities</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Donation Form Section -->
-        <section id="donation-form-section" class="py-20 md:py-32 bg-[#F6F1E8] relative">
+        <!-- Donation Form (Right after Hero) -->
+        <section id="donation-form-section" class="py-16 md:py-24 bg-[#F6F1E8] relative">
             <div class="absolute inset-0 bg-diamond-pattern opacity-30"></div>
-
             <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
                 <div
                     class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#C6A75E]/20 reveal-bottom">
-                    <!-- Form Header -->
                     <div class="bg-[#0F3D3E] p-8 md:p-12 text-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-[url('assets/islamic-pattern.svg')] opacity-10"></div>
-                        <h2 class="text-3xl md:text-5xl title-font text-white mb-4 relative z-10">Make Your Contribution
-                        </h2>
-                        <p class="text-white/80 font-light relative z-10">Please fill in your details to proceed with
-                            your generous donation.</p>
+                        <h2 class="text-3xl md:text-5xl title-font text-white mb-3 relative z-10">Be Someone's Hero
+                            Today</h2>
+                        <p class="text-white/80 font-light relative z-10 max-w-md mx-auto">
+                            A few seconds to fill this form = a <strong class="text-[#C6A75E]">lifetime of
+                                difference</strong> for a deserving child.
+                        </p>
                     </div>
-
-                    <!-- Form Body -->
                     <div class="p-8 md:p-12">
                         <form id="donationForm" class="space-y-8">
-
-                            <!-- Personal Details Grid -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <!-- Name -->
                                 <div class="relative">
                                     <label for="donatorName"
                                         class="block text-sm font-bold text-[#0F3D3E] uppercase tracking-wider mb-2">Full
                                         Name *</label>
                                     <input type="text" id="donatorName" required
-                                        class="form-input w-full pb-2 text-lg text-[#1E1E1E] bg-transparent focus:ring-0 focus:outline-none"
+                                        class="form-input w-full pb-2 text-lg text-[#1E1E1E] bg-transparent border-b-2 border-gray-200 focus:border-[#C6A75E] transition-colors rounded-none px-0 focus:ring-0 focus:outline-none"
                                         placeholder="Enter your full name">
                                 </div>
-
-                                <!-- Phone -->
                                 <div class="relative">
                                     <label for="donatorPhone"
                                         class="block text-sm font-bold text-[#0F3D3E] uppercase tracking-wider mb-2">Phone
                                         Number *</label>
                                     <input type="tel" id="donatorPhone" required pattern="[0-9]{10}"
-                                        class="form-input w-full pb-2 text-lg text-[#1E1E1E] bg-transparent focus:ring-0 focus:outline-none"
+                                        class="form-input w-full pb-2 text-lg text-[#1E1E1E] bg-transparent border-b-2 border-gray-200 focus:border-[#C6A75E] transition-colors rounded-none px-0 focus:ring-0 focus:outline-none"
                                         placeholder="10-digit mobile number">
                                 </div>
-
-                                <!-- Email -->
                                 <div class="relative md:col-span-2">
                                     <label for="donatorEmail"
                                         class="block text-sm font-bold text-[#0F3D3E] uppercase tracking-wider mb-2">Email
                                         Address *</label>
                                     <input type="email" id="donatorEmail" required
-                                        class="form-input w-full pb-2 text-lg text-[#1E1E1E] bg-transparent focus:ring-0 focus:outline-none"
+                                        class="form-input w-full pb-2 text-lg text-[#1E1E1E] bg-transparent border-b-2 border-gray-200 focus:border-[#C6A75E] transition-colors rounded-none px-0 focus:ring-0 focus:outline-none"
                                         placeholder="For sending your donation receipt">
                                 </div>
-
-                                <!-- Address -->
                                 <div class="relative md:col-span-2">
                                     <label for="donatorAddress"
                                         class="block text-sm font-bold text-[#0F3D3E] uppercase tracking-wider mb-2">Full
                                         Address</label>
                                     <textarea id="donatorAddress" rows="2"
-                                        class="form-input w-full pb-2 text-lg text-[#1E1E1E] bg-transparent focus:ring-0 focus:outline-none resize-none"
+                                        class="form-input w-full pb-2 text-lg text-[#1E1E1E] bg-transparent border-b-2 border-gray-200 focus:border-[#C6A75E] transition-colors rounded-none px-0 focus:ring-0 focus:outline-none resize-none"
                                         placeholder="Optional: Enter your address"></textarea>
                                 </div>
                             </div>
-
                             <hr class="border-[#C6A75E]/30 my-8">
-
-                            <!-- Donation Amount -->
                             <div>
                                 <label
                                     class="block text-sm font-bold text-[#0F3D3E] uppercase tracking-wider mb-4 text-center">Select
@@ -543,13 +365,11 @@
                                 <div class="relative max-w-md mx-auto">
                                     <span class="absolute left-0 bottom-2 text-2xl text-[#C6A75E] font-bold">₹</span>
                                     <input type="number" id="customAmount" required min="100" value="5000"
-                                        class="form-input w-full pb-2 pl-8 text-3xl font-bold text-center text-[#0F3D3E] bg-transparent focus:ring-0 focus:outline-none"
+                                        class="form-input w-full pb-2 pl-8 text-3xl font-bold text-center text-[#0F3D3E] bg-transparent border-b-2 border-gray-200 focus:border-[#C6A75E] transition-colors rounded-none focus:ring-0 focus:outline-none"
                                         placeholder="Custom Amount">
                                 </div>
                                 <p class="text-center text-sm text-[#1E1E1E]/60 mt-2">Minimum donation: ₹100</p>
                             </div>
-
-                            <!-- Submit Button -->
                             <div class="mt-12 text-center">
                                 <button type="submit" id="submitDonationBtn"
                                     class="bg-[#0F3D3E] hover:bg-[#C6A75E] text-white px-12 py-5 rounded-full font-bold tracking-[0.2em] uppercase transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(15,61,62,0.3)] w-full md:w-auto text-lg flex items-center justify-center gap-4 mx-auto disabled:opacity-70 disabled:cursor-not-allowed group">
@@ -563,8 +383,6 @@
                                             d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
                                 </button>
-
-                                <!-- Razorpay Visual Placeholder -->
                                 <div class="mt-6 flex flex-col items-center justify-center text-sm text-[#1E1E1E]/60">
                                     <p class="mb-2">Secured by</p>
                                     <div class="flex items-center gap-2 opacity-70 grayscale">
@@ -582,6 +400,422 @@
                 </div>
             </div>
         </section>
+
+        <!-- SECTION 1: Emotional Cost Breakdown -->
+        <section class="py-20 md:py-32 bg-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-diamond-pattern opacity-20"></div>
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <!-- Real child photo with emotional overlay -->
+                    <div class="flex justify-center reveal-left">
+                        <div class="relative w-full max-w-sm">
+                            <!-- Main photo -->
+                            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                                <img src="assets/class joy learn.jfif" alt="A child joyfully learning"
+                                    class="w-full h-[420px] object-cover">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/80 via-transparent to-transparent">
+                                </div>
+                                <!-- Bottom caption overlay -->
+                                <div class="absolute bottom-0 left-0 right-0 p-6">
+                                    <p class="text-white font-bold text-lg title-font leading-snug">"Give me
+                                        education,<br>I'll give you the world."</p>
+                                    <p class="text-[#C6A75E] text-xs mt-1 uppercase tracking-widest">— Every child at
+                                        MCS</p>
+                                </div>
+                            </div>
+                            <!-- Floating stat badge top-right -->
+                            <div
+                                class="absolute -top-4 -right-4 bg-[#C6A75E] text-[#0F3D3E] rounded-2xl p-4 shadow-xl text-center w-24 border-2 border-white">
+                                <p class="text-2xl font-bold title-font leading-none">1500+</p>
+                                <p class="text-[9px] font-bold uppercase tracking-wider mt-1">Students<br>Educated</p>
+                            </div>
+                            <!-- Floating badge bottom-left -->
+                            <div
+                                class="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl border border-[#C6A75E]/30 w-36">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-2xl">🤲</span>
+                                    <div>
+                                        <p class="text-[#0F3D3E] font-bold text-xs">100% goes to</p>
+                                        <p class="text-[#C6A75E] font-bold text-xs">Education & Aid</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pills + CTA -->
+                    <div class="reveal-right">
+                        <span
+                            class="inline-flex items-center gap-2 text-[#C6A75E] text-xs font-bold tracking-[0.25em] uppercase mb-5"><span
+                                class="w-6 h-[1px] bg-[#C6A75E]"></span>The Power of Small Change</span>
+                        <h2 class="text-4xl md:text-5xl title-font text-[#0F3D3E] mb-4 leading-tight">
+                            Just <span class="text-[#C6A75E]">₹50 a day</span> can<br>educate a child for a year
+                        </h2>
+                        <p class="text-[#1E1E1E]/70 text-lg font-light leading-relaxed mb-8">
+                            You spend the same on chai. But your <em>Sadaqah Jariyah</em> can be the reason a child
+                            opens a book instead of begging.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="group flex items-center gap-5 p-5 bg-[#F6F1E8] hover:bg-[#0F3D3E] rounded-2xl border border-[#C6A75E]/20 hover:border-[#C6A75E] transition-all duration-400 reveal-bottom"
+                                style="animation-delay:.1s;">
+                                <span class="text-3xl shrink-0">☕</span>
+                                <div><span class="font-bold text-[#C6A75E] text-xl title-font">₹50 / day</span>
+                                    <p
+                                        class="text-[#0F3D3E] group-hover:text-white/80 transition-colors text-sm mt-0.5">
+                                        One less chai = One child's daily education</p>
+                                </div>
+                            </div>
+                            <div class="group flex items-center gap-5 p-5 bg-[#F6F1E8] hover:bg-[#0F3D3E] rounded-2xl border border-[#C6A75E]/20 hover:border-[#C6A75E] transition-all duration-400 reveal-bottom"
+                                style="animation-delay:.2s;">
+                                <span class="text-3xl shrink-0">📒</span>
+                                <div><span class="font-bold text-[#C6A75E] text-xl title-font">₹500 / month</span>
+                                    <p
+                                        class="text-[#0F3D3E] group-hover:text-white/80 transition-colors text-sm mt-0.5">
+                                        Books, uniform &amp; stationery for one child</p>
+                                </div>
+                            </div>
+                            <div class="group flex items-center gap-5 p-5 bg-[#F6F1E8] hover:bg-[#0F3D3E] rounded-2xl border border-[#C6A75E]/20 hover:border-[#C6A75E] transition-all duration-400 reveal-bottom"
+                                style="animation-delay:.3s;">
+                                <span class="text-3xl shrink-0">🎓</span>
+                                <div><span class="font-bold text-[#C6A75E] text-xl title-font">₹2,000 / year</span>
+                                    <p
+                                        class="text-[#0F3D3E] group-hover:text-white/80 transition-colors text-sm mt-0.5">
+                                        Full scholarship for one deserving student</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-5 p-5 bg-[#0F3D3E] rounded-2xl border border-[#C6A75E]/40 shadow-lg reveal-bottom"
+                                style="animation-delay:.4s;">
+                                <span class="text-3xl shrink-0">💛</span>
+                                <div><span class="font-bold text-[#C6A75E] text-xl title-font">₹5,000 once</span>
+                                    <p class="text-white/80 text-sm mt-0.5">Transforms an entire family's future forever
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <button
+                            onclick="document.getElementById('donation-form-section').scrollIntoView({behavior:'smooth'})"
+                            class="mt-10 relative overflow-hidden bg-[#C6A75E] hover:bg-white text-white hover:text-[#C6A75E] px-10 py-4 rounded-full font-bold tracking-[0.2em] uppercase transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(198,167,94,0.4)] active:translate-y-0 active:scale-95 active:shadow-md flex items-center gap-3 group text-sm border-2 border-transparent">
+                            <!-- Shimmering overlay -->
+                            <span
+                                class="absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-[#0F3D3E]/10 to-transparent transition-all duration-1000 group-hover:translate-x-[200%] ease-in-out pointer-events-none w-1/2 h-full z-0"></span>
+
+                            <!-- Expanding ring effect -->
+                            <span
+                                class="absolute inset-0 rounded-full ring-[1.5px] ring-[#C6A75E] opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none z-0"></span>
+
+                            <span class="relative z-10 flex items-center gap-3">
+                                Donate Now
+                                <svg class="w-5 h-5 group-hover:translate-x-1.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Image Swiper Gallery -->
+        <section class="py-20 bg-[#F6F1E8] relative overflow-hidden">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 mb-12 text-center reveal-bottom">
+                <span
+                    class="inline-flex items-center gap-3 text-[#C6A75E] text-xs font-bold tracking-[0.25em] uppercase mb-4">
+                    <span class="w-8 h-[1px] bg-[#C6A75E]"></span>Real Stories, Real Impact<span
+                        class="w-8 h-[1px] bg-[#C6A75E]"></span>
+                </span>
+                <h2 class="text-4xl md:text-5xl title-font text-[#0F3D3E]">A Glimpse Into Our World</h2>
+            </div>
+            <div class="swiper gallerySwiper overflow-hidden">
+                <div class="swiper-wrapper pb-12">
+                    <!-- Real donation action photos first -->
+                    <div class="swiper-slide !w-[280px] md:!w-[360px]">
+                        <div class="rounded-2xl overflow-hidden shadow-xl h-64 md:h-80 relative group"><img
+                                src="donation.jpeg" alt="Community aid distribution event"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/80 to-transparent"></div>
+                            <p class="absolute bottom-4 left-4 text-white font-bold text-sm tracking-wider">Community
+                                Aid Drive</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide !w-[280px] md:!w-[360px]">
+                        <div class="rounded-2xl overflow-hidden shadow-xl h-64 md:h-80 relative group"><img
+                                src="donation2.jpeg" alt="Essentials distribution to those in need"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/80 to-transparent"></div>
+                            <p class="absolute bottom-4 left-4 text-white font-bold text-sm tracking-wider">Essentials
+                                for the Needy</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide !w-[280px] md:!w-[360px]">
+                        <div class="rounded-2xl overflow-hidden shadow-xl h-64 md:h-80 relative group"><img
+                                src="assets/happy faces.jfif" alt="Happy students"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/80 to-transparent"></div>
+                            <p class="absolute bottom-4 left-4 text-white font-bold text-sm tracking-wider">Happy Faces
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide !w-[280px] md:!w-[360px]">
+                        <div class="rounded-2xl overflow-hidden shadow-xl h-64 md:h-80 relative group"><img
+                                src="assets/classroom.jfif" alt="Classroom"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/80 to-transparent"></div>
+                            <p class="absolute bottom-4 left-4 text-white font-bold text-sm tracking-wider">Our
+                                Classroom</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide !w-[280px] md:!w-[360px]">
+                        <div class="rounded-2xl overflow-hidden shadow-xl h-64 md:h-80 relative group"><img
+                                src="assets/function.jfif" alt="School function"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/80 to-transparent"></div>
+                            <p class="absolute bottom-4 left-4 text-white font-bold text-sm tracking-wider">Annual
+                                Function</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide !w-[280px] md:!w-[360px]">
+                        <div class="rounded-2xl overflow-hidden shadow-xl h-64 md:h-80 relative group"><img
+                                src="assets/activities.jfif" alt="Activities"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/80 to-transparent"></div>
+                            <p class="absolute bottom-4 left-4 text-white font-bold text-sm tracking-wider">Activities
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide !w-[280px] md:!w-[360px]">
+                        <div class="rounded-2xl overflow-hidden shadow-xl h-64 md:h-80 relative group"><img
+                                src="assets/fancy dress.jfif" alt="Fancy dress"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/80 to-transparent"></div>
+                            <p class="absolute bottom-4 left-4 text-white font-bold text-sm tracking-wider">Cultural
+                                Events</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide !w-[280px] md:!w-[360px]">
+                        <div class="rounded-2xl overflow-hidden shadow-xl h-64 md:h-80 relative group"><img
+                                src="assets/trip.jfif" alt="School trip"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/80 to-transparent"></div>
+                            <p class="absolute bottom-4 left-4 text-white font-bold text-sm tracking-wider">Educational
+                                Trips</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide !w-[280px] md:!w-[360px]">
+                        <div class="rounded-2xl overflow-hidden shadow-xl h-64 md:h-80 relative group"><img
+                                src="assets/happy girl.jpeg" alt="Smiling student"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/80 to-transparent"></div>
+                            <p class="absolute bottom-4 left-4 text-white font-bold text-sm tracking-wider">Bright
+                                Futures</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination gallery-pagination"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Trust & Credibility -->
+        <section class="py-20 md:py-28 bg-[#0F3D3E] relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('assets/islamic-pattern.svg')] opacity-5"></div>
+            <div
+                class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#C6A75E]/40 to-transparent">
+            </div>
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+                <div class="text-center mb-14 reveal-bottom">
+                    <span
+                        class="inline-flex items-center gap-3 text-[#C6A75E] text-xs font-bold tracking-[0.25em] uppercase mb-4"><span
+                            class="w-8 h-[1px] bg-[#C6A75E]"></span>Trusted for Years<span
+                            class="w-8 h-[1px] bg-[#C6A75E]"></span></span>
+                    <h2 class="text-4xl md:text-5xl title-font text-white">Your Trust is Sacred to Us</h2>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <!-- Trust Badge Grid -->
+                    <div class="grid grid-cols-2 gap-5">
+                        <div class="bg-white/[0.05] border border-white/10 hover:border-[#C6A75E]/50 rounded-2xl p-6 text-center group transition-all duration-400 reveal-bottom"
+                            style="animation-delay:.05s;">
+                            <div
+                                class="w-14 h-14 mx-auto bg-[#C6A75E]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#C6A75E]/20 transition-colors">
+                                <svg class="w-7 h-7 text-[#C6A75E]" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-white font-bold text-sm md:text-base title-font mb-1">Registered Trust</h4>
+                            <p class="text-white/50 text-xs leading-relaxed">Govt. registered under Trust Act, Bihar</p>
+                        </div>
+                        <div class="bg-white/[0.05] border border-white/10 hover:border-[#C6A75E]/50 rounded-2xl p-6 text-center group transition-all duration-400 reveal-bottom"
+                            style="animation-delay:.15s;">
+                            <div
+                                class="w-14 h-14 mx-auto bg-[#C6A75E]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#C6A75E]/20 transition-colors">
+                                <svg class="w-7 h-7 text-[#C6A75E]" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-white font-bold text-sm md:text-base title-font mb-1">100% Transparent</h4>
+                            <p class="text-white/50 text-xs leading-relaxed">Every rupee tracked & publicly reported</p>
+                        </div>
+                        <div class="bg-white/[0.05] border border-white/10 hover:border-[#C6A75E]/50 rounded-2xl p-6 text-center group transition-all duration-400 reveal-bottom"
+                            style="animation-delay:.25s;">
+                            <div
+                                class="w-14 h-14 mx-auto bg-[#C6A75E]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#C6A75E]/20 transition-colors">
+                                <svg class="w-7 h-7 text-[#C6A75E]" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                                </svg>
+                            </div>
+                            <h4 class="text-white font-bold text-sm md:text-base title-font mb-1">Annual Audit</h4>
+                            <p class="text-white/50 text-xs leading-relaxed">Certified by independent auditors yearly
+                            </p>
+                        </div>
+                        <div class="bg-white/[0.05] border border-white/10 hover:border-[#C6A75E]/50 rounded-2xl p-6 text-center group transition-all duration-400 reveal-bottom"
+                            style="animation-delay:.35s;">
+                            <div
+                                class="w-14 h-14 mx-auto bg-[#C6A75E]/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-[#C6A75E]/20 transition-colors">
+                                <svg class="w-7 h-7 text-[#C6A75E]" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-white font-bold text-sm md:text-base title-font mb-1">5000+ Lives</h4>
+                            <p class="text-white/50 text-xs leading-relaxed">Touched through education & community
+                                charity</p>
+                        </div>
+                    </div>
+                    <!-- Founder Quote with action photo proof -->
+                    <div class="reveal-right">
+                        <!-- Real action photo: proof of charity work -->
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl mb-8 border border-[#C6A75E]/20">
+                            <img src="donation2.jpeg" alt="Founder distributing aid to the needy"
+                                class="w-full h-56 md:h-64 object-cover object-center">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#0B2424]/85 via-transparent to-transparent">
+                            </div>
+                            <!-- Caption badge -->
+                            <div class="absolute bottom-4 left-4 right-4 flex items-center gap-3">
+                                <span class="flex-shrink-0 w-2 h-2 rounded-full bg-[#C6A75E] animate-pulse"></span>
+                                <p class="text-white/90 text-xs font-bold uppercase tracking-widest">Our Founder — In
+                                    Action, Not Just Words</p>
+                            </div>
+                        </div>
+
+                        <svg class="w-12 h-12 text-[#C6A75E] mb-4 opacity-60" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                        </svg>
+                        <blockquote class="text-xl md:text-2xl title-font text-white leading-relaxed mb-8 italic">
+                            "We believe every child deserves the light of knowledge, regardless of their family's
+                            income. Your donation is a light that never dims."
+                        </blockquote>
+                        <div class="flex items-center gap-4">
+                            <img src="assets/face director.jfif" alt="Hafiz Shanauddin"
+                                class="w-14 h-14 rounded-full object-cover border-2 border-[#C6A75E]/50">
+                            <div>
+                                <p class="text-white font-bold title-font text-lg">Hafiz Shanauddin</p>
+                                <p class="text-[#C6A75E] text-sm tracking-wider uppercase font-medium">Founder, Modern
+                                    Calcutta School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Where Your Money Goes -->
+        <section class="py-20 md:py-28 bg-[#F6F1E8] relative overflow-hidden">
+            <div class="absolute inset-0 bg-diamond-pattern opacity-20"></div>
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+                <div class="text-center mb-14 reveal-bottom">
+                    <span
+                        class="inline-flex items-center gap-3 text-[#C6A75E] text-xs font-bold tracking-[0.25em] uppercase mb-4"><span
+                            class="w-8 h-[1px] bg-[#C6A75E]"></span>Zero Doubts<span
+                            class="w-8 h-[1px] bg-[#C6A75E]"></span></span>
+                    <h2 class="text-4xl md:text-5xl title-font text-[#0F3D3E] mb-4">Complete Transparency</h2>
+                    <p class="text-[#1E1E1E]/60 max-w-xl mx-auto font-light">Here's exactly where every rupee of your
+                        donation goes. No hidden fees, no ambiguity — just pure impact.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-5xl mx-auto">
+                    <!-- Donut SVG Chart -->
+                    <div class="flex justify-center reveal-left">
+                        <div class="relative w-64 h-64 md:w-72 md:h-72">
+                            <svg viewBox="0 0 200 200" class="w-full h-full -rotate-90 drop-shadow-xl"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <!-- 60% Education = 376.99 * 0.6 = 226.2 -->
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#0F3D3E" stroke-width="32"
+                                    stroke-dasharray="226.2 376.99" stroke-dashoffset="0" class="donut-seg"
+                                    style="transition:stroke-dasharray 1.5s ease;" />
+                                <!-- 20% Food = 376.99 * 0.2 = 75.4 -->
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#C6A75E" stroke-width="32"
+                                    stroke-dasharray="75.4 376.99" stroke-dashoffset="-226.2" class="donut-seg"
+                                    style="transition:stroke-dasharray 1.5s .3s ease;" />
+                                <!-- 10% Infra = 376.99 * 0.1 = 37.7 -->
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#7BAE7F" stroke-width="32"
+                                    stroke-dasharray="37.7 376.99" stroke-dashoffset="-301.6" class="donut-seg"
+                                    style="transition:stroke-dasharray 1.5s .6s ease;" />
+                                <!-- 10% Admin -->
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#E2C68A" stroke-width="32"
+                                    stroke-dasharray="37.7 376.99" stroke-dashoffset="-339.3" class="donut-seg"
+                                    style="transition:stroke-dasharray 1.5s .9s ease;" />
+                            </svg>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                                <p class="text-4xl font-bold text-[#0F3D3E] title-font">100%</p>
+                                <p class="text-xs uppercase tracking-widest text-[#0F3D3E]/60 mt-1">Accounted For</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Breakdown Bars -->
+                    <div class="space-y-7 reveal-right">
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-[#0F3D3E] font-bold text-sm">📚
+                                    Student Education</span><span class="text-[#0F3D3E] font-bold text-sm">60%</span>
+                            </div>
+                            <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full rounded-full bg-[#0F3D3E] animate-bar"
+                                    style="width:0%;transition:width 1.5s .2s ease;" data-width="60%"></div>
+                            </div>
+                            <p class="text-[#1E1E1E]/50 text-xs mt-1">Fees, books, uniforms, stationery, teacher
+                                salaries</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-[#0F3D3E] font-bold text-sm">🍱
+                                    Food & Winter Drives</span><span class="text-[#0F3D3E] font-bold text-sm">20%</span>
+                            </div>
+                            <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full rounded-full bg-[#C6A75E] animate-bar"
+                                    style="width:0%;transition:width 1.5s .4s ease;" data-width="20%"></div>
+                            </div>
+                            <p class="text-[#1E1E1E]/50 text-xs mt-1">Community food distribution & seasonal relief</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-[#0F3D3E] font-bold text-sm">🏗️
+                                    Infrastructure</span><span class="text-[#0F3D3E] font-bold text-sm">10%</span></div>
+                            <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full rounded-full bg-[#7BAE7F] animate-bar"
+                                    style="width:0%;transition:width 1.5s .6s ease;" data-width="10%"></div>
+                            </div>
+                            <p class="text-[#1E1E1E]/50 text-xs mt-1">Classrooms, library, playground improvements</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-[#0F3D3E] font-bold text-sm">📋
+                                    Administrative</span><span class="text-[#0F3D3E] font-bold text-sm">10%</span></div>
+                            <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full rounded-full bg-[#E2C68A] animate-bar"
+                                    style="width:0%;transition:width 1.5s .8s ease;" data-width="10%"></div>
+                            </div>
+                            <p class="text-[#1E1E1E]/50 text-xs mt-1">Operations, audit, governance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <!-- Receipt Modal (Hidden by default) -->
         <div id="receiptModal"
@@ -651,6 +885,50 @@
         </div>
 
     </main>
+
+    <!-- SECTION 6: Final CTA Parallax Banner -->
+    <section class="py-24 md:py-36 relative overflow-hidden bg-fixed bg-center bg-cover"
+        style="background-image:url('assets/bg3.jpeg');">
+        <div class="absolute inset-0 bg-[#0B2020]/80"></div>
+        <div class="relative z-10 text-center px-4">
+            <!-- SVG hands reaching up -->
+            <svg class="mx-auto mb-8 w-24 h-24 text-[#C6A75E] opacity-70" viewBox="0 0 100 100" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <style>
+                    .hnd {
+                        stroke-dasharray: 300;
+                        stroke-dashoffset: 300;
+                        animation: dr 2s ease forwards
+                    }
+
+                    @keyframes dr {
+                        to {
+                            stroke-dashoffset: 0
+                        }
+                    }
+                </style>
+                <path class="hnd"
+                    d="M30 80 Q28 60 32 45 Q34 38 38 40 Q40 35 44 38 Q46 32 50 34 Q52 28 56 32 Q60 30 60 38 L60 55 Q64 55 66 58 L68 72 Q68 82 60 85 L38 85 Q30 85 30 80Z"
+                    stroke="#C6A75E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="hnd" d="M50 34 L50 10 M44 38 L42 15 M56 32 L58 12" stroke="#C6A75E" stroke-width="1.5"
+                    stroke-linecap="round" opacity="0.5" style="animation-delay:.5s;" />
+            </svg>
+            <h2 class="text-4xl md:text-6xl title-font text-white mb-4 leading-tight">
+                Don't wait.<br><span class="text-[#C6A75E] italic">A child is waiting for you.</span>
+            </h2>
+            <p class="text-white/70 text-lg md:text-xl font-light mb-10 max-w-xl mx-auto">Every second you pause, a
+                child goes without. Be the reason someone's life changes today.</p>
+            <button onclick="document.getElementById('donation-form-section').scrollIntoView({behavior:'smooth'})"
+                class="bg-[#C6A75E] hover:bg-white text-white hover:text-[#0F3D3E] px-12 py-5 rounded-full font-bold tracking-[0.2em] uppercase text-lg transition-all duration-300 shadow-[0_15px_50px_rgba(198,167,94,0.4)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.2)] inline-flex items-center gap-3 group">
+                Donate Now
+                <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </button>
+        </div>
+    </section>
 
     <!-- Footer Structure matching index.html -->
     <footer class="bg-[#0F3D3E] text-white pt-20 pb-10 border-t-4 border-[#C6A75E] relative overflow-hidden">
@@ -809,6 +1087,33 @@
         // Set Current Year in Footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
+        // Gallery Swiper
+        new Swiper('.gallerySwiper', {
+            slidesPerView: 'auto',
+            centeredSlides: false,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            pagination: { el: '.gallery-pagination', clickable: true },
+            breakpoints: {
+                640: { spaceBetween: 24 },
+                1024: { spaceBetween: 30 },
+            }
+        });
+
+        // Animate progress bars on scroll
+        const barObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.animate-bar').forEach(bar => {
+                        bar.style.width = bar.dataset.width || '0%';
+                    });
+                    barObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.space-y-7').forEach(el => barObserver.observe(el));
+
         // Initialize Swiper Hero
         const heroSwiper = new Swiper('.heroSwiper', {
             loop: true,
@@ -830,16 +1135,16 @@
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
             if (window.scrollY > 50) {
-                header.classList.add('bg-[#F6F1E8]/90', 'backdrop-blur-md', 'border-[#C6A75E]/20', 'shadow-sm', 'top-0');
-                header.classList.remove('bg-transparent', 'border-transparent', 'top-8');
+                header.classList.add('bg-[#F6F1E8]/95', 'backdrop-blur-md', 'border-[#C6A75E]/30', 'shadow-md');
+                header.classList.remove('bg-transparent', 'border-transparent');
                 header.querySelectorAll('.nav-link, .nav-link-mobile').forEach(link => {
                     link.classList.remove('text-white');
                     if (!link.classList.contains('active')) link.classList.add('text-[#0F3D3E]');
                 });
                 header.querySelector('span[class*="text-white"]')?.classList.replace('text-white', 'text-[#0F3D3E]');
             } else {
-                header.classList.remove('bg-[#F6F1E8]/90', 'backdrop-blur-md', 'border-[#C6A75E]/20', 'shadow-sm', 'top-0');
-                header.classList.add('bg-transparent', 'border-transparent', 'top-8');
+                header.classList.remove('bg-[#F6F1E8]/95', 'backdrop-blur-md', 'border-[#C6A75E]/30', 'shadow-md');
+                header.classList.add('bg-transparent', 'border-transparent');
                 header.querySelectorAll('.nav-link, .nav-link-mobile').forEach(link => {
                     if (!link.classList.contains('active')) link.classList.add('text-white');
                     link.classList.remove('text-[#0F3D3E]');
