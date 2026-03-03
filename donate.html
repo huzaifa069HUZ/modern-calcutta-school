@@ -292,111 +292,259 @@
             </div>
         </section>
 
-        <!-- Donation Form (Right after Hero) -->
-        <section id="donation-form-section" class="py-16 md:py-24 bg-[#F6F1E8] relative">
-            <div class="absolute inset-0 bg-diamond-pattern opacity-30"></div>
+        <!-- High-End Donation Form Section -->
+        <section id="donation-form-section" class="py-20 md:py-32 bg-[#F6F1E8] relative overflow-hidden">
+            <!-- Background Patterns -->
+            <div class="absolute inset-0 bg-diamond-pattern opacity-40"></div>
+            <div
+                class="absolute -top-[30%] -left-[10%] w-[70%] h-[160%] bg-[url('assets/islamic-pattern.svg')] bg-repeat opacity-[0.03] rotate-12 pointer-events-none">
+            </div>
+
             <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+
                 <div
-                    class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#C6A75E]/20 reveal-bottom">
-                    <div class="bg-[#0F3D3E] p-8 md:p-12 text-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-[url('assets/islamic-pattern.svg')] opacity-10"></div>
-                        <h2 class="text-3xl md:text-5xl title-font text-white mb-3 relative z-10">Be Someone's Hero
-                            Today</h2>
-                        <p class="text-white/80 font-light relative z-10 max-w-md mx-auto">
-                            A few seconds to fill this form = a <strong class="text-[#C6A75E]">lifetime of
-                                difference</strong> for a deserving child.
-                        </p>
+                    class="max-w-6xl mx-auto bg-white rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(15,61,62,0.15)] overflow-hidden border border-[#C6A75E]/20 reveal-bottom flex flex-col lg:flex-row">
+
+                    <!-- Left Column: Emotional & Islamic Tone -->
+                    <div
+                        class="bg-[#0F3D3E] lg:w-5/12 p-8 md:p-14 relative overflow-hidden flex flex-col justify-between text-white">
+                        <!-- Decorative glow -->
+                        <div
+                            class="absolute top-0 right-0 w-64 h-64 bg-[#C6A75E]/20 rounded-full blur-[80px] -mr-32 -mt-32 pointer-events-none">
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-64 h-64 bg-[#C6A75E]/10 rounded-full blur-[60px] -ml-32 -mb-32 pointer-events-none">
+                        </div>
+
+                        <div class="relative z-10">
+                            <!-- Bismillah / Subtitle -->
+                            <p
+                                class="text-[#C6A75E] font-medium tracking-widest uppercase text-xs mb-6 flex items-center gap-3">
+                                <span class="w-8 h-[1px] bg-[#C6A75E]"></span> <span>Save a Future</span>
+                            </p>
+
+                            <h2 class="text-4xl md:text-5xl title-font leading-[1.1] mb-6">
+                                Your wealth does not decrease by <span class="text-[#C6A75E] italic">giving.</span>
+                            </h2>
+
+                            <p class="text-white/80 font-light text-lg leading-relaxed mb-10">
+                                When you sponsor a child's education at Modern Calcutta School, you aren’t just giving
+                                money. You are breaking cycles of poverty, elevating a family, and building your <strong
+                                    class="text-[#C6A75E] font-bold tracking-wide">Sadaqah Jariyah</strong> for the
+                                Hereafter.
+                            </p>
+                        </div>
+
+                        <div class="relative z-10 mt-8">
+                            <div class="bg-black/20 rounded-2xl p-6 backdrop-blur-sm border border-white/5 relative">
+                                <span
+                                    class="text-5xl text-[#C6A75E] opacity-40 absolute -top-4 -left-2 leading-none font-serif">"</span>
+                                <p
+                                    class="text-white/90 text-sm md:text-base italic leading-relaxed relative z-10 font-medium">
+                                    The believer's shade on the Day of Resurrection will be his charity.
+                                </p>
+                                <p
+                                    class="text-[#C6A75E] text-xs font-bold uppercase tracking-widest mt-4 flex items-center gap-2">
+                                    <span class="w-4 h-[1px] bg-[#C6A75E]"></span>Prophet Muhammad (ﷺ)
+                                </p>
+                            </div>
+
+                            <!-- Trust Badges -->
+                            <div class="flex items-center gap-8 mt-10">
+                                <div class="flex items-center gap-3 text-white/80">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-[#C6A75E]/10 flex items-center justify-center border border-[#C6A75E]/30">
+                                        <svg class="w-5 h-5 text-[#C6A75E]" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-xs font-bold uppercase tracking-widest">100% Secure</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-white/80">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-[#C6A75E]/10 flex items-center justify-center border border-[#C6A75E]/30">
+                                        <svg class="w-5 h-5 text-[#C6A75E]" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-xs font-bold uppercase tracking-widest">Tax Exempt</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-8 md:p-12">
-                        <form id="donationForm" class="space-y-8">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <div class="relative">
-                                    <label for="donatorName"
-                                        class="block text-sm font-bold text-[#0F3D3E] uppercase tracking-wider mb-2">Full
-                                        Name *</label>
-                                    <input type="text" id="donatorName" required
-                                        class="form-input w-full pb-2 text-lg text-[#1E1E1E] bg-transparent border-b-2 border-gray-200 focus:border-[#C6A75E] transition-colors rounded-none px-0 focus:ring-0 focus:outline-none"
-                                        placeholder="Enter your full name">
+
+                    <!-- Right Column: The Form -->
+                    <div class="lg:w-7/12 p-8 md:p-14 bg-white relative">
+                        <form id="donationForm" class="flex flex-col h-full">
+
+                            <!-- Step 1: Amount -->
+                            <div class="mb-10">
+                                <div class="flex items-center justify-between mb-6">
+                                    <h3
+                                        class="text-xl md:text-2xl title-font text-[#0F3D3E] font-bold border-b-2 border-[#C6A75E] pb-1 inline-block">
+                                        1. Select Your Gift</h3>
                                 </div>
-                                <div class="relative">
-                                    <label for="donatorPhone"
-                                        class="block text-sm font-bold text-[#0F3D3E] uppercase tracking-wider mb-2">Phone
-                                        Number *</label>
-                                    <input type="tel" id="donatorPhone" required pattern="[0-9]{10}"
-                                        class="form-input w-full pb-2 text-lg text-[#1E1E1E] bg-transparent border-b-2 border-gray-200 focus:border-[#C6A75E] transition-colors rounded-none px-0 focus:ring-0 focus:outline-none"
-                                        placeholder="10-digit mobile number">
-                                </div>
-                                <div class="relative md:col-span-2">
-                                    <label for="donatorEmail"
-                                        class="block text-sm font-bold text-[#0F3D3E] uppercase tracking-wider mb-2">Email
-                                        Address *</label>
-                                    <input type="email" id="donatorEmail" required
-                                        class="form-input w-full pb-2 text-lg text-[#1E1E1E] bg-transparent border-b-2 border-gray-200 focus:border-[#C6A75E] transition-colors rounded-none px-0 focus:ring-0 focus:outline-none"
-                                        placeholder="For sending your donation receipt">
-                                </div>
-                                <div class="relative md:col-span-2">
-                                    <label for="donatorAddress"
-                                        class="block text-sm font-bold text-[#0F3D3E] uppercase tracking-wider mb-2">Full
-                                        Address</label>
-                                    <textarea id="donatorAddress" rows="2"
-                                        class="form-input w-full pb-2 text-lg text-[#1E1E1E] bg-transparent border-b-2 border-gray-200 focus:border-[#C6A75E] transition-colors rounded-none px-0 focus:ring-0 focus:outline-none resize-none"
-                                        placeholder="Optional: Enter your address"></textarea>
-                                </div>
-                            </div>
-                            <hr class="border-[#C6A75E]/30 my-8">
-                            <div>
-                                <label
-                                    class="block text-sm font-bold text-[#0F3D3E] uppercase tracking-wider mb-4 text-center">Select
-                                    Donation Amount (₹)</label>
-                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <button type="button"
-                                        class="amount-btn border-2 border-[#C6A75E]/30 text-[#0F3D3E] rounded-xl py-4 font-bold title-font text-2xl hover:bg-[#C6A75E]/10 transition-colors"
-                                        data-amount="1000">₹1,000</button>
+                                        class="amount-btn relative text-left p-5 rounded-2xl border-2 border-gray-100 bg-gray-50 text-[#0F3D3E] hover:border-[#C6A75E] hover:bg-[#C6A75E]/5 transition-all duration-300 group overflow-hidden"
+                                        data-amount="1000">
+                                        <div
+                                            class="absolute top-0 right-0 w-20 h-20 bg-gray-100 rounded-bl-full -mr-10 -mt-10 transition-colors group-hover:bg-[#C6A75E]/10">
+                                        </div>
+                                        <span
+                                            class="block text-3xl font-bold title-font mb-1 text-inherit">₹1,000</span>
+                                        <span
+                                            class="block text-xs font-bold text-gray-500 uppercase tracking-wider desc-text">Sponsor
+                                            Books & Bags</span>
+                                    </button>
                                     <button type="button"
-                                        class="amount-btn border-2 border-[#C6A75E]/30 text-[#0F3D3E] rounded-xl py-4 font-bold title-font text-2xl hover:bg-[#C6A75E]/10 transition-colors"
-                                        data-amount="2500">₹2,500</button>
+                                        class="amount-btn relative text-left p-5 rounded-2xl border-2 border-gray-100 bg-gray-50 text-[#0F3D3E] hover:border-[#C6A75E] hover:bg-[#C6A75E]/5 transition-all duration-300 group overflow-hidden"
+                                        data-amount="2500">
+                                        <div
+                                            class="absolute top-0 right-0 w-20 h-20 bg-gray-100 rounded-bl-full -mr-10 -mt-10 transition-colors group-hover:bg-[#C6A75E]/10">
+                                        </div>
+                                        <span
+                                            class="block text-3xl font-bold title-font mb-1 text-inherit">₹2,500</span>
+                                        <span
+                                            class="block text-xs font-bold text-gray-500 uppercase tracking-wider desc-text">Educate
+                                            1 Child (3 Mo.)</span>
+                                    </button>
                                     <button type="button"
-                                        class="amount-btn border-2 border-[#C6A75E]/30 text-[#0F3D3E] rounded-xl py-4 font-bold title-font text-2xl hover:bg-[#C6A75E]/10 transition-colors bg-[#C6A75E] text-white border-[#C6A75E]"
-                                        data-amount="5000">₹5,000</button>
+                                        class="amount-btn is-active relative text-left p-5 rounded-2xl border-2 border-[#0F3D3E] bg-[#0F3D3E] text-white shadow-[0_10px_30px_rgba(15,61,62,0.2)] transition-all duration-300 group overflow-hidden transform scale-[1.02]"
+                                        data-amount="5000">
+                                        <div
+                                            class="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-bl-[100px] -mr-8 -mt-8">
+                                        </div>
+                                        <!-- Popular tag -->
+                                        <span
+                                            class="popular-tag absolute top-0 right-0 bg-[#C6A75E] text-[#0F3D3E] text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-bl-xl shadow-sm">Most
+                                            Needed</span>
+
+                                        <span class="block text-3xl font-bold title-font mb-1 text-white">₹5,000</span>
+                                        <span
+                                            class="block text-xs font-bold text-[#C6A75E] uppercase tracking-wider desc-text">Educate
+                                            1 Child (6 Mo.)</span>
+                                    </button>
                                     <button type="button"
-                                        class="amount-btn border-2 border-[#C6A75E]/30 text-[#0F3D3E] rounded-xl py-4 font-bold title-font text-2xl hover:bg-[#C6A75E]/10 transition-colors"
-                                        data-amount="10000">₹10,000</button>
+                                        class="amount-btn relative text-left p-5 rounded-2xl border-2 border-gray-100 bg-gray-50 text-[#0F3D3E] hover:border-[#C6A75E] hover:bg-[#C6A75E]/5 transition-all duration-300 group overflow-hidden"
+                                        data-amount="10000">
+                                        <div
+                                            class="absolute top-0 right-0 w-20 h-20 bg-gray-100 rounded-bl-full -mr-10 -mt-10 transition-colors group-hover:bg-[#C6A75E]/10">
+                                        </div>
+                                        <span
+                                            class="block text-3xl font-bold title-font mb-1 text-inherit">₹10,000</span>
+                                        <span
+                                            class="block text-xs font-bold text-gray-500 uppercase tracking-wider desc-text">Full
+                                            Year Scholarship</span>
+                                    </button>
                                 </div>
-                                <div class="relative max-w-md mx-auto">
-                                    <span class="absolute left-0 bottom-2 text-2xl text-[#C6A75E] font-bold">₹</span>
+
+                                <div class="mt-6 relative group">
+                                    <span
+                                        class="absolute left-6 top-1/2 -translate-y-1/2 text-2xl text-gray-400 font-bold group-focus-within:text-[#C6A75E] transition-colors">₹</span>
                                     <input type="number" id="customAmount" required min="100" value="5000"
-                                        class="form-input w-full pb-2 pl-8 text-3xl font-bold text-center text-[#0F3D3E] bg-transparent border-b-2 border-gray-200 focus:border-[#C6A75E] transition-colors rounded-none focus:ring-0 focus:outline-none"
-                                        placeholder="Custom Amount">
+                                        class="w-full bg-white border-2 border-gray-200 rounded-2xl py-5 pl-12 pr-6 text-2xl font-bold text-[#0F3D3E] focus:outline-none focus:border-[#C6A75E] focus:ring-4 focus:ring-[#C6A75E]/10 transition-all placeholder-gray-400"
+                                        placeholder="Enter Custom Amount">
                                 </div>
-                                <p class="text-center text-sm text-[#1E1E1E]/60 mt-2">Minimum donation: ₹100</p>
                             </div>
-                            <div class="mt-12 text-center">
+
+                            <!-- Step 2: Details -->
+                            <div class="mb-10 flex-grow">
+                                <h3
+                                    class="text-xl md:text-2xl title-font text-[#0F3D3E] font-bold border-b-2 border-[#C6A75E] pb-1 inline-block mb-6">
+                                    2. Your Details</h3>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
+                                    <!-- Floating label inputs -->
+                                    <div class="relative">
+                                        <input type="text" id="donatorName" required placeholder=" "
+                                            class="block w-full px-5 pt-7 pb-3 text-[#0F3D3E] font-medium bg-gray-50 border-2 border-transparent rounded-xl appearance-none focus:outline-none focus:ring-0 focus:border-[#C6A75E] focus:bg-white peer transition-colors" />
+                                        <label for="donatorName"
+                                            class="absolute text-sm text-gray-500 duration-300 transform -translate-y-3 scale-75 top-5 z-10 origin-[0] left-5 peer-focus:text-[#C6A75E] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 font-bold uppercase tracking-wider">Full
+                                            Name *</label>
+                                    </div>
+
+                                    <div class="relative">
+                                        <input type="tel" id="donatorPhone" required pattern="[0-9]{10}" placeholder=" "
+                                            class="block w-full px-5 pt-7 pb-3 text-[#0F3D3E] font-medium bg-gray-50 border-2 border-transparent rounded-xl appearance-none focus:outline-none focus:ring-0 focus:border-[#C6A75E] focus:bg-white peer transition-colors" />
+                                        <label for="donatorPhone"
+                                            class="absolute text-sm text-gray-500 duration-300 transform -translate-y-3 scale-75 top-5 z-10 origin-[0] left-5 peer-focus:text-[#C6A75E] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 font-bold uppercase tracking-wider">Phone
+                                            No *</label>
+                                    </div>
+
+                                    <div class="relative md:col-span-2">
+                                        <input type="email" id="donatorEmail" required placeholder=" "
+                                            class="block w-full px-5 pt-7 pb-3 text-[#0F3D3E] font-medium bg-gray-50 border-2 border-transparent rounded-xl appearance-none focus:outline-none focus:ring-0 focus:border-[#C6A75E] focus:bg-white peer transition-colors" />
+                                        <label for="donatorEmail"
+                                            class="absolute text-sm text-gray-500 duration-300 transform -translate-y-3 scale-75 top-5 z-10 origin-[0] left-5 peer-focus:text-[#C6A75E] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 font-bold uppercase tracking-wider">Email
+                                            Address *</label>
+                                    </div>
+
+                                    <div class="relative md:col-span-2">
+                                        <input type="text" id="donatorAddress" placeholder=" "
+                                            class="block w-full px-5 pt-7 pb-3 text-[#0F3D3E] font-medium bg-gray-50 border-2 border-transparent rounded-xl appearance-none focus:outline-none focus:ring-0 focus:border-[#C6A75E] focus:bg-white peer transition-colors" />
+                                        <label for="donatorAddress"
+                                            class="absolute text-sm text-gray-500 duration-300 transform -translate-y-3 scale-75 top-5 z-10 origin-[0] left-5 peer-focus:text-[#C6A75E] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 font-bold uppercase tracking-wider">Full
+                                            Address (Optional)</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Action -->
+                            <div class="mt-auto pt-8 border-t border-gray-100">
                                 <button type="submit" id="submitDonationBtn"
-                                    class="bg-[#0F3D3E] hover:bg-[#C6A75E] text-white px-12 py-5 rounded-full font-bold tracking-[0.2em] uppercase transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(15,61,62,0.3)] w-full md:w-auto text-lg flex items-center justify-center gap-4 mx-auto disabled:opacity-70 disabled:cursor-not-allowed group">
-                                    <span>Proceed to Pay</span>
-                                    <div class="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin hidden"
+                                    class="w-full relative overflow-hidden bg-[#C6A75E] text-[#0F3D3E] px-8 py-5 rounded-2xl font-bold tracking-[0.2em] uppercase transition-all duration-500 transform hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(198,167,94,0.3)] flex items-center justify-center gap-3 group disabled:opacity-70 disabled:cursor-not-allowed">
+                                    <!-- Shimmering overlay -->
+                                    <span
+                                        class="absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-all duration-1000 group-hover:translate-x-[200%] ease-in-out pointer-events-none w-1/2 h-full z-0"></span>
+
+                                    <svg class="w-5 h-5 opacity-90 relative z-10" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="relative z-10 tracking-widest text-sm md:text-base">Proceed to Secure
+                                        Payment</span>
+
+                                    <div class="w-5 h-5 border-2 border-[#0F3D3E]/30 border-t-[#0F3D3E] rounded-full animate-spin hidden ml-2 relative z-10"
                                         id="submitLoading"></div>
                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="h-5 w-5 group-hover:translate-x-1 transition-transform submit-icon"
+                                        class="h-5 w-5 group-hover:translate-x-1 transition-transform submit-icon relative z-10"
                                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
                                             d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
                                 </button>
-                                <div class="mt-6 flex flex-col items-center justify-center text-sm text-[#1E1E1E]/60">
-                                    <p class="mb-2">Secured by</p>
-                                    <div class="flex items-center gap-2 opacity-70 grayscale">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24"
-                                            fill="#0F3D3E">
-                                            <path
-                                                d="M22.436 9.873l-10.024-5.32c-.89-.472-2.18-.544-3.15-.17l-1.638.64a.798.798 0 00-.472.98l4.478 11.238 6.474.32a3.868 3.868 0 003.582-2.316l1.248-2.924a3.89 3.89 0 00-.498-4.448zM5.56 12.01l-1.606 2.45a3.873 3.873 0 00.323 4.808l1.417 1.54a.798.798 0 001.077.067l8.288-6.074-9.5-2.79z" />
-                                        </svg>
-                                        <span class="font-bold tracking-wider uppercase">Razorpay</span>
+
+                                <div class="mt-6 flex flex-col items-center justify-center gap-2">
+                                    <div
+                                        class="flex items-center gap-3 opacity-70 grayscale hover:grayscale-0 transition-all">
+                                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Secured
+                                            By</span>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Razorpay_logo.svg"
+                                            alt="Razorpay" class="h-4">
+                                        <span class="w-1.5 h-1.5 bg-gray-300 rounded-full"></span>
+                                        <div
+                                            class="flex items-center gap-1 text-xs font-bold text-gray-500 uppercase tracking-wider">
+                                            <svg class="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            256-bit SSL
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </form>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -1187,13 +1335,37 @@
             btn.addEventListener('click', () => {
                 // Reset all
                 amountBtns.forEach(b => {
-                    b.classList.remove('bg-[#C6A75E]', 'text-white', 'border-[#C6A75E]');
-                    b.classList.add('text-[#0F3D3E]', 'border-[#C6A75E]/30');
+                    b.classList.remove('border-[#0F3D3E]', 'bg-[#0F3D3E]', 'text-white', 'shadow-[0_10px_30px_rgba(15,61,62,0.2)]', 'scale-[1.02]');
+                    b.classList.add('border-gray-100', 'bg-gray-50', 'text-[#0F3D3E]');
+
+                    const spanText = b.querySelector('.title-font');
+                    if (spanText) spanText.classList.remove('text-white');
+
+                    const descText = b.querySelector('.desc-text');
+                    if (descText) {
+                        descText.classList.remove('text-[#C6A75E]');
+                        descText.classList.add('text-gray-500');
+                    }
+
+                    const tag = b.querySelector('.popular-tag');
+                    if (tag) tag.classList.add('hidden');
                 });
 
                 // Set active
-                btn.classList.remove('text-[#0F3D3E]', 'border-[#C6A75E]/30');
-                btn.classList.add('bg-[#C6A75E]', 'text-white', 'border-[#C6A75E]');
+                btn.classList.remove('border-gray-100', 'bg-gray-50', 'text-[#0F3D3E]');
+                btn.classList.add('border-[#0F3D3E]', 'bg-[#0F3D3E]', 'text-white', 'shadow-[0_10px_30px_rgba(15,61,62,0.2)]', 'scale-[1.02]');
+
+                const spanText = btn.querySelector('.title-font');
+                if (spanText) spanText.classList.add('text-white');
+
+                const descText = btn.querySelector('.desc-text');
+                if (descText) {
+                    descText.classList.remove('text-gray-500');
+                    descText.classList.add('text-[#C6A75E]');
+                }
+
+                const tag = btn.querySelector('.popular-tag');
+                if (tag) tag.classList.remove('hidden');
 
                 selectedAmount = parseInt(btn.getAttribute('data-amount'));
                 customAmountInput.value = selectedAmount;
@@ -1204,8 +1376,20 @@
             selectedAmount = parseInt(e.target.value) || 0;
             // Clear button selections
             amountBtns.forEach(b => {
-                b.classList.remove('bg-[#C6A75E]', 'text-white', 'border-[#C6A75E]');
-                b.classList.add('text-[#0F3D3E]', 'border-[#C6A75E]/30');
+                b.classList.remove('border-[#0F3D3E]', 'bg-[#0F3D3E]', 'text-white', 'shadow-[0_10px_30px_rgba(15,61,62,0.2)]', 'scale-[1.02]');
+                b.classList.add('border-gray-100', 'bg-gray-50', 'text-[#0F3D3E]');
+
+                const spanText = b.querySelector('.title-font');
+                if (spanText) spanText.classList.remove('text-white');
+
+                const descText = b.querySelector('.desc-text');
+                if (descText) {
+                    descText.classList.remove('text-[#C6A75E]');
+                    descText.classList.add('text-gray-500');
+                }
+
+                const tag = b.querySelector('.popular-tag');
+                if (tag) tag.classList.add('hidden');
             });
         });
 

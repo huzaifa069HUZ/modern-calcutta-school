@@ -45,126 +45,120 @@
     <style>
         :root {
             --gold: #C6A75E;
-            --gold-light: #e8cc8a;
+            --crimson: #991B1B;
             --teal: #0F3D3E;
-            --teal-dark: #071f20;
+            --ink: #0A0A0A;
+            --paper: #F8F8F6;
+            --paper-dark: #EAEAE4;
         }
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: #F6F1E8;
+            background: var(--paper);
+            color: var(--ink);
         }
 
         .title-font {
             font-family: 'Cormorant Garamond', serif;
         }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 20px 40px -10px rgba(15, 61, 62, 0.1);
+        /* Sharp Ledger Container - No Glassmorphism */
+        .ledger-card {
+            background: #FFFFFF;
+            border: 2px solid var(--ink);
+            box-shadow: 8px 8px 0px rgba(10, 10, 10, 0.1);
+            border-radius: 0;
         }
 
-        /* Rich multi-stop hero gradient */
+        /* Hero section - High Contrast Solid */
         .hero-bg {
-            background: linear-gradient(160deg, #0a2a1e 0%, #0F3D3E 38%, #0c3040 70%, #071825 100%);
+            background-color: var(--paper);
+            border-bottom: 2px solid var(--ink);
         }
 
-        /* Header glassmorphism bar */
+        /* Header Bar - Sharp & Solid */
         .header-bar {
-            background: rgba(7, 31, 32, 0.55);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(198, 167, 94, 0.18);
+            background: #FFFFFF;
+            border-bottom: 2px solid var(--ink);
         }
 
-        /* School name gold glow */
-        .school-name-glow {
-            color: #fff;
-            text-shadow: 0 0 30px rgba(198, 167, 94, 0.35);
-            letter-spacing: 0.02em;
+        /* Typography */
+        .academic-title {
+            color: var(--ink);
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
         }
 
-        /* Gold shimmering gradient text for hero title */
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #e8cc8a 0%, #C6A75E 40%, #f0d898 60%, #C6A75E 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmerText 4s linear infinite;
-        }
-
-        @keyframes shimmerText {
-            0% {
-                background-position: 0% center;
-            }
-
-            100% {
-                background-position: 200% center;
-            }
-        }
-
-        /* Hero title drop shadow */
-        .hero-title {
-            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-            filter: drop-shadow(0 0 40px rgba(198, 167, 94, 0.15));
-        }
-
-        /* Nav link hover underline */
+        /* Nav link sharp underline */
         .nav-link {
             position: relative;
-            color: rgba(255, 255, 255, 0.75);
+            color: var(--ink);
+            font-weight: 700;
             transition: color 0.2s;
+            text-decoration: none;
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -3px;
+            bottom: -4px;
             left: 0;
             width: 0;
-            height: 1.5px;
-            background: var(--gold);
+            height: 2px;
+            background: var(--crimson);
             transition: width 0.25s ease;
         }
 
-        .nav-link:hover {
-            color: #fff;
-        }
-
-        .nav-link:hover::after {
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
 
-        /* Animated search icon pulse ring */
-        @keyframes pulse-ring {
-            0% {
-                transform: scale(1);
-                opacity: 0.8;
-            }
-
-            100% {
-                transform: scale(1.3);
-                opacity: 0;
-            }
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--crimson);
         }
 
-        .pulse-ring::before {
-            content: '';
-            position: absolute;
-            inset: -6px;
-            border-radius: 50%;
-            border: 2px solid var(--gold);
-            animation: pulse-ring 1.8s ease-out infinite;
+        /* Sharp Button */
+        .btn-sharp {
+            background: var(--ink);
+            color: #FFFFFF;
+            border: 2px solid var(--ink);
+            border-radius: 0;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-sharp:hover {
+            background: var(--crimson);
+            border-color: var(--crimson);
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px rgba(10, 10, 10, 1);
+        }
+
+        /* Input Field */
+        .input-sharp {
+            background: #FFFFFF;
+            border: 2px solid var(--ink);
+            border-radius: 0;
+            color: var(--ink);
+            transition: all 0.2s;
+        }
+
+        .input-sharp:focus {
+            outline: none;
+            border-color: var(--crimson);
+            box-shadow: 4px 4px 0px rgba(153, 27, 27, 0.2);
         }
 
         /* Card reveal */
         @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(24px);
+                transform: translateY(12px);
             }
 
             to {
@@ -174,33 +168,16 @@
         }
 
         .slide-up {
-            animation: slideUp 0.5s ease both;
-        }
-
-        /* Search input focus glow */
-        #admission-input:focus {
-            box-shadow: 0 0 0 3px rgba(198, 167, 94, 0.3);
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
         /* Badges */
-        .badge-active {
-            background: #d1fae5;
-            color: #065f46;
-        }
-
-        .badge-deactive {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-
-        .badge-nodues {
-            background: #d1fae5;
-            color: #065f46;
-        }
-
-        .badge-dues {
-            background: #fee2e2;
-            color: #991b1b;
+        .badge-sharp {
+            border: 1.5px solid var(--ink);
+            border-radius: 0;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
         /* Spinner */
@@ -214,146 +191,108 @@
             animation: spin 0.8s linear infinite;
         }
 
-        /* Table stripes */
-        .info-table tr:nth-child(even) {
-            background: #f9f5ed;
-        }
-
-        /* Islamic geometric pattern */
+        /* Islamic geometric pattern - subtle high contrast */
         .pattern-bg {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C6A75E' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        /* Gold divider shimmer line */
-        .gold-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(198, 167, 94, 0.6), rgba(198, 167, 94, 0.9), rgba(198, 167, 94, 0.6), transparent);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230a0a0a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
     </style>
 </head>
 
 <body>
     <!-- Header -->
-    <header class="hero-bg pattern-bg header-bar sticky top-0 z-50 text-white py-4 px-6 md:px-12">
+    <header class="header-bar sticky top-0 z-50 py-4 px-6 md:px-12">
         <div class="max-w-5xl mx-auto flex items-center gap-5">
 
             <!-- Logo + School Name -->
             <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
-                <div class="relative">
-                    <div
-                        class="absolute inset-0 rounded-full bg-[#C6A75E]/20 blur-md group-hover:bg-[#C6A75E]/35 transition-all duration-500">
-                    </div>
-                    <img src="assets/transparent-logo.png" alt="MCS Logo"
-                        class="relative h-11 w-auto drop-shadow-lg group-hover:scale-105 transition-transform duration-300">
-                </div>
+                <img src="assets/transparent-logo.png" alt="MCS Logo"
+                    class="h-11 w-auto bg-[#0F3D3E] p-1 border border-black group-hover:bg-[#991B1B] transition-colors duration-300">
                 <div>
                     <p
-                        class="title-font text-lg font-bold school-name-glow leading-tight group-hover:text-[#C6A75E] transition-colors duration-300">
+                        class="title-font text-xl font-bold text-[#0a0a0a] leading-tight uppercase tracking-tight group-hover:text-[#991B1B] transition-colors duration-300">
                         Modern Calcutta School</p>
-                    <p class="text-[9px] uppercase tracking-[0.25em] text-[#C6A75E]/80 font-semibold mt-0.5">Foundation
+                    <p class="text-[9px] uppercase tracking-[0.25em] text-[#0F3D3E] font-bold mt-0.5">Foundation
                         of Ilm-o-Adab</p>
                 </div>
             </a>
 
-            <!-- Gold divider (vertical) -->
-            <div
-                class="hidden md:block h-8 w-px bg-gradient-to-b from-transparent via-[#C6A75E]/40 to-transparent ml-1">
-            </div>
+            <!-- Divider -->
+            <div class="hidden md:block h-8 w-px bg-[#0a0a0a] ml-1 opacity-20"></div>
 
             <!-- Nav -->
-            <nav class="ml-auto hidden md:flex items-center gap-7">
-                <a href="index.html" class="nav-link text-[11px] uppercase tracking-[0.18em] font-bold">Home</a>
-                <a href="admissions.html"
-                    class="nav-link text-[11px] uppercase tracking-[0.18em] font-bold">Admissions</a>
-                <a href="student-portal.html" class="nav-link text-[11px] uppercase tracking-[0.18em] font-bold"
-                    style="color:#C6A75E;">Portal</a>
+            <nav class="ml-auto hidden md:flex items-center gap-8">
+                <a href="index.html" class="nav-link text-[11px] uppercase tracking-[0.18em]">Home</a>
+                <a href="admissions.html" class="nav-link text-[11px] uppercase tracking-[0.18em]">Admissions</a>
+                <a href="student-portal.html" class="nav-link active text-[11px] uppercase tracking-[0.18em]">Portal</a>
             </nav>
 
             <!-- Mobile menu icon -->
-            <button class="md:hidden ml-auto text-white/70 hover:text-white"
-                onclick="this.nextElementSibling.classList.toggle('hidden')">
+            <button class="md:hidden ml-auto text-[#0a0a0a] hover:text-[#991B1B]"
+                onclick="document.getElementById('mobile-nav').classList.toggle('hidden')">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
         </div>
         <!-- Mobile Nav -->
-        <div class="hidden md:hidden max-w-5xl mx-auto pb-4 pt-3 flex flex-col gap-3">
+        <div id="mobile-nav"
+            class="hidden md:hidden max-w-5xl mx-auto pb-4 pt-4 mt-4 border-t border-[#0a0a0a] flex flex-col gap-4">
             <a href="index.html"
-                class="text-white/75 hover:text-[#C6A75E] text-sm font-semibold transition-colors">Home</a>
+                class="text-[#0a0a0a] hover:text-[#991B1B] text-sm font-bold uppercase tracking-widest transition-colors">Home</a>
             <a href="admissions.html"
-                class="text-white/75 hover:text-[#C6A75E] text-sm font-semibold transition-colors">Admissions</a>
+                class="text-[#0a0a0a] hover:text-[#991B1B] text-sm font-bold uppercase tracking-widest transition-colors">Admissions</a>
+            <a href="student-portal.html"
+                class="text-[#991B1B] text-sm font-bold uppercase tracking-widest transition-colors">Portal</a>
         </div>
-        <!-- Bottom gold line -->
-        <div class="gold-divider"></div>
     </header>
 
     <!-- Hero Search Section -->
-    <section class="hero-bg pattern-bg text-white pt-20 pb-36 px-6 relative overflow-hidden">
-
-        <!-- Atmospheric glow orbs -->
-        <div
-            class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C6A75E]/8 rounded-full blur-[120px] pointer-events-none">
-        </div>
-        <div class="absolute bottom-10 left-0 w-96 h-96 bg-[#0F3D3E]/60 rounded-full blur-[100px] pointer-events-none">
-        </div>
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#C6A75E]/5 rounded-full blur-[80px] pointer-events-none">
-        </div>
-
-        <div class="max-w-2xl mx-auto text-center relative z-10">
+    <section class="hero-bg pattern-bg pt-20 pb-28 px-6 relative">
+        <div class="max-w-3xl mx-auto text-center relative z-10">
 
             <!-- Bismillah / Arabic accent -->
-            <p class="text-[#C6A75E]/60 text-2xl mb-4" style="font-family: serif; letter-spacing: 0.1em;">&#x202A;بِسۡمِ
-                ٱللَّهِ&#x202C;</p>
-
-            <!-- Icon with glow ring -->
-            <div class="relative inline-flex items-center justify-center w-20 h-20 rounded-full mb-7 pulse-ring"
-                style="background: radial-gradient(circle, rgba(198,167,94,0.25) 0%, rgba(198,167,94,0.08) 100%); border: 1px solid rgba(198,167,94,0.4); box-shadow: 0 0 40px rgba(198,167,94,0.15), inset 0 0 20px rgba(198,167,94,0.05);">
-                <svg class="w-9 h-9" fill="none" stroke="#C6A75E" viewBox="0 0 24 24"
-                    style="filter:drop-shadow(0 0 8px rgba(198,167,94,0.5))">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-            </div>
+            <p class="text-[#0a0a0a] text-2xl mb-6 opacity-70" style="font-family: serif; letter-spacing: 0.1em;">
+                &#x202A;بِسۡمِ ٱللَّهِ&#x202C;</p>
 
             <!-- Eyebrow label -->
-            <p class="uppercase tracking-[0.4em] text-[10px] font-bold mb-4"
-                style="color:rgba(198,167,94,0.85); letter-spacing:0.35em;">Student Portal &nbsp;•&nbsp; Modern Calcutta
-                School</p>
+            <div class="inline-block border border-black px-4 py-1 mb-8">
+                <p class="uppercase font-bold text-[10px] tracking-[0.3em] text-[#0a0a0a]">Official Student Ledger</p>
+            </div>
 
-            <!-- Main H1 with gradient gold italic + white -->
-            <h1 class="title-font hero-title font-bold mb-5"
-                style="font-size: clamp(2.6rem, 6vw, 4rem); line-height:1.1;">
-                <span style="color:#fff; display:block; margin-bottom:4px;">Access Your</span>
-                <span class="gold-gradient-text italic" style="font-size: clamp(3rem, 7vw, 4.8rem);">Student
+            <!-- Main H1 with sharp typography -->
+            <h1 class="title-font academic-title font-bold mb-6"
+                style="font-size: clamp(2.6rem, 6vw, 4.5rem); line-height:1;">
+                <span style="display:block; margin-bottom:8px;">Access Your</span>
+                <span
+                    style="display:block; font-size: clamp(3rem, 7vw, 5.2rem); font-style: italic; font-weight: 600;">Student
                     Record</span>
             </h1>
 
             <!-- Subtitle -->
-            <p class="text-white/65 text-sm md:text-base max-w-md mx-auto mb-10 leading-relaxed">
-                Enter your <span class="text-[#C6A75E]/90 font-semibold">admission number</span> to view your
-                profile and download your official certificate.
+            <p
+                class="text-[#0a0a0a] text-sm md:text-base max-w-md mx-auto mb-10 font-medium leading-relaxed opacity-80">
+                Enter your <span class="font-bold text-[#991B1B]">admission number</span> to view your
+                official profile and download your academic certificate.
             </p>
 
             <!-- Search Form -->
-            <div class="flex flex-col sm:flex-row gap-2 max-w-xl mx-auto relative z-20"
-                style="background:rgba(255,255,255,0.06);backdrop-filter:blur(16px);border:1px solid rgba(198,167,94,0.2);border-radius:18px;padding:6px;box-shadow:0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.05);">
-                <div class="flex-1 flex items-center px-4 relative">
-                    <svg class="w-4 h-4 absolute left-4 pointer-events-none" fill="none" stroke="#C6A75E"
-                        stroke-opacity="0.6" viewBox="0 0 24 24">
+            <div
+                class="flex flex-col sm:flex-row max-w-xl mx-auto align-stretch gap-0 border-2 border-[#0a0a0a] bg-white shadow-[8px_8px_0_rgba(10,10,10,0.1)]">
+                <div
+                    class="flex-1 flex items-center px-4 relative border-b-2 sm:border-b-0 sm:border-r-2 border-[#0a0a0a]">
+                    <svg class="w-5 h-5 absolute left-4 pointer-events-none text-[#0a0a0a]" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                     <input id="admission-input" type="text" placeholder="e.g. MCS-2024-001"
-                        class="w-full bg-transparent text-white placeholder-white/30 pl-8 pr-2 py-3.5 text-sm font-semibold outline-none uppercase tracking-wider"
-                        style="caret-color: #C6A75E;" autocomplete="off" autocapitalize="characters">
+                        class="w-full bg-transparent text-[#0a0a0a] placeholder-gray-400 pl-10 pr-2 py-4 text-sm font-bold outline-none uppercase tracking-wider"
+                        autocomplete="off" autocapitalize="characters">
                 </div>
                 <button id="search-btn" onclick="searchStudent()"
-                    class="px-7 py-3.5 text-[#071f20] font-bold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group whitespace-nowrap"
-                    style="background: linear-gradient(135deg, #e8cc8a 0%, #C6A75E 50%, #d4b76e 100%); box-shadow: 0 8px 25px rgba(198,167,94,0.4); hover:box-shadow: 0 12px 35px rgba(198,167,94,0.6);">
-                    <span>Search</span>
-                    <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none"
+                    class="px-8 py-4 bg-[#0F3D3E] hover:bg-[#991B1B] text-white font-bold text-xs uppercase tracking-[0.2em] transition-colors duration-200 flex items-center justify-center gap-2 group whitespace-nowrap">
+                    <span>Retrieve Record</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
                             d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -362,144 +301,124 @@
             </div>
 
             <!-- Loading state -->
-            <div id="search-loading" class="hidden mt-6 flex justify-center">
-                <div class="flex items-center gap-3 text-white/70 text-sm font-medium">
-                    <svg class="spinner w-4 h-4 text-[#C6A75E]" fill="none" viewBox="0 0 24 24">
+            <div id="search-loading" class="hidden mt-8 flex justify-center">
+                <div class="flex items-center gap-3 text-[#0a0a0a] text-sm font-bold tracking-widest uppercase">
+                    <svg class="spinner w-5 h-5 text-[#991B1B]" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                     </svg>
-                    Searching records...
+                    Searching...
                 </div>
             </div>
-        </div>
-
-        <!-- Richer wave bottom -->
-        <div class="absolute bottom-0 left-0 w-full">
-            <!-- Gold shimmer line above wave -->
-            <div
-                style="height:1px;background:linear-gradient(90deg,transparent,rgba(198,167,94,0.5),transparent);margin-bottom:-1px;">
-            </div>
-            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto"
-                preserveAspectRatio="none">
-                <path d="M0 80L80 65C160 50 320 22 480 16C640 10 800 24 960 28C1120 32 1280 22 1360 17L1440 12V80H0Z"
-                    fill="#F6F1E8" />
-                <path d="M0 80L80 70C160 60 320 42 480 38C640 34 800 42 960 46C1120 50 1280 38 1360 33L1440 28V80H0Z"
-                    fill="#F6F1E8" opacity="0.5" />
-            </svg>
         </div>
     </section>
 
     <!-- Results Section -->
     <section class="max-w-3xl mx-auto px-6 -mt-6 pb-24 relative z-10">
 
+        <!-- Not Found State -->
         <div id="not-found" class="hidden text-center py-20 slide-up">
             <div
-                class="w-24 h-24 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-full flex items-center justify-center mx-auto mb-6 border border-gray-100">
-                <svg class="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                class="w-24 h-24 bg-white border-2 border-black flex items-center justify-center mx-auto mb-6 shadow-[8px_8px_0_rgba(10,10,10,0.1)]">
+                <svg class="w-10 h-10 text-[#991B1B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
             </div>
-            <h2 class="title-font text-4xl text-[#0F3D3E] font-bold mb-3 tracking-tight">Record Not Found</h2>
-            <p class="text-gray-500 font-medium text-base max-w-md mx-auto">We couldn't locate a student with that
-                admission number. Please verify your entry and try again.</p>
+            <h2 class="title-font text-4xl text-[#0a0a0a] font-bold mb-3 tracking-tight">Record Not Found</h2>
+            <p class="text-[#0a0a0a] font-medium text-base max-w-md mx-auto opacity-70">We couldn't locate a student
+                with that admission number. Please verify your entry and try again.</p>
         </div>
 
-        <!-- Student Card -->
-        <div id="student-card" class="hidden slide-up">
-            <div class="glass rounded-3xl overflow-hidden shadow-2xl">
-
+        <!-- Student Card (Sharp Ledger Style) -->
+        <div id="student-card" class="hidden slide-up mt-12">
+            <div class="ledger-card flex flex-col relative overflow-hidden">
+                <!-- Top Accent Line -->
+                <div class="h-2 w-full bg-[#0F3D3E]"></div>
                 <!-- Card Header -->
-                <div
-                    class="bg-white p-8 md:p-10 flex flex-col md:flex-row items-center md:items-center gap-8 border-b border-gray-100 relative overflow-hidden">
-
-                    <!-- Decorative background element -->
-                    <div class="absolute -right-20 -top-20 opacity-[0.03] pointer-events-none">
-                        <svg width="400" height="400" viewBox="0 0 100 100" class="fill-[#0F3D3E]">
-                            <path d="M50 0L100 50L50 100L0 50Z" />
-                        </svg>
+                <div class="bg-white p-8 md:p-12 border-b-2 border-black relative">
+                    <!-- Right corner badge -->
+                    <div
+                        class="absolute top-0 right-0 bg-[#0F3D3E] text-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] border-l-2 border-b-2 border-black">
+                        Official Academic Record
                     </div>
 
-                    <!-- Photo -->
-                    <div class="relative flex-shrink-0 z-10">
-                        <div
-                            class="w-32 h-40 rounded-2xl overflow-hidden border border-gray-100 shadow-[0_10px_20px_rgba(0,0,0,0.05)] bg-gray-50 p-1">
-                            <div class="w-full h-full rounded-xl overflow-hidden bg-gray-100">
-                                <img id="s-photo" src="" alt="Student Photo" class="w-full h-full object-cover">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-8 mt-4 md:mt-0">
+                        <!-- Photo Box -->
+                        <div class="relative flex-shrink-0 z-10 box-content border-2 border-black p-1 bg-white">
+                            <div class="w-32 h-40 overflow-hidden bg-gray-100 flex items-center justify-center">
+                                <img id="s-photo" src="" alt="Student Photo"
+                                    class="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                            </div>
+                            <!-- Status badge drops below photo -->
+                            <div id="s-status-badge"
+                                class="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 text-[10px] bg-white badge-sharp bg-white">
                             </div>
                         </div>
-                        <div id="s-status-badge"
-                            class="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-sm border border-white">
-                        </div>
-                    </div>
 
-                    <!-- Name + Admission -->
-                    <div class="text-center md:text-left flex-1 z-10">
-                        <div
-                            class="inline-block px-3 py-1 bg-[#C6A75E]/10 text-[#C6A75E] text-[10px] uppercase tracking-[0.2em] font-bold rounded-full mb-3">
-                            Official Record
-                        </div>
-                        <h2 id="s-name"
-                            class="title-font text-4xl text-[#0F3D3E] font-bold leading-tight tracking-tight mb-1"></h2>
-                        <p id="s-admission-no"
-                            class="text-gray-500 text-sm font-mono mt-1 font-medium bg-gray-50 inline-block px-3 py-1 rounded-lg border border-gray-100">
-                        </p>
+                        <!-- Name & Admission -->
+                        <div class="flex-1 z-10 mt-2 md:mt-0">
+                            <h2 id="s-name"
+                                class="title-font text-5xl text-[#0a0a0a] font-bold leading-none tracking-tight mb-3">
+                            </h2>
 
-                        <div class="flex flex-wrap justify-center md:justify-start gap-2 mt-5">
-                            <span id="s-fees-badge"
-                                class="px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider border"></span>
+                            <div class="flex flex-wrap items-center gap-4 mt-2">
+                                <p id="s-admission-no"
+                                    class="text-[#0a0a0a] text-sm font-mono font-bold bg-[#EAEAE4] px-3 py-1.5 border border-black uppercase tracking-wider">
+                                </p>
+                                <span id="s-fees-badge"
+                                    class="px-3 py-1.5 text-xs font-bold uppercase tracking-wider badge-sharp"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Details Table -->
-                <div class="p-8 md:p-10 bg-[#FfFfFf]/40 backdrop-blur-sm">
-                    <h3 class="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold mb-6 flex items-center gap-4">
-                        <span class="h-px bg-gray-200 flex-1"></span>
-                        Student Details
-                        <span class="h-px bg-gray-200 flex-1"></span>
-                    </h3>
+                <!-- Details Grid Section -->
+                <div class="p-8 md:p-12 bg-[#F8F8F6]">
+                    <div class="flex items-center gap-4 mb-8">
+                        <h3 class="text-sm uppercase tracking-[0.2em] text-[#0a0a0a] font-bold flex-shrink-0">Student
+                            Particulars</h3>
+                        <div class="h-[2px] w-full bg-[#0a0a0a] opacity-20"></div>
+                    </div>
 
-                    <div id="s-details-body" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+                    <div id="s-details-body" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
                         <!-- Rows injected by JS -->
                     </div>
 
-                    <!-- Download / Generate Certificate Section -->
-                    <div id="pdf-section" class="hidden mt-10 pt-8 border-t border-gray-200">
-                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <!-- Direct download if pdfUrl is stored -->
+                    <!-- Certificate Generation Section -->
+                    <div id="pdf-section" class="hidden mt-12 pt-10 border-t-2 border-black">
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                            <div>
+                                <h4 class="text-[#0F3D3E] font-bold text-lg mb-1">Official Document</h4>
+                                <p class="text-[#0a0a0a] text-sm opacity-70">Download your digitally verified admission
+                                    certificate.</p>
+                            </div>
                             <a id="download-pdf-btn" href="#" target="_blank" rel="noopener"
-                                class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#0F3D3E] to-[#1a5f61] hover:from-[#1a5f61] hover:to-[#0F3D3E] text-white font-bold text-xs uppercase tracking-[0.15em] rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300">
-                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                class="btn-sharp px-8 py-4 flex items-center gap-3">
+                                <span>Download PDF</span>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                 </svg>
-                                <div class="text-left">
-                                    <p class="text-[10px] text-white/75 leading-none mb-0.5">Download Official</p>
-                                    <p class="leading-none text-sm">Admission Certificate</p>
-                                </div>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Fallback: Generate PDF from data in browser -->
-                    <div id="generate-pdf-section" class="hidden mt-10 pt-8 border-t border-gray-200">
-                        <div class="flex flex-col items-center gap-4">
-                            <div class="text-center">
-                                <p class="text-[#C6A75E] text-xs uppercase tracking-widest font-bold mb-1">Certificate
-                                    Available</p>
-                                <p class="text-gray-500 text-sm max-w-sm">Your admission certificate is ready. Click
-                                    below to generate and download it.</p>
+                    <!-- Fallback Generate Section -->
+                    <div id="generate-pdf-section" class="hidden mt-12 pt-10 border-t-2 border-black">
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                            <div>
+                                <h4 class="text-[#0F3D3E] font-bold text-lg mb-1">Document Generator</h4>
+                                <p class="text-[#0a0a0a] text-sm opacity-70">Generate your official 2024-25 admission
+                                    certificate.</p>
                             </div>
                             <button id="generate-pdf-btn" onclick="generateAndDownload()"
-                                class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#C6A75E] to-[#d4b76e] hover:from-[#d4b76e] hover:to-[#C6A75E] text-[#0F3D3E] font-bold text-xs uppercase tracking-[0.15em] rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300">
-                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                class="btn-sharp px-8 py-4 flex items-center gap-3">
+                                <span id="gen-btn-label">Generate Document</span>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
-                                <span id="gen-btn-label">Generate & Download PDF</span>
                             </button>
                         </div>
                     </div>
@@ -510,7 +429,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="hero-bg text-white/80 font-medium text-center py-6 text-xs uppercase tracking-widest">
+    <footer
+        class="bg-white border-t-2 border-black text-[#0a0a0a] font-bold text-center py-6 text-xs uppercase tracking-widest">
         Modern Calcutta School &middot; Phulwarisharif, Patna
     </footer>
 
@@ -567,17 +487,17 @@
             document.getElementById('s-name').textContent = s.studentName;
             document.getElementById('s-admission-no').textContent = `Admission No: ${s.admissionNo}`;
 
-            // Status Badge
+            // Status Badge - Sharp Version
             const statusEl = document.getElementById('s-status-badge');
             const isActive = s.status === 'Active';
             statusEl.textContent = s.status;
-            statusEl.className = `absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm ${isActive ? 'badge-active' : 'badge-deactive'}`;
+            statusEl.className = `absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 text-[10px] badge-sharp bg-white ${isActive ? 'text-[var(--ink)] border-[var(--ink)]' : 'text-[var(--crimson)] border-[var(--crimson)]'}`;
 
-            // Fees Badge
+            // Fees Badge - Sharp Version
             const feesEl = document.getElementById('s-fees-badge');
             const noDues = s.fees === 'No Dues';
             feesEl.textContent = s.fees;
-            feesEl.className = `px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider border ${noDues ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-700 border-red-200'}`;
+            feesEl.className = `px-3 py-1.5 text-xs font-bold uppercase tracking-wider badge-sharp bg-white ${noDues ? 'text-[var(--ink)] border-[var(--ink)]' : 'text-[var(--crimson)] border-[var(--crimson)]'}`;
 
             // Details rows
             const rows = [
@@ -596,9 +516,9 @@
             tbody.innerHTML = rows
                 .filter(([, val]) => val)
                 .map(([label, val]) => `
-                    <div class="flex flex-col border-b border-gray-100/60 pb-3">
-                        <span class="text-gray-400 text-[10px] uppercase tracking-[0.1em] font-bold mb-1">${label}</span>
-                        <span class="text-[#0F3D3E] font-semibold text-sm md:text-base">${val}</span>
+                    <div class="flex flex-col border-b border-black border-opacity-20 pb-2">
+                        <span class="text-[#0a0a0a] text-[10px] uppercase tracking-widest font-bold opacity-60 mb-1">${label}</span>
+                        <span class="text-[#0a0a0a] font-bold text-sm md:text-base">${val}</span>
                     </div>
                 `).join('');
 
@@ -740,7 +660,7 @@
         </div>
     </div>
 
-<script src="js/sidebar.js"></script>
+    <script src="js/sidebar.js"></script>
 </body>
 
 </html>
