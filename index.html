@@ -749,8 +749,11 @@
     <!-- Header -->
     <h1 class="sr-only">Modern Calcutta School Patna - Best Modern Islamic Kids School</h1>
     <header id="header"
-        class="fixed top-0 left-0 w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center gap-4 xl:gap-8 transition-all duration-500 border-b border-transparent">
-        <div class="flex items-center gap-2 md:gap-4 group cursor-pointer">
+        class="fixed top-0 left-0 w-full z-50 py-3 md:py-6 px-4 md:px-8 lg:px-12 flex justify-between items-center transition-all duration-500 border-b border-transparent">
+
+        <!-- Logo Area -->
+        <div class="flex items-center gap-2 md:gap-4 group cursor-pointer flex-shrink-0"
+            onclick="window.location.href='index.html'">
             <img src="assets/transparent-logo.png" alt="Modern Calcutta School Logo"
                 class="h-10 md:h-14 lg:h-16 w-auto drop-shadow-lg group-hover:scale-105 transition-transform duration-300">
             <div class="flex flex-col">
@@ -763,71 +766,72 @@
             </div>
         </div>
 
-        <!-- Desktop Navigation -->
-        <nav
-            class="hidden xl:flex items-center gap-4 2xl:gap-8 text-[10px] 2xl:text-[11px] uppercase tracking-widest font-bold text-white drop-shadow-md whitespace-nowrap">
+        <!-- Right Side Container (Nav + Buttons) -->
+        <div class="flex items-center justify-end gap-4 md:gap-6 xl:gap-10 w-full">
+            <!-- Desktop Navigation -->
+            <nav
+                class="hidden md:flex items-center gap-4 xl:gap-8 text-[9px] xl:text-[11px] uppercase tracking-widest font-bold text-white drop-shadow-md whitespace-nowrap">
+                <a href="about.html"
+                    class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                    About Us
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="academics.html"
+                    class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                    Academics
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="faith-values.html"
+                    class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                    Faith & Values
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="gallery.html"
+                    class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                    Gallery
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="student-portal.html"
+                    class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
+                    Students Portal
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
 
-            <a href="about.html"
-                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
-                About Us
-                <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="academics.html"
-                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
-                Academics
-                <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="faith-values.html"
-                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
-                Faith & Values
-                <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="gallery.html"
-                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
-                Gallery
-                <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="student-portal.html"
-                class="nav-link relative py-2 hover:text-[#C6A75E] transition-colors duration-300 group">
-                Students Portal
-                <span
-                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C6A75E] transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            <!-- Action Buttons Container -->
+            <div class="flex items-center gap-4">
+                <!-- Donate Now Button -->
+                <a href="donate.html" id="donate-nav-btn"
+                    class="hidden md:flex items-center justify-center gap-1.5 px-6 py-2.5 bg-transparent text-[#C6A75E] text-[10px] uppercase tracking-[0.15em] font-bold rounded-full transition-all duration-300 border-2 border-[#C6A75E]/60 hover:border-[#C6A75E] hover:bg-[#C6A75E]/10 whitespace-nowrap hover:shadow-[0_0_20px_rgba(198,167,94,0.25)] hover:-translate-y-0.5">
+                    💛 Donate
+                </a>
+                <!-- Admission Now Button -->
+                <a href="admissions.html"
+                    class="hidden md:flex items-center justify-center px-6 py-2.5 bg-[#C6A75E] text-white text-[10px] uppercase tracking-[0.15em] font-bold rounded-full transition-all duration-300 hover:bg-white hover:text-[#C6A75E] border-2 border-transparent hover:border-[#C6A75E] whitespace-nowrap shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                    Admission Now
+                </a>
 
-        </nav>
-
-        <div class="flex items-center space-x-3">
-            <!-- Donate Now Button -->
-            <a href="donate.html" id="donate-nav-btn"
-                class="hidden md:flex items-center justify-center gap-1.5 px-5 py-2.5 bg-transparent text-[#C6A75E] text-[10px] uppercase tracking-[0.15em] font-bold rounded-full transition-all duration-300 border-2 border-[#C6A75E]/60 hover:border-[#C6A75E] hover:bg-[#C6A75E]/10 whitespace-nowrap hover:shadow-[0_0_20px_rgba(198,167,94,0.25)] hover:-translate-y-0.5">
-                💛 Donate
-            </a>
-            <!-- Admission Now Button -->
-            <a href="admissions.html"
-                class="hidden md:flex items-center justify-center px-5 py-2 bg-[#C6A75E] text-white text-[9px] uppercase tracking-[0.15em] font-bold rounded-full transition-all duration-300 hover:bg-white hover:text-[#C6A75E] border-2 border-transparent hover:border-[#C6A75E] whitespace-nowrap shadow-md hover:shadow-lg hover:-translate-y-0.5">
-                Admission Now
-            </a>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="xl:hidden"
-                style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:54px;height:46px;border-radius:14px;background:linear-gradient(145deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03));border:1px solid rgba(198,167,94,0.35);box-shadow:0 2px 20px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.12);backdrop-filter:blur(16px);cursor:pointer;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);overflow:hidden;"
-                onmouseenter="this.style.background='linear-gradient(145deg,rgba(198,167,94,0.14),rgba(198,167,94,0.04))';this.style.borderColor='rgba(198,167,94,0.7)';this.style.boxShadow='0 6px 28px rgba(198,167,94,0.22),inset 0 1px 0 rgba(255,255,255,0.15)';this.style.transform='translateY(-1px)'"
-                onmouseleave="this.style.background='linear-gradient(145deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03))';this.style.borderColor='rgba(198,167,94,0.35)';this.style.boxShadow='0 2px 20px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.12)';this.style.transform='translateY(0)'">
-                <span
-                    style="position:absolute;top:-20px;left:-12px;width:30px;height:120%;background:linear-gradient(105deg,transparent,rgba(255,255,255,0.06),transparent);transform:skewX(-20deg);pointer-events:none;border-radius:2px;"></span>
-                <span
-                    style="display:block;width:22px;height:1.5px;background:#C6A75E;border-radius:99px;transition:all 0.35s;"></span>
-                <span
-                    style="display:block;width:15px;height:1.5px;background:#C6A75E;border-radius:99px;align-self:flex-end;margin-right:5px;box-shadow:0 0 6px rgba(198,167,94,0.5);transition:all 0.35s;"></span>
-                <span
-                    style="display:block;width:18px;height:1.5px;background:#C6A75E;border-radius:99px;transition:all 0.35s;"></span>
-                <span
-                    style="display:block;font-size:6.5px;letter-spacing:0.2em;color:rgba(198,167,94,0.75);text-transform:uppercase;font-weight:700;line-height:1;margin-top:1px;font-family:'Inter',sans-serif;transition:all 0.35s;">MENU</span>
-            </button>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button"
+                    class="flex md:hidden flex-col items-center justify-center gap-[5px] shrink-0 relative cursor-pointer overflow-hidden"
+                    style="width:54px;height:46px;border-radius:14px;background:linear-gradient(145deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03));border:1px solid rgba(198,167,94,0.35);box-shadow:0 2px 20px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.12);backdrop-filter:blur(16px);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);"
+                    onmouseenter="this.style.background='linear-gradient(145deg,rgba(198,167,94,0.14),rgba(198,167,94,0.04))';this.style.borderColor='rgba(198,167,94,0.7)';this.style.boxShadow='0 6px 28px rgba(198,167,94,0.22),inset 0 1px 0 rgba(255,255,255,0.15)';this.style.transform='translateY(-1px)'"
+                    onmouseleave="this.style.background='linear-gradient(145deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03))';this.style.borderColor='rgba(198,167,94,0.35)';this.style.boxShadow='0 2px 20px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.12)';this.style.transform='translateY(0)'">
+                    <span
+                        style="position:absolute;top:-20px;left:-12px;width:30px;height:120%;background:linear-gradient(105deg,transparent,rgba(255,255,255,0.06),transparent);transform:skewX(-20deg);pointer-events:none;border-radius:2px;"></span>
+                    <span class="block w-[22px] h-[1.5px] bg-[#C6A75E] rounded-full transition-all duration-350"></span>
+                    <span
+                        class="block w-[15px] h-[1.5px] bg-[#C6A75E] rounded-full self-end mr-[5px] shadow-[0_0_6px_rgba(198,167,94,0.5)] transition-all duration-350"></span>
+                    <span class="block w-[18px] h-[1.5px] bg-[#C6A75E] rounded-full transition-all duration-350"></span>
+                    <span
+                        class="block text-[6.5px] tracking-[0.2em] text-[#C6A75E]/75 uppercase font-bold leading-none mt-[1px] font-sans transition-all duration-350">MENU</span>
+                </button>
+            </div>
         </div>
     </header>
 
