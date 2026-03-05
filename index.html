@@ -865,8 +865,21 @@
 
 
     <!-- Hero Section -->
-    <section class="relative min-h-[85vh] md:min-h-[100svh] flex items-center bg-diamond-pattern overflow-hidden"
-        style="background-image: url('assets/herov3.png'); background-size: cover; background-position: center;">
+    <style>
+        .hero-bg-responsive {
+            background-image: url('assets/mobile hero section.jfif');
+            background-size: cover;
+            background-position: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-bg-responsive {
+                background-image: url('assets/herov3.png');
+            }
+        }
+    </style>
+    <section
+        class="relative min-h-[85vh] md:min-h-[100svh] flex items-center bg-diamond-pattern overflow-hidden hero-bg-responsive">
         <div class="absolute inset-0 z-0">
             <!-- Mobile: Softer gradient overlay for readability -->
             <div class="absolute inset-0 md:hidden bg-gradient-to-b from-black/60 via-black/40 to-black/70 z-10"></div>
