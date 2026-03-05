@@ -102,15 +102,24 @@
                 <p class="text-gray-500 text-sm mt-1">Register a new student record with photo and generate their
                     admission certificate.</p>
             </div>
-            <div class="flex gap-3">
-                <a href="/admin"
-                    class="px-5 py-2 text-sm font-semibold text-[#0F3D3E] border border-[#0F3D3E]/30 rounded-lg hover:bg-[#0F3D3E]/5 transition-colors flex items-center gap-2">
+            <div class="flex flex-wrap gap-2 lg:gap-3">
+                <a href="notices.html"
+                    class="px-4 py-2 text-sm font-semibold text-[#0F3D3E] border border-[#0F3D3E]/30 rounded-lg hover:bg-[#0F3D3E]/5 transition-colors flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                        </path>
+                    </svg>
+                    Notices
+                </a>
+                <a href="dashboard.html"
+                    class="px-4 py-2 text-sm font-semibold text-[#0F3D3E] border border-[#0F3D3E]/30 rounded-lg hover:bg-[#0F3D3E]/5 transition-colors flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
                         </path>
                     </svg>
-                    Image Add
+                    Gallery
                 </a>
                 <button onclick="logout()"
                     class="px-4 py-2 text-sm font-semibold text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">Sign
@@ -166,10 +175,14 @@
                         </div>
                         <div>
                             <label>Fees Status</label>
-                            <select id="fees" name="fees" required>
+                            <select id="fees" name="fees" required onchange="toggleDuesInput()">
                                 <option value="No Dues">No Dues</option>
                                 <option value="Dues">Dues</option>
                             </select>
+                        </div>
+                        <div id="dues-amount-container" class="hidden">
+                            <label>Dues Amount Left (₹)</label>
+                            <input type="text" id="duesAmount" name="duesAmount" placeholder="e.g. 5000">
                         </div>
                     </div>
                 </div>
@@ -328,6 +341,221 @@
         </div>
     </div>
 
+    <!-- ══════════════════════════════════════════════
+         TRANSFER CERTIFICATE SECTION
+    ══════════════════════════════════════════════ -->
+    <div class="max-w-5xl mx-auto mt-16 pb-10">
+
+        <!-- Section Header -->
+        <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+            </div>
+            <div>
+                <h2 class="title-font text-2xl font-bold text-[#0F3D3E]">Transfer Certificate</h2>
+                <p class="text-gray-400 text-xs">Fill in the form below and generate an official TC as PDF.</p>
+            </div>
+        </div>
+
+        <form id="tc-form" onsubmit="submitTcForm(event)">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                <!-- LEFT: Photo -->
+                <div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-white/60">
+                        <h3 class="font-bold text-[#0F3D3E] mb-4 flex items-center gap-2">
+                            <span
+                                class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold">📷</span>
+                            Student Photo
+                        </h3>
+                        <div class="relative group/tcphoto cursor-pointer"
+                            onclick="document.getElementById('tc-photo-file').click()">
+                            <input type="file" id="tc-photo-file" accept="image/*" class="hidden"
+                                onchange="previewTcPhoto(this)">
+                            <div
+                                class="w-full aspect-[3/4] max-w-[180px] mx-auto rounded-xl overflow-hidden border-2 border-dashed border-gray-300 group-hover/tcphoto:border-blue-500 bg-gray-50 flex items-center justify-center transition-all">
+                                <img id="tc-photo-preview" src="" class="hidden w-full h-full object-cover">
+                                <div id="tc-photo-placeholder" class="text-center text-gray-400 p-4">
+                                    <svg class="w-10 h-10 mx-auto mb-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                    <p class="text-xs font-medium">Click to upload</p>
+                                    <p class="text-[10px] mt-0.5">Passport size photo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: All TC Fields -->
+                <div class="lg:col-span-2 space-y-5">
+
+                    <!-- TC Header Info -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-white/60">
+                        <h3 class="font-bold text-[#0F3D3E] mb-4 flex items-center gap-2">
+                            <span
+                                class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold">1</span>
+                            Certificate Info
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label>T.C Number</label>
+                                <input type="text" id="tc-form-tcno" name="tcNo" placeholder="e.g. F1/23/25" required>
+                            </div>
+                            <div>
+                                <label>Admission Number</label>
+                                <input type="text" id="tc-form-admno" name="admissionNo" placeholder="e.g. MCS-65/21"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Student Details -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-white/60">
+                        <h3 class="font-bold text-[#0F3D3E] mb-4 flex items-center gap-2">
+                            <span
+                                class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold">2</span>
+                            Student Details
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="md:col-span-2">
+                                <label>1. Name of Student</label>
+                                <input type="text" id="tc-form-name" name="studentName"
+                                    placeholder="Full name in CAPITALS" required>
+                            </div>
+                            <div>
+                                <label>2. Father's / Guardian Name</label>
+                                <input type="text" id="tc-form-father" name="fatherName"
+                                    placeholder="Father or Guardian name" required>
+                            </div>
+                            <div>
+                                <label>3. Mother's Name</label>
+                                <input type="text" id="tc-form-mother" name="motherName" placeholder="Mother's name">
+                            </div>
+                            <div>
+                                <label>4. Nationality</label>
+                                <input type="text" id="tc-form-nationality" name="nationality" value="Indian">
+                            </div>
+                            <div>
+                                <label>5. SC/ST/OBC Category</label>
+                                <select id="tc-form-category" name="category">
+                                    <option value="No">No</option>
+                                    <option value="YES">YES</option>
+                                    <option value="SC">SC</option>
+                                    <option value="ST">ST</option>
+                                    <option value="OBC">OBC</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admission & Academic Info -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-white/60">
+                        <h3 class="font-bold text-[#0F3D3E] mb-4 flex items-center gap-2">
+                            <span
+                                class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold">3</span>
+                            Academic Details
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label>6. Date of First Admission</label>
+                                <input type="date" id="tc-form-admdate" name="admissionDate" required>
+                            </div>
+                            <div>
+                                <label>6b. Class at First Admission</label>
+                                <input type="text" id="tc-form-admclass" name="admissionClass"
+                                    placeholder="e.g. Class – II">
+                            </div>
+                            <div>
+                                <label>7. Date of Birth</label>
+                                <input type="date" id="tc-form-dob" name="dob" required>
+                            </div>
+                            <div>
+                                <label>8. Class Last Studied</label>
+                                <input type="text" id="tc-form-lastclass" name="lastClass" placeholder="e.g. Class – V"
+                                    required>
+                            </div>
+                            <div>
+                                <label>9. Whether Failed (once/twice)</label>
+                                <select id="tc-form-failed" name="failed">
+                                    <option value="No">No</option>
+                                    <option value="Once">Once</option>
+                                    <option value="Twice">Twice</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>10. Qualified for Promotion</label>
+                                <select id="tc-form-promotion" name="promotion">
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>11. Fee Concession</label>
+                                <select id="tc-form-feeconcession" name="feeConcession">
+                                    <option value="No">No</option>
+                                    <option value="Yes">Yes</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>12. General Conduct</label>
+                                <select id="tc-form-conduct" name="conduct">
+                                    <option value="Good">Good</option>
+                                    <option value="Excellent">Excellent</option>
+                                    <option value="Satisfactory">Satisfactory</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leaving Details -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-white/60">
+                        <h3 class="font-bold text-[#0F3D3E] mb-4 flex items-center gap-2">
+                            <span
+                                class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold">4</span>
+                            Certificate Dates & Reason
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label>13. Date of Application</label>
+                                <input type="date" id="tc-form-appdate" name="applicationDate">
+                            </div>
+                            <div>
+                                <label>14. Date of Issue</label>
+                                <input type="date" id="tc-form-issuedate" name="issueDate">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label>15. Reason for Leaving</label>
+                                <input type="text" id="tc-form-reason" name="reason"
+                                    placeholder="e.g. Admission in other School" value="Admission in other School">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label>16. Any Other Remarks</label>
+                                <input type="text" id="tc-form-remarks" name="remarks" value="No">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Generate Button -->
+                    <button type="submit"
+                        class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm uppercase tracking-widest rounded-2xl transition-all duration-300 shadow-lg hover:shadow-blue-200 hover:-translate-y-0.5 flex items-center justify-center gap-3">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span id="tc-submit-label">Generate &amp; Download Transfer Certificate</span>
+                    </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
     <!-- ── Delete Confirmation Modal ──────────────────── -->
     <div id="delete-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4"
         style="background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);">
@@ -431,9 +659,103 @@
         </div>
     </div>
 
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- Hidden TC Template                              -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div id="tc-template" aria-hidden="true"
+        style="position:fixed;top:-9999px;left:-9999px;width:794px;background:white;font-family:'Times New Roman',serif;font-size:12px;color:#000;">
+        <div style="padding:36px 44px;border:2px solid #1a3a5c;position:relative;">
+
+            <!-- TOP HEADER: Photo | School Name | Logo -->
+            <div
+                style="display:flex;align-items:flex-start;justify-content:space-between;border-bottom:2px solid #1a3a5c;padding-bottom:14px;margin-bottom:10px;">
+
+                <!-- LEFT: Student Photo -->
+                <div id="tc-photo-box"
+                    style="width:90px;height:110px;border:1.5px solid #555;overflow:hidden;background:#f0f0f0;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <img id="tc-photo" src="" alt="Student" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+
+                <!-- CENTRE: School Name -->
+                <div style="flex:1;text-align:center;padding:0 16px;">
+                    <div
+                        style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:3px;">
+                        Government Recognised</div>
+                    <div
+                        style="font-size:21px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#1a3a5c;line-height:1.1;">
+                        MODERN CALCUTTA SCHOOL</div>
+                    <div style="font-size:10px;color:#444;margin-top:3px;font-style:italic;">Foundation of Ilm-o-Adab
+                    </div>
+                    <div style="font-size:9.5px;color:#333;margin-top:2px;">Millat Colony, Phulwarisharif, Patna &ndash;
+                        801505, Bihar</div>
+                    <div style="font-size:9px;color:#333;margin-top:2px;">&#128222; +91 87098 61044 &nbsp;|&nbsp;
+                        mcs.patna2019@gmail.com</div>
+                </div>
+
+                <!-- RIGHT: Logo -->
+                <div
+                    style="width:90px;height:90px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                    <img src="../assets/transparent-logo.png" alt="Logo"
+                        style="width:80px;height:80px;object-fit:contain;" onerror="this.style.display='none'">
+                </div>
+            </div>
+
+            <!-- TC TITLE BOX -->
+            <div style="text-align:center;margin:10px 0 6px;">
+                <span
+                    style="display:inline-block;border:1.5px solid #1a3a5c;padding:5px 30px;font-size:14px;font-weight:700;letter-spacing:1px;">Transfer
+                    Certificate</span>
+            </div>
+
+            <!-- TC No | Admission No -->
+            <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:700;margin:10px 0 14px;">
+                <span>T.C No : &nbsp;<span id="tc-tc-no"></span></span>
+                <span>Admission No : &nbsp;<span id="tc-admission-no"></span></span>
+            </div>
+
+            <!-- FIELDS TABLE -->
+            <table style="width:100%;border-collapse:collapse;font-size:11px;">
+                <tbody id="tc-table-body"></tbody>
+            </table>
+
+            <!-- SIGNATURES -->
+            <div style="display:flex;justify-content:space-between;margin-top:44px;font-size:10px;">
+                <div style="text-align:center;">
+                    <div style="border-top:1px solid #000;width:140px;padding-top:6px;">Parent / Guardian</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="border-top:1px solid #000;width:140px;padding-top:6px;">Class Teacher</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="border-top:1px solid #000;width:140px;padding-top:6px;">Principal / Director</div>
+                </div>
+            </div>
+
+            <p
+                style="font-size:9px;color:#666;text-align:center;margin-top:18px;border-top:1px solid #ddd;padding-top:8px;">
+                Generated on <span id="tc-date"></span> &middot; Modern Calcutta School Official Document
+            </p>
+        </div>
+    </div>
+
+
     <script>
         // Auth
         window.logout = () => { sessionStorage.removeItem('isAdmin'); window.location.href = 'login.html'; };
+
+        function toggleDuesInput() {
+            const feesSelect = document.getElementById('fees');
+            const duesContainer = document.getElementById('dues-amount-container');
+            const duesInput = document.getElementById('duesAmount');
+            if (feesSelect.value === 'Dues') {
+                duesContainer.classList.remove('hidden');
+                duesInput.required = true;
+            } else {
+                duesContainer.classList.add('hidden');
+                duesInput.required = false;
+                duesInput.value = '';
+            }
+        }
 
         // Photo preview
         function previewPhoto(input) {
@@ -448,6 +770,148 @@
             reader.readAsDataURL(file);
         }
 
+        // TC Photo Preview
+        function previewTcPhoto(input) {
+            const file = input.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                document.getElementById('tc-photo-preview').src = e.target.result;
+                document.getElementById('tc-photo-preview').classList.remove('hidden');
+                document.getElementById('tc-photo-placeholder').classList.add('hidden');
+                // Also set in hidden tc-template for rendering
+                document.getElementById('tc-photo').src = e.target.result;
+                document.getElementById('tc-photo-box').style.display = 'flex';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // ── TC Form Submit ──────────────────────────────
+        async function submitTcForm(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type=submit]');
+            const label = document.getElementById('tc-submit-label');
+            btn.disabled = true;
+            label.innerHTML = `<svg class="spinner w-4 h-4 inline-block mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Generating...`;
+
+            function fv(id) { return (document.getElementById(id)?.value || '').trim(); }
+
+            // Format date helper
+            function formatDate(val) {
+                if (!val) return '';
+                try {
+                    const d = new Date(val + 'T00:00:00');
+                    return d.toLocaleDateString('en-IN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+                } catch { return val; }
+            }
+
+            // DOB in words helper
+            function dateToWords(val) {
+                if (!val) return '';
+                try {
+                    const d = new Date(val + 'T00:00:00');
+                    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                    const ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+                    const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+                    const n2w = n => n < 20 ? ones[n] : tens[Math.floor(n / 10)] + (n % 10 ? ' ' + ones[n % 10] : '');
+                    const y = d.getFullYear();
+                    const yw = n2w(Math.floor(y / 100)) + ' Hundred' + (y % 100 ? ' ' + n2w(y % 100) : '');
+                    return `${n2w(d.getDate())} ${months[d.getMonth()]} ${yw}`;
+                } catch { return ''; }
+            }
+
+            // Collect form values
+            const tc = {
+                tcNo: fv('tc-form-tcno'),
+                admissionNo: fv('tc-form-admno'),
+                studentName: fv('tc-form-name').toUpperCase(),
+                fatherName: fv('tc-form-father').toUpperCase(),
+                motherName: fv('tc-form-mother').toUpperCase(),
+                nationality: fv('tc-form-nationality') || 'Indian',
+                category: fv('tc-form-category'),
+                admissionDate: formatDate(fv('tc-form-admdate')),
+                admissionClass: fv('tc-form-admclass'),
+                dobRaw: fv('tc-form-dob'),
+                lastClass: fv('tc-form-lastclass'),
+                failed: fv('tc-form-failed'),
+                promotion: fv('tc-form-promotion'),
+                feeConcession: fv('tc-form-feeconcession'),
+                conduct: fv('tc-form-conduct'),
+                appDate: formatDate(fv('tc-form-appdate')),
+                issueDate: formatDate(fv('tc-form-issuedate')),
+                reason: fv('tc-form-reason') || 'Admission in other School',
+                remarks: fv('tc-form-remarks') || 'No',
+            };
+            const dobFormatted = formatDate(tc.dobRaw);
+            const dobWords = dateToWords(tc.dobRaw);
+
+            // Populate hidden tc-template
+            document.getElementById('tc-tc-no').textContent = tc.tcNo;
+            document.getElementById('tc-admission-no').textContent = tc.admissionNo;
+            document.getElementById('tc-date').textContent = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
+
+            // Photo: if no photo uploaded, hide box
+            const photoFile = document.getElementById('tc-photo-file').files[0];
+            if (!photoFile) {
+                document.getElementById('tc-photo-box').style.display = 'none';
+            }
+
+            const rows = [
+                [1, 'Name of Student', `<strong>${tc.studentName}</strong>`],
+                [2, "Father's / Guardian Name", `<strong>${tc.fatherName}</strong>`],
+                [3, "Mother's Name", `<strong>${tc.motherName}</strong>`],
+                [4, 'Nationality', tc.nationality],
+                [5, 'Whether the candidate belong to SC/ST/OBC', tc.category],
+                [6, 'Date of First admission in the school with class', `<strong>${tc.admissionDate}</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>${tc.admissionClass}</strong>`],
+                [7, 'Date of birth according to admission Register<br><span style="font-size:9px;">(in figure &amp; words)</span>',
+                    `<strong>${dobFormatted}</strong>${dobWords ? '<br><span style="font-size:9px;">' + dobWords + '</span>' : ''}`],
+                [8, 'Class in which the pupil last studied', `<strong>${tc.lastClass}</strong>`],
+                [9, 'Whether failed, If so once/twice in the same class', tc.failed],
+                [10, 'Whether qualified for promotion to the higher', tc.promotion],
+                [11, 'Any fee concession availed of : if so, the nature of such', tc.feeConcession],
+                [12, 'General Conduct', tc.conduct],
+                [13, 'Date of application for certificate', tc.appDate || new Date().toLocaleDateString('en-IN')],
+                [14, 'Date of issue of certificate', tc.issueDate || new Date().toLocaleDateString('en-IN')],
+                [15, 'Reasons for leaving the school', tc.reason],
+                [16, 'Any other remarks', tc.remarks],
+            ];
+
+            document.getElementById('tc-table-body').innerHTML = rows.map(([no, lbl, val]) => `
+                <tr>
+                    <td style="border:1px solid #1a3a5c;padding:6px 10px;width:65%;">
+                        <span style="color:#1a3a5c;font-weight:500;">${no}.&nbsp;&nbsp;${lbl}</span>
+                    </td>
+                    <td style="border:1px solid #1a3a5c;padding:6px 10px;text-align:center;width:4%;color:#1a3a5c;">:</td>
+                    <td style="border:1px solid #1a3a5c;padding:6px 10px;">${val}</td>
+                </tr>
+            `).join('');
+
+            await new Promise(r => setTimeout(r, 350));
+
+            try {
+                const canvas = await html2canvas(document.getElementById('tc-template'), {
+                    scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff'
+                });
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const imgData = canvas.toDataURL('image/jpeg', 0.92);
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfW = pdf.internal.pageSize.getWidth();
+                const pdfH = (imgProps.height * pdfW) / imgProps.width;
+                pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, Math.min(pdfH, pdf.internal.pageSize.getHeight()));
+
+                const safeName = tc.studentName.replace(/[^a-z0-9]/gi, '_');
+                pdf.save(`TC_${safeName}_${tc.admissionNo}.pdf`);
+                showToast('✅ Transfer Certificate downloaded!', 'success');
+            } catch (err) {
+                console.error(err);
+                showToast('❌ Failed to generate TC: ' + err.message, 'error');
+            } finally {
+                btn.disabled = false;
+                label.textContent = 'Generate & Download Transfer Certificate';
+            }
+        }
+
         // Toast
         function showToast(msg, type = 'success') {
             const t = document.getElementById('toast');
@@ -455,7 +919,8 @@
             const msgEl = document.getElementById('toast-msg');
             const iconEl = document.getElementById('toast-icon');
             msgEl.textContent = msg;
-            inner.className = `flex items-center gap-3 px-5 py-4 rounded-xl shadow-2xl text-sm font-semibold text-white min-w-[280px] ${type === 'success' ? 'bg-[#0F3D3E]' : 'bg-red-500'}`;
+            inner.className = `flex items-center gap-3 px-5 py-4 rounded-xl shadow-2xl text-sm font-semibold text-white
+    min-w-[280px] ${type === 'success' ? 'bg-[#0F3D3E]' : 'bg-red-500'}`;
             iconEl.textContent = type === 'success' ? '✅' : '❌';
             t.classList.remove('hidden');
             setTimeout(() => t.classList.add('hidden'), 4000);
@@ -466,7 +931,10 @@
             const label = document.getElementById('submit-label');
             btn.disabled = yes;
             if (yes) {
-                label.innerHTML = `<svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Saving...`;
+                label.innerHTML = `<svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+    </svg>Saving...`;
             } else {
                 label.textContent = 'Save Student & Generate Certificate';
             }
@@ -484,7 +952,7 @@
                 if (photoFile) fd.append('photo', photoFile, photoFile.name);
 
                 const fields = ['studentName', 'admissionNo', 'admissionDate', 'gender', 'dob', 'aadharNo',
-                    'fatherName', 'motherName', 'guardianName', 'address', 'status', 'fees', 'tcNo'];
+                    'fatherName', 'motherName', 'guardianName', 'address', 'status', 'fees', 'tcNo', 'duesAmount'];
                 fields.forEach(id => {
                     const el = document.getElementById(id);
                     fd.append(id, el.value || '');
@@ -559,10 +1027,10 @@
 
         function setLabel(text) {
             document.getElementById('submit-label').innerHTML = `
-                <svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
-                </svg>${text}`;
+    <svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+    </svg>${text}`;
         }
 
         function showSuccessBanner(name, admissionNo) {
@@ -572,33 +1040,48 @@
             const banner = document.createElement('div');
             banner.id = 'success-banner';
             banner.style.cssText = `
-                position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
-                z-index:9999;min-width:340px;max-width:480px;
-                background:linear-gradient(135deg,#0F3D3E,#1a5f61);
-                color:white;border-radius:20px;padding:20px 24px;
-                box-shadow:0 20px 60px rgba(15,61,62,0.4);
-                animation:slideUpBanner 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
-            `;
+    position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+    z-index:9999;min-width:340px;max-width:480px;
+    background:linear-gradient(135deg,#0F3D3E,#1a5f61);
+    color:white;border-radius:20px;padding:20px 24px;
+    box-shadow:0 20px 60px rgba(15,61,62,0.4);
+    animation:slideUpBanner 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+    `;
             banner.innerHTML = `
-                <style>@keyframes slideUpBanner{from{opacity:0;transform:translateX(-50%) translateY(30px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}</style>
-                <div style="display:flex;align-items:flex-start;gap:14px;">
-                    <div style="width:44px;height:44px;background:rgba(198,167,94,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">✅</div>
-                    <div style="flex:1;">
-                        <p style="font-weight:700;font-size:15px;margin:0 0 4px;">${name} registered!</p>
-                        <p style="font-size:12px;opacity:0.75;margin:0 0 14px;">Certificate uploaded. Student can now download it from the portal.</p>
-                        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                            <a href="/student-portal.html" target="_blank"
-                               style="flex:1;text-align:center;background:#C6A75E;color:#fff;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:8px 16px;border-radius:10px;text-decoration:none;">
-                                🔗 View in Student Portal
-                            </a>
-                            <button onclick="document.getElementById('success-banner').remove()"
-                                style="padding:8px 14px;background:rgba(255,255,255,0.1);border:none;color:white;border-radius:10px;font-size:11px;cursor:pointer;font-weight:600;">
-                                Dismiss
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
+    <style>
+        @keyframes slideUpBanner {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0)
+            }
+        }
+    </style>
+    <div style="display:flex;align-items:flex-start;gap:14px;">
+        <div
+            style="width:44px;height:44px;background:rgba(198,167,94,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">
+            ✅</div>
+        <div style="flex:1;">
+            <p style="font-weight:700;font-size:15px;margin:0 0 4px;">${name} registered!</p>
+            <p style="font-size:12px;opacity:0.75;margin:0 0 14px;">Certificate uploaded. Student can now download it
+                from the portal.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <a href="/student-portal.html" target="_blank"
+                    style="flex:1;text-align:center;background:#C6A75E;color:#fff;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:8px 16px;border-radius:10px;text-decoration:none;">
+                    🔗 View in Student Portal
+                </a>
+                <button onclick="document.getElementById('success-banner').remove()"
+                    style="padding:8px 14px;background:rgba(255,255,255,0.1);border:none;color:white;border-radius:10px;font-size:11px;cursor:pointer;font-weight:600;">
+                    Dismiss
+                </button>
+            </div>
+        </div>
+    </div>
+    `;
             document.body.appendChild(banner);
 
             // Auto-dismiss after 15 seconds
@@ -615,7 +1098,10 @@
             else { document.getElementById('pdf-photo-box').style.display = 'none'; }
 
             // Date
-            document.getElementById('pdf-date').textContent = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
+            document.getElementById('pdf-date').textContent = new Date().toLocaleDateString('en-IN', {
+                day: '2-digit', month:
+                    'long', year: 'numeric'
+            });
 
             // Table rows
             const rows = [
@@ -631,25 +1117,128 @@
                 ['Address', s.address],
                 ['T.C. Number', s.tcNo],
                 ['Admission Status', s.status],
-                ['Fees Status', s.fees],
+                ['Fees Status', s.fees === 'Dues' && s.duesAmount ? `Dues (₹${s.duesAmount} Left)` : s.fees],
             ];
 
             const tbody = document.getElementById('pdf-table-body');
             tbody.innerHTML = rows
                 .filter(([, v]) => v)
                 .map(([label, val], i) => `
-                    <tr style="background:${i % 2 === 0 ? '#f9f9f9' : '#fff'}">
-                        <td style="border:1px solid #000;padding:6px 10px;font-weight:700;width:35%;background:#f0f0f0;">${label}</td>
-                        <td style="border:1px solid #000;padding:6px 10px;">${val}</td>
-                    </tr>
-                `).join('');
+    <tr style="background:${i % 2 === 0 ? '#f9f9f9' : '#fff'}">
+        <td style="border:1px solid #000;padding:6px 10px;font-weight:700;width:35%;background:#f0f0f0;">${label}</td>
+        <td style="border:1px solid #000;padding:6px 10px;">${val}</td>
+    </tr>
+    `).join('');
+        }
+
+        // ══════════════════════════════════════════════
+        // TRANSFER CERTIFICATE GENERATION
+        // ══════════════════════════════════════════════
+
+        async function generateTC(s) {
+            // Show toast
+            showToast('⏳ Generating Transfer Certificate...', 'info');
+
+            // PHOTO
+            const tcPhoto = document.getElementById('tc-photo');
+            const tcPhotoBox = document.getElementById('tc-photo-box');
+            if (s.photoUrl) { tcPhoto.src = s.photoUrl; tcPhotoBox.style.display = 'flex'; }
+            else { tcPhotoBox.style.display = 'none'; }
+
+            // Date
+            const today = new Date();
+            const todayStr = today.toLocaleDateString('en-IN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+            document.getElementById('tc-date').textContent = today.toLocaleDateString('en-IN', {
+                day: '2-digit', month: 'long',
+                year: 'numeric'
+            });
+
+            // Header fields
+            document.getElementById('tc-tc-no').textContent = s.tcNo || '—';
+            document.getElementById('tc-admission-no').textContent = s.admissionNo || '—';
+
+            // DOB in words helper
+            function dateToWords(dateStr) {
+                if (!dateStr) return '';
+                try {
+                    const d = new Date(dateStr);
+                    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+                        'November', 'December'];
+                    const ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve',
+                        'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+                    const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+                    function numToWords(n) {
+                        if (n < 20) return ones[n];
+                        return tens[Math.floor(n / 10)] + (n % 10 ? ' ' + ones[n % 10] : '');
+                    }
+                    const y = d.getFullYear();
+                    const yearWords = numToWords(Math.floor(y / 100)) + ' Hundred' + (y % 100 ? ' ' + numToWords(y % 100) : '');
+                    return `${numToWords(d.getDate())} ${months[d.getMonth()]} ${yearWords}`;
+                } catch { return ''; }
+            }
+
+            const dob = s.dob || '';
+            const dobWords = dateToWords(dob);
+
+            const rows = [
+                [1, 'Name of Student', `<strong>${(s.studentName || '').toUpperCase()}</strong>`],
+                [2, "Father's / Guardian Name", `<strong>${(s.fatherName || '').toUpperCase()}</strong>`],
+                [3, "Mother's Name", `<strong>${(s.motherName || '').toUpperCase()}</strong>`],
+                [4, 'Nationality', 'Indian'],
+                [5, 'Whether the candidate belong to SC/ST/OBC', 'No'],
+                [6, 'Date of First admission in the school with class', `<strong>${s.admissionDate || '—'}</strong>`],
+                [7, 'Date of birth according to admission Register<br><span style="font-size:9px;">(in figure &amp; words)</span>',
+                    `<strong>${dob}</strong>${dobWords ? '<br><span style="font-size:9px;">' + dobWords + '</span>' : ''}`],
+                [8, 'Class in which the pupil last studied', `<strong>${s.currentClass || s.class || '—'}</strong>`],
+                [9, 'Whether failed, If so once/twice in the same class', 'No'],
+                [10, 'Whether qualified for promotion to the higher', 'Yes'],
+                [11, 'Any fee concession availed of : if so, the nature of such', s.fees === 'No Dues' ? 'No' : 'Yes'],
+                [12, 'General Conduct', 'Good'],
+                [13, 'Date of application for certificate', todayStr],
+                [14, 'Date of issue of certificate', todayStr],
+                [15, 'Reasons for leaving the school', s.reasonForLeaving || 'Admission in other School'],
+                [16, 'Any other remarks', s.remarks || 'No'],
+            ];
+
+            document.getElementById('tc-table-body').innerHTML = rows.map(([no, label, val]) => `
+        <tr>
+            <td style="border:1px solid #1a3a5c;padding:6px 10px;width:68%;">
+                <span style="color:#1a3a5c;font-weight:500;">${no}.&nbsp;&nbsp;${label}</span>
+            </td>
+            <td style="border:1px solid #1a3a5c;padding:6px 10px;text-align:center;width:5%;color:#1a3a5c;">:</td>
+            <td style="border:1px solid #1a3a5c;padding:6px 10px;">${val}</td>
+        </tr>
+        `).join('');
+
+            // Wait for DOM / images
+            await new Promise(r => setTimeout(r, 300));
+
+            try {
+                const canvas = await html2canvas(document.getElementById('tc-template'), {
+                    scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff'
+                });
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const imgData = canvas.toDataURL('image/jpeg', 0.9);
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfW = pdf.internal.pageSize.getWidth();
+                const pdfH = (imgProps.height * pdfW) / imgProps.width;
+                pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, Math.min(pdfH, pdf.internal.pageSize.getHeight()));
+
+                const safeName = (s.studentName || 'TC').replace(/[^a-z0-9]/gi, '_');
+                pdf.save(`TC_${safeName}_${s.admissionNo || ''}.pdf`);
+                showToast('✅ Transfer Certificate downloaded!', 'success');
+            } catch (err) {
+                console.error(err);
+                showToast('❌ Could not generate TC: ' + err.message, 'error');
+            }
         }
 
         // ══════════════════════════════════════════════
         // STUDENT LIST LOGIC
         // ══════════════════════════════════════════════
 
-        let allStudents = [];   // cached full list for filtering
+        let allStudents = []; // cached full list for filtering
         let pendingDeleteId = null;
 
         async function loadStudents() {
@@ -704,49 +1293,68 @@
                 const createdAt = s.createdAt ? new Date(s.createdAt).toLocaleDateString('en-IN') : '—';
 
                 card.innerHTML = `
-                    <div class="flex items-center gap-4 p-4">
-                        <!-- Photo -->
-                        <div class="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-gray-100 bg-gray-50">
-                            <img src="${photoSrc}" alt="${s.studentName}" class="w-full h-full object-cover"
-                                onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(s.studentName)}&background=0F3D3E&color=C6A75E&size=80'">
-                        </div>
+        <div class="flex items-center gap-4 p-4">
+            <!-- Photo -->
+            <div class="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-gray-100 bg-gray-50">
+                <img src="${photoSrc}" alt="${s.studentName}" class="w-full h-full object-cover"
+                    onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(s.studentName)}&background=0F3D3E&color=C6A75E&size=80'">
+            </div>
 
-                        <!-- Main Info -->
-                        <div class="flex-1 min-w-0">
-                            <div class="flex items-center gap-2 flex-wrap">
-                                <h3 class="font-bold text-[#0F3D3E] text-sm truncate">${s.studentName}</h3>
-                                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider ${isActive ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'}">${s.status}</span>
-                                <span class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider ${noDues ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}">${s.fees}</span>
-                            </div>
-                            <p class="text-gray-400 text-xs mt-0.5 font-mono">${s.admissionNo}</p>
-                            <div class="flex gap-4 mt-1">
-                                <span class="text-gray-400 text-[10px]">👤 ${s.fatherName || '—'}</span>
-                                <span class="text-gray-400 text-[10px]">📅 ${admDate}</span>
-                            </div>
-                        </div>
+            <!-- Main Info -->
+            <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 flex-wrap">
+                    <h3 class="font-bold text-[#0F3D3E] text-sm truncate">${s.studentName}</h3>
+                    <span
+                        class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider ${isActive ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'}">${s.status}</span>
+                    <span
+                        class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider ${noDues ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}">${s.fees}</span>
+                </div>
+                <p class="text-gray-400 text-xs mt-0.5 font-mono">${s.admissionNo}</p>
+                <div class="flex gap-4 mt-1">
+                    <span class="text-gray-400 text-[10px]">👤 ${s.fatherName || '—'}</span>
+                    <span class="text-gray-400 text-[10px]">📅 ${admDate}</span>
+                </div>
+            </div>
 
-                        <!-- Actions -->
-                        <div class="flex items-center gap-2 flex-shrink-0">
-                            <!-- Portal Link -->
-                            <a href="/student-portal.html" target="_blank"
-                                title="View in Student Portal"
-                                class="w-9 h-9 rounded-xl bg-[#0F3D3E]/5 hover:bg-[#0F3D3E]/10 flex items-center justify-center transition-colors group">
-                                <svg class="w-4 h-4 text-[#0F3D3E] group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                                </svg>
-                            </a>
-                            <!-- Delete -->
-                            <button onclick="openDeleteModal('${s.id}', '${s.studentName.replace(/'/g, "\\'")}')"
-                                title="Delete student"
-                                class="w-9 h-9 rounded-xl bg-red-50 hover:bg-red-500 flex items-center justify-center transition-all group">
-                                <svg class="w-4 h-4 text-red-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                `;
+            <!-- Actions -->
+            <div class="flex items-center gap-2 flex-shrink-0">
+                <!-- Portal Link -->
+                <a href="/student-portal.html" target="_blank" title="View in Student Portal"
+                    class="w-9 h-9 rounded-xl bg-[#0F3D3E]/5 hover:bg-[#0F3D3E]/10 flex items-center justify-center transition-colors group">
+                    <svg class="w-4 h-4 text-[#0F3D3E] group-hover:scale-110 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </a>
+                <!-- Generate TC -->
+                <button onclick="generateTC(window._studentMap['${s.id}'])"
+                    title="Generate Transfer Certificate"
+                    class="w-9 h-9 rounded-xl bg-blue-50 hover:bg-blue-600 flex items-center justify-center transition-all group">
+                    <svg class="w-4 h-4 text-blue-500 group-hover:text-white transition-colors" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                </button>
+                <!-- Delete -->
+                <button onclick="openDeleteModal('${s.id}', '${s.studentName.replace(/'/g, " \\'")}')"
+                    title="Delete student"
+                    class="w-9 h-9 rounded-xl bg-red-50 hover:bg-red-500 flex items-center justify-center transition-all group">
+                    <svg class="w-4 h-4 text-red-400 group-hover:text-white transition-colors" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        `;
                 list.appendChild(card);
+
+                // Register in lookup map for TC generation
+                if (!window._studentMap) window._studentMap = {};
+                window._studentMap[s.id] = s;
             });
         }
 
@@ -820,7 +1428,8 @@
 
         // CSS for card entrance animation
         const style = document.createElement('style');
-        style.textContent = `@keyframes fadeInCard{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}`;
+        style.textContent = `@keyframes
+        fadeInCard{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}`;
         document.head.appendChild(style);
 
         // Load on page ready

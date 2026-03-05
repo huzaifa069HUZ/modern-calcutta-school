@@ -42,7 +42,14 @@
     </style>
 </head>
 
-<body class="bg-[#F6F1E8] p-6 md:p-12 font-sans text-[#0F3D3E]">
+<body class="bg-[#F6F1E8] p-6 md:p-12 font-sans text-[#0F3D3E] relative min-h-screen z-0">
+    <!-- Decorative Background Shapes -->
+    <div
+        class="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#C6A75E]/10 rounded-full blur-[100px] pointer-events-none -z-10">
+    </div>
+    <div
+        class="fixed bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#0F3D3E]/5 rounded-full blur-[100px] pointer-events-none -z-10">
+    </div>
 
     <!-- Auth Check -->
     <script>
@@ -55,29 +62,45 @@
     <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-2"></div>
 
     <div class="max-w-6xl mx-auto">
-        <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
-            <div>
-                <h1 class="text-4xl font-bold tracking-tight text-[#0F3D3E]">Gallery Admin</h1>
-                <p class="text-[#0F3D3E]/60 mt-1 font-medium">Manage your gallery content with ease.</p>
+        <header
+            class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6 bg-white/60 p-6 md:p-8 rounded-3xl border border-white backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden transition-all hover:bg-white/80">
+            <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-[#0F3D3E] to-[#C6A75E]"></div>
+            <div class="pl-2">
+                <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-[#0F3D3E] mb-2">Welcome back, Admin
+                    👋</h1>
+                <p class="text-[#0F3D3E]/70 font-medium">Your Gallery Control Center. Manage school visuals with ease.
+                </p>
             </div>
-            <div class="flex flex-wrap gap-3">
+            <div class="flex flex-wrap justify-end gap-3 sm:gap-4 relative z-10 w-full md:w-auto">
+                <a href="notices.html"
+                    class="flex-1 md:flex-none justify-center px-4 py-2.5 text-sm font-semibold text-[#0F3D3E] bg-white border border-[#C6A75E]/30 rounded-xl hover:bg-[#C6A75E]/10 hover:border-[#C6A75E] hover:-translate-y-0.5 transition-all shadow-sm flex items-center gap-2 group">
+                    <svg class="w-4 h-4 text-[#C6A75E] group-hover:scale-110 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                        </path>
+                    </svg>
+                    Notices
+                </a>
                 <a href="donations.html"
-                    class="px-5 py-2 text-sm font-semibold text-[#0F3D3E] bg-white border border-[#C6A75E]/50 rounded-lg hover:bg-[#C6A75E]/10 transition-colors shadow-sm flex items-center gap-2">
-                    <svg class="w-4 h-4 text-[#C6A75E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    class="flex-1 md:flex-none justify-center px-5 py-2.5 text-sm font-semibold text-[#0F3D3E] bg-white border border-[#C6A75E]/30 rounded-xl hover:bg-[#C6A75E]/10 hover:border-[#C6A75E] hover:-translate-y-0.5 transition-all shadow-sm flex items-center gap-2 group">
+                    <svg class="w-4 h-4 text-[#C6A75E] group-hover:scale-110 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     Donations
                 </a>
-                <a href="/admin/students"
-                    class="px-5 py-2 text-sm font-semibold text-white bg-[#0F3D3E] rounded-lg hover:bg-[#0B2B2C] transition-colors shadow-sm flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="students.html"
+                    class="flex-1 md:flex-none justify-center px-5 py-2.5 text-sm font-semibold text-white bg-[#0F3D3E] rounded-xl hover:bg-[#0B2B2C] hover:shadow-lg hover:-translate-y-0.5 transition-all shadow-sm flex items-center gap-2 group">
+                    <svg class="w-4 h-4 group-hover:rotate-90 transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                     </svg>
                     Add Student
                 </a>
                 <button onclick="logout()"
-                    class="px-5 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors font-semibold text-sm">
+                    class="flex-1 md:flex-none justify-center px-5 py-2.5 bg-red-50 text-red-600 rounded-xl hover:bg-red-500 hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all font-bold text-sm">
                     Sign Out
                 </button>
             </div>
@@ -191,7 +214,7 @@
             <!-- RIGHT: Simple List (5 cols) -->
             <div class="lg:col-span-5">
                 <div
-                    class="bg-white p-6 rounded-3xl shadow-xl border border-white/50 h-[600px] flex flex-col relative overflow-hidden">
+                    class="bg-white/80 backdrop-blur-md p-6 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white h-[600px] flex flex-col relative overflow-hidden transition-all hover:bg-white">
                     <div class="flex justify-between items-center mb-6 pl-2">
                         <h3 class="font-bold text-xl text-[#0F3D3E]">Recent Uploads</h3>
                         <div

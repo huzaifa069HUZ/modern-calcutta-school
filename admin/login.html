@@ -36,13 +36,18 @@
         const passwordInput = document.getElementById('password');
         const errorMsg = document.getElementById('error-msg');
 
+        // Auto-redirect if already logged in
+        if (sessionStorage.getItem('isAdmin') === 'true') {
+            window.location.href = 'dashboard.html';
+        }
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const password = passwordInput.value;
 
             if (password === 'MODERN786calcutta') {
                 sessionStorage.setItem('isAdmin', 'true');
-                window.location.href = '/admin';
+                window.location.href = 'dashboard.html';
             } else {
                 errorMsg.classList.remove('hidden');
                 passwordInput.value = '';

@@ -121,6 +121,7 @@ module.exports = async function handler(req, res) {
             address: (fields.address || '').trim(),
             status: fields.status.trim(),       // 'Active' | 'Deactive'
             fees: fields.fees.trim(),           // 'No Dues' | 'Dues'
+            duesAmount: (fields.duesAmount || '').trim(),
             tcNo: (fields.tcNo || '').trim(),
             photoUrl,
             pdfUrl: '',
