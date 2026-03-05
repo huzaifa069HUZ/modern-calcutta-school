@@ -211,9 +211,14 @@
             background-color: var(--beige);
             color: var(--charcoal);
             scroll-behavior: smooth;
-            overflow-x: hidden;
+            overflow-x: hidden !important;
             -webkit-overflow-scrolling: touch;
-            max-width: 100vw;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         h1,
@@ -1105,6 +1110,159 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════════════════
+         DONATION SCROLLING TICKER BANNER
+    ═══════════════════════════════════════════════════════ -->
+    <a href="donate.html" aria-label="Donate to Modern Calcutta School"
+        style="display:block;overflow:hidden;max-width:100%;white-space:nowrap;background:linear-gradient(90deg,#C6A75E 0%,#EDCF7E 40%,#C6A75E 70%,#EDCF7E 100%);border-top:3px solid rgba(15,61,62,0.2);border-bottom:3px solid rgba(15,61,62,0.2);cursor:pointer;text-decoration:none;position:relative;z-index:20;">
+
+        <!-- Shimmer overlay -->
+        <div
+            style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,0.18) 50%,transparent 60%);animation:tickerShimmer 3s ease-in-out infinite;pointer-events:none;z-index:3;">
+        </div>
+
+        <!-- Fade edges -->
+        <div
+            style="position:absolute;left:0;top:0;width:100px;height:100%;background:linear-gradient(to right,#C6A75E,transparent);z-index:4;pointer-events:none;">
+        </div>
+        <div
+            style="position:absolute;right:0;top:0;width:100px;height:100%;background:linear-gradient(to left,#C6A75E,transparent);z-index:4;pointer-events:none;">
+        </div>
+
+        <div
+            style="display:inline-flex;align-items:center;animation:donationTicker 32s linear infinite;padding:1.1rem 0;">
+
+            <!-- ── FIRST COPY ── -->
+            <span
+                style="display:inline-flex;align-items:center;gap:2.2rem;padding:0 3rem;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0F3D3E;white-space:nowrap;">
+
+                <!-- Eye-catching CTA badge -->
+                <span
+                    style="display:inline-flex;align-items:center;gap:10px;background:#0F3D3E;color:#EDCF7E;padding:7px 20px;border-radius:999px;font-size:13px;font-weight:900;letter-spacing:0.2em;box-shadow:0 0 0 3px rgba(15,61,62,0.25);animation:ctaPop 2s ease-in-out infinite;">
+                    💝 CLICK TO DONATE NOW
+                </span>
+
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span style="display:inline-flex;align-items:center;gap:8px;">
+                    <span style="animation:heartBeat 1.2s ease-in-out infinite;display:inline-block;">❤️</span>
+                    Every ₹10 you skip on chai = One child's education for a day
+                </span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span>🌟 5,047 children helped so far — be the next change-maker</span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span>📖 Fund a child's full year for just ₹2,000</span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span>💛 Don't let a child's dream die today — Act now</span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span>🤲 Your Sadaqah Jariyah will reward you forever</span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span>🎓 One donation = one student's books, uniform &amp; meals</span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span>🕌 Charity does not decrease wealth — Prophet Muhammad ﷺ</span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+
+                <!-- Second CTA badge mid-scroll -->
+                <span
+                    style="display:inline-flex;align-items:center;gap:10px;background:#7B2D2D;color:#fff;padding:7px 20px;border-radius:999px;font-size:13px;font-weight:900;letter-spacing:0.2em;box-shadow:0 0 0 3px rgba(123,45,45,0.25);animation:ctaPop 2s ease-in-out infinite 1s;">
+                    🔥 DONATE &amp; EARN SADAQAH JARIYAH
+                </span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+            </span>
+
+            <!-- ── DUPLICATE COPY (seamless loop) ── -->
+            <span aria-hidden="true"
+                style="display:inline-flex;align-items:center;gap:2.2rem;padding:0 3rem;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0F3D3E;white-space:nowrap;">
+
+                <span
+                    style="display:inline-flex;align-items:center;gap:10px;background:#0F3D3E;color:#EDCF7E;padding:7px 20px;border-radius:999px;font-size:13px;font-weight:900;letter-spacing:0.2em;box-shadow:0 0 0 3px rgba(15,61,62,0.25);animation:ctaPop 2s ease-in-out infinite;">
+                    💝 CLICK TO DONATE NOW
+                </span>
+
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span style="display:inline-flex;align-items:center;gap:8px;">
+                    <span style="animation:heartBeat 1.2s ease-in-out infinite;display:inline-block;">❤️</span>
+                    Every ₹10 you skip on chai = One child's education for a day
+                </span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span>🌟 5,047 children helped so far — be the next change-maker</span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span>📖 Fund a child's full year for just ₹2,000</span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span>💛 Don't let a child's dream die today — Act now</span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span>🤲 Your Sadaqah Jariyah will reward you forever</span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span>🎓 One donation = one student's books, uniform &amp; meals</span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+                <span>🕌 Charity does not decrease wealth — Prophet Muhammad ﷺ</span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+
+                <span
+                    style="display:inline-flex;align-items:center;gap:10px;background:#7B2D2D;color:#fff;padding:7px 20px;border-radius:999px;font-size:13px;font-weight:900;letter-spacing:0.2em;box-shadow:0 0 0 3px rgba(123,45,45,0.25);animation:ctaPop 2s ease-in-out infinite 1s;">
+                    🔥 DONATE &amp; EARN SADAQAH JARIYAH
+                </span>
+                <span style="opacity:0.35;font-size:18px;">◆</span>
+            </span>
+        </div>
+
+        <style>
+            @keyframes donationTicker {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+
+            @keyframes heartBeat {
+
+                0%,
+                100% {
+                    transform: scale(1);
+                }
+
+                25% {
+                    transform: scale(1.35);
+                }
+
+                50% {
+                    transform: scale(1);
+                }
+
+                75% {
+                    transform: scale(1.2);
+                }
+            }
+
+            @keyframes ctaPop {
+
+                0%,
+                100% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 3px rgba(15, 61, 62, 0.25);
+                }
+
+                50% {
+                    transform: scale(1.05);
+                    box-shadow: 0 0 0 6px rgba(15, 61, 62, 0.15);
+                }
+            }
+
+            @keyframes tickerShimmer {
+                0% {
+                    background-position: -200% center;
+                }
+
+                100% {
+                    background-position: 200% center;
+                }
+            }
+        </style>
+    </a>
+
+
     <!-- Education Philosophy Section -->
     <section id="philosophy" class="py-24 bg-[#F6F1E8] relative">
         <!-- Background Decoration -->
@@ -1972,7 +2130,7 @@
         </div>
 
         <!-- Swiper Container -->
-        <div class="relative pb-32">
+        <div class="relative pb-10">
             <!-- Custom Navigation Arrows -->
             <div
                 class="custom-swiper-button-prev absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#C6A75E] border border-white/30 transition-all duration-300 cursor-pointer group shadow-lg">
@@ -2282,7 +2440,7 @@
 
 
     <!-- Footer -->
-    <footer class="bg-[#0F3D3E] text-white pt-32 pb-12 px-8 lg:px-16">
+    <footer class="bg-[#0F3D3E] text-white pt-16 pb-12 px-8 lg:px-16">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-20">
                 <div class="lg:col-span-2">

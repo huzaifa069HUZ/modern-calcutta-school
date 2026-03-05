@@ -10,7 +10,7 @@
             style="position:fixed;inset:0;z-index:58;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity 0.4s ease;">
         </div>
 
-        <!--Mobile Sidebar Panel-- >
+        <!-- Mobile Sidebar Panel -->
         <div id="mobile-sidebar" class="xl:hidden flex flex-col"
             style="position:fixed;top:0;right:0;bottom:0;z-index:59;width:min(340px,88vw);background:linear-gradient(165deg,#0a2d2e 0%,#0F3D3E 40%,#0a2535 100%);transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);overflow:hidden;overflow-y:auto;box-shadow:-10px 0 60px rgba(0,0,0,0.4);">
 
@@ -115,8 +115,19 @@
         const mobileMenuClose = document.getElementById('mobile-menu-close');
         const mobileNavLinks = document.querySelectorAll('.sidebar-link');
 
-        // Find hamburger buttons across different pages (by ID or class depending on page)
-        const menuButtons = document.querySelectorAll('#mobile-menu-button, .mobile-menu-toggle, header button.md\\:hidden');
+        // Find hamburger buttons across different pages
+        const menuButtons = [
+            ...document.querySelectorAll('#mobile-menu-button, .mobile-menu-toggle')
+        ];
+        // Also catch any header button that isn't already matched
+        document.querySelectorAll('header button').forEach(btn => {
+            if (!menuButtons.includes(btn) && !btn.id.includes('close')) {
+                const cls = btn.className || '';
+                if (cls.includes('md:hidden') || cls.includes('xl:hidden') || cls.includes('lg:hidden')) {
+                    menuButtons.push(btn);
+                }
+            }
+        });
 
         function openSidebar() {
             if (!mobileMenu) return;
