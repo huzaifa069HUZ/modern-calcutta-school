@@ -8,6 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         @media print {
+            @page {
+                size: A4;
+                margin: 5mm; /* Very small margin so browser doesn't auto-shrink */
+            }
             body { 
                 background: white; 
                 -webkit-print-color-adjust: exact !important; 
@@ -18,13 +22,15 @@
             .no-print { display: none !important; }
             .a4-preview { 
                 box-shadow: none !important; 
-                margin: 0 !important; 
+                margin: 0 auto !important;
                 padding: 0 !important; 
                 width: 100% !important; 
                 max-width: 100% !important;
                 min-height: auto !important;
                 border: none !important;
                 border-radius: 0 !important;
+                zoom: 1.12; /* Scales up the entire report card uniformly for larger text */
+                transform-origin: top center;
             }
             .page-break { page-break-after: always; }
             
