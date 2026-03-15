@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -223,6 +225,14 @@
                             <div>
                                 <label>Date of Birth *</label>
                                 <input type="date" id="dob" name="dob" required>
+                            </div>
+                            <div>
+                                <label>Class at First Admission</label>
+                                <input type="text" id="admissionClass" name="admissionClass" placeholder="e.g. Nursery">
+                            </div>
+                            <div>
+                                <label>Class Last Studied</label>
+                                <input type="text" id="lastClass" name="lastClass" placeholder="e.g. Class 1">
                             </div>
                             <div>
                                 <label>Aadhar Number</label>
@@ -961,7 +971,7 @@
                 const photoFile = document.getElementById('photo-file').files[0];
                 if (photoFile) fd.append('photo', photoFile, photoFile.name);
 
-                const fields = ['studentName', 'admissionNo', 'admissionDate', 'gender', 'dob', 'aadharNo',
+                const fields = ['studentName', 'admissionNo', 'admissionDate', 'gender', 'dob', 'admissionClass', 'lastClass', 'aadharNo',
                     'fatherName', 'motherName', 'guardianName', 'address', 'status', 'fees', 'tcNo', 'duesAmount'];
                 fields.forEach(id => {
                     const el = document.getElementById(id);
@@ -1196,10 +1206,10 @@
                 [3, "Mother's Name", `<strong>${(s.motherName || '').toUpperCase()}</strong>`],
                 [4, 'Nationality', 'Indian'],
                 [5, 'Whether the candidate belong to SC/ST/OBC', 'No'],
-                [6, 'Date of First admission in the school with class', `<strong>${s.admissionDate || '—'}</strong>`],
+                [6, 'Date of First admission in the school with class', `<strong>${s.admissionDate || '—'}</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>${s.admissionClass || '—'}</strong>`],
                 [7, 'Date of birth according to admission Register<br><span style="font-size:9px;">(in figure &amp; words)</span>',
                     `<strong>${dob}</strong>${dobWords ? '<br><span style="font-size:9px;">' + dobWords + '</span>' : ''}`],
-                [8, 'Class in which the pupil last studied', `<strong>${s.currentClass || s.class || '—'}</strong>`],
+                [8, 'Class in which the pupil last studied', `<strong>${s.lastClass || '—'}</strong>`],
                 [9, 'Whether failed, If so once/twice in the same class', 'No'],
                 [10, 'Whether qualified for promotion to the higher', 'Yes'],
                 [11, 'Any fee concession availed of : if so, the nature of such', s.fees === 'No Dues' ? 'No' : 'Yes'],
@@ -1444,6 +1454,14 @@
 
         // Load on page ready
         loadStudents();
+
+        // Initialize flatpickr on date inputs for DD/MM/YYYY formatting
+        flatpickr("input[type='date']", {
+            altInput: true,
+            altFormat: "d/m/Y",
+            dateFormat: "Y-m-d",
+            allowInput: true
+        });
 
     </script>
 </body>

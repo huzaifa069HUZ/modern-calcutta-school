@@ -114,6 +114,8 @@ module.exports = async function handler(req, res) {
             admissionDate: fields.admissionDate.trim(),
             gender: fields.gender.trim(),
             dob: fields.dob.trim(),
+            admissionClass: (fields.admissionClass || '').trim(),
+            lastClass: (fields.lastClass || '').trim(),
             aadharNo: (fields.aadharNo || '').trim(),
             fatherName: fields.fatherName.trim(),
             motherName: (fields.motherName || '').trim(),
