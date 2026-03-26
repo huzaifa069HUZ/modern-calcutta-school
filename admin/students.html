@@ -100,9 +100,8 @@
         <!-- Header -->
         <header class="flex items-center justify-between mb-8">
             <div>
-                <h1 class="title-font text-4xl font-bold text-[#0F3D3E]">Add Student</h1>
-                <p class="text-gray-500 text-sm mt-1">Register a new student record with photo and generate their
-                    admission certificate.</p>
+                <h1 id="form-heading" class="title-font text-4xl font-bold text-[#0F3D3E]">Add Student</h1>
+                <p id="form-subheading" class="text-gray-500 text-sm mt-1">Register a new student record with photo and generate their admission certificate.</p>
             </div>
             <div class="flex flex-wrap gap-2 lg:gap-3">
                 <a href="notices.html"
@@ -277,13 +276,19 @@
                     </div>
 
                     <!-- Submit -->
-                    <button type="submit" id="submit-btn"
-                        class="w-full py-4 bg-gradient-to-r from-[#0F3D3E] to-[#1a5f61] text-white font-bold text-sm uppercase tracking-widest rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span id="submit-label">Save Student & Generate Certificate</span>
-                    </button>
+                    <div class="flex gap-3">
+                        <button type="button" id="cancel-edit-btn" onclick="cancelEdit()"
+                            class="hidden flex-1 py-4 bg-gray-100 text-gray-600 font-bold text-sm uppercase tracking-widest rounded-xl hover:bg-gray-200 transition-all duration-200">
+                            Cancel
+                        </button>
+                        <button type="submit" id="submit-btn"
+                            class="flex-[2] py-4 bg-gradient-to-r from-[#0F3D3E] to-[#1a5f61] text-white font-bold text-sm uppercase tracking-widest rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span id="submit-label">Save Student & Generate Certificate</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>
@@ -763,6 +768,81 @@
         // Auth
         window.logout = () => { sessionStorage.removeItem('isAdmin'); window.location.href = 'login.html'; };
 
+        // Editing state
+        window._editingStudentId = null;
+
+        function editStudent(id) {
+            const s = window._studentMap[id];
+            if (!s) return;
+            window._editingStudentId = id;
+
+            // Populate form
+            document.getElementById('studentName').value = s.studentName || '';
+            document.getElementById('admissionNo').value = s.admissionNo || '';
+            
+            // Wait for flatpickr instances to catch up or set value directly
+            const adEl = document.getElementById('admissionDate');
+            if (adEl && adEl._flatpickr && s.admissionDate) adEl._flatpickr.setDate(s.admissionDate);
+            else adEl.value = s.admissionDate || '';
+            
+            document.getElementById('gender').value = s.gender || '';
+            
+            const dobEl = document.getElementById('dob');
+            if (dobEl && dobEl._flatpickr && s.dob) dobEl._flatpickr.setDate(s.dob);
+            else dobEl.value = s.dob || '';
+            
+            document.getElementById('admissionClass').value = s.admissionClass || '';
+            document.getElementById('lastClass').value = s.lastClass || '';
+            document.getElementById('aadharNo').value = s.aadharNo || '';
+            document.getElementById('tcNo').value = s.tcNo || '';
+            document.getElementById('fatherName').value = s.fatherName || '';
+            document.getElementById('motherName').value = s.motherName || '';
+            document.getElementById('guardianName').value = s.guardianName || '';
+            document.getElementById('address').value = s.address || '';
+            document.getElementById('status').value = s.status || 'Active';
+            document.getElementById('fees').value = s.fees || 'No Dues';
+            document.getElementById('duesAmount').value = s.duesAmount || '';
+            
+            toggleDuesInput();
+
+            // Photo preview if available
+            if (s.photoUrl) {
+                document.getElementById('photo-preview').src = s.photoUrl;
+                document.getElementById('photo-preview').classList.remove('hidden');
+                document.getElementById('photo-placeholder').classList.add('hidden');
+            } else {
+                document.getElementById('photo-preview').classList.add('hidden');
+                document.getElementById('photo-placeholder').classList.remove('hidden');
+            }
+
+            // Update UI
+            document.getElementById('form-heading').textContent = 'Edit Student';
+            document.getElementById('form-subheading').textContent = 'Update the details for ' + s.studentName + '.';
+            document.getElementById('submit-label').textContent = 'Update Student & Generate Certificate';
+            document.getElementById('cancel-edit-btn').classList.remove('hidden');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function cancelEdit() {
+            window._editingStudentId = null;
+            document.getElementById('student-form').reset();
+            
+            const adEl = document.getElementById('admissionDate');
+            if (adEl && adEl._flatpickr) adEl._flatpickr.clear();
+            const dobEl = document.getElementById('dob');
+            if (dobEl && dobEl._flatpickr) dobEl._flatpickr.clear();
+
+            document.getElementById('photo-preview').classList.add('hidden');
+            document.getElementById('photo-placeholder').classList.remove('hidden');
+            document.getElementById('photo-file').value = '';
+
+            document.getElementById('form-heading').textContent = 'Add Student';
+            document.getElementById('form-subheading').textContent = 'Register a new student record with photo and generate their admission certificate.';
+            document.getElementById('submit-label').textContent = 'Save Student & Generate Certificate';
+            document.getElementById('cancel-edit-btn').classList.add('hidden');
+        }
+
         function toggleDuesInput() {
             const feesSelect = document.getElementById('fees');
             const duesContainer = document.getElementById('dues-amount-container');
@@ -954,9 +1034,9 @@
                 label.innerHTML = `<svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-    </svg>Saving...`;
+    </svg>${window._editingStudentId ? 'Updating...' : 'Saving...'}`;
             } else {
-                label.textContent = 'Save Student & Generate Certificate';
+                label.textContent = window._editingStudentId ? 'Update Student & Generate Certificate' : 'Save Student & Generate Certificate';
             }
         }
 
@@ -979,8 +1059,13 @@
                 });
 
                 // ── Step 1: Save student record ───────────────────────────
-                setLabel('💾 Saving student record...');
-                const saveRes = await fetch('/api/add-student', { method: 'POST', body: fd });
+                setLabel(window._editingStudentId ? '💾 Updating student record...' : '💾 Saving student record...');
+                let apiUrl = '/api/add-student';
+                if (window._editingStudentId) {
+                    apiUrl = '/api/edit-student';
+                    fd.append('studentId', window._editingStudentId);
+                }
+                const saveRes = await fetch(apiUrl, { method: 'POST', body: fd });
                 const saveData = await saveRes.json();
 
                 if (!saveRes.ok) {
@@ -1032,10 +1117,20 @@
                 // ── Step 5: Show success — NO auto-download ───────────────
                 showSuccessBanner(student.studentName, admissionNo);
 
-                // Reset form
-                form.reset();
-                document.getElementById('photo-preview').classList.add('hidden');
-                document.getElementById('photo-placeholder').classList.remove('hidden');
+                // Auto-cancel edit state if we were editing and succeeded
+                if (window._editingStudentId) {
+                    cancelEdit();
+                } else {
+                    // Reset form
+                    form.reset();
+                    document.getElementById('photo-preview').classList.add('hidden');
+                    document.getElementById('photo-placeholder').classList.remove('hidden');
+                    
+                    const adEl = document.getElementById('admissionDate');
+                    if (adEl && adEl._flatpickr) adEl._flatpickr.clear();
+                    const dobEl = document.getElementById('dob');
+                    if (dobEl && dobEl._flatpickr) dobEl._flatpickr.clear();
+                }
 
             } catch (err) {
                 console.error(err);
@@ -1338,6 +1433,16 @@
 
             <!-- Actions -->
             <div class="flex items-center gap-2 flex-shrink-0">
+                <!-- Edit Student -->
+                <button onclick="editStudent('${s.id}')"
+                    title="Edit Student"
+                    class="w-9 h-9 rounded-xl bg-orange-50 hover:bg-orange-500 flex items-center justify-center transition-all group">
+                    <svg class="w-4 h-4 text-orange-500 group-hover:text-white transition-colors" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                    </svg>
+                </button>
                 <!-- Portal Link -->
                 <a href="/student-portal.html" target="_blank" title="View in Student Portal"
                     class="w-9 h-9 rounded-xl bg-[#0F3D3E]/5 hover:bg-[#0F3D3E]/10 flex items-center justify-center transition-colors group">
