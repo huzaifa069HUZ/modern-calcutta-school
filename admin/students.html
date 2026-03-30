@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Student | Admin | MCS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- PDF generation is now server-side via Puppeteer (/api/generate-pdf) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link
@@ -986,23 +985,41 @@
                 </tr>
             `).join('');
 
-            await new Promise(r => setTimeout(r, 350));
-
             try {
-                const canvas = await html2canvas(document.getElementById('tc-template'), {
-                    scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff'
-                });
-                const { jsPDF } = window.jspdf;
-                const pdf = new jsPDF('p', 'mm', 'a4');
-                const imgData = canvas.toDataURL('image/jpeg', 0.92);
-                const imgProps = pdf.getImageProperties(imgData);
-                const pdfW = pdf.internal.pageSize.getWidth();
-                const pdfH = (imgProps.height * pdfW) / imgProps.width;
-                pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, Math.min(pdfH, pdf.internal.pageSize.getHeight()));
+                // Build DOB in words for TC
+                function dateToWordsLocal(val) {
+                    if (!val) return '';
+                    try {
+                        const d = new Date(val + 'T00:00:00');
+                        const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+                        const ones = ['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
+                        const tens = ['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+                        const n2w = n => n < 20 ? ones[n] : tens[Math.floor(n/10)] + (n%10 ? ' '+ones[n%10] : '');
+                        const y = d.getFullYear();
+                        return `${n2w(d.getDate())} ${months[d.getMonth()]} ${n2w(Math.floor(y/100))} Hundred ${n2w(y%100)}`;
+                    } catch { return ''; }
+                }
 
-                const safeName = tc.studentName.replace(/[^a-z0-9]/gi, '_');
-                pdf.save(`TC_${safeName}_${tc.admissionNo}.pdf`);
-                showToast('✅ Transfer Certificate downloaded!', 'success');
+                const res = await fetch('/api/generate-pdf', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        type: 'tc',
+                        tc: { ...tc, dob: formatDate(tc.dobRaw), dobWords: dateToWordsLocal(tc.dobRaw) }
+                    })
+                });
+                const data = await res.json();
+
+                if (res.ok && data.url) {
+                    // Trigger direct download via hidden anchor
+                    const a = document.createElement('a');
+                    a.href = data.url;
+                    a.download = `TC_${tc.studentName.replace(/[^a-z0-9]/gi,'_')}_${tc.admissionNo}.pdf`;
+                    a.click();
+                    showToast('✅ Transfer Certificate downloaded!', 'success');
+                } else {
+                    throw new Error(data.error || 'Unknown error');
+                }
             } catch (err) {
                 console.error(err);
                 showToast('❌ Failed to generate TC: ' + err.message, 'error');
@@ -1077,34 +1094,16 @@
                 const admissionNo = student.admissionNo;
                 const studentId = student.id;
 
-                // ── Step 2: Generate PDF (silently, no download) ──────────
-                setLabel('📄 Generating certificate...');
-                populatePdfTemplate(student);
-                await new Promise(r => setTimeout(r, 200)); // let DOM paint
-
-                const canvas = await html2canvas(document.getElementById('pdf-template'), {
-                    scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff'
-                });
-
-                const { jsPDF } = window.jspdf;
-                const pdf = new jsPDF('p', 'mm', 'a4');
-                const imgData = canvas.toDataURL('image/jpeg', 0.85);
-                const imgProps = pdf.getImageProperties(imgData);
-                const pdfW = pdf.internal.pageSize.getWidth();
-                const pdfH = (imgProps.height * pdfW) / imgProps.width;
-                pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, pdfH);
-                const pdfBlob = pdf.output('blob');
-
-                // ── Step 3: Upload PDF to Vercel Blob ─────────────────────
-                setLabel('☁️ Uploading certificate...');
-                const pdfRes = await fetch('/api/upload-pdf', {
+                // ── Step 2: Generate high-quality PDF (Puppeteer server-side) ────
+                setLabel('📄 Generating print-quality certificate...');
+                const pdfRes = await fetch('/api/generate-pdf', {
                     method: 'POST',
-                    headers: { 'x-admission-no': admissionNo, 'Content-Type': 'application/pdf' },
-                    body: pdfBlob
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ type: 'admission', student })
                 });
                 const pdfData = await pdfRes.json();
 
-                // ── Step 4: Save pdfUrl back to Firestore ─────────────────
+                // ── Step 3: Save pdfUrl back to Firestore ────────────────
                 if (pdfRes.ok && pdfData.url) {
                     setLabel('🔗 Saving certificate link...');
                     await fetch('/api/update-student', {
@@ -1325,24 +1324,63 @@
         </tr>
         `).join('');
 
-            // Wait for DOM / images
-            await new Promise(r => setTimeout(r, 300));
-
             try {
-                const canvas = await html2canvas(document.getElementById('tc-template'), {
-                    scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff'
-                });
-                const { jsPDF } = window.jspdf;
-                const pdf = new jsPDF('p', 'mm', 'a4');
-                const imgData = canvas.toDataURL('image/jpeg', 0.9);
-                const imgProps = pdf.getImageProperties(imgData);
-                const pdfW = pdf.internal.pageSize.getWidth();
-                const pdfH = (imgProps.height * pdfW) / imgProps.width;
-                pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, Math.min(pdfH, pdf.internal.pageSize.getHeight()));
+                // Build DOB in words helper
+                function dob2Words(dateStr) {
+                    if (!dateStr) return '';
+                    try {
+                        const d = new Date(dateStr);
+                        const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+                        const ones = ['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
+                        const tens = ['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+                        const n2w = n => n < 20 ? ones[n] : tens[Math.floor(n/10)] + (n%10 ? ' '+ones[n%10] : '');
+                        const y = d.getFullYear();
+                        return `${n2w(d.getDate())} ${months[d.getMonth()]} ${n2w(Math.floor(y/100))} Hundred ${n2w(y%100)}`;
+                    } catch { return ''; }
+                }
 
-                const safeName = (s.studentName || 'TC').replace(/[^a-z0-9]/gi, '_');
-                pdf.save(`TC_${safeName}_${s.admissionNo || ''}.pdf`);
-                showToast('✅ Transfer Certificate downloaded!', 'success');
+                const formatD = v => { try { return new Date(v+'T00:00:00').toLocaleDateString('en-IN',{day:'2-digit',month:'2-digit',year:'numeric'}); } catch { return v || '—'; } };
+
+                const tcPayload = {
+                    tcNo: s.tcNo || '—',
+                    admissionNo: s.admissionNo || '—',
+                    studentName: (s.studentName || '').toUpperCase(),
+                    fatherName: (s.fatherName || '').toUpperCase(),
+                    motherName: (s.motherName || '').toUpperCase(),
+                    nationality: 'Indian',
+                    category: 'No',
+                    admissionDate: formatD(s.admissionDate),
+                    admissionClass: s.admissionClass || '—',
+                    dob: formatD(s.dob),
+                    dobWords: dob2Words(s.dob),
+                    lastClass: s.lastClass || '—',
+                    failed: 'No',
+                    promotion: 'Yes',
+                    feeConcession: s.fees === 'No Dues' ? 'No' : 'Yes',
+                    conduct: 'Good',
+                    appDate: new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'2-digit',year:'numeric'}),
+                    issueDate: new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'2-digit',year:'numeric'}),
+                    reason: s.reasonForLeaving || 'Admission in other School',
+                    remarks: s.remarks || 'No',
+                    photoUrl: s.photoUrl || null,
+                };
+
+                const res = await fetch('/api/generate-pdf', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ type: 'tc', tc: tcPayload })
+                });
+                const data = await res.json();
+
+                if (res.ok && data.url) {
+                    const a = document.createElement('a');
+                    a.href = data.url;
+                    a.download = `TC_${(s.studentName || 'TC').replace(/[^a-z0-9]/gi,'_')}_${s.admissionNo || ''}.pdf`;
+                    a.click();
+                    showToast('✅ Transfer Certificate downloaded!', 'success');
+                } else {
+                    throw new Error(data.error || 'Unknown error');
+                }
             } catch (err) {
                 console.error(err);
                 showToast('❌ Could not generate TC: ' + err.message, 'error');
