@@ -141,7 +141,14 @@
 <body class="bg-gray-100 py-10 w-full flex flex-col items-center select-none md:select-auto">
 
     <!-- Admin actions (No Print) -->
-    <div class="fixed top-6 right-8 flex flex-col gap-3 no-print z-50">
+    <div id="admin-actions-panel" class="fixed top-6 right-8 flex flex-col gap-3 no-print z-50 transition-transform duration-300 ease-in-out translate-x-0">
+        
+        <!-- Toggle Button -->
+        <button onclick="toggleAdminPanel()" class="absolute -left-10 top-2 bg-white text-[#1E3A8A] p-2 rounded-l-xl shadow-[0_3px_10px_rgba(0,0,0,0.1)] border border-gray-200 hover:bg-gray-50 flex items-center justify-center transition-colors outline-none focus:outline-none">
+            <svg id="admin-toggle-icon" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
 
         <!-- Student Autofill -->
         <div class="bg-white/90 backdrop-blur-md p-3 mb-2 rounded-2xl shadow-md border border-[#1E3A8A]/20 flex flex-col gap-2 relative">
@@ -993,6 +1000,16 @@
                 const placeholderText = img.nextElementSibling;
                 if (placeholderText) placeholderText.style.display = 'none';
             }
+        }
+
+        function toggleAdminPanel() {
+            const panel = document.getElementById('admin-actions-panel');
+            const icon = document.getElementById('admin-toggle-icon');
+            
+            // Toggle translate class to slide off-screen to the right (100% width + 2rem offset + shadow padding)
+            panel.classList.toggle('translate-x-[calc(100%+2.5rem)]');
+            // Rotate arrow to point left when panel is hidden
+            icon.classList.toggle('rotate-180');
         }
 
         // Initialize on load
