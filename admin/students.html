@@ -221,6 +221,15 @@
                                 </select>
                             </div>
                             <div>
+                                <label>Category</label>
+                                <select id="category" name="category">
+                                    <option value="">General</option>
+                                    <option value="OBC">OBC</option>
+                                    <option value="SC">SC</option>
+                                    <option value="ST">ST</option>
+                                </select>
+                            </div>
+                            <div>
                                 <label>Date of Birth *</label>
                                 <input type="date" id="dob" name="dob" required>
                             </div>
@@ -231,6 +240,10 @@
                             <div>
                                 <label>Class Last Studied</label>
                                 <input type="text" id="lastClass" name="lastClass" placeholder="e.g. Class 1">
+                            </div>
+                            <div>
+                                <label>Roll No</label>
+                                <input type="text" id="rollNo" name="rollNo" placeholder="e.g. 01">
                             </div>
                             <div>
                                 <label>Aadhar Number</label>
@@ -314,16 +327,27 @@
                     </p>
                 </div>
             </div>
-            <!-- Search Bar -->
-            <div class="relative w-full sm:w-72">
-                <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                <input id="student-search" type="text" placeholder="Search by name or admission no..."
-                    class="w-full pl-9 pr-4 py-2.5 text-sm bg-white border border-gray-200 rounded-xl outline-none focus:border-[#0F3D3E] focus:ring-2 focus:ring-[#0F3D3E]/10 transition-all"
-                    oninput="filterStudents(this.value)">
+            <!-- Action Bar -->
+            <div class="flex items-center gap-3 w-full sm:w-auto flex-wrap">
+                <!-- Search Bar -->
+                <div class="relative flex-grow sm:w-64">
+                    <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <input id="student-search" type="text" placeholder="Search by name or admission no..."
+                        class="w-full pl-9 pr-4 py-2.5 text-sm bg-white border border-gray-200 rounded-xl outline-none focus:border-[#0F3D3E] focus:ring-2 focus:ring-[#0F3D3E]/10 transition-all"
+                        oninput="filterStudents(this.value)">
+                </div>
+                <!-- Bulk Print Button -->
+                <button onclick="printSelectedIDCards()" id="bulk-print-btn" disabled
+                    class="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:hover:bg-indigo-600 text-white font-bold text-sm tracking-wide rounded-xl shadow transition-all duration-200 flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                    </svg>
+                    <span id="bulk-print-label">Print Selected IDs</span>
+                </button>
             </div>
         </div>
 
@@ -792,7 +816,9 @@
             
             document.getElementById('admissionClass').value = s.admissionClass || '';
             document.getElementById('lastClass').value = s.lastClass || '';
+            document.getElementById('rollNo').value = s.rollNo || '';
             document.getElementById('aadharNo').value = s.aadharNo || '';
+            document.getElementById('category').value = s.category || '';
             document.getElementById('tcNo').value = s.tcNo || '';
             document.getElementById('fatherName').value = s.fatherName || '';
             document.getElementById('motherName').value = s.motherName || '';
@@ -1068,8 +1094,8 @@
                 const photoFile = document.getElementById('photo-file').files[0];
                 if (photoFile) fd.append('photo', photoFile, photoFile.name);
 
-                const fields = ['studentName', 'admissionNo', 'admissionDate', 'gender', 'dob', 'admissionClass', 'lastClass', 'aadharNo',
-                    'fatherName', 'motherName', 'guardianName', 'address', 'status', 'fees', 'tcNo', 'duesAmount'];
+                const fields = ['studentName', 'admissionNo', 'admissionDate', 'gender', 'dob', 'admissionClass', 'lastClass', 'rollNo', 'aadharNo',
+                    'fatherName', 'motherName', 'guardianName', 'address', 'status', 'fees', 'tcNo', 'duesAmount', 'category'];
                 fields.forEach(id => {
                     const el = document.getElementById(id);
                     fd.append(id, el.value || '');
@@ -1348,7 +1374,7 @@
                     fatherName: (s.fatherName || '').toUpperCase(),
                     motherName: (s.motherName || '').toUpperCase(),
                     nationality: 'Indian',
-                    category: 'No',
+                    category: s.category || 'No',
                     admissionDate: formatD(s.admissionDate),
                     admissionClass: s.admissionClass || '—',
                     dob: formatD(s.dob),
@@ -1447,6 +1473,10 @@
 
                 card.innerHTML = `
         <div class="flex items-center gap-4 p-4">
+            <!-- Select Checkbox -->
+            <div class="flex-shrink-0 mr-1">
+                <input type="checkbox" class="student-select-cb w-5 h-5 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 cursor-pointer" value="${s.id}" onchange="updateBulkPrintBtn()">
+            </div>
             <!-- Photo -->
             <div class="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-gray-100 bg-gray-50">
                 <img src="${photoSrc}" alt="${s.studentName}" class="w-full h-full object-cover"
@@ -1519,6 +1549,61 @@
                 if (!window._studentMap) window._studentMap = {};
                 window._studentMap[s.id] = s;
             });
+        }
+
+        function updateBulkPrintBtn() {
+            const checked = document.querySelectorAll('.student-select-cb:checked').length;
+            const btn = document.getElementById('bulk-print-btn');
+            const lbl = document.getElementById('bulk-print-label');
+            if (checked > 0) {
+                btn.disabled = false;
+                lbl.textContent = 'Print IDs (' + checked + ')';
+            } else {
+                btn.disabled = true;
+                lbl.textContent = 'Print Selected IDs';
+            }
+        }
+
+        async function printSelectedIDCards() {
+            const checkboxes = document.querySelectorAll('.student-select-cb:checked');
+            const ids = Array.from(checkboxes).map(cb => cb.value);
+            if (ids.length === 0) return;
+
+            const btn = document.getElementById('bulk-print-btn');
+            btn.disabled = true;
+            document.getElementById('bulk-print-label').textContent = 'Generating PDF...';
+
+            try {
+                // Gather full student data
+                const selectedStudents = ids.map(id => window._studentMap[id]);
+                
+                showToast('⏳ Generating ID Cards...', 'info');
+
+                const res = await fetch('/api/generate-pdf', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        type: 'idcard-bulk',
+                        students: selectedStudents
+                    })
+                });
+                const data = await res.json();
+
+                if (res.ok && data.url) {
+                    const a = document.createElement('a');
+                    a.href = data.url;
+                    a.download = `ID_Cards_Bulk_${new Date().getTime()}.pdf`;
+                    a.click();
+                    showToast('✅ ID Cards downloaded!', 'success');
+                } else {
+                    throw new Error(data.error || 'Unknown error');
+                }
+            } catch (err) {
+                console.error(err);
+                showToast('❌ Failed to generate ID Cards: ' + err.message, 'error');
+            } finally {
+                updateBulkPrintBtn();
+            }
         }
 
         function filterStudents(q) {

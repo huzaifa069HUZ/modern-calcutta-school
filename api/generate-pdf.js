@@ -27,17 +27,18 @@ module.exports = async function handler(req, res) {
     if (req.method === 'OPTIONS') return res.status(200).end();
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-    const { type, student, tc } = req.body || {};
+    const { type, student, tc, students } = req.body || {};
 
-    if (!type || (type === 'admission' && !student) || (type === 'tc' && !tc)) {
-        return res.status(400).json({ error: 'Missing required fields: type + student/tc data' });
+    if (!type || (type === 'admission' && !student) || (type === 'tc' && !tc) || (type === 'idcard-bulk' && !students)) {
+        return res.status(400).json({ error: 'Missing required fields for requested type' });
     }
 
     let browser;
     try {
-        const html = type === 'tc'
-            ? buildTcHtml(tc)
-            : buildAdmissionHtml(student);
+        let html;
+        if (type === 'tc') html = buildTcHtml(tc);
+        else if (type === 'idcard-bulk') html = buildBulkIdCardsHtml(students);
+        else html = buildAdmissionHtml(student);
 
         browser = await getBrowser();
         const page = await browser.newPage();
@@ -56,9 +57,10 @@ module.exports = async function handler(req, res) {
         browser = null;
 
         // Upload to Vercel Blob
-        const name = type === 'tc'
-            ? `students/pdfs/TC_${tc.studentName?.replace(/[^a-z0-9]/gi, '_')}_${tc.admissionNo}_${Date.now()}.pdf`
-            : `students/pdfs/${student.admissionNo}_${Date.now()}.pdf`;
+        let name;
+        if (type === 'tc') name = `students/pdfs/TC_${tc.studentName?.replace(/[^a-z0-9]/gi, '_')}_${tc.admissionNo}_${Date.now()}.pdf`;
+        else if (type === 'idcard-bulk') name = `students/pdfs/ID_Cards_Bulk_${Date.now()}.pdf`;
+        else name = `students/pdfs/${student.admissionNo}_${Date.now()}.pdf`;
 
         const blob = await put(name, pdfBuffer, {
             access: 'public',
@@ -465,6 +467,170 @@ function buildTcHtml(tc) {
 
     </div>
 </div>
+</body>
+</html>`;
+}
+
+function buildBulkIdCardsHtml(students) {
+    if (!students || students.length === 0) return '';
+    
+    const cardsHtml = students.map(s => {
+        const photoSrc = s.photoUrl || 'https://mcspatna.org/assets/transparent-logo.png';
+        const dob = s.dob ? s.dob.split('-').reverse().join('/') : '—'; 
+        
+        return `
+        <div class="card">
+            <div class="bg-shape-1"></div>
+            <div class="bg-shape-2"></div>
+            
+            <div class="header">
+                <div class="cin-text">CIN - U85500BR2024NPL068029</div>
+                <img class="logo" src="https://mcspatna.org/assets/transparent-logo.png" alt="Logo">
+                <div class="phone-text">Mob: 8709861044<br>7677011133</div>
+            </div>
+            
+            <div class="school-name">MODERN CALCUTTA SCHOOL</div>
+            <div class="sub-name"><span>An English Medium Co-Educational School</span></div>
+            
+            <div class="trust-sect">
+                <span class="run-by">Run and Managed by:</span> Shan and Nikhat Welfare Foundation<br>
+                <span class="address-red">M.R. Colony, Phulwari Sharif, Patna-801505</span>
+            </div>
+            
+            <div class="middle-section">
+                <div class="adm-section">
+                    <div class="adm-label">ADM NO</div>
+                    <div class="adm-no">${s.admissionNo || '—'}</div>
+                </div>
+                <div class="photo-box">
+                    <img src="${photoSrc}" alt="Photo">
+                </div>
+            </div>
+            
+            <div class="student-name">${(s.studentName || '').toUpperCase()}</div>
+            
+            <table class="details-table">
+                <tr><td class="lbl">F. Name</td><td class="cln">:</td><td class="val">${s.fatherName || '—'}</td></tr>
+                <tr>
+                    <td class="lbl">Class</td><td class="cln">:</td>
+                    <td class="val val-split">${s.admissionClass || s.lastClass || '—'} <span>Roll No : ${s.rollNo || '—'}</span></td>
+                </tr>
+                <tr><td class="lbl">Mob</td><td class="cln">:</td><td class="val">${s.guardianName || '—'}</td></tr>
+                <tr><td class="lbl">D.O.B.</td><td class="cln">:</td><td class="val">${dob}</td></tr>
+                <tr><td class="lbl" style="vertical-align:top">Address</td><td class="cln" style="vertical-align:top">:</td><td class="val" style="line-height:1.1">${s.address || '—'}</td></tr>
+            </table>
+            
+            <div class="footer">
+                <div class="session">Session: 2025-26</div>
+                <div class="signature">
+                    <!-- Placeholder Signature -->
+                    <div class="sig-image">Nikhat Shan</div>
+                    <div>Principal Signature</div>
+                </div>
+            </div>
+        </div>
+        `;
+    }).join('');
+
+    return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bulk ID Cards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Dancing+Script:wght@700&family=Inter:wght@500;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        @page { size: A4; margin: 0; }
+        
+        .page {
+            width: 210mm;
+            padding: 8mm 12mm;
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 5mm;
+            column-gap: 5mm;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        
+        .card {
+            width: 58mm; 
+            height: 90mm; 
+            border: 1px dashed #bbb; 
+            position: relative;
+            overflow: hidden;
+            background: #fff;
+            page-break-inside: avoid;
+            font-family: 'Inter', sans-serif;
+            color: #000;
+        }
+        
+        /* Wavy Background */
+        .card::before {
+            content: ''; position: absolute;
+            left: -15px; top: -10px;
+            width: 40px; height: 120%;
+            background: #00B2D6; border-right: 8px solid #6DD5ED;
+            border-radius: 0 50% 50% 0; opacity: 0.15; z-index: 1;
+        }
+        .bg-shape-1 {
+            position: absolute; left: -50px; top: -20px;
+            width: 70px; height: 120%; background: #00B2D6;
+            border-radius: 0 45% 45% 0 / 0 35% 35% 0; z-index: 1;
+        }
+        .bg-shape-2 {
+            position: absolute; left: -20px; top: 0;
+            width: 35px; height: 100%; background: #6DD5ED;
+            border-radius: 0 50% 50% 0; opacity: 0.8; z-index: 2;
+        }
+        
+        .card > * { position: relative; z-index: 10; }
+        
+        /* Header */
+        .header { display: flex; justify-content: space-between; align-items: flex-start; padding: 2mm 2mm 0 4mm; }
+        .cin-text { font-size: 5px; color: #0096C7; font-weight: 800; max-width: 40px; line-height: 1.1; margin-top:2px; text-align: left;}
+        .logo { width: 14mm; height: 14mm; object-fit: contain; margin-left:-2px; z-index:11; background:#fff; border-radius:50%; }
+        .phone-text { font-size: 5px; color: #D62828; font-weight: 800; text-align: right; line-height: 1.1; margin-top:1px; }
+        
+        /* Typography */
+        .school-name { text-align: center; font-family: 'Oswald', sans-serif; font-size: 14px; color: #023047; font-weight: 700; letter-spacing: -0.2px; transform: scaleY(1.2); margin-top: 3px; }
+        .sub-name { text-align: center; margin-top: 0px; margin-bottom: 2px;}
+        .sub-name span { background: #00B2D6; color: #fff; font-size: 5px; font-weight: 700; padding: 1px 4px; border-radius: 4px; display: inline-block; }
+        
+        .trust-sect { text-align: center; font-size: 5px; line-height: 1.2; margin-top: 0px; margin-bottom: 2px;}
+        .run-by { font-family: 'Dancing Script', cursive; color: #D62828; font-size: 7px; }
+        .address-red { color: #D62828; font-weight: 800; font-size: 5px; }
+        
+        /* Middle section */
+        .middle-section { display: flex; justify-content: space-between; align-items: center; padding: 0 4mm 0 6mm; margin-top: 3px; }
+        .adm-section { text-align: left; }
+        .adm-label { font-size: 10px; font-weight: 800; color: #023047; }
+        .adm-no { font-size: 9px; font-weight: 800; color: #D62828; margin-top:-1px;}
+        .photo-box { width: 22mm; height: 26mm; border-radius: 6px; overflow: hidden; border: 1.5px solid #333; background: #f0f0f0; box-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+        .photo-box img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Details */
+        .student-name { text-align: center; color: #D62828; font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 700; margin-top: 3px; letter-spacing: 0px; }
+        .details-table { width: 100%; padding: 0 2mm 0 5mm; margin-top: 1px; border-collapse: collapse; }
+        .details-table td { padding: 0.5px 0; font-size: 6px; font-weight: 700; color: #111; }
+        .details-table .lbl { width: 12mm; }
+        .details-table .cln { width: 2mm; text-align: center; }
+        .details-table .val { width: auto; font-weight:800; }
+        .val-split { display: flex; justify-content: space-between; padding-right: 2px !important; }
+        
+        /* Footer */
+        .footer { display: flex; justify-content: space-between; align-items: flex-end; position: absolute; bottom: 2mm; left: 5mm; right: 2mm; }
+        .session { font-size: 6px; font-weight: 800; padding-bottom:1mm; }
+        .signature { text-align: center; }
+        .sig-image { font-family: 'Great Vibes', cursive; font-size: 12px; color: #222; margin-bottom: -1px; transform: rotate(-5deg); }
+        .signature div:last-child { font-size: 5px; font-weight: 700; color: #000; }
+    </style>
+</head>
+<body>
+    <div class="page">
+        ${cardsHtml}
+    </div>
 </body>
 </html>`;
 }

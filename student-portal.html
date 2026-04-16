@@ -494,7 +494,11 @@
             // Fees Badge - Sharp Version
             const feesEl = document.getElementById('s-fees-badge');
             const noDues = s.fees === 'No Dues';
-            feesEl.textContent = s.fees;
+            let feesText = s.fees;
+            if (!noDues && s.duesAmount) {
+                feesText += ` (Amount: ₹${s.duesAmount})`;
+            }
+            feesEl.textContent = feesText;
             feesEl.className = `px-3 py-1.5 text-xs font-bold uppercase tracking-wider badge-sharp bg-white ${noDues ? 'text-[var(--ink)] border-[var(--ink)]' : 'text-[var(--crimson)] border-[var(--crimson)]'}`;
 
             // Details rows
