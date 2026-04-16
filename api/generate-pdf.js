@@ -523,8 +523,8 @@ function buildBulkIdCardsHtml(students) {
             <div class="footer">
                 <div class="session">Session: 2025-26</div>
                 <div class="signature">
-                    <!-- Placeholder Signature -->
-                    <div class="sig-image">Nikhat Shan</div>
+                    <!-- Blank Space for actual signing -->
+                    <div style="height: 15px;"></div>
                     <div>Principal Signature</div>
                 </div>
             </div>
@@ -585,7 +585,10 @@ function buildBulkIdCardsHtml(students) {
             border-radius: 0 50% 50% 0; opacity: 0.8; z-index: 2;
         }
         
-        .card > * { position: relative; z-index: 10; }
+        /* Ensure content stays above absolute background shapes */
+        .header, .school-name, .sub-name, .trust-sect, .middle-section, .student-name, .details-table { 
+            position: relative; z-index: 10; 
+        }
         
         /* Header */
         .header { display: flex; justify-content: space-between; align-items: flex-start; padding: 2mm 2mm 0 4mm; }
