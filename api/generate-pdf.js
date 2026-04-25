@@ -484,7 +484,6 @@ function buildBulkIdCardsHtml(students) {
             <div class="bg-shape-2"></div>
             
             <div class="header">
-                <div class="cin-text">CIN - U85500BR2024NPL068029</div>
                 <img class="logo" src="https://mcspatna.org/assets/transparent-logo.png" alt="Logo">
                 <div class="phone-text">Mob: 8709861044<br>7677011133</div>
             </div>
@@ -513,7 +512,7 @@ function buildBulkIdCardsHtml(students) {
                 <tr><td class="lbl">F. Name</td><td class="cln">:</td><td class="val">${s.fatherName || '—'}</td></tr>
                 <tr>
                     <td class="lbl">Class</td><td class="cln">:</td>
-                    <td class="val val-split">${s.admissionClass || s.lastClass || '—'} <span>Roll No : ${s.rollNo || '—'}</span></td>
+                    <td class="val val-split">${s.currentClass || s.admissionClass || s.lastClass || '—'} <span>Roll No : ${s.rollNo || '—'}</span></td>
                 </tr>
                 <tr><td class="lbl">Mob</td><td class="cln">:</td><td class="val">${s.guardianName || '—'}</td></tr>
                 <tr><td class="lbl">D.O.B.</td><td class="cln">:</td><td class="val">${dob}</td></tr>
@@ -521,7 +520,7 @@ function buildBulkIdCardsHtml(students) {
             </table>
             
             <div class="footer">
-                <div class="session">Session: 2025-26</div>
+                <div class="session">Session: 2026-27</div>
                 <div class="signature">
                     <!-- Blank Space for actual signing -->
                     <div style="height: 15px;"></div>
