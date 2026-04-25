@@ -615,6 +615,176 @@
         </form>
     </div>
 
+    <!-- ══════════════════════════════════════════════
+         ADMIT CARD GENERATION SECTION
+    ══════════════════════════════════════════════ -->
+    <div class="max-w-5xl mx-auto mt-16 pb-10">
+
+        <!-- Section Header -->
+        <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+            </div>
+            <div>
+                <h2 class="title-font text-2xl font-bold text-[#0F3D3E]">Admit Card Generator</h2>
+                <p class="text-gray-400 text-xs">Configure exam schedule and generate bulk admit cards as PDF.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            <!-- LEFT: Config Panel -->
+            <div class="space-y-5">
+
+                <!-- Exam Info -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-white/60 space-y-4">
+                    <h3 class="font-bold text-[#0F3D3E] flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold">1</span>
+                        Exam Details
+                    </h3>
+                    <div>
+                        <label>Exam Name</label>
+                        <input type="text" id="ac-exam-name" placeholder="e.g. Annual Examination 2026" value="Annual Examination 2026">
+                    </div>
+                    <div>
+                        <label>Exam Timing</label>
+                        <input type="text" id="ac-exam-timing" placeholder="e.g. 08:00 AM to 11:00 AM" value="08:00 AM to 11:00 AM">
+                    </div>
+                </div>
+
+                <!-- Class Filter -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-white/60 space-y-4">
+                    <h3 class="font-bold text-[#0F3D3E] flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold">2</span>
+                        Select Class
+                    </h3>
+                    <div>
+                        <label>Filter Students by Class</label>
+                        <select id="ac-class-filter" onchange="loadAdmitCardStudents()">
+                            <option value="">-- All Classes --</option>
+                            <option value="Nursery">Nursery</option>
+                            <option value="LKG">LKG</option>
+                            <option value="UKG">UKG</option>
+                            <option value="Class 1">Class 1</option>
+                            <option value="Class 2">Class 2</option>
+                            <option value="Class 3">Class 3</option>
+                            <option value="Class 4">Class 4</option>
+                            <option value="Class 5">Class 5</option>
+                            <option value="Class 6">Class 6</option>
+                            <option value="Class 7">Class 7</option>
+                            <option value="Class 8">Class 8</option>
+                            <option value="Class 9">Class 9</option>
+                            <option value="Class 10">Class 10</option>
+                            <option value="Class 11">Class 11</option>
+                            <option value="Class 12">Class 12</option>
+                        </select>
+                    </div>
+                    <p id="ac-student-count-label" class="text-xs text-gray-400 font-semibold"></p>
+                </div>
+
+            </div>
+
+            <!-- RIGHT: Schedule + Students -->
+            <div class="lg:col-span-2 space-y-5">
+
+                <!-- Exam Schedule Table -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-white/60">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-[#0F3D3E] flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold">3</span>
+                            Exam Schedule
+                        </h3>
+                        <button type="button" onclick="addScheduleRow()"
+                            class="px-3 py-1.5 text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-lg hover:bg-emerald-100 transition-colors flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                            Add Row
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs" id="schedule-table">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="text-left px-3 py-2 font-bold text-gray-500 uppercase tracking-wider rounded-l-lg">Date</th>
+                                    <th class="text-left px-3 py-2 font-bold text-gray-500 uppercase tracking-wider">Day</th>
+                                    <th class="text-left px-3 py-2 font-bold text-gray-500 uppercase tracking-wider">Subject</th>
+                                    <th class="px-2 py-2 rounded-r-lg"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="schedule-body">
+                                <!-- Default rows -->
+                                <tr class="schedule-row border-b border-gray-50">
+                                    <td class="px-1 py-1.5"><input type="date" style="font-size:11px;padding:5px 8px;" placeholder="Date"></td>
+                                    <td class="px-1 py-1.5">
+                                        <select style="font-size:11px;padding:5px 8px;">
+                                            <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+                                            <option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option>
+                                        </select>
+                                    </td>
+                                    <td class="px-1 py-1.5"><input type="text" style="font-size:11px;padding:5px 8px;" placeholder="e.g. Hindi"></td>
+                                    <td class="px-1 py-1.5 text-center"><button type="button" onclick="removeScheduleRow(this)" class="text-red-400 hover:text-red-600 transition-colors">✕</button></td>
+                                </tr>
+                                <tr class="schedule-row border-b border-gray-50">
+                                    <td class="px-1 py-1.5"><input type="date" style="font-size:11px;padding:5px 8px;"></td>
+                                    <td class="px-1 py-1.5">
+                                        <select style="font-size:11px;padding:5px 8px;">
+                                            <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+                                            <option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option>
+                                        </select>
+                                    </td>
+                                    <td class="px-1 py-1.5"><input type="text" style="font-size:11px;padding:5px 8px;" placeholder="e.g. Mathematics"></td>
+                                    <td class="px-1 py-1.5 text-center"><button type="button" onclick="removeScheduleRow(this)" class="text-red-400 hover:text-red-600 transition-colors">✕</button></td>
+                                </tr>
+                                <tr class="schedule-row border-b border-gray-50">
+                                    <td class="px-1 py-1.5"><input type="date" style="font-size:11px;padding:5px 8px;"></td>
+                                    <td class="px-1 py-1.5">
+                                        <select style="font-size:11px;padding:5px 8px;">
+                                            <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+                                            <option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option>
+                                        </select>
+                                    </td>
+                                    <td class="px-1 py-1.5"><input type="text" style="font-size:11px;padding:5px 8px;" placeholder="e.g. Science"></td>
+                                    <td class="px-1 py-1.5 text-center"><button type="button" onclick="removeScheduleRow(this)" class="text-red-400 hover:text-red-600 transition-colors">✕</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Student Selection -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-white/60">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-[#0F3D3E] flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold">4</span>
+                            Select Students
+                        </h3>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="acSelectAll()" class="px-3 py-1.5 text-xs font-bold bg-gray-50 text-gray-600 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">Select All</button>
+                            <button type="button" onclick="acDeselectAll()" class="px-3 py-1.5 text-xs font-bold bg-gray-50 text-gray-600 border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">Deselect All</button>
+                        </div>
+                    </div>
+
+                    <div id="ac-student-list" class="space-y-2 max-h-72 overflow-y-auto pr-1">
+                        <p class="text-center text-gray-400 text-sm py-6">Select a class above to load students.</p>
+                    </div>
+                </div>
+
+                <!-- Generate Button -->
+                <button type="button" onclick="generateAdmitCards()"
+                    class="w-full py-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-sm uppercase tracking-widest rounded-2xl transition-all duration-300 shadow-lg hover:shadow-emerald-200 hover:-translate-y-0.5 flex items-center justify-center gap-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                    </svg>
+                    <span id="ac-generate-label">Generate &amp; Download Admit Cards</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+
     <!-- ── Delete Confirmation Modal ──────────────────── -->
     <div id="delete-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4"
         style="background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);">
@@ -1712,6 +1882,134 @@
             dateFormat: "Y-m-d",
             allowInput: true
         });
+
+        // ══════════════════════════════════════════════
+        // ADMIT CARD LOGIC
+        // ══════════════════════════════════════════════
+
+        let acStudents = [];
+
+        function loadAdmitCardStudents() {
+            const classFilter = document.getElementById('ac-class-filter').value;
+            acStudents = classFilter
+                ? allStudents.filter(s => (s.currentClass || s.admissionClass || s.lastClass || '') === classFilter)
+                : [...allStudents];
+
+            const countEl = document.getElementById('ac-student-count-label');
+            countEl.textContent = acStudents.length
+                ? `${acStudents.length} student(s) found`
+                : 'No students found for this class.';
+            renderAcStudentList();
+        }
+
+        function renderAcStudentList() {
+            const container = document.getElementById('ac-student-list');
+            if (!acStudents.length) {
+                container.innerHTML = '<p class="text-center text-gray-400 text-sm py-6">No students found.</p>';
+                return;
+            }
+            container.innerHTML = acStudents.map(s => `
+                <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-100 hover:border-emerald-200 hover:bg-emerald-50/30 cursor-pointer transition-all">
+                    <input type="checkbox" class="ac-student-cb w-4 h-4 text-emerald-600 rounded" value="${s.id}" checked>
+                    <div class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100">
+                        <img src="${s.photoUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(s.studentName)}&background=0F3D3E&color=C6A75E&size=40&bold=true`}"
+                             class="w-full h-full object-cover"
+                             onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(s.studentName)}&background=0F3D3E&color=C6A75E&size=40'">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-xs font-bold text-[#0F3D3E] truncate">${s.studentName}</p>
+                        <p class="text-[10px] text-gray-400 font-mono">${s.admissionNo} &middot; ${s.currentClass || s.admissionClass || '&mdash;'} &middot; Roll: ${s.rollNo || '&mdash;'}</p>
+                    </div>
+                </label>
+            `).join('');
+        }
+
+        function acSelectAll() { document.querySelectorAll('.ac-student-cb').forEach(cb => cb.checked = true); }
+        function acDeselectAll() { document.querySelectorAll('.ac-student-cb').forEach(cb => cb.checked = false); }
+
+        function addScheduleRow() {
+            const days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+            const opts = days.map(d => `<option>${d}</option>`).join('');
+            const row = document.createElement('tr');
+            row.className = 'schedule-row border-b border-gray-50';
+            row.innerHTML = `
+                <td class="px-1 py-1.5"><input type="date" style="font-size:11px;padding:5px 8px;"></td>
+                <td class="px-1 py-1.5"><select style="font-size:11px;padding:5px 8px;">${opts}</select></td>
+                <td class="px-1 py-1.5"><input type="text" style="font-size:11px;padding:5px 8px;" placeholder="Subject"></td>
+                <td class="px-1 py-1.5 text-center"><button type="button" onclick="removeScheduleRow(this)" class="text-red-400 hover:text-red-600">&#x2715;</button></td>
+            `;
+            document.getElementById('schedule-body').appendChild(row);
+            const di = row.querySelector('input[type=date]');
+            if (window.flatpickr) flatpickr(di, { altInput: true, altFormat: 'd/m/Y', dateFormat: 'Y-m-d', allowInput: true });
+        }
+
+        function removeScheduleRow(btn) {
+            if (document.querySelectorAll('.schedule-row').length <= 1) {
+                showToast('Need at least one schedule row.', 'error'); return;
+            }
+            btn.closest('tr').remove();
+        }
+
+        function getScheduleRows() {
+            const schedule = [];
+            document.querySelectorAll('.schedule-row').forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const dateInput = cells[0].querySelector('input');
+                const rawDate = dateInput?._flatpickr ? dateInput._flatpickr.input.value : dateInput?.value || '';
+                const day = cells[1].querySelector('select')?.value || '';
+                const subject = cells[2].querySelector('input')?.value?.trim() || '';
+                if (rawDate && subject) {
+                    let displayDate = rawDate;
+                    try {
+                        const d = new Date(rawDate + 'T00:00:00');
+                        displayDate = `${String(d.getDate()).padStart(2,'0')}-${String(d.getMonth()+1).padStart(2,'0')}-${d.getFullYear()}`;
+                    } catch {}
+                    schedule.push({ date: displayDate, day, subject });
+                }
+            });
+            return schedule;
+        }
+
+        async function generateAdmitCards() {
+            const selectedIds = [...document.querySelectorAll('.ac-student-cb:checked')].map(cb => cb.value);
+            if (!selectedIds.length) { showToast('Please select at least one student.', 'error'); return; }
+
+            const schedule = getScheduleRows();
+            if (!schedule.length) { showToast('Please fill at least one exam schedule row (date + subject).', 'error'); return; }
+
+            const examName   = (document.getElementById('ac-exam-name').value   || '').trim() || 'Annual Examination 2026';
+            const examTiming = (document.getElementById('ac-exam-timing').value || '').trim() || '08:00 AM to 11:00 AM';
+            const selected   = acStudents.filter(s => selectedIds.includes(s.id));
+
+            const btn   = document.querySelector('[onclick="generateAdmitCards()"]');
+            const label = document.getElementById('ac-generate-label');
+            btn.disabled = true;
+            label.innerHTML = `<svg class="spinner w-5 h-5 inline-block mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Generating ${selected.length} card(s)...`;
+
+            try {
+                const res = await fetch('/api/generate-pdf', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ type: 'admit-card-bulk', students: selected, examConfig: { examName, examTiming, schedule } })
+                });
+                const data = await res.json();
+                if (res.ok && data.url) {
+                    const a = document.createElement('a');
+                    a.href = data.url;
+                    a.download = `Admit_Cards_${examName.replace(/[^a-z0-9]/gi,'_')}_${Date.now()}.pdf`;
+                    a.click();
+                    showToast(`\u2705 ${selected.length} Admit Card(s) downloaded!`, 'success');
+                } else {
+                    throw new Error(data.error || 'PDF generation failed');
+                }
+            } catch (err) {
+                console.error(err);
+                showToast('\u274C Failed: ' + err.message, 'error');
+            } finally {
+                btn.disabled = false;
+                label.textContent = 'Generate & Download Admit Cards';
+            }
+        }
 
     </script>
 </body>
