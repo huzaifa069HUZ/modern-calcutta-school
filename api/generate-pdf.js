@@ -671,8 +671,9 @@ function buildAdmitCardsHtml(students, examConfig) {
         var admNo = s.admissionNo || '—';
         var roll = s.rollNo || '—';
 
-        return '<div style="width:210mm;padding:12mm 14mm;page-break-after:always;">' +
-          '<div style="border:2px solid #000;padding:14px 16px;">' +
+        return '<div style="width:98mm;height:140mm;float:left;margin:2mm 3mm;page-break-inside:avoid;box-sizing:border-box;overflow:hidden;">' +
+          '<div style="width:210mm;padding:8mm;box-sizing:border-box;transform:scale(0.466);transform-origin:top left;">' +
+          '<div style="border:2px solid #000;padding:14px 16px;background:#fff;">' +
 
           // Header
           '<div style="display:flex;align-items:center;gap:14px;border-bottom:2px solid #000;padding-bottom:10px;">' +
@@ -685,7 +686,7 @@ function buildAdmitCardsHtml(students, examConfig) {
           '</div></div>' +
 
           // Student info table
-          '<table style="width:100%;border-collapse:collapse;">' +
+          '<table style="width:100%;border-collapse:collapse;margin-top:14px;">' +
           '<tr>' +
           '<td style="' + lbl + 'width:20%;">Candidate\'s Full Name</td>' +
           '<td style="' + val + 'font-weight:700;" colspan="2">' + name + '</td>' +
@@ -721,7 +722,7 @@ function buildAdmitCardsHtml(students, examConfig) {
           '<div style="border-top:1.5px solid #000;width:148px;padding-top:5px;text-align:center;">Class Teacher</div>' +
           '<div style="border-top:1.5px solid #000;width:148px;padding-top:5px;text-align:center;">Principal / Director</div>' +
           '</div>' +
-          '</div></div>';
+          '</div></div></div>';
     }).join('');
 
     return '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
