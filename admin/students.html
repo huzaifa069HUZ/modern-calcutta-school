@@ -300,7 +300,11 @@
                                 <input type="text" id="guardianName" name="guardianName"
                                     placeholder="Guardian's full name (if applicable)">
                             </div>
-                            <div class="md:col-span-1">
+                            <div>
+                                <label>Mobile Number</label>
+                                <input type="text" id="mobileNumber" name="mobileNumber" placeholder="e.g. 9876543210">
+                            </div>
+                            <div class="md:col-span-2">
                                 <label>Address</label>
                                 <textarea id="address" name="address" rows="2"
                                     placeholder="Full residential address"></textarea>
@@ -1015,6 +1019,7 @@
             document.getElementById('fatherName').value = s.fatherName || '';
             document.getElementById('motherName').value = s.motherName || '';
             document.getElementById('guardianName').value = s.guardianName || '';
+            document.getElementById('mobileNumber').value = s.mobileNumber || '';
             document.getElementById('address').value = s.address || '';
             document.getElementById('status').value = s.status || 'Active';
             document.getElementById('fees').value = s.fees || 'No Dues';
@@ -1287,7 +1292,7 @@
                 if (photoFile) fd.append('photo', photoFile, photoFile.name);
 
                 const fields = ['studentName', 'admissionNo', 'admissionDate', 'gender', 'dob', 'admissionClass', 'lastClass', 'currentClass', 'rollNo', 'aadharNo',
-                    'fatherName', 'motherName', 'guardianName', 'address', 'status', 'fees', 'tcNo', 'duesAmount', 'category'];
+                    'fatherName', 'motherName', 'guardianName', 'mobileNumber', 'address', 'status', 'fees', 'tcNo', 'duesAmount', 'category'];
                 fields.forEach(id => {
                     const el = document.getElementById(id);
                     fd.append(id, el.value || '');

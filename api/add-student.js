@@ -122,6 +122,7 @@ module.exports = async function handler(req, res) {
             fatherName: fields.fatherName.trim(),
             motherName: (fields.motherName || '').trim(),
             guardianName: (fields.guardianName || '').trim(),
+            mobileNumber: (fields.mobileNumber || '').trim(),
             address: (fields.address || '').trim(),
             status: fields.status.trim(),       // 'Active' | 'Deactive'
             fees: fields.fees.trim(),           // 'No Dues' | 'Dues'

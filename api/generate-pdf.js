@@ -665,14 +665,13 @@ function buildAdmitCardsHtml(students, examConfig) {
         var photoHtml = s.photoUrl
             ? '<img src="' + s.photoUrl + '" style="width:100%;height:100%;object-fit:cover;" crossorigin="anonymous">'
             : '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:9px;">No Photo</div>';
-        var cls = s.currentClass || s.admissionClass || s.lastClass || '—';
+        var cls = s.currentClass || '—';
         var name = (s.studentName || '').toUpperCase();
         var father = s.fatherName || '—';
         var admNo = s.admissionNo || '—';
         var roll = s.rollNo || '—';
 
-        return '<div style="width:98mm;height:140mm;float:left;margin:2mm 3mm;page-break-inside:avoid;box-sizing:border-box;overflow:hidden;">' +
-          '<div style="width:210mm;padding:8mm;box-sizing:border-box;transform:scale(0.466);transform-origin:top left;">' +
+        return '<div style="width:210mm;height:148.5mm;padding:8mm 14mm;page-break-inside:avoid;box-sizing:border-box;overflow:hidden;">' +
           '<div style="border:2px solid #000;padding:14px 16px;background:#fff;">' +
 
           // Header
@@ -717,12 +716,10 @@ function buildAdmitCardsHtml(students, examConfig) {
           '</ul></div>' +
 
           // Signatures
-          '<div style="display:flex;justify-content:space-between;margin-top:28px;font-size:11px;font-weight:700;">' +
-          '<div style="border-top:1.5px solid #000;width:148px;padding-top:5px;text-align:center;">Parent / Guardian</div>' +
-          '<div style="border-top:1.5px solid #000;width:148px;padding-top:5px;text-align:center;">Class Teacher</div>' +
+          '<div style="display:flex;justify-content:flex-end;margin-top:28px;font-size:11px;font-weight:700;">' +
           '<div style="border-top:1.5px solid #000;width:148px;padding-top:5px;text-align:center;">Principal / Director</div>' +
           '</div>' +
-          '</div></div></div>';
+          '</div></div>';
     }).join('');
 
     return '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
