@@ -167,6 +167,7 @@
             <select id="template-selector"
                 class="w-full bg-gray-50 border border-gray-200 text-gray-800 text-sm rounded-xl px-3 py-2.5 outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] transition-all font-semibold cursor-pointer"
                 onchange="switchTemplate()">
+                <option value="play-class">Play Class</option>
                 <option value="nursery">Nursery & UKG</option>
                 <option value="primary">Class 1st to 8th</option>
             </select>
@@ -917,6 +918,12 @@
                 primaryTemplate.classList.add('hidden');
                 primaryTemplate.classList.remove('block');
                 classDisplay.innerText = 'NURSERY';
+            } else if (selector.value === 'play-class') {
+                nurseryTemplate.classList.remove('hidden');
+                nurseryTemplate.classList.add('block');
+                primaryTemplate.classList.add('hidden');
+                primaryTemplate.classList.remove('block');
+                classDisplay.innerText = 'PLAY CLASS';
             } else {
                 nurseryTemplate.classList.add('hidden');
                 nurseryTemplate.classList.remove('block');
