@@ -514,9 +514,9 @@ function buildBulkIdCardsHtml(students) {
                 <tr><td class="lbl">F. Name</td><td class="cln">:</td><td class="val">${s.fatherName || '—'}</td></tr>
                 <tr>
                     <td class="lbl">Class</td><td class="cln">:</td>
-                    <td class="val val-split">${s.currentClass || s.admissionClass || s.lastClass || '—'} <span>Roll No : ${s.rollNo || '—'}</span></td>
+                    <td class="val val-split">${s.currentClass || '—'} <span>Roll No : ${s.rollNo || '—'}</span></td>
                 </tr>
-                <tr><td class="lbl">Mob</td><td class="cln">:</td><td class="val">${s.guardianName || '—'}</td></tr>
+                <tr><td class="lbl">Mob</td><td class="cln">:</td><td class="val">${s.mobileNumber || '—'}</td></tr>
                 <tr><td class="lbl">D.O.B.</td><td class="cln">:</td><td class="val">${dob}</td></tr>
                 <tr><td class="lbl" style="vertical-align:top">Address</td><td class="cln" style="vertical-align:top">:</td><td class="val" style="line-height:1.1">${s.address || '—'}</td></tr>
             </table>
