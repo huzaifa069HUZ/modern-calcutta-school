@@ -1621,7 +1621,7 @@
 
         async function loadStudents() {
             try {
-                const res = await fetch('/api/students-list');
+                const res = await fetch('/api/students-list?t=' + Date.now());
                 const data = await res.json();
 
                 // Hide skeletons
