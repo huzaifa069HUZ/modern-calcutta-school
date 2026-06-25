@@ -616,7 +616,7 @@ function buildBulkIdCardsHtml(students) {
         
         /* Details */
         .student-name { text-align: center; color: #D62828; font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 700; margin-top: 3px; letter-spacing: 0px; }
-        .details-table { width: 100%; padding: 0 2mm 0 5mm; margin-top: 1px; border-collapse: collapse; }
+        .details-table { width: 88%; margin: 1px auto 0 auto; border-collapse: collapse; }
         .details-table td { padding: 0.5px 0; font-size: 6px; font-weight: 700; color: #111; }
         .details-table .lbl { width: 12mm; }
         .details-table .cln { width: 2mm; text-align: center; }

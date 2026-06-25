@@ -125,6 +125,7 @@ module.exports = async function handler(req, res) {
             dob: fields.dob.trim(),
             admissionClass: (fields.admissionClass || '').trim(),
             lastClass: (fields.lastClass || '').trim(),
+            currentClass: (fields.currentClass || '').trim(),
             rollNo: (fields.rollNo || '').trim(),
             category: (fields.category || '').trim(),
             aadharNo: (fields.aadharNo || '').trim(),
